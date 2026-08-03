@@ -1,172 +1,82 @@
 /* ============================================================
-   THE PORTAL — design tokens. THE SEAM (ADR-0002).
+   The tokens seam (ADR-0002). Fede's master system swaps values here.
+
    Every visual value on the site lives here as a custom property.
-   Page CSS consumes tokens only; a hex code in a page file is a bug.
-   When ELC's master design system lands (Fede), it swaps in HERE.
-
-   v0.1 direction: "toned workshop" — fork of the ELC-XP system,
-   lightened for a parent-facing daily surface. Cream paper ground,
-   purple leads, gold supports, brick red = CTA + // mark only,
-   contour texture low-opacity, tape chips = live markers only.
+   Page CSS (app.css) consumes tokens only; a hex code in a page
+   file is a bug. Values ported 1:1 from the Claude Design package
+   design/mockups/2026-07-07-portal-app-v0.1/portal-app.css :root,
+   plus the three values that package hardcoded in component rules
+   (--purple-hover, --gold-hover, --gold-ink-deep).
    ============================================================ */
+:root{
+  /* --- surfaces --- */
+  --paper:#F4F2EA; --white:#FBFAF6;
+  --white-pure:#FFFFFF;
 
-:root {
-  /* --- paper / ground (light default) --- */
-  --paper:        #F4F2EA;
-  --paper-2:      #ECE9DF;
-  --white:        #FBFAF6;
-
-  /* --- ink scale --- */
-  --ink:          #1F1F21;
-  --charcoal:     #39393B;
-  --muted:        #6F6D64;
-  --faint:        #9C9889;
+  /* --- ink --- */
+  --ink:#1F1F21; --charcoal:#39393B; --muted:#6F6D64; --faint:#9C9889;
 
   /* --- hairlines --- */
-  --rule:         #D8D3C6;
-  --rule-faint:   #E6E2D7;
+  --rule:#D8D3C6; --rule-2:#E6E2D7;
 
-  /* --- purple: the signature --- */
-  --purple:       #7D639B;
-  --purple-tint:  #ECE5F2;
-  --aubergine:    #33254A;   /* small moments only: wordmark, footer */
+  /* --- brand accents --- */
+  --purple:#7D639B;
+  --purple-hover:#6C5488;              /* was hardcoded in .btn.purple:hover */
+  --aubergine:#33254A; --aubergine-2:#3F2F5A;
+  --gold:#AC9D71; --gold-deep:#8A7A3F; --gold-tint:#EFE9D6;
+  --gold-hover:#BCAD81;                /* was hardcoded in .btn.gold:hover */
+  --gold-ink-deep:#2C2713;             /* was hardcoded as gold-button ink */
+  --red:#A8443A; --red-lift:#C25A4E;
+  --red-tint:#F2E2DF;                  /* status-banner alert wash (issue 0031); Claude Design may retune */
+  --sage:#5B7A4A;                      /* success (HANDOFF token list; feedback widget) */
+  --amber:#B17B2E;                     /* caution / in-progress (doc-list status dot-chips; value = design-system tokens/colors.css) */
+  --purple-tint:#ECE6F2;               /* today's day-card wash (P4 week strip); Claude Design may retune */
+  --text-on-dark:#E4DDF0;
 
-  /* --- gold: warm support --- */
-  --gold:         #AC9D71;
-  --gold-deep:    #8A7A3F;
-  --gold-tint:    #EFE9D6;
+  /* --- calendar event taxonomy (P4 pass A): audience-based dot colours.
+         Semantic aliases onto the palette so meaning is explicit + Code can
+         reference them. Claude Design may retune the mapping. --- */
+  --ev-holiday:var(--sage);     /* holiday / no children: school closed */
+  --ev-parent:var(--purple);    /* events that involve parents */
+  --ev-child:var(--gold-deep);  /* children-only: first day, sports day */
 
-  /* --- brick red: CTA + the // mark. Never a fill larger than a button. --- */
-  --red:          #A8443A;
-  --red-lift:     #C25A4E;
+  /* --- fonts --- */
+  --sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:"Newsreader","Times New Roman",Georgia,serif;
+  --mono:"Space Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --wordmark:"Hanken Grotesk","Inter Tight",system-ui,sans-serif;
+  --stencil:"Saira Stencil One",var(--mono);   /* tape chips (live markers) */
 
-  /* --- status accents (sparingly) --- */
-  --sage:         #5B7A4A;   /* live / open */
-  --amber:        #B17B2E;   /* coming / in-progress */
-  --dove-blue:    #4D83C3;   /* sport counterpoint */
+  /* --- shadows --- */
+  --shadow-quiet:0 1px 0 rgba(0,0,0,0.02);
+  --shadow-hard:3px 3px 0 rgba(31,31,33,0.10);
+  --shadow-sheet:0 -10px 30px rgba(31,31,33,0.16);   /* upward soft shadow for the mobile calendar bottom-sheet (pass B) */
 
-  /* --- semantic aliases (compose UI from these) --- */
-  --bg-page:        var(--paper);
-  --bg-panel:       var(--paper-2);
-  --bg-dark:        var(--aubergine);
-  --surface-card:   var(--white);
-  --text-strong:    var(--ink);
-  --text-body:      var(--charcoal);
-  --text-muted:     var(--muted);
-  --text-faint:     var(--faint);
-  --text-on-dark:   #E4DDF0;
-  --border-rule:       1px solid var(--rule);
-  --border-rule-faint: 1px solid var(--rule-faint);
-  --accent-lead:    var(--purple);
-  --accent-support: var(--gold);
-  --accent-cta:     var(--red);
-  --eyebrow-light:  var(--faint);
-  --eyebrow-dark:   var(--gold);
+  /* --- chrome --- */
+  --nav-h:70px;
 
-  /* --- typography --- */
-  --font-serif:  "Newsreader", "Times New Roman", Georgia, serif;
-  --font-sans:   "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono:   "Space Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --font-stencil:"Saira Stencil One", var(--font-mono);
-  --font-wordmark: "Hanken Grotesk", "Inter Tight", system-ui, sans-serif;
-  --font-display:  var(--font-serif);
-  --font-body:     var(--font-sans);
-  --font-label:    var(--font-mono);
+  /* --- Purple Elephant (early years) sub-brand seam (issue 0064). PE pages are
+         ELC Portal pages (masthead stays, rule 3) fronting the early years. The
+         lead accent aliases --purple so a bespoke PE colour later swaps at ONE
+         line without touching page CSS (ADR-0002). No new hex. --- */
+  --pe-accent:var(--purple);              /* PE lead accent (early-years purple) */
+  --pe-accent-deep:var(--aubergine-2);    /* pressed state / heading ink on the tint */
+  --pe-tint:var(--purple-tint);           /* soft wash for the "in the making" panels */
+  --pe-art-ink:var(--purple);             /* hero-art seam inherits the accent (art layer) */
+  --pe-ground:34%;                        /* strength of the faint contour motif behind the hero */
 
-  --fw-light: 300; --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
-
-  --type-display:  clamp(30px, 5vw, 52px);
-  --type-h1:       clamp(26px, 4vw, 40px);
-  --type-h2:       clamp(21px, 2.6vw, 28px);
-  --type-h3:       20px;
-  --type-lead:     clamp(16px, 1.5vw, 19px);
-  --type-body:     17px;
-  --type-body-sm:  14px;
-  --type-caption:  12.5px;
-  --type-eyebrow:  11px;
-  --type-tag:      10px;
-
-  --track-display: -0.014em;
-  --track-eyebrow: 0.18em;
-  --track-tag:     0.12em;
-  --leading-display: 1.06;
-  --leading-body: 1.6;
-
-  /* --- spacing (4px base) --- */
-  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
-  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
-  --space-12: 48px; --space-16: 64px; --space-20: 80px;
-  --gap-card: 14px;
-  --pad-card: 20px;
-  --pad-section: 72px;
-  --measure: 64ch;
-  --width-content: 1080px;
-
-  /* --- surfaces --- */
-  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 10px; --radius-pill: 999px;
-  --shadow-quiet: 0 1px 0 rgba(0,0,0,0.02);
-  --shadow-hard:  3px 3px 0 rgba(31,31,33,0.12);
-  --top-purple: 2px solid var(--purple);
-  --top-gold:   2px solid var(--gold);
-  --contour-light: rgba(31,31,33,0.05);
-
-  /* --- motion --- */
-  --ease-out: cubic-bezier(0.2,0.7,0.2,1);
-  --dur-press: 0.08s;
+  /* --- print year-calendar sheet (issue 0046, Phase 2 Claude Design). The
+         OFFICIAL ELC register for the fridge sheet: clean white ground, cool
+         charcoal ink, one audience-based colour key that matches the City School
+         PDF (elc.ac.th/the-city-school-calendar). Deliberately NOT the portal warm
+         palette. Grayscale-safe: a glyph shape carries each category too, so the
+         key survives a black-and-white print. CD may retune the mapping (ADR-0002). --- */
+  --cal-holiday:#B0655C;    /* holiday, school closed (muted clay) */
+  --cal-staff:#A98C57;      /* staff / professional development day, no children (ochre) */
+  --cal-conf:#5F7EA0;       /* parent-teacher conferences, no children (slate) */
+  --cal-event:var(--purple);/* school event, parents invited (the ELC signature) */
+  --cal-child:#6E8A56;      /* school event for children, parents not expected (sage) */
+  --cal-ink:#54545A;        /* sheet body ink: cool grey, official register */
+  --cal-dow:#B4B0A4;        /* weekday letters + empty day cells */
+  --cal-foot:#A09C90;       /* footnote */
 }
-
-/* ===== recipes (the few moves that carry the system) ===== */
-
-/* the // mono eyebrow — the main workshop signal */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--type-eyebrow);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--track-eyebrow);
-  text-transform: uppercase;
-  color: var(--eyebrow-light);
-}
-.eyebrow::before { content: "// "; color: var(--red); }
-
-/* display headline */
-.display {
-  font-family: var(--font-serif);
-  font-weight: var(--fw-regular);
-  font-optical-sizing: auto;
-  line-height: var(--leading-display);
-  letter-spacing: var(--track-display);
-  color: var(--text-strong);
-}
-
-/* topographic contour ground — one per surface, behind content */
-.contour {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.5;
-  background-repeat: repeat;
-  background-size: 420px 420px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%231F1F21' stroke-opacity='0.10' stroke-width='1'%3E%3Cpath d='M-20 120 C 80 60 160 180 260 120 S 440 60 540 130'/%3E%3Cpath d='M-20 150 C 80 95 165 205 260 150 S 440 95 540 160'/%3E%3Cpath d='M-20 185 C 90 135 165 235 255 185 S 435 135 540 195'/%3E%3Cpath d='M-20 230 C 100 185 170 280 250 235 S 430 190 540 245'/%3E%3Cpath d='M-20 285 C 110 245 175 330 250 295 S 430 250 540 300'/%3E%3Cpath d='M-20 60 C 90 20 170 110 270 60 S 450 20 540 70'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* tape chip — LIVE MARKERS ONLY, one per surface (e.g. "v0.1 mockup") */
-.tape {
-  display: inline-block;
-  font-family: var(--font-stencil);
-  font-size: var(--type-tag);
-  letter-spacing: var(--track-tag);
-  text-transform: uppercase;
-  color: var(--paper);
-  background: var(--ink);
-  padding: 3px 10px 2px;
-  transform: rotate(-1.2deg);
-}
-
-/* status dot + label (honest states on tiles) */
-.status { font-family: var(--font-mono); font-size: var(--type-tag); letter-spacing: var(--track-tag); text-transform: uppercase; font-weight: var(--fw-bold); }
-.status::before { content: "●  "; }
-.status.live   { color: var(--sage); }
-.status.coming { color: var(--amber); }
-
-@media print { .contour { opacity: 0 !important; } }
