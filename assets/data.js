@@ -12,11 +12,10 @@ window.PORTAL = {
   build: '27 Jul',
   term: 'Term 1',
 
-  // Live-feed subscribe controls (ADR-0006). While false, the City + PE calendar pages
-  // keep their static mock button and the honest "Coming for launch" pill (rule 6);
-  // render.js leaves the wired Apple/Google/https links unrendered. Flips true inside
-  // the Aug 11-13 cutover window (issue 0017), once portal.elc.ac.th points at this
-  // site, so no family ever subscribes to the dying test-host URL.
+  // Live-feed subscribe controls (ADR-0006, superseded-for-launch by issue 0077). The UI
+  // came off every calendar page on 2026-08-03 and the flip is frozen: launch advertises
+  // no subscription at all. Feeds still build each deploy, unadvertised. Re-flip = restore
+  // a [data-subscribe] row + set this true; render.js wires the rest.
   subscribeLive: false,
 
   // Academic-year bounds for the calendar print "academic year" range (0058). A full
@@ -32,10 +31,9 @@ window.PORTAL = {
   // "We are finalising this page" chip on any page whose <main data-page> key is
   // listed here. Removing a key = that page's verify-artifact row is signed off
   // (docs/verify-v0.5.md).
-  draftPages: ['hopes-and-wishes', 'glossary', 'photo-consent', 'how-to-pay', 'gate-card',
-               'armonia', 'armonia-expressive-languages', 'armonia-science',
-               'armonia-technology', 'armonia-sport', 'armonia-drama',
-               'armonia-music', 'community-giving', 'nuts-and-bolts', 'coffee-mornings'],
+  // 0080 (2026-08-03): gate-card + the 7 armonia slugs dropped (pages archived).
+  draftPages: ['hopes-and-wishes', 'glossary', 'photo-consent', 'how-to-pay',
+               'community-giving', 'nuts-and-bolts', 'coffee-mornings'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):

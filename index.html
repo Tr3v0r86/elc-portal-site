@@ -189,13 +189,9 @@
           <span class="btn block">Register for ASA <span class="arw">&rarr;</span></span>
         </a>
 
-        <!-- ARMONIA -->
-        <a class="tile reg-card tile-top-purple link" href="armonia/">
-          <span class="eyebrow">Programme</span>
-          <h3>Armonia</h3>
-          <p>Music, drama, dance, Thai culture, science, tech and art. Focused after-school experiences for Years 4 to 6, Tuesdays and Thursdays, 3 to 4pm.</p>
-          <span class="btn block">Explore Armonia <span class="arw">&rarr;</span></span>
-        </a>
+        <!-- ARMONIA tile retired 2026-08-03 (issue 0080): the Armonia tree moved to
+             site-archive/ pending the programme rebuild. Restore the tile when it returns.
+             Bento rebalance after the cut = CD (rule 7). -->
 
         <!-- LA COMUNITÀ (0071 follow-up, Trevor feedback 2026-07-28): community/ is now
              the home for workshops + social mornings, off the core calendar, and this is
@@ -218,19 +214,11 @@
           <span class="btn block">Open the calendar <span class="arw">&rarr;</span></span>
         </a>
 
-        <!-- SPORT (P4 pass A): "Register for sport" stays on activities/ this pass. The
-             external nested sport flow on portal.elc.ac.th is not built and the process
-             is still settling (football + swimming are the most complete), so it degrades
-             honestly (rule 6) rather than dead-link off-site. When that flow exists it
-             repoints external like ASA (and rides the same 0017 cutover re-point). -->
-        <div class="tile sport">
-          <div class="head">
-            <div><span class="eyebrow">Sport · Term 1</span><h3>Pick a season. Try out, train, play.</h3></div>
-            <a class="btn purple" href="activities/">Register for sport <span class="arw">&rarr;</span></a>
-          </div>
-          <div class="grid" id="sport-grid"></div>
-          <p class="sub" id="sport-note"></p>
-        </div>
+        <!-- SPORT TILE RETIRED 2026-08-03 (issue 0080, PRD-0003 decision 9: "sport comes
+             off the site"). Sport is built with the rest of the ASAs on the WordPress ASA
+             surface, so the ASA card above is the route; a second sport CTA here would
+             promise a portal flow that does not exist. data.js keeps `sports` + `sportNote`
+             dormant (statuses stay true), so restoring the tile is markup only. -->
 
         <!-- POLICIES -->
         <a class="policies" href="policies/">
