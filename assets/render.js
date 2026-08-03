@@ -338,13 +338,16 @@
   });
 
   // Draft chip (sprint 3 D5): a page still being finalised gets a visible marker at
-  // the top of <main>. Reuses the .status.soon pill look; no new CSS (rule 7).
-  var draftMain = document.querySelector('main[data-page]');
-  if (draftMain && isDraftPage(draftMain.dataset.page, P.draftPages)) {
+  // the top of its content root. Reuses the .status.soon pill look; no new CSS (rule 7).
+  // Matched on [data-page], NOT main[data-page] (issue 0090): every content root is a
+  // <main> today, but tying the chip to the element name means a data-page on anything
+  // else renders no chip and reports no error. The key is the contract, not the tag.
+  var draftRoot = document.querySelector('[data-page]');
+  if (draftRoot && isDraftPage(draftRoot.dataset.page, P.draftPages)) {
     var chip = document.createElement('div');
     chip.className = 'status soon draft-chip';
     chip.textContent = 'We are finalising this page. Details may change.';
-    draftMain.insertBefore(chip, draftMain.firstChild);
+    draftRoot.insertBefore(chip, draftRoot.firstChild);
   }
 
   // School status banner (issue 0031): injected under the header on every page
@@ -441,7 +444,7 @@
   // 0079 (2026-08-03): workshops separated FULLY from the calendar, and this section is
   // their canonical home, so it STANDS EVEN WHEN EMPTY with an honest waiting line:
   // self-removing would leave workshops with no home at all until Sarah's column lands.
-  // Coffee mornings keep the self-remove idiom; that section carries no such promise.
+  // Social mornings keep the self-remove idiom; that section carries no such promise.
   function comunitaRows(cat) {
     return (P.calendarEvents || []).concat(P.peEvents || [])
       .filter(function (e) { return e.comunita && e.cat === cat && e.date >= bkkToday; })
@@ -449,7 +452,7 @@
   }
   [{ id: 'community-workshops', cat: 'workshop', heading: 'Workshops', stands: true,
      empty: 'The year\'s parent workshops are being confirmed with the team. Every one of them will appear here, with its sign-up link, as it lands.' },
-   { id: 'community-mornings', cat: 'social', heading: 'Coffee mornings', stands: false }].forEach(function (sec) {
+   { id: 'community-mornings', cat: 'social', heading: 'Social mornings', stands: false }].forEach(function (sec) {
     var mount = document.getElementById(sec.id);
     if (!mount) return;
     var rows = comunitaRows(sec.cat);
@@ -1144,7 +1147,7 @@
     console.assert(ycCat({ aud: 'holiday', title: 'The Queen Mother’s Birthday Holiday' }) === 'H', 'ycCat: public holiday -> H');
     console.assert(ycCat({ aud: 'holiday', title: 'No school for children (staff training day)' }) === 'PD', 'ycCat: staff training -> PD');
     console.assert(ycCat({ aud: 'parent', title: 'Parent Teacher Conferences (Progress)' }) === 'PT', 'ycCat: conferences -> PT');
-    console.assert(ycCat({ aud: 'parent', title: 'K1 Information Session' }) === 'SE', 'ycCat: parent event -> SE');
+    console.assert(ycCat({ aud: 'parent', title: 'K1 Coffee morning' }) === 'SE', 'ycCat: parent event -> SE');
     console.assert(ycCat({ aud: 'child', title: 'K1 first day of school' }) === 'SC', 'ycCat: children-only -> SC');
     console.assert(ycKeyDay({ date: '2026-10-12', until: '2026-10-16' }) === '12–16', 'ycKeyDay: same-month range');
     console.assert(ycKeyDay({ date: '2026-12-21', until: '2027-01-09' }) === '21 Dec to 9 Jan', 'ycKeyDay: cross-month range');

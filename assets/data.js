@@ -28,8 +28,8 @@ window.PORTAL = {
   academicYear: { start: '2026-08-01', end: '2027-07-31' },
 
   // Pages still being finalised (sprint 3 D5). render.js prepends a visible
-  // "We are finalising this page" chip on any page whose <main data-page> key is
-  // listed here. Removing a key = that page's verify-artifact row is signed off
+  // "We are finalising this page" chip on any page whose content-root data-page key
+  // is listed here. Removing a key = that page's verify-artifact row is signed off
   // (docs/verify-v0.5.md).
   // 0080 (2026-08-03): gate-card + the 7 armonia slugs dropped (pages archived).
   draftPages: ['hopes-and-wishes', 'glossary', 'photo-consent', 'how-to-pay',
@@ -114,9 +114,9 @@ window.PORTAL = {
     { href: 'hopes-and-wishes/', title: 'Hopes and Wishes',
       blurb: 'Twenty minutes with your child\'s teacher to start the year, in your words.',
       go: 'Find your class' },
-    { href: 'coffee-mornings/', title: 'Information session',
+    { href: 'coffee-mornings/', title: 'Coffee morning',
       blurb: 'Meet your year group\'s coordinators and administrators and hear how the year runs, in the opening weeks.',
-      go: 'Find your session' }
+      go: 'Find your year group' }
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
@@ -144,8 +144,8 @@ window.PORTAL = {
       sig: 'Trevor · Head of Operations and Educational Experience' },
     { from: '2026-08-17', eyebrow: 'A note from Trevor', when: '17 to 25 August',
       title: 'Come and meet your year team.',
-      body: 'Your year group\'s information session lands between 17 and 25 August: meet the coordinators and administrators who hold the year together and hear how it runs. It is not a coffee morning. Those come later in the year and are about community; this is the practical start. Times are on the calendar; come find me while you are there.',
-      cta: { href: 'coffee-mornings/', label: 'Find your session' },
+      body: 'Your year group\'s coffee morning lands between 17 and 25 August: this is the information session for the year ahead, where you meet the coordinators and administrators who hold your year together and hear how it runs. The social mornings that run through the rest of the year are a different, more relaxed thing. Times are on the calendar; come find me while you are there.',
+      cta: { href: 'coffee-mornings/', label: 'Find your year group' },
       sig: 'Trevor · Head of Operations and Educational Experience' },
     { from: '2026-08-24', eyebrow: 'A note from Trevor', when: 'This week',
       title: 'Everyone is in.',
@@ -383,16 +383,16 @@ window.PORTAL = {
     { date: '2026-07-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
     { date: '2026-08-12', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'The Queen Mother\'s Birthday Holiday', sub: '' },
     { date: '2026-08-14', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New Family Orientation', sub: 'A warm welcome for families new to ELC.' },
-    { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'K1', title: 'K1 Information Session', sub: '' },
+    { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'K1', title: 'K1 Coffee morning', sub: 'Information session' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K2 to Y6 Hopes and Wishes meetings', sub: '' },
     { date: '2026-08-18', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K1 Hopes and Wishes meetings', sub: '' },
     { date: '2026-08-18', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'K2 to Y6 first day of school', sub: '' },
-    { date: '2026-08-18', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Y1', title: 'Y1 Information Session', sub: '' },
+    { date: '2026-08-18', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Y1', title: 'Y1 Coffee morning', sub: 'Information session' },
     { date: '2026-08-19', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'K1 first day of school', sub: '' },
-    { date: '2026-08-20', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Y3 to Y6', title: 'Y3 to Y6 Information Session', sub: '' },
-    { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Y2', title: 'Y2 Information Session', sub: '' },
-    { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'K2', title: 'K2 Information Session', sub: '' },
-    { date: '2026-08-25', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Dove', title: 'Dove Information Session', sub: 'Dove Centre' },
+    { date: '2026-08-20', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Y3 to Y6', title: 'Y3 to Y6 Coffee morning', sub: 'Information session' },
+    { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Y2', title: 'Y2 Coffee morning', sub: 'Information session' },
+    { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'K2', title: 'K2 Coffee morning', sub: 'Information session' },
+    { date: '2026-08-25', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'Dove', title: 'Dove Coffee morning', sub: 'Information session' },
     { date: '2026-09-07', cat: 'social', type: 'purple', aud: 'parent', nopage: true, community: true, title: 'Parent Social Morning', sub: '' },
     { date: '2026-09-17', cat: 'workshop', type: 'purple', aud: 'parent', title: 'Safeguarding parent info session', sub: '' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'International Schools Holiday', sub: '' },
