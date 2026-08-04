@@ -382,7 +382,13 @@ window.PORTAL = {
   calendarEvents: [
     { date: '2026-07-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
     { date: '2026-08-12', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'The Queen Mother\'s Birthday Holiday', sub: '' },
-    { date: '2026-08-14', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New Family Orientation', sub: 'A warm welcome for families new to ELC.' },
+    /* Two events, two cards, one page (Trevor 2026-08-04): a family looking at either day has
+       to see something, so both the welcome evening and the orientation morning carry a card
+       and both open new-family-orientation/. HAND-SET, not pulled: rewrite_fence replaces this
+       whole block, so a sheet pull without SKIP_PULL=1 drops the 13 Aug row and both subs. The
+       durable home for the 13th is a row in the calendar SSOT sheet (Sarah). */
+    { date: '2026-08-13', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New family welcome evening', sub: 'For City School and PE families, 6:00 to 8:30 at The Wine Merchant.' },
+    { date: '2026-08-14', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New Family Orientation', sub: 'The orientation morning for families new to ELC.' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', cohort: 'K1', title: 'K1 Coffee morning', sub: 'Information session' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K2 to Y6 Hopes and Wishes meetings', sub: '' },
     { date: '2026-08-18', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K1 Hopes and Wishes meetings', sub: '' },

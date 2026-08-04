@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-04T05:48:36.702Z",
+  "generated": "2026-08-04T10:36:08.033Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -22,12 +22,20 @@
       "sub": ""
     },
     {
+      "date": "2026-08-13",
+      "cat": "event",
+      "type": "gold",
+      "aud": "parent",
+      "title": "New family welcome evening",
+      "sub": "For City School and PE families, 6:00 to 8:30 at The Wine Merchant."
+    },
+    {
       "date": "2026-08-14",
       "cat": "event",
       "type": "gold",
       "aud": "parent",
       "title": "New Family Orientation",
-      "sub": "A warm welcome for families new to ELC."
+      "sub": "The orientation morning for families new to ELC."
     },
     {
       "date": "2026-08-17",
