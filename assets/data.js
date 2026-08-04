@@ -582,10 +582,15 @@ window.PORTAL = {
   // flag every extracted rule on docs/verify-v0.5.md (misquoting policy is worse than silence).
   docs: [
     { group: 'Start here', name: 'Parent handbook, 2026/27', sub: 'How the school runs, from the day to the year. The one to read first.', kind: 'PDF', tag: 'PDF · 1.9 MB', href: 'https://www.elc.ac.th/wp-content/uploads/Parent-Handbook-2026-27.pdf' },
-    { group: 'Start here', name: 'Term dates and calendar', sub: 'Every term, break and key date for the year ahead.', kind: 'LINK', tag: 'View', href: '../calendar/' },
-    { group: 'Start here', name: 'The City School calendar', sub: 'The official academic year calendar for The City School.', kind: 'LINK', tag: 'View', href: 'https://www.elc.ac.th/the-city-school-calendar/' },
-    { group: 'Start here', name: 'The Purple Elephant calendar', sub: 'The official academic year calendar for The Purple Elephant at 39, 49 and 55.', kind: 'LINK', tag: 'View', href: 'https://www.elc.ac.th/purple-elephant-calendar/' },
-    { group: 'Start here', name: 'The Purple Elephant Samakee calendar', sub: 'The official academic year calendar for The Purple Elephant Samakee.', kind: 'LINK', tag: 'View', href: 'https://www.elc.ac.th/purple-elephant-samakee-calendar/' },
+    // CALENDAR ROWS REMOVED 2026-08-04 (Trevor, walking the policies hub per 0084). Four
+    // rows went: 'Term dates and calendar' pointing at ../calendar/, plus the three
+    // official WordPress academic-year calendars (City, PE 39/49/55, PE Samakee).
+    // Policies is the document hub; the calendar has its own nav item AND tabbar tab on
+    // every page, so the internal row was a third route to a place already two taps away.
+    // The three external ones also sat beside the portal's own calendar offering families
+    // a choice of calendars with no way to tell which is current, and the portal's is the
+    // sheet-fed one (0046: sheet stays planning SSOT, portal publishes). Restoring is
+    // re-adding these rows; the WordPress pages are untouched and still live.
     { group: 'Health and safety', name: 'Safeguarding and child protection', sub: 'Our commitment, and who to speak to if something is not right.', kind: 'PDF', tag: 'PDF · 700 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safeguarding-and-Child-Protection-Policy-1.pdf' },
     { group: 'Health and safety', name: 'Safeguarding triage chart', sub: 'How a concern moves from first report to action, at a glance.', kind: 'PDF', tag: 'PDF · 53 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safeguarding-Triage-Chart.pdf' },
     { group: 'Health and safety', name: 'School emergency operations plan', sub: 'How the school prepares for and responds to an emergency.', kind: 'PDF', tag: 'PDF · 810 KB', href: 'https://www.elc.ac.th/wp-content/uploads/School-Emergency-Operations-Policy-and-Plan.pdf' },
