@@ -724,7 +724,7 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
 
 /* month grid (render.js EMITS into #print-list) */
 /* CSS columns, not grid: with the per-month key inside each box the heights are
-   uneven, and a grid row stretches to its tallest month — that pushed the sheet past
+   uneven, and a grid row stretches to its tallest month: that pushed the sheet past
    one A4 page (1136px vs the 1040px content box). Columns pack the boxes vertically
    (measured 923px) so the sheet prints on one page again. Months read down each
    column, August top-left. */
