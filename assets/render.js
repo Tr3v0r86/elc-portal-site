@@ -418,8 +418,11 @@
   }
   var commEvents = document.getElementById('community-events');
   if (commEvents && P.calendarEvents) {
+    // comunita rows are excluded: they already render in their own Workshops /
+    // Social-mornings sections on this same page, and a row carrying both flags
+    // was doubling (Trevor 2026-08-05, the 8 Parent Social Mornings).
     var commRows = P.calendarEvents
-      .filter(function (e) { return e.community && e.date >= bkkToday; })
+      .filter(function (e) { return e.community && !e.comunita && e.date >= bkkToday; })
       .sort(function (a, b) { return a.date < b.date ? -1 : 1; })
       .slice(0, 6);
     if (!commRows.length) commEvents.remove();
@@ -449,8 +452,13 @@
   // houses, atelier experiences, drama evenings), so the workshops section takes every
   // non-social comunita row: a flagged row must never be invisible (0071 promise).
   function comunitaRows(social) {
+    // Dedupe by date+title: a cross-campus event is flagged on the City tab AND a
+    // PE tab by design (each campus calendar shows its own array), but this page
+    // concats all three, so the same evening rendered twice (Trevor 2026-08-05).
+    var seen = {};
     return (P.calendarEvents || []).concat(P.peEvents || [])
       .filter(function (e) { return e.comunita && (e.cat === 'social') === social && e.date >= bkkToday; })
+      .filter(function (e) { var k = e.date + '|' + e.title; if (seen[k]) return false; return (seen[k] = true); })
       .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
   }
   [{ id: 'community-workshops', social: false, heading: 'Workshops', stands: true,
