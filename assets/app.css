@@ -783,12 +783,17 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
   .yc-sub{font-size:19px;}
   .yc-yr{font-size:25px;margin-top:6px;}
   .yc-months{margin-top:5px;}
-  .yc-mini{padding:5px 8px 6px;}
-  .yc-d{line-height:1.18;}
-  .yc-keys{margin-top:5px;padding-top:6px;}
+  .yc-mini{padding:4px 8px 5px;}
+  .yc-mn{font-size:12px;margin-bottom:2px;}
+  .yc-d{line-height:1.12;}
+  /* 4 key columns on paper (3 on screen) + one notch of key-text compaction:
+     together they buy the ~150px that keeps the sheet on one A4 with the
+     0.25in paper margins added 2026-08-05 (headless print-to-pdf verified). */
+  .yc-keys{margin-top:5px;padding-top:6px;column-count:4;column-gap:14px;}
   .yc-kgm{margin-bottom:2px;}
-  .yc-kr{line-height:1.2;}
-  .yc-legend{margin-top:5px;padding-top:6px;}
+  .yc-kr{line-height:1.15;font-size:9.5px;}
+  .yc-kd{font-size:8.5px;}
+  .yc-legend{margin-top:3px;padding-top:4px;}
 }
 
 /* ---- print / PDF: clean flow, drop the fixed contour field, keep colours ---- */
