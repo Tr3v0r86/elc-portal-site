@@ -330,12 +330,12 @@ window.PORTAL = {
       ],
       bookingUrl: null },
 
-    { class: 'Y6 Maddy and Chrissy', year: 'Y6', campus: null, flag: null,
+    { class: 'Y6 Chrissy and Maddy', year: 'Y6', campus: null, flag: null,
       teachers: [
-        { name: 'Madison Moore', role: 'Class teacher', photo: 'assets/img/team/madison.jpg',
-          bio: 'Maddy is from the United States, where a design degree led her to teaching. After two years in Year 4 she steps up to Year 6, aiming for a room where children feel safe, have fun and are genuinely challenged. Outside class: reading, learning Thai and taking up golf.' },
         { name: 'Chrissy Turnbull', role: 'Class teacher', photo: 'assets/img/team/chrissy.jpg',
-          bio: 'Back for her fifth year at the City School, Chrissy leads Year 6 literacy and our responsive classroom and SEL work. A Hong Kong upbringing, a first career in events and thirteen years of teaching give her a wide-angle view of childhood. Off duty: travel, music, films and pilates.' }
+          bio: 'Back for her fifth year at the City School, Chrissy leads Year 6 literacy and our responsive classroom and SEL work. A Hong Kong upbringing, a first career in events and thirteen years of teaching give her a wide-angle view of childhood. Off duty: travel, music, films and pilates.' },
+        { name: 'Madison Moore', role: 'Class teacher', photo: 'assets/img/team/madison.jpg',
+          bio: 'Maddy is from the United States, where a design degree led her to teaching. After two years in Year 4 she steps up to Year 6, aiming for a room where children feel safe, have fun and are genuinely challenged. Outside class: reading, learning Thai and taking up golf.' }
       ],
       bookingUrl: null }
   ],
