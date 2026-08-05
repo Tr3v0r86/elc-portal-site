@@ -342,7 +342,9 @@
       }
       document.head.appendChild(tag);
       tag.textContent =
-        '@page { size: ' + this.pageWidth + ' ' + this.pageHeight + '; margin: 0; } ' +
+        // 0.25in paper margin all sides (Trevor 2026-08-05): margin 0 put the footer
+        // line on the paper edge, where real printers clip it.
+        '@page { size: ' + this.pageWidth + ' ' + this.pageHeight + '; margin: 0.25in; } ' +
         '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; height: auto !important; overflow: visible !important; } ' +
         'h1,h2,h3,h4,h5,h6 { break-after: avoid; } ' +
         'figure,pre,blockquote,img,svg,tr { break-inside: avoid; } ' +

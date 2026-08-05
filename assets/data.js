@@ -8,8 +8,8 @@ window.PORTAL = {
   // update-propagation worked. feedback.js payloads also read version. The MASTHEAD
   // tape (.tape) stays shell-owned, hardcoded per page: bump it in the v0.8 stamp
   // pass. build = deploy date of the current shell (honest, not the viewer's clock).
-  version: 'v0.8',
-  build: '27 Jul',
+  version: 'v0.9',
+  build: '5 Aug',
   term: 'Term 1',
 
   // Live-feed subscribe controls (ADR-0006, superseded-for-launch by issue 0077). The UI
@@ -32,8 +32,9 @@ window.PORTAL = {
   // is listed here. Removing a key = that page's verify-artifact row is signed off
   // (docs/verify-v0.5.md).
   // 0080 (2026-08-03): gate-card + the 7 armonia slugs dropped (pages archived).
-  draftPages: ['hopes-and-wishes', 'glossary', 'photo-consent', 'how-to-pay',
-               'community-giving', 'nuts-and-bolts', 'coffee-mornings'],
+  // 2026-08-05: glossary + community-giving dropped (pages archived, Trevor).
+  draftPages: ['hopes-and-wishes', 'photo-consent', 'how-to-pay',
+               'nuts-and-bolts', 'coffee-mornings'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):
@@ -63,7 +64,10 @@ window.PORTAL = {
     activities: { label: 'Activities team', email: 'activities@elc.ac.th', phone: '+66 (0)2 381 2919' },
     // Nurse Apple, per the comms Nuts & Bolts doc (docs/sources/nuts-and-bolts-doc.md).
     // No dedicated nurse line: the school number reaches her (Trevor, 2026-07-17).
-    nurse:      { label: 'School nurse',    email: 'apples@elc.ac.th',     phone: '+66 (0)2 381 2919' }
+    nurse:      { label: 'School nurse',    email: 'apples@elc.ac.th',     phone: '+66 (0)2 381 2919' },
+    // Safeguarding concerns go to the child protection officer, NOT the office
+    // (Trevor 2026-08-05). Email only: no dedicated phone line given.
+    cp:         { label: 'Child protection officer', email: 'cp-officer@elc.ac.th' }
   },
 
   // Office hours per campus (sprint 3 P7). null renders one honest "Office hours

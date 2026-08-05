@@ -490,9 +490,11 @@
     chips.forEach(function (el) {
       var c = P.contacts[el.getAttribute('data-contact')];
       if (!c) return;
+      // No phone on the contact = email only (the cp contact is email-only by
+      // design, 2026-08-05; "Phone coming" would be a false promise there).
       var phone = c.phone
         ? ' &middot; <a href="tel:' + c.phone.replace(/[^+0-9]/g, '') + '">' + c.phone + '</a>'
-        : ' &middot; <span class="status soon">Phone coming</span>';
+        : '';
       el.innerHTML = '<a href="mailto:' + c.email + '">' + c.email + '</a>' + phone;
     });
   }

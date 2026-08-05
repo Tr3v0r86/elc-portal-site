@@ -41,7 +41,7 @@
     <a class="brand" href="./">
       <span class="desc"><span class="portal-mark" id="mark" aria-hidden="true"></span>ELC Portal</span>
     </a>
-    <span class="tape">v0.8</span>
+    <span class="tape">v0.9</span>
     <nav>
       <a class="navlink active" href="./">This week</a>
       <a class="navlink" href="activities/">Activities</a>
@@ -62,7 +62,7 @@
         <div class="dd-panel">
           <a href="help/">Quick answers</a>
           <a href="new-families/">New families</a>
-          <a href="glossary/">Glossary</a>
+          
           <a href="nuts-and-bolts/">Nuts and bolts</a>
         </div>
       </details>
@@ -174,20 +174,19 @@
       <div class="sec-eyebrow"><span class="eyebrow" id="og-h">Ongoing</span><span class="ln"></span></div>
       <div class="bento">
         <!-- ASA -->
-        <!-- ASA CTA (P4 pass A): points STRAIGHT to the external registration site
-             (portal.elc.ac.th), skipping the in-between activities/ page. Off-site, so
-             target=_blank rel=noopener, and OUTSIDE the internal href-grammar gate
-             (check-data-hrefs only reads data.js). NOTE (0017): portal.elc.ac.th becomes
-             THIS site at the domain cutover, so re-point every external CTA then (see
-             docs/issues/0017 checklist). activities/ stays live (nav + tabbar + sport). -->
-        <a class="tile reg-card tile-top-purple link" href="https://portal.elc.ac.th" target="_blank" rel="noopener">
+        <!-- ASA registration CLOSED until the AY26-27 open date (unset as of 2026-08-05,
+             Trevor). The live-registration CTA to portal.elc.ac.th comes back when the
+             date is set: restore the <a href="https://portal.elc.ac.th" target="_blank"
+             rel="noopener"> wrapper + "Register for ASA" button then (0017 re-points it
+             at cutover). Until then the tile is honest coming-soon (rule 6). -->
+        <div class="tile reg-card tile-top-purple">
           <span class="eyebrow">After school</span>
           <h3>ASA</h3>
           <!-- "after three" was inaccurate (some K2 ASAs start before 3pm); ASAs are
                simply activities that run after school, so the clock is dropped. -->
           <p>The hours after school, well spent. Sport, arts, design and tech, in short term blocks.</p>
-          <span class="btn block">Register for ASA <span class="arw">&rarr;</span></span>
-        </a>
+          <span class="btn block">Registration opens soon</span>
+        </div>
 
         <!-- ARMONIA tile retired 2026-08-03 (issue 0080): the Armonia tree moved to
              site-archive/ pending the programme rebuild. Restore the tile when it returns.
@@ -281,8 +280,8 @@
     <span class="foot-mark" aria-hidden="true"></span><img class="foot-lockup" src="assets/img/elc-logo.svg" alt="ELC International Schools Bangkok" width="63" height="58">
     <span class="l">portal.elc.ac.th · ELC International Schools, Thong Lor</span>
     <span class="r">No login needed. Your child's learning lives in the Parent App.</span>
-    <span class="foot-links"><a class="m-only" href="help/">Quick answers</a><a class="m-only" href="new-families/">New families</a><a href="nuts-and-bolts/">Nuts and bolts</a><a href="status/">Status</a><a href="privacy/">Privacy</a><a href="safeguarding/">Safeguarding</a><a href="verify/">Is it really us</a></span>
-    <span class="fine">v0.8 · for internal feedback, not a live school page</span>
+    <span class="foot-links"><a class="m-only" href="help/">Quick answers</a><a class="m-only" href="new-families/">New families</a><a href="nuts-and-bolts/">Nuts and bolts</a><a href="privacy/">Privacy</a><a href="safeguarding/">Safeguarding</a><a href="verify/">Is it really us</a></span>
+    <span class="fine">v0.9 · for internal feedback, not a live school page</span>
   </div>
 
   <!-- bottom tabs (mobile) -->

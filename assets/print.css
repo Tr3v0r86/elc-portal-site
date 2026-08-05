@@ -5,6 +5,10 @@
    sheet prints alone, and keeps the gate-card's cut-out card rules. Plain black ink on
    white: a fridge sheet, a card at the gate, not a brand surface. */
 @media print {
+  /* Paper margin (Trevor 2026-08-05): 0.25in all sides, so the sheet never relies on
+     the browser's default margins. */
+  @page { margin: 0.25in; }
+
   /* Drop screen chrome and anything interactive; the background art just wastes ink. */
   header, nav, .tabbar, .foot-strip, .crumb, .topline, #topo,
   button, .btn, .btn-row, .no-print,
