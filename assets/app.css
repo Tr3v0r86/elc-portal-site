@@ -723,8 +723,13 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
 .yc-sub-soon{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap;}
 
 /* month grid (render.js EMITS into #print-list) */
-.yc-months{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px;}
-.yc-mini{border:1px solid var(--rule);border-radius:8px;padding:7px 9px 8px;background:var(--white-pure);break-inside:avoid;}
+/* CSS columns, not grid: with the per-month key inside each box the heights are
+   uneven, and a grid row stretches to its tallest month — that pushed the sheet past
+   one A4 page (1136px vs the 1040px content box). Columns pack the boxes vertically
+   (measured 923px) so the sheet prints on one page again. Months read down each
+   column, August top-left. */
+.yc-months{columns:4;column-gap:9px;margin-top:12px;}
+.yc-mini{border:1px solid var(--rule);border-radius:8px;padding:7px 9px 8px;background:var(--white-pure);break-inside:avoid;margin-bottom:9px;}
 .yc-mn{font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px;letter-spacing:-.005em;}
 .yc-cells{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;}
 .yc-dow{font-family:var(--sans);font-size:7.5px;font-weight:600;letter-spacing:.03em;color:var(--cal-dow);text-align:center;padding-bottom:3px;text-transform:uppercase;font-style:normal;}
