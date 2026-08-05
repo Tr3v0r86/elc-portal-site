@@ -790,8 +790,11 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
   .yc-months{margin-top:5px;}
   .yc-mini{padding:5px 8px 6px;}
   .yc-d{line-height:1.18;}
-  .yc-mk{padding-top:10px;}
-  .yc-kr{line-height:1.2;}
+  .yc-mk{padding-top:2px;}
+  .yc-kr{line-height:1.18;font-size:9px;margin-bottom:0;}
+  .yc-kd{font-size:8.5px;}
+  .yc-mini{margin-bottom:5px;}
+  .yc-mn{font-size:12px;margin-bottom:2px;}
   .yc-legend{margin-top:5px;padding-top:6px;}
 }
 
