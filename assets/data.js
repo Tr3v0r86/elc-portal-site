@@ -326,7 +326,7 @@ window.PORTAL = {
       teachers: [
         { name: 'Clifford Sumner', role: 'Class teacher, room 5A', photo: 'assets/img/team/clifford.jpg',
           bio: 'Originally from the UK with a decade teaching in Seoul, Clifford is in his second year in Bangkok. He is drawn to educational technology and to shaping learning around each child in a collaborative room. Outside school he reads, stays active and heads for the water when he can.' },
-        { name: 'Athena Lee Moria', role: 'Class teacher, room 5B', photo: 'assets/img/team/athena.jpg', bio: null }
+        { name: 'Athena Lee Moria', role: 'Associate teacher', photo: 'assets/img/team/athena.jpg', bio: null }
       ],
       bookingUrl: null },
 
