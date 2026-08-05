@@ -1368,7 +1368,10 @@
       }
     }
     function validSlides(slides) {
-      if (slides === null) return true;
+      // == null: sheet-fed rows OMIT empty keys rather than carrying explicit nulls
+      // (live bug 2026-08-05: all six cohorts failed validation over missing keys
+      // while coffeeCard itself renders absent time/venue fine).
+      if (slides == null) return true;
       if (!slides || typeof slides !== 'object' || Array.isArray(slides)) return false;
       var keys = Object.keys(slides);
       return keys.indexOf('href') > -1 && keys.every(function (key) { return key === 'href' || key === 'tag'; }) &&
@@ -1377,8 +1380,8 @@
     function coffeeValid(row) {
       return !!row && !!COFFEE_IDS[row.cohort] && validISODate(row.date) &&
         row.date >= '2026-08-01' && row.date <= '2027-07-31' &&
-        (row.time === null || typeof row.time === 'string') &&
-        (row.venue === null || typeof row.venue === 'string') &&
+        (row.time == null || typeof row.time === 'string') &&
+        (row.venue == null || typeof row.venue === 'string') &&
         validSlides(row.slides);
     }
     function coffeeSetValid(rows) {
@@ -1441,6 +1444,8 @@
     'coffeeValid: malformed fields and out-of-season dates rejected');
     console.assert(coffeeValid(Object.assign({}, plantedCoffeeRow, { slides: { href: 'https://example.com/k1', tag: 'PDF' } })),
       'coffeeValid: absolute HTTPS slides with optional string tag');
+    console.assert(coffeeValid({ href: 'coffee-mornings/', cohort: 'K1', date: '2026-08-17' }),
+      'coffeeValid: sheet-fed row with time/venue/slides keys OMITTED is valid (live bug 2026-08-05)');
     var plantedCoffeeRows = Object.keys(COFFEE_IDS).map(function (cohort, index) {
       return Object.assign({}, plantedCoffeeRow, { cohort: cohort, date: '2026-08-' + String(17 + index).padStart(2, '0') });
     });
@@ -1512,7 +1517,7 @@
       var ua = navigator.userAgent || '';
       var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
       saveGuide.textContent = standalone
-        ? 'This page is already saved with the Portal on your device.'
+        ? 'You are viewing this page in the Portal app, so it is already on your home screen.'
         : /Line\//i.test(ua)
           ? 'Open this page in your browser first, then use the browser menu to add it to your home screen.'
           : /iPhone|iPad|iPod/i.test(ua)
