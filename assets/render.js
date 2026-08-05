@@ -984,20 +984,28 @@
       if (renderCalAgenda) renderCalAgenda(view.y, view.m);
     }
 
-    // One delegated click: single-event-with-page navigates; otherwise open the popover.
+    // Relay #17 (Trevor 2026-07-28): on touch, tapping a day ALWAYS opens the day sheet.
+    // The single-event navigate shortcut survives only where hover does, because there the
+    // hover preview has already shown the day and the click is a second, deliberate act.
+    // On a phone the tap is the only interaction, so the shortcut jumped a family straight
+    // off the calendar with nothing shown in between. One flag, read by both listeners.
+    var calHover = !!(window.matchMedia && window.matchMedia('(hover:hover)').matches);
+
+    // One delegated click: single-event-with-page navigates (hover devices only, #17);
+    // otherwise open the popover.
     calGrid.addEventListener('click', function (e) {
       var cell = e.target.closest('.cal-cell.has');
       if (!cell || !calGrid.contains(cell)) return;
       var iso = cell.getAttribute('data-iso');
       var evs = calByDate[iso] || [];
-      if (evs.length === 1) {
+      if (calHover && evs.length === 1) {
         var h = evHref(evs[0].href);
         if (h) { location.href = h; return; }
       }
       openPop(cell, iso, evs, true);   // click / Enter / Space: move focus into the dialog
     });
     // Hover preview on hover-capable devices only (touch opens on tap via click).
-    if (window.matchMedia && window.matchMedia('(hover:hover)').matches) {
+    if (calHover) {
       var hoverTimer = null;
       calGrid.addEventListener('mouseover', function (e) {
         var cell = e.target.closest('.cal-cell.has');

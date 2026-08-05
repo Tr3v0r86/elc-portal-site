@@ -10,8 +10,8 @@ DTSTAMP:20260729T000000Z
 DTSTART;VALUE=DATE:20260729
 DTEND;VALUE=DATE:20260808
 SUMMARY:ELC Summer Festival of the Arts\, Session 2\, A week of making and performing\, to 7 Aug.
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260812-the-queen-mother-s-birthday-holiday@portal.elc.ac.th
@@ -19,8 +19,8 @@ DTSTAMP:20260812T000000Z
 DTSTART;VALUE=DATE:20260812
 DTEND;VALUE=DATE:20260813
 SUMMARY:The Queen Mother's Birthday Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260813-new-family-welcome-evening@portal.elc.ac.th
@@ -28,8 +28,8 @@ DTSTAMP:20260813T000000Z
 DTSTART;VALUE=DATE:20260813
 DTEND;VALUE=DATE:20260814
 SUMMARY:New family welcome evening\, For City School and PE families\, 6:00 to 8:30 at The Wine Merchant.
-URL:https://parentportal.elc.ac.th/new-family-orientation/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/new-family-orientation/
+URL:https://elcportal.elc.ac.th/new-family-orientation/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/new-family-orientation/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260814-new-family-orientation@portal.elc.ac.th
@@ -37,8 +37,8 @@ DTSTAMP:20260814T000000Z
 DTSTART;VALUE=DATE:20260814
 DTEND;VALUE=DATE:20260815
 SUMMARY:New Family Orientation\, The orientation morning for families new to ELC.
-URL:https://parentportal.elc.ac.th/new-family-orientation/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/new-family-orientation/
+URL:https://elcportal.elc.ac.th/new-family-orientation/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/new-family-orientation/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260817-k1-coffee-morning@portal.elc.ac.th
@@ -46,8 +46,8 @@ DTSTAMP:20260817T000000Z
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
 SUMMARY:K1 Coffee morning\, Information session
-URL:https://parentportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/coffee-mornings/
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260817-k2-to-y6-hopes-and-wishes-meetings@portal.elc.ac.th
@@ -55,8 +55,8 @@ DTSTAMP:20260817T000000Z
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
 SUMMARY:K2 to Y6 Hopes and Wishes meetings
-URL:https://parentportal.elc.ac.th/hopes-and-wishes/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/hopes-and-wishes/
+URL:https://elcportal.elc.ac.th/hopes-and-wishes/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/hopes-and-wishes/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260818-k1-hopes-and-wishes-meetings@portal.elc.ac.th
@@ -64,8 +64,8 @@ DTSTAMP:20260818T000000Z
 DTSTART;VALUE=DATE:20260818
 DTEND;VALUE=DATE:20260819
 SUMMARY:K1 Hopes and Wishes meetings
-URL:https://parentportal.elc.ac.th/hopes-and-wishes/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/hopes-and-wishes/
+URL:https://elcportal.elc.ac.th/hopes-and-wishes/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/hopes-and-wishes/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260818-k2-to-y6-first-day-of-school@portal.elc.ac.th
@@ -73,8 +73,8 @@ DTSTAMP:20260818T000000Z
 DTSTART;VALUE=DATE:20260818
 DTEND;VALUE=DATE:20260819
 SUMMARY:K2 to Y6 first day of school
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260818-y1-coffee-morning@portal.elc.ac.th
@@ -82,8 +82,8 @@ DTSTAMP:20260818T000000Z
 DTSTART;VALUE=DATE:20260818
 DTEND;VALUE=DATE:20260819
 SUMMARY:Y1 Coffee morning\, Information session
-URL:https://parentportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/coffee-mornings/
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260819-k1-first-day-of-school@portal.elc.ac.th
@@ -91,8 +91,8 @@ DTSTAMP:20260819T000000Z
 DTSTART;VALUE=DATE:20260819
 DTEND;VALUE=DATE:20260820
 SUMMARY:K1 first day of school
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260820-y3-to-y6-coffee-morning@portal.elc.ac.th
@@ -100,8 +100,8 @@ DTSTAMP:20260820T000000Z
 DTSTART;VALUE=DATE:20260820
 DTEND;VALUE=DATE:20260821
 SUMMARY:Y3 to Y6 Coffee morning\, Information session
-URL:https://parentportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/coffee-mornings/
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260821-y2-coffee-morning@portal.elc.ac.th
@@ -109,8 +109,8 @@ DTSTAMP:20260821T000000Z
 DTSTART;VALUE=DATE:20260821
 DTEND;VALUE=DATE:20260822
 SUMMARY:Y2 Coffee morning\, Information session
-URL:https://parentportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/coffee-mornings/
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260824-k2-coffee-morning@portal.elc.ac.th
@@ -118,8 +118,8 @@ DTSTAMP:20260824T000000Z
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
 SUMMARY:K2 Coffee morning\, Information session
-URL:https://parentportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/coffee-mornings/
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260825-dove-coffee-morning@portal.elc.ac.th
@@ -127,8 +127,8 @@ DTSTAMP:20260825T000000Z
 DTSTART;VALUE=DATE:20260825
 DTEND;VALUE=DATE:20260826
 SUMMARY:Dove Coffee morning\, Information session
-URL:https://parentportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/coffee-mornings/
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260907-parent-social-morning@portal.elc.ac.th
@@ -136,8 +136,8 @@ DTSTAMP:20260907T000000Z
 DTSTART;VALUE=DATE:20260907
 DTEND;VALUE=DATE:20260908
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260917-safeguarding-parent-info-session@portal.elc.ac.th
@@ -145,8 +145,8 @@ DTSTAMP:20260917T000000Z
 DTSTART;VALUE=DATE:20260917
 DTEND;VALUE=DATE:20260918
 SUMMARY:Safeguarding parent info session
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260918-international-schools-holiday@portal.elc.ac.th
@@ -154,8 +154,8 @@ DTSTAMP:20260918T000000Z
 DTSTART;VALUE=DATE:20260918
 DTEND;VALUE=DATE:20260919
 SUMMARY:International Schools Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260924-open-evening@portal.elc.ac.th
@@ -163,8 +163,8 @@ DTSTAMP:20260924T000000Z
 DTSTART;VALUE=DATE:20260924
 DTEND;VALUE=DATE:20260925
 SUMMARY:Open Evening
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261001-isb-parent-info-session@portal.elc.ac.th
@@ -172,8 +172,8 @@ DTSTAMP:20261001T000000Z
 DTSTART;VALUE=DATE:20261001
 DTEND;VALUE=DATE:20261002
 SUMMARY:ISB parent info session
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261002-parent-teacher-conferences-progress@portal.elc.ac.th
@@ -181,8 +181,8 @@ DTSTAMP:20261002T000000Z
 DTSTART;VALUE=DATE:20261002
 DTEND;VALUE=DATE:20261003
 SUMMARY:Parent Teacher Conferences (Progress)\, No school for children
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261005-parent-social-morning@portal.elc.ac.th
@@ -190,8 +190,8 @@ DTSTAMP:20261005T000000Z
 DTSTART;VALUE=DATE:20261005
 DTEND;VALUE=DATE:20261006
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261008-digital-safety-parent-info-session@portal.elc.ac.th
@@ -199,8 +199,8 @@ DTSTAMP:20261008T000000Z
 DTSTART;VALUE=DATE:20261008
 DTEND;VALUE=DATE:20261009
 SUMMARY:Digital Safety parent info session
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261012-holiday-elc-october-mid-term-break@portal.elc.ac.th
@@ -208,8 +208,8 @@ DTSTAMP:20261012T000000Z
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261017
 SUMMARY:Holiday: ELC October mid-term break\, to 16 Oct
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261023-king-chulalongkorn-memorial-day@portal.elc.ac.th
@@ -217,8 +217,8 @@ DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:King Chulalongkorn Memorial Day\, No school for children
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261029-parent-workshop-emotional-regulation@portal.elc.ac.th
@@ -226,8 +226,8 @@ DTSTAMP:20261029T000000Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
 SUMMARY:Parent Workshop: Emotional Regulation
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261102-parent-social-morning@portal.elc.ac.th
@@ -235,8 +235,8 @@ DTSTAMP:20261102T000000Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261104-elc-celebrates-loy-krathong@portal.elc.ac.th
@@ -244,8 +244,8 @@ DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:ELC celebrates Loy Krathong
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261123-y1-and-y2-holiday-pageant@portal.elc.ac.th
@@ -253,8 +253,8 @@ DTSTAMP:20261123T000000Z
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 SUMMARY:Y1 and Y2 Holiday Pageant
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261126-k1-holiday-pageant@portal.elc.ac.th
@@ -262,8 +262,8 @@ DTSTAMP:20261126T000000Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:K1 Holiday Pageant
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261127-k2-holiday-pageant@portal.elc.ac.th
@@ -271,8 +271,8 @@ DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261128
 SUMMARY:K2 Holiday Pageant
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261205-king-rama-ix-birthday-and-national-day-performance@portal.elc.ac.th
@@ -280,8 +280,8 @@ DTSTAMP:20261205T000000Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:King Rama IX Birthday and National Day Performance\, Saturday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261207-king-rama-ix-birthday-substitution-holiday@portal.elc.ac.th
@@ -289,8 +289,8 @@ DTSTAMP:20261207T000000Z
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
 SUMMARY:King Rama IX Birthday Substitution Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261211-y3-to-y6-holiday-choir-concert@portal.elc.ac.th
@@ -298,8 +298,8 @@ DTSTAMP:20261211T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Y3 to Y6 Holiday Choir Concert
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261214-parent-teacher-conferences-report-card@portal.elc.ac.th
@@ -307,8 +307,8 @@ DTSTAMP:20261214T000000Z
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
 SUMMARY:Parent Teacher Conferences (Report Card)\, No school for children
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261216-k2-to-y6-fun-field-day@portal.elc.ac.th
@@ -316,8 +316,8 @@ DTSTAMP:20261216T000000Z
 DTSTART;VALUE=DATE:20261216
 DTEND;VALUE=DATE:20261217
 SUMMARY:K2 to Y6 Fun Field Day
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261217-k1-and-dove-centre-fun-field-day@portal.elc.ac.th
@@ -325,8 +325,8 @@ DTSTAMP:20261217T000000Z
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261218
 SUMMARY:K1 and Dove Centre Fun Field Day
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261218-last-day-of-term-1@portal.elc.ac.th
@@ -334,8 +334,8 @@ DTSTAMP:20261218T000000Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:Last day of Term 1\, 11:30 hometime K1 and K2\, 12:00 hometime Y1 to Y6
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261221-holiday-christmas-and-new-year@portal.elc.ac.th
@@ -343,8 +343,8 @@ DTSTAMP:20261221T000000Z
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20270110
 SUMMARY:Holiday: Christmas and New Year\, to 9 Jan
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270111-no-school-for-children-staff-training-day@portal.elc.ac.th
@@ -352,8 +352,8 @@ DTSTAMP:20270111T000000Z
 DTSTART;VALUE=DATE:20270111
 DTEND;VALUE=DATE:20270112
 SUMMARY:No school for children (staff training day)
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270112-school-resumes-for-term-2@portal.elc.ac.th
@@ -361,8 +361,8 @@ DTSTAMP:20270112T000000Z
 DTSTART;VALUE=DATE:20270112
 DTEND;VALUE=DATE:20270113
 SUMMARY:School resumes for Term 2
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270114-puberty-workshop@portal.elc.ac.th
@@ -370,8 +370,8 @@ DTSTAMP:20270114T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Puberty Workshop\, Y5 and Y6
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270118-parent-social-morning@portal.elc.ac.th
@@ -379,8 +379,8 @@ DTSTAMP:20270118T000000Z
 DTSTART;VALUE=DATE:20270118
 DTEND;VALUE=DATE:20270119
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270128-parent-workshop-supporting-behaviours@portal.elc.ac.th
@@ -388,8 +388,8 @@ DTSTAMP:20270128T000000Z
 DTSTART;VALUE=DATE:20270128
 DTEND;VALUE=DATE:20270129
 SUMMARY:Parent Workshop: Supporting Behaviours
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270201-parent-social-morning@portal.elc.ac.th
@@ -397,8 +397,8 @@ DTSTAMP:20270201T000000Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270208-parent-workshop-making-learning-visible@portal.elc.ac.th
@@ -406,8 +406,8 @@ DTSTAMP:20270208T000000Z
 DTSTART;VALUE=DATE:20270208
 DTEND;VALUE=DATE:20270209
 SUMMARY:Parent Workshop: Making Learning Visible
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270211-project-through-the-years-at-elc@portal.elc.ac.th
@@ -415,8 +415,8 @@ DTSTAMP:20270211T000000Z
 DTSTART;VALUE=DATE:20270211
 DTEND;VALUE=DATE:20270212
 SUMMARY:Project Through the Years at ELC
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270212-project-through-the-years-at-elc@portal.elc.ac.th
@@ -424,8 +424,8 @@ DTSTAMP:20270212T000000Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:Project Through the Years at ELC
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270212-project-in-kindergarten@portal.elc.ac.th
@@ -433,8 +433,8 @@ DTSTAMP:20270212T000000Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:Project in Kindergarten
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270219-athletics-day@portal.elc.ac.th
@@ -442,8 +442,8 @@ DTSTAMP:20270219T000000Z
 DTSTART;VALUE=DATE:20270219
 DTEND;VALUE=DATE:20270220
 SUMMARY:Athletics Day
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270219-parent-workshop-an-author-s-workshop@portal.elc.ac.th
@@ -451,8 +451,8 @@ DTSTAMP:20270219T000000Z
 DTSTART;VALUE=DATE:20270219
 DTEND;VALUE=DATE:20270220
 SUMMARY:Parent Workshop: An Author's Workshop
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270222-holiday-elc-february-mid-term-break@portal.elc.ac.th
@@ -460,8 +460,8 @@ DTSTAMP:20270222T000000Z
 DTSTART;VALUE=DATE:20270222
 DTEND;VALUE=DATE:20270227
 SUMMARY:Holiday: ELC February mid-term break\, to 26 Feb
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270301-parent-social-morning@portal.elc.ac.th
@@ -469,8 +469,8 @@ DTSTAMP:20270301T000000Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270304-atelier-explorations-and-learning@portal.elc.ac.th
@@ -478,8 +478,8 @@ DTSTAMP:20270304T000000Z
 DTSTART;VALUE=DATE:20270304
 DTEND;VALUE=DATE:20270305
 SUMMARY:Atelier explorations and learning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270309-wycombe-abbey-head-of-school-info-session@portal.elc.ac.th
@@ -487,8 +487,8 @@ DTSTAMP:20270309T000000Z
 DTSTART;VALUE=DATE:20270309
 DTEND;VALUE=DATE:20270310
 SUMMARY:Wycombe Abbey Head of School info session
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270311-emergent-reading-skill-development@portal.elc.ac.th
@@ -496,8 +496,8 @@ DTSTAMP:20270311T000000Z
 DTSTART;VALUE=DATE:20270311
 DTEND;VALUE=DATE:20270312
 SUMMARY:Emergent reading skill development
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270317-philosophy-circle-with-y6@portal.elc.ac.th
@@ -505,8 +505,8 @@ DTSTAMP:20270317T000000Z
 DTSTART;VALUE=DATE:20270317
 DTEND;VALUE=DATE:20270318
 SUMMARY:Philosophy Circle with Y6
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270319-parent-teacher-conference-progress@portal.elc.ac.th
@@ -514,8 +514,8 @@ DTSTAMP:20270319T000000Z
 DTSTART;VALUE=DATE:20270319
 DTEND;VALUE=DATE:20270320
 SUMMARY:Parent Teacher Conference (Progress)\, No school for children
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270322-compass-initiatives-transitions-to-k1@portal.elc.ac.th
@@ -523,8 +523,8 @@ DTSTAMP:20270322T000000Z
 DTSTART;VALUE=DATE:20270322
 DTEND;VALUE=DATE:20270323
 SUMMARY:Compass Initiatives: transitions to K1\, Morning\, Atrium
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270322-y3-to-y6-drama-and-music-evening@portal.elc.ac.th
@@ -532,8 +532,8 @@ DTSTAMP:20270322T000000Z
 DTSTART;VALUE=DATE:20270322
 DTEND;VALUE=DATE:20270323
 SUMMARY:Y3 to Y6 Drama and Music Evening
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270325-y3-to-y6-drama-and-music-evening@portal.elc.ac.th
@@ -541,8 +541,8 @@ DTSTAMP:20270325T000000Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:Y3 to Y6 Drama and Music Evening
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270401-elc-songkran-celebrations@portal.elc.ac.th
@@ -550,8 +550,8 @@ DTSTAMP:20270401T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:ELC Songkran celebrations
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270401-the-wonder-of-y6@portal.elc.ac.th
@@ -559,8 +559,8 @@ DTSTAMP:20270401T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:The Wonder of Y6
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270405-songkran-holiday@portal.elc.ac.th
@@ -568,8 +568,8 @@ DTSTAMP:20270405T000000Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270417
 SUMMARY:Songkran Holiday\, to 16 Apr
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270406-chakri-day-holiday@portal.elc.ac.th
@@ -577,8 +577,8 @@ DTSTAMP:20270406T000000Z
 DTSTART;VALUE=DATE:20270406
 DTEND;VALUE=DATE:20270407
 SUMMARY:Chakri Day Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270413-thai-new-year-songkran@portal.elc.ac.th
@@ -586,8 +586,8 @@ DTSTAMP:20270413T000000Z
 DTSTART;VALUE=DATE:20270413
 DTEND;VALUE=DATE:20270416
 SUMMARY:Thai New Year: Songkran\, to 15 Apr
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270422-math-at-elc@portal.elc.ac.th
@@ -595,8 +595,8 @@ DTSTAMP:20270422T000000Z
 DTSTART;VALUE=DATE:20270422
 DTEND;VALUE=DATE:20270423
 SUMMARY:Math at ELC
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270426-art-from-the-heart-exhibition-and-fundraising-week@portal.elc.ac.th
@@ -604,8 +604,8 @@ DTSTAMP:20270426T000000Z
 DTSTART;VALUE=DATE:20270426
 DTEND;VALUE=DATE:20270430
 SUMMARY:Art From The Heart exhibition and fundraising week\, to 29 Apr
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270426-new-families-and-pe-families-to-elc@portal.elc.ac.th
@@ -613,8 +613,8 @@ DTSTAMP:20270426T000000Z
 DTSTART;VALUE=DATE:20270426
 DTEND;VALUE=DATE:20270427
 SUMMARY:New Families and PE Families to ELC
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270503-parent-social-morning@portal.elc.ac.th
@@ -622,8 +622,8 @@ DTSTAMP:20270503T000000Z
 DTSTART;VALUE=DATE:20270503
 DTEND;VALUE=DATE:20270504
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270504-coronation-day-holiday@portal.elc.ac.th
@@ -631,8 +631,8 @@ DTSTAMP:20270504T000000Z
 DTSTART;VALUE=DATE:20270504
 DTEND;VALUE=DATE:20270505
 SUMMARY:Coronation Day Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270505-little-steps-big-futures-charting-your-child-s-k-to-6-journey@portal.elc.ac.th
@@ -640,8 +640,8 @@ DTSTAMP:20270505T000000Z
 DTSTART;VALUE=DATE:20270505
 DTEND;VALUE=DATE:20270506
 SUMMARY:Little Steps\, Big Futures: charting your child's K to 6 journey
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270506-little-steps-big-futures-charting-your-child-s-k-to-6-journey@portal.elc.ac.th
@@ -649,8 +649,8 @@ DTSTAMP:20270506T000000Z
 DTSTART;VALUE=DATE:20270506
 DTEND;VALUE=DATE:20270507
 SUMMARY:Little Steps\, Big Futures: charting your child's K to 6 journey
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270510-new-families-and-pe-families-to-elc@portal.elc.ac.th
@@ -658,8 +658,8 @@ DTSTAMP:20270510T000000Z
 DTSTART;VALUE=DATE:20270510
 DTEND;VALUE=DATE:20270511
 SUMMARY:New Families and PE Families to ELC\, Afternoon K1 session
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270513-navigating-the-ai-terrain@portal.elc.ac.th
@@ -667,8 +667,8 @@ DTSTAMP:20270513T000000Z
 DTSTART;VALUE=DATE:20270513
 DTEND;VALUE=DATE:20270514
 SUMMARY:Navigating the AI Terrain
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270520-visakha-bucha-holiday@portal.elc.ac.th
@@ -676,8 +676,8 @@ DTSTAMP:20270520T000000Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
 SUMMARY:Visakha Bucha Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270603-the-queen-s-birthday-normal-school-day@portal.elc.ac.th
@@ -685,8 +685,8 @@ DTSTAMP:20270603T000000Z
 DTSTART;VALUE=DATE:20270603
 DTEND;VALUE=DATE:20270604
 SUMMARY:The Queen's Birthday: normal school day
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270607-parent-social-morning@portal.elc.ac.th
@@ -694,8 +694,8 @@ DTSTAMP:20270607T000000Z
 DTSTART;VALUE=DATE:20270607
 DTEND;VALUE=DATE:20270608
 SUMMARY:Parent Social Morning
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270609-wan-wai-khru-teacher-s-appreciation-day@portal.elc.ac.th
@@ -703,8 +703,8 @@ DTSTAMP:20270609T000000Z
 DTSTART;VALUE=DATE:20270609
 DTEND;VALUE=DATE:20270610
 SUMMARY:Wan Wai Khru: Teacher's Appreciation Day
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270617-last-day-of-the-school-year@portal.elc.ac.th
@@ -712,8 +712,8 @@ DTSTAMP:20270617T000000Z
 DTSTART;VALUE=DATE:20270617
 DTEND;VALUE=DATE:20270618
 SUMMARY:Last day of the school year
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270618-no-school-for-children-staff-training-day@portal.elc.ac.th
@@ -721,8 +721,8 @@ DTSTAMP:20270618T000000Z
 DTSTART;VALUE=DATE:20270618
 DTEND;VALUE=DATE:20270619
 SUMMARY:No school for children (staff training day)
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270622-elc-summer-festival-of-the-arts-session-1@portal.elc.ac.th
@@ -730,8 +730,8 @@ DTSTAMP:20270622T000000Z
 DTSTART;VALUE=DATE:20270622
 DTEND;VALUE=DATE:20270703
 SUMMARY:ELC Summer Festival of the Arts\, Session 1\, to 2 Jul
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270706-school-holiday-office-open@portal.elc.ac.th
@@ -739,8 +739,8 @@ DTSTAMP:20270706T000000Z
 DTSTART;VALUE=DATE:20270706
 DTEND;VALUE=DATE:20270724
 SUMMARY:School holiday: office open\, to 23 Jul
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270726-elc-summer-festival-of-the-arts-session-2@portal.elc.ac.th
@@ -748,8 +748,8 @@ DTSTAMP:20270726T000000Z
 DTSTART;VALUE=DATE:20270726
 DTEND;VALUE=DATE:20270731
 SUMMARY:ELC Summer Festival of the Arts\, Session 2\, 26 to 27 and 29 to 30 Jul
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270728-king-vajiralongkorn-s-birthday-holiday@portal.elc.ac.th
@@ -757,7 +757,7 @@ DTSTAMP:20270728T000000Z
 DTSTART;VALUE=DATE:20270728
 DTEND;VALUE=DATE:20270729
 SUMMARY:King Vajiralongkorn's Birthday Holiday
-URL:https://parentportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://parentportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 END:VCALENDAR

@@ -499,13 +499,21 @@ button.cal-cell{-webkit-appearance:none;appearance:none;background:transparent;f
   .cal-wrap{grid-template-columns:1fr;}
 }
 @media(max-width:720px){
-  :root{--nav-h:60px;}
+  /* Relay #19: --chrome-b clears ALL the fixed bottom chrome, not just the tabbar. The
+     76px this replaced covered the 60px tabbar and nothing else, but the pills sit at
+     `bottom:80px` under 720px: #fb-pill right, #install-pill (0076) and the deploy-only
+     #pw-pill left, so a ~40px pill occupied the 80..120px band and floated over the last
+     stretch of the page, which is the .foot-strip privacy and policy links. The left pills
+     are the sharp edge: .foot-strip goes single-column left-aligned at this width, so the
+     links sit directly under them. 132px = tabbar + pill band + a gap. The cost is ~56px
+     of cream below the footer, seen only by someone already at the true end of the scroll. */
+  :root{--nav-h:60px;--chrome-b:132px;}
   nav{display:none;}
   .foot-links .m-only{display:inline;}
   .reg-card{grid-column:span 12;}
   .sport .grid{grid-template-columns:1fr;}
   .sport .grid .sport-row:nth-last-child(2){border-bottom:1px solid var(--rule-2);}
-  body{padding-bottom:76px;}
+  body{padding-bottom:var(--chrome-b);}
   .foot-strip{flex-direction:column;align-items:flex-start;gap:8px;text-align:left;}
   .tabbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:55;justify-content:space-around;align-items:center;
     padding:9px 6px calc(9px + env(safe-area-inset-bottom));background:rgba(251,250,246,0.94);backdrop-filter:blur(10px);border-top:1px solid var(--rule);}
@@ -641,6 +649,18 @@ a.win-row.book-row:focus-visible{outline:2px solid var(--purple);outline-offset:
   .ev-row .ev-main{min-width:calc(100% - 66px);}
   .cal-agenda .ev-row .ev-main{min-width:calc(100% - 92px);}
   .ev-row .cal-add{margin-left:66px;}
+  /* Relay #18 (Trevor 2026-07-28): a CLOSED calendar-agenda row is one line again. The two
+     rules above predate 0055: written when every row carried three 44px buttons, which
+     genuinely could not sit beside a 78px chip at 375px. 0055 collapsed those three behind
+     a single toggle, but the unconditional wrap plus `min-width:calc(100% - 92px)` (which
+     consumes line 1 exactly) was never revisited, so the toggle was pushed to a second
+     line on every row. Note the base `.ev-row` sets no flex-wrap, so this @420 block is
+     the ONLY place an agenda row can wrap while closed. @720's `:has(.cal-actions.open)`
+     still wraps the OPEN state, where the three 44px targets do need their own line.
+     Bare `.cal-add` rows (community events, windows strips) keep stacking: they have no
+     toggle to collapse into. Geometry only: how the compacted toggle LOOKS is CD (rule 7). */
+  .cal-agenda .ev-row:not(:has(.cal-actions.open)){flex-wrap:nowrap;}
+  .cal-agenda .ev-row:not(:has(.cal-actions.open)) .ev-main{min-width:0;}
   .win-row{flex-wrap:wrap;row-gap:6px;}
   .win-row .win-main{min-width:calc(100% - 150px);}
   .win-row .cal-add{margin-left:72px;}
