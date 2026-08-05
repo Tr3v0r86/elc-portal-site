@@ -434,7 +434,7 @@
 
   // La Comunità split sections (issue 0071): the comunita rows that coreRows() filters
   // off the core calendar surfaces land HERE instead. #community-workshops = upcoming
-  // comunita rows with cat 'workshop'; #community-mornings = cat 'social', shown as
+  // comunita rows of any non-social cat; #community-mornings = cat 'social', shown as
   // "Coffee mornings" (naming fixed in-sheet by Sarah). Both islands feed in, so a
   // PE-tab comunita row is never invisible (no campus chip yet: copy/CD pass). A title
   // links out only when the row carries a registration URL on ext (Jotform etc.:
@@ -445,17 +445,20 @@
   // their canonical home, so it STANDS EVEN WHEN EMPTY with an honest waiting line:
   // self-removing would leave workshops with no home at all until Sarah's column lands.
   // Social mornings keep the self-remove idiom; that section carries no such promise.
-  function comunitaRows(cat) {
+  // Sarah's 2026-08-05 sweep flags comunita on rows whose cat is 'event' too (open
+  // houses, atelier experiences, drama evenings), so the workshops section takes every
+  // non-social comunita row: a flagged row must never be invisible (0071 promise).
+  function comunitaRows(social) {
     return (P.calendarEvents || []).concat(P.peEvents || [])
-      .filter(function (e) { return e.comunita && e.cat === cat && e.date >= bkkToday; })
+      .filter(function (e) { return e.comunita && (e.cat === 'social') === social && e.date >= bkkToday; })
       .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
   }
-  [{ id: 'community-workshops', cat: 'workshop', heading: 'Workshops', stands: true,
+  [{ id: 'community-workshops', social: false, heading: 'Workshops', stands: true,
      empty: 'The year\'s parent workshops are being confirmed with the team. Every one of them will appear here, with its sign-up link, as it lands.' },
-   { id: 'community-mornings', cat: 'social', heading: 'Social mornings', stands: false }].forEach(function (sec) {
+   { id: 'community-mornings', social: true, heading: 'Social mornings', stands: false }].forEach(function (sec) {
     var mount = document.getElementById(sec.id);
     if (!mount) return;
-    var rows = comunitaRows(sec.cat);
+    var rows = comunitaRows(sec.social);
     if (!rows.length && !sec.stands) { mount.remove(); return; }
     mount.hidden = false;
     mount.className = 'section';
@@ -791,7 +794,7 @@
     // and self-removing: a dateless card in a dated band is noise, and until Sarah's
     // comunita column lands there are no rows, so nothing renders. The community page
     // itself is where the standing "workshops live here" promise is kept.
-    var wsRows = comunitaRows('workshop');
+    var wsRows = comunitaRows(false);
     if (wsRows.length) {
       var wsWhen = '<span class="when">' + cuLabel([wsRows[0].date], true) + '</span>';
       var wsBlurb = wsRows.length > 1
@@ -1130,24 +1133,23 @@
       return sd + ' ' + FN_MONS[s.getUTCMonth()] + ' to ' + u.getUTCDate() + ' ' + FN_MONS[u.getUTCMonth()];
     }
 
+    // Each month's dated key sits inside that month's box, under its mini grid
+    // (Sarah 2026-08-05: descriptions next to each month, not grouped at the bottom).
     var ycMonthsHTML = '<div class="yc-months">' + YCM.map(function (M) {
-      return '<div class="yc-mini"><div class="yc-mn">' + M.name + '</div>' + ycMonthCells(M) + '</div>';
-    }).join('') + '</div>';
-    var ycKeysHTML = '<div class="yc-keys">' + YCM.map(function (M) {
       var rows = calRows.filter(function (e) {
         var s = new Date(e.date + 'T00:00:00Z');
         return s.getUTCMonth() === M.mi && s.getUTCFullYear() === M.y;
       });
-      if (!rows.length) return '';
-      return '<div class="yc-kgm"><div class="yc-km">' + M.name + '</div>' + rows.map(function (e) {
+      var keys = rows.length ? '<div class="yc-mk">' + rows.map(function (e) {
         var cat = ycCat(e);
         return '<div class="yc-kr"><span class="yc-kd">' + ycKeyDay(e) + '</span>' +
           '<b class="yc-kgl yc-g-' + cat + '">' + YC_CAT[cat].glyph + '</b>' +
           '<span class="yc-kt">' + ycTxt(e.title) + '</span></div>';
-      }).join('') + '</div>';
+      }).join('') + '</div>' : '';
+      return '<div class="yc-mini"><div class="yc-mn">' + M.name + '</div>' + ycMonthCells(M) + keys + '</div>';
     }).join('') + '</div>';
 
-    if (calRows.length) printList.innerHTML = ycMonthsHTML + ycKeysHTML;   // else the static no-JS fallback stands
+    if (calRows.length) printList.innerHTML = ycMonthsHTML;   // else the static no-JS fallback stands
     var pLabel = document.getElementById('print-range-label');
     if (pLabel) pLabel.textContent = ayY + '–' + (ayY + 1);
     var pStamp = document.getElementById('print-stamp');
@@ -1411,12 +1413,18 @@
       }).format(new Date(row.date + 'T00:00:00Z'));
       var stateLabel = state === 'today' ? 'This morning' : state === 'past' ? 'Past morning' : 'Upcoming';
       var slides = coffeeSlides(row, bkkToday);
+      // Registration link (Sarah 2026-08-05): the Jotform URL rides the row's ext
+      // field from the SSOT sheet. Upcoming/today only: a past morning takes no sign-ups.
+      var reg = state !== 'past' && validHTTPS(row.ext)
+        ? '<a class="cm-slide" target="_blank" rel="noopener" href="' + escAttr(row.ext) + '">Register for this morning</a>'
+        : '';
       return '<div class="cm-card ' + state + '">' +
         '<span class="chip cm-cohort">' + row.cohort + '</span>' +
         '<span class="cm-state">' + stateLabel + '</span>' +
         '<div class="cm-date">' + date + '</div>' +
         '<dl class="cm-details"><div><dt>Time</dt><dd>' + (row.time || 'To be confirmed') + '</dd></div>' +
         '<div><dt>Place</dt><dd>' + (row.venue || 'To be confirmed') + '</dd></div></dl>' +
+        (reg ? '<div class="cm-slides">' + reg + '</div>' : '') +
         '<div class="cm-slides">' + slides + '</div></div>';
     }
 
@@ -1459,6 +1467,10 @@
     var plantedCoffeeCard = coffeeCard(plantedCoffeeRow);
     console.assert(plantedCoffeeCard.indexOf('<span class="chip cm-cohort">K1</span>') === plantedCoffeeCard.indexOf('>') + 1,
       'coffeeCard: cohort chip is the first card element');
+    console.assert(coffeeCard(Object.assign({}, plantedCoffeeRow, { ext: 'https://form.jotform.com/x' })).indexOf('Register for this morning') > -1 &&
+      plantedCoffeeCard.indexOf('Register for this morning') === -1 &&
+      coffeeCard(Object.assign({}, plantedCoffeeRow, { ext: 'http://form.jotform.com/x' })).indexOf('Register') === -1,
+      'coffeeCard: HTTPS ext renders the registration link; absent or non-HTTPS ext renders none');
     console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-18').indexOf('Expected by 18 Aug 2026') > -1,
       'coffeeSlides: missing past deck keeps its dated expectation through the due date');
     console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-19').indexOf('Slides are not available yet') > -1 &&

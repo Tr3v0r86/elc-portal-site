@@ -338,6 +338,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270501-art-from-the-heart-month@portal.elc.ac.th
+DTSTAMP:20270501T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Art From the Heart Month\, Throughout May
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270504-coronation-day@portal.elc.ac.th
 DTSTAMP:20270504T000000Z
 DTSTART;VALUE=DATE:20270504

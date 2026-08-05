@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-05T05:25:38.415Z",
+  "generated": "2026-08-05T06:02:24.223Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -35,13 +35,14 @@
       "type": "gold",
       "aud": "parent",
       "title": "New Family Orientation",
-      "sub": "The orientation morning for families new to ELC."
+      "sub": "A warm welcome for families new to ELC."
     },
     {
       "date": "2026-08-17",
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/261928681379473",
       "cohort": "K1",
       "title": "K1 Coffee morning",
       "sub": "Information session"
@@ -76,6 +77,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/261940160950454",
       "cohort": "Y1",
       "title": "Y1 Coffee morning",
       "sub": "Information session"
@@ -94,6 +96,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/261940913095460",
       "cohort": "Y3 to Y6",
       "title": "Y3 to Y6 Coffee morning",
       "sub": "Information session"
@@ -103,6 +106,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/261940118766462",
       "cohort": "Y2",
       "title": "Y2 Coffee morning",
       "sub": "Information session"
@@ -112,6 +116,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/261940122478457",
       "cohort": "K2",
       "title": "K2 Coffee morning",
       "sub": "Information session"
@@ -121,6 +126,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262158847629471",
       "cohort": "Dove",
       "title": "Dove Coffee morning",
       "sub": "Information session"
@@ -130,8 +136,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -140,6 +146,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Safeguarding parent info session",
       "sub": ""
     },
@@ -164,6 +172,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "ISB parent info session",
       "sub": ""
     },
@@ -180,8 +190,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -190,6 +200,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Digital Safety parent info session",
       "sub": ""
     },
@@ -208,7 +220,16 @@
       "type": "purple",
       "aud": "holiday",
       "title": "King Chulalongkorn Memorial Day",
-      "sub": "No school for children"
+      "sub": "No school for children; Teacher In-Service Day"
+    },
+    {
+      "date": "2026-10-27",
+      "cat": "event",
+      "type": "gold",
+      "aud": "child",
+      "until": "2026-10-30",
+      "title": "School Photos With U-Smile",
+      "sub": ""
     },
     {
       "date": "2026-10-29",
@@ -216,6 +237,7 @@
       "type": "purple",
       "aud": "parent",
       "community": true,
+      "comunita": true,
       "title": "Parent Workshop: Emotional Regulation",
       "sub": ""
     },
@@ -224,8 +246,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -263,11 +285,19 @@
       "sub": ""
     },
     {
+      "date": "2026-12-04",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Rescheduled National Day Performance",
+      "sub": "Friday"
+    },
+    {
       "date": "2026-12-05",
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "title": "King Rama IX Birthday and National Day Performance",
+      "title": "King Rama IX Birthday and National Day",
       "sub": "Saturday"
     },
     {
@@ -279,20 +309,20 @@
       "sub": ""
     },
     {
+      "date": "2026-12-10",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Parent Teacher Conferences (Report Card)",
+      "sub": "No school for children"
+    },
+    {
       "date": "2026-12-11",
       "cat": "event",
       "type": "purple",
       "aud": "parent",
       "title": "Y3 to Y6 Holiday Choir Concert",
       "sub": ""
-    },
-    {
-      "date": "2026-12-14",
-      "cat": "event",
-      "type": "purple",
-      "aud": "parent",
-      "title": "Parent Teacher Conferences (Report Card)",
-      "sub": "No school for children"
     },
     {
       "date": "2026-12-16",
@@ -328,20 +358,12 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
-      "until": "2027-01-09",
+      "until": "2027-01-08",
       "title": "Holiday: Christmas and New Year",
       "sub": "to 9 Jan"
     },
     {
       "date": "2027-01-11",
-      "cat": "holiday",
-      "type": "purple",
-      "aud": "holiday",
-      "title": "No school for children (staff training day)",
-      "sub": ""
-    },
-    {
-      "date": "2027-01-12",
       "cat": "event",
       "type": "gold",
       "aud": "child",
@@ -355,6 +377,8 @@
       "type": "purple",
       "aud": "child",
       "nopage": true,
+      "community": true,
+      "comunita": true,
       "title": "Puberty Workshop",
       "sub": "Y5 and Y6"
     },
@@ -363,8 +387,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -374,6 +398,7 @@
       "type": "purple",
       "aud": "parent",
       "community": true,
+      "comunita": true,
       "title": "Parent Workshop: Supporting Behaviours",
       "sub": ""
     },
@@ -382,8 +407,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -393,6 +418,7 @@
       "type": "purple",
       "aud": "parent",
       "community": true,
+      "comunita": true,
       "title": "Parent Workshop: Making Learning Visible",
       "sub": ""
     },
@@ -435,6 +461,7 @@
       "type": "purple",
       "aud": "parent",
       "community": true,
+      "comunita": true,
       "title": "Parent Workshop: An Author's Workshop",
       "sub": ""
     },
@@ -452,8 +479,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -462,6 +489,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Atelier explorations and learning",
       "sub": ""
     },
@@ -470,6 +499,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Wycombe Abbey Head of School info session",
       "sub": ""
     },
@@ -478,6 +509,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Emergent reading skill development",
       "sub": ""
     },
@@ -486,6 +519,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Philosophy Circle with Y6",
       "sub": ""
     },
@@ -502,6 +537,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Compass Initiatives: transitions to K1",
       "sub": "Morning, Atrium"
     },
@@ -510,6 +547,8 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Y3 to Y6 Drama and Music Evening",
       "sub": ""
     },
@@ -518,6 +557,8 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Y3 to Y6 Drama and Music Evening",
       "sub": ""
     },
@@ -535,6 +576,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "The Wonder of Y6",
       "sub": ""
     },
@@ -569,6 +612,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "comunita": true,
       "title": "Math at ELC",
       "sub": ""
     },
@@ -595,8 +639,8 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -637,6 +681,8 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "community": true,
+      "comunita": true,
       "title": "Navigating the AI Terrain",
       "sub": ""
     },
@@ -645,8 +691,8 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
-      "title": "Visakha Bucha Holiday",
-      "sub": ""
+      "title": "Visakha Bucha Day : normal school day",
+      "sub": "Normal school day"
     },
     {
       "date": "2027-06-03",
@@ -654,16 +700,16 @@
       "type": "purple",
       "aud": "child",
       "nopage": true,
-      "title": "The Queen's Birthday: normal school day",
-      "sub": ""
+      "title": "The Queen's Birthday: holiday",
+      "sub": "Holiday"
     },
     {
       "date": "2027-06-07",
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "community": true,
+      "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
     },
@@ -677,24 +723,16 @@
       "sub": ""
     },
     {
-      "date": "2027-06-17",
+      "date": "2027-06-18",
       "cat": "event",
       "type": "gold",
       "aud": "child",
       "nopage": true,
       "title": "Last day of the school year",
-      "sub": ""
+      "sub": "Hometime 11:30 for K1 and K2, 12:00 for Y1 to Y6"
     },
     {
-      "date": "2027-06-18",
-      "cat": "holiday",
-      "type": "purple",
-      "aud": "holiday",
-      "title": "No school for children (staff training day)",
-      "sub": ""
-    },
-    {
-      "date": "2027-06-22",
+      "date": "2027-06-21",
       "cat": "event",
       "type": "purple",
       "aud": "parent",
@@ -705,7 +743,7 @@
       "sub": "to 2 Jul"
     },
     {
-      "date": "2027-07-06",
+      "date": "2027-07-05",
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",

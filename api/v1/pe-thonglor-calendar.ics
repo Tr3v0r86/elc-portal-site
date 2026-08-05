@@ -59,15 +59,6 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260929-building-bridges-information-session-and-tours-at-tcs@portal.elc.ac.th
-DTSTAMP:20260929T000000Z
-DTSTART;VALUE=DATE:20260929
-DTEND;VALUE=DATE:20261001
-SUMMARY:Building Bridges: Information Session and Tours at TCS\, 29 and 30 Sep
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
 UID:20261002-professional-development-day@portal.elc.ac.th
 DTSTAMP:20261002T000000Z
 DTSTART;VALUE=DATE:20261002
@@ -100,33 +91,6 @@ DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:King Chulalongkorn Memorial Day\, No school
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20261110-atelier-experiences-at-pe-55@portal.elc.ac.th
-DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20261110
-DTEND;VALUE=DATE:20261111
-SUMMARY:Atelier Experiences at PE 55
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20261112-atelier-experiences-at-pe-39@portal.elc.ac.th
-DTSTAMP:20261112T000000Z
-DTSTART;VALUE=DATE:20261112
-DTEND;VALUE=DATE:20261113
-SUMMARY:Atelier Experiences at PE 39
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20261117-atelier-experiences-at-pe-49@portal.elc.ac.th
-DTSTAMP:20261117T000000Z
-DTSTART;VALUE=DATE:20261117
-DTEND;VALUE=DATE:20261120
-SUMMARY:Atelier Experiences at PE 49\, 17 and 19 Nov
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -176,6 +140,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261218-last-day-of-term-1@portal.elc.ac.th
+DTSTAMP:20261218T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Last day of Term 1\, Hometime 12 pm
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261221-holiday-christmas-and-new-year@portal.elc.ac.th
 DTSTAMP:20261221T000000Z
 DTSTART;VALUE=DATE:20261221
@@ -194,29 +167,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270111-professional-development-day@portal.elc.ac.th
+UID:20270111-school-resumes-for-term-2@portal.elc.ac.th
 DTSTAMP:20270111T000000Z
 DTSTART;VALUE=DATE:20270111
 DTEND;VALUE=DATE:20270112
-SUMMARY:Professional Development Day\, No school for children
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20270112-start-of-term-2@portal.elc.ac.th
-DTSTAMP:20270112T000000Z
-DTSTART;VALUE=DATE:20270112
-DTEND;VALUE=DATE:20270113
-SUMMARY:Start of Term 2
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20270127-pe-open-house@portal.elc.ac.th
-DTSTAMP:20270127T000000Z
-DTSTART;VALUE=DATE:20270127
-DTEND;VALUE=DATE:20270128
-SUMMARY:PE Open House
+SUMMARY:School resumes for Term 2
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -235,15 +190,6 @@ DTSTAMP:20270319T000000Z
 DTSTART;VALUE=DATE:20270319
 DTEND;VALUE=DATE:20270320
 SUMMARY:Professional Development Day\, No school for children
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20270322-compass-initiatives-transitions-to-k1@portal.elc.ac.th
-DTSTAMP:20270322T000000Z
-DTSTART;VALUE=DATE:20270322
-DTEND;VALUE=DATE:20270323
-SUMMARY:Compass Initiatives: transitions to K1\, In the Atrium
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -293,15 +239,6 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270508-pe-open-house@portal.elc.ac.th
-DTSTAMP:20270508T000000Z
-DTSTART;VALUE=DATE:20270508
-DTEND;VALUE=DATE:20270509
-SUMMARY:PE Open House
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
 UID:20270510-new-families-and-pe-families-to-elc@portal.elc.ac.th
 DTSTAMP:20270510T000000Z
 DTSTART;VALUE=DATE:20270510
@@ -329,15 +266,6 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270529-art-auction@portal.elc.ac.th
-DTSTAMP:20270529T000000Z
-DTSTART;VALUE=DATE:20270529
-DTEND;VALUE=DATE:20270530
-SUMMARY:Art Auction\, Location TBD
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
 UID:20270603-the-queen-s-birthday@portal.elc.ac.th
 DTSTAMP:20270603T000000Z
 DTSTART;VALUE=DATE:20270603
@@ -347,20 +275,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270617-last-day-of-school-year@portal.elc.ac.th
-DTSTAMP:20270617T000000Z
-DTSTART;VALUE=DATE:20270617
-DTEND;VALUE=DATE:20270618
-SUMMARY:Last day of School Year
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20270618-teacher-in-service-day@portal.elc.ac.th
+UID:20270618-last-day-of-school-year-hometime-12-pm@portal.elc.ac.th
 DTSTAMP:20270618T000000Z
 DTSTART;VALUE=DATE:20270618
 DTEND;VALUE=DATE:20270619
-SUMMARY:Teacher In-Service Day\, No school for children
+SUMMARY:Last day of School Year\; Hometime 12 pm
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
