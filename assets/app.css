@@ -688,7 +688,7 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
    The fridge sheet: the whole academic year on one A4, matching the City School
    PDF. <doc-page> (assets/doc-page.js) owns A4 pagination + repeats the masthead
    (slot=header) and footnote (slot=footer) on every page. render.js EMITS the
-   month grid (.yc-months, per-month key inside each box) into #print-list; the masthead,
+   month grid (.yc-months) + dated key (.yc-keys) into #print-list; the masthead,
    subscribe strip, legend + footnote are static in the page HTML. All classes are
    yc-* so they never collide with the .cal-* / .ev-row / .legend rules that drive
    /calendar/. Ground = white (official ELC register); ink = charcoal; purple the
@@ -723,14 +723,8 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
 .yc-sub-soon{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap;}
 
 /* month grid (render.js EMITS into #print-list) */
-/* Two tall columns mimicking the official City School calendar PDF (Trevor
-   2026-08-05): Aug to Jan down the left, Feb to Jul down the right. Each month is
-   one row, grid left + dated key beside it right, so the key reads next to its
-   month the way the PDF does. CSS columns (not grid) pack the uneven rows. */
-.yc-months{display:flex;gap:14px;margin-top:10px;align-items:flex-start;}
-.yc-half{flex:1 1 0;min-width:0;}
-.yc-mini{display:flex;gap:8px;align-items:flex-start;break-inside:avoid;margin-bottom:6px;padding:4px 6px 5px;border:1px solid var(--rule);border-radius:8px;background:var(--white-pure);}
-.yc-cal{flex:0 0 150px;}
+.yc-months{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px;}
+.yc-mini{border:1px solid var(--rule);border-radius:8px;padding:7px 9px 8px;background:var(--white-pure);break-inside:avoid;}
 .yc-mn{font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px;letter-spacing:-.005em;}
 .yc-cells{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;}
 .yc-dow{font-family:var(--sans);font-size:7.5px;font-weight:600;letter-spacing:.03em;color:var(--cal-dow);text-align:center;padding-bottom:3px;text-transform:uppercase;font-style:normal;}
@@ -742,10 +736,11 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
    (Sarah 2026-08-05). Inset ring, not border, so the 7-col grid metrics stay put. */
 .yc-d.yc-c-H,.yc-d.yc-c-PD,.yc-d.yc-c-PT{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cc) 70%,var(--ink));}
 
-/* dated key (render.js EMITS into #print-list) */
-/* Key list beside each month's grid (PDF layout). Vertically centred against the
-   grid like the PDF's key column; grows downward when longer than the grid. */
-.yc-mk{flex:1;min-width:0;align-self:center;padding-top:14px;}
+/* dated key (render.js EMITS into #print-list): grouped per month at the bottom
+   of the sheet (original layout, restored Trevor 2026-08-05) */
+.yc-keys{column-count:3;column-gap:22px;margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);}
+.yc-kgm{break-inside:avoid;margin-bottom:6px;}
+.yc-km{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px;letter-spacing:-.005em;}
 .yc-kr{display:flex;gap:6px;font-size:10px;line-height:1.34;margin-bottom:1px;align-items:baseline;}
 /* density (Trevor 2026-07-21): date shrinks to content so the glyph sits right next to it and the title line runs longer; was min-width:46px (glyphs aligned in a column, wasting title width). nowrap+no-shrink keeps date ranges on one line. CC mechanical pass; CD may refine the rhythm (rule 7). */
 .yc-kd{font-family:var(--sans);font-weight:700;color:var(--ink);white-space:nowrap;flex-shrink:0;font-size:9px;font-variant-numeric:tabular-nums;}
@@ -763,7 +758,7 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
 
 /* Purple Elephant variant (early years): purple leads the masthead + month heads */
 .yc-pe .yc-mast{border-bottom-color:var(--purple);border-bottom-width:2px;}
-.yc-pe .yc-sub,.yc-pe .yc-yr,.yc-pe .yc-mn{color:var(--purple);}
+.yc-pe .yc-sub,.yc-pe .yc-yr,.yc-pe .yc-mn,.yc-pe .yc-km{color:var(--purple);}
 
 /* empty-state fallback (no JS): honest, points at the live calendar */
 .yc-empty{font-family:var(--mono);font-size:12px;color:var(--muted);padding:8px 2px;}
@@ -790,11 +785,9 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
   .yc-months{margin-top:5px;}
   .yc-mini{padding:5px 8px 6px;}
   .yc-d{line-height:1.18;}
-  .yc-mk{padding-top:2px;}
-  .yc-kr{line-height:1.18;font-size:9px;margin-bottom:0;}
-  .yc-kd{font-size:8.5px;}
-  .yc-mini{margin-bottom:5px;}
-  .yc-mn{font-size:12px;margin-bottom:2px;}
+  .yc-keys{margin-top:5px;padding-top:6px;}
+  .yc-kgm{margin-bottom:2px;}
+  .yc-kr{line-height:1.2;}
   .yc-legend{margin-top:5px;padding-top:6px;}
 }
 

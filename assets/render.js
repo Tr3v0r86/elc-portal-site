@@ -1125,34 +1125,27 @@
       return sd + ' ' + FN_MONS[s.getUTCMonth()] + ' to ' + u.getUTCDate() + ' ' + FN_MONS[u.getUTCMonth()];
     }
 
-    // Layout mimics the official City School calendar PDF (Trevor 2026-08-05, second
-    // pass on Sarah's "descriptions next to each month"): two tall columns, August to
-    // January down the left and February to July down the right, each month one row
-    // with its grid on the left and its dated key BESIDE it on the right. The first
-    // pass (keys under each grid in a 4-col masonry) read as nonsensical against the
-    // PDF families already know; this is the original system, squeezed to one page.
-    function ycMonthRow(M) {
+    // Original layout, restored (Trevor 2026-08-05: the per-month and beside-the-grid
+    // passes both read messy): month grids in one block on top, dated key grouped
+    // per month at the bottom of the sheet.
+    var ycMonthsHTML = '<div class="yc-months">' + YCM.map(function (M) {
+      return '<div class="yc-mini"><div class="yc-mn">' + M.name + '</div>' + ycMonthCells(M) + '</div>';
+    }).join('') + '</div>';
+    var ycKeysHTML = '<div class="yc-keys">' + YCM.map(function (M) {
       var rows = calRows.filter(function (e) {
         var s = new Date(e.date + 'T00:00:00Z');
         return s.getUTCMonth() === M.mi && s.getUTCFullYear() === M.y;
       });
-      var keys = rows.length ? '<div class="yc-mk">' + rows.map(function (e) {
+      if (!rows.length) return '';
+      return '<div class="yc-kgm"><div class="yc-km">' + M.name + '</div>' + rows.map(function (e) {
         var cat = ycCat(e);
         return '<div class="yc-kr"><span class="yc-kd">' + ycKeyDay(e) + '</span>' +
           '<b class="yc-kgl yc-g-' + cat + '">' + YC_CAT[cat].glyph + '</b>' +
           '<span class="yc-kt">' + ycTxt(e.title) + '</span></div>';
-      }).join('') + '</div>' : '<div class="yc-mk"></div>';
-      return '<div class="yc-mini"><div class="yc-cal"><div class="yc-mn">' + M.name + '</div>' +
-        ycMonthCells(M) + '</div>' + keys + '</div>';
-    }
-    // Two explicit half-year columns, not CSS multicol: break-after:column is not
-    // honored reliably, and the PDF's split is fixed (Aug to Jan | Feb to Jul).
-    var ycMonthsHTML = '<div class="yc-months">' +
-      '<div class="yc-half">' + YCM.slice(0, 6).map(ycMonthRow).join('') + '</div>' +
-      '<div class="yc-half">' + YCM.slice(6).map(ycMonthRow).join('') + '</div>' +
-      '</div>';
+      }).join('') + '</div>';
+    }).join('') + '</div>';
 
-    if (calRows.length) printList.innerHTML = ycMonthsHTML;   // else the static no-JS fallback stands
+    if (calRows.length) printList.innerHTML = ycMonthsHTML + ycKeysHTML;   // else the static no-JS fallback stands
     var pLabel = document.getElementById('print-range-label');
     if (pLabel) pLabel.textContent = ayY + '–' + (ayY + 1);
     var pStamp = document.getElementById('print-stamp');
