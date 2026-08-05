@@ -737,7 +737,15 @@
     (P.featuredEvents || []).forEach(function (f) { if (f && f.href) featBy[f.href] = f; });
 
     var cuMap = {}, cuOrder = [];
-    coreRows(P.calendarEvents).forEach(function (e) {   // 0071: comunita rows live on community/
+    // Core city rows PLUS every non-social comunita row (both campus arrays): workshops
+    // are off the calendar pages but each windowed one gets ITS OWN card here (Trevor
+    // 2026-08-05, unbundling the single 0079 card). A pageless one renders the honest
+    // "Page coming soon" pill and trips the check-coming-up gate: fail loudly, Trevor
+    // makes the page. Social mornings stay community/-only.
+    var cuSrc = coreRows(P.calendarEvents).concat(
+      (P.calendarEvents || []).concat(P.peEvents || [])
+        .filter(function (e) { return e.comunita && e.cat !== 'social'; }));
+    cuSrc.forEach(function (e) {
       if (!e.date || e.date < bkkToday || e.date > cuHorizon) return;
       var key = e.href || ('row:' + e.date + ':' + e.title);   // pageless rows never collide with an href group
       if (!cuMap[key]) { cuMap[key] = { rows: [], href: e.href || null }; cuOrder.push(key); }
@@ -787,25 +795,9 @@
       }).join('');
     }
 
-    // Workshops card (issue 0079). Workshops are fully off every calendar surface, so
-    // they would otherwise have no presence in the band families actually scan. One
-    // .ev-card, appended to the same grid (not a second grid, and deliberately outside
-    // CU_CAP: this is not a calendar row), linking to their canonical home. Row-driven
-    // and self-removing: a dateless card in a dated band is noise, and until Sarah's
-    // comunita column lands there are no rows, so nothing renders. The community page
-    // itself is where the standing "workshops live here" promise is kept.
-    var wsRows = comunitaRows(false);
-    if (wsRows.length) {
-      var wsWhen = '<span class="when">' + cuLabel([wsRows[0].date], true) + '</span>';
-      var wsBlurb = wsRows.length > 1
-        ? wsRows.length + ' parent workshops coming up, starting with ' + wsRows[0].title + '.'
-        : wsRows[0].title + (wsRows[0].sub ? '. ' + wsRows[0].sub : '.');
-      agenda.insertAdjacentHTML('beforeend',
-        '<a class="tile ev-card ev-link" href="' + ROOT + 'community/#community-workshops"' +
-        ' aria-label="Parent workshops · La Comunità">' + wsWhen +
-        '<h3>Parent workshops</h3><p>' + wsBlurb + '</p>' +
-        '<span class="go">See what\'s on <span class="arw">&rarr;</span></span></a>');
-    }
+    // The single bundled "Parent workshops" card (issue 0079) is retired (Trevor
+    // 2026-08-05): windowed workshops now ride the band above as individual cards.
+    // The community page keeps the standing full-year "workshops live here" promise.
   }
 
   // Calendar page agenda (#cal-agenda): FOLLOWS the month the grid shows (relay #5
@@ -1133,9 +1125,13 @@
       return sd + ' ' + FN_MONS[s.getUTCMonth()] + ' to ' + u.getUTCDate() + ' ' + FN_MONS[u.getUTCMonth()];
     }
 
-    // Each month's dated key sits inside that month's box, under its mini grid
-    // (Sarah 2026-08-05: descriptions next to each month, not grouped at the bottom).
-    var ycMonthsHTML = '<div class="yc-months">' + YCM.map(function (M) {
+    // Layout mimics the official City School calendar PDF (Trevor 2026-08-05, second
+    // pass on Sarah's "descriptions next to each month"): two tall columns, August to
+    // January down the left and February to July down the right, each month one row
+    // with its grid on the left and its dated key BESIDE it on the right. The first
+    // pass (keys under each grid in a 4-col masonry) read as nonsensical against the
+    // PDF families already know; this is the original system, squeezed to one page.
+    function ycMonthRow(M) {
       var rows = calRows.filter(function (e) {
         var s = new Date(e.date + 'T00:00:00Z');
         return s.getUTCMonth() === M.mi && s.getUTCFullYear() === M.y;
@@ -1145,9 +1141,16 @@
         return '<div class="yc-kr"><span class="yc-kd">' + ycKeyDay(e) + '</span>' +
           '<b class="yc-kgl yc-g-' + cat + '">' + YC_CAT[cat].glyph + '</b>' +
           '<span class="yc-kt">' + ycTxt(e.title) + '</span></div>';
-      }).join('') + '</div>' : '';
-      return '<div class="yc-mini"><div class="yc-mn">' + M.name + '</div>' + ycMonthCells(M) + keys + '</div>';
-    }).join('') + '</div>';
+      }).join('') + '</div>' : '<div class="yc-mk"></div>';
+      return '<div class="yc-mini"><div class="yc-cal"><div class="yc-mn">' + M.name + '</div>' +
+        ycMonthCells(M) + '</div>' + keys + '</div>';
+    }
+    // Two explicit half-year columns, not CSS multicol: break-after:column is not
+    // honored reliably, and the PDF's split is fixed (Aug to Jan | Feb to Jul).
+    var ycMonthsHTML = '<div class="yc-months">' +
+      '<div class="yc-half">' + YCM.slice(0, 6).map(ycMonthRow).join('') + '</div>' +
+      '<div class="yc-half">' + YCM.slice(6).map(ycMonthRow).join('') + '</div>' +
+      '</div>';
 
     if (calRows.length) printList.innerHTML = ycMonthsHTML;   // else the static no-JS fallback stands
     var pLabel = document.getElementById('print-range-label');
