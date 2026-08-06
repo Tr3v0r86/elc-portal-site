@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Purple Elephant 39, 49 and 55 · ELC Portal</title>
+<title>The Purple Elephant 39, 49 and 55 · ELC Portal</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F4F2EA">
 <meta name="description" content="The Purple Elephant early-years calendar for Thong Lor (Sois 39, 49 and 55): the year month by month, add any event to your calendar.">
-<meta property="og:title" content="Purple Elephant 39, 49 and 55 · ELC Portal">
+<meta property="og:title" content="The Purple Elephant 39, 49 and 55 · ELC Portal">
 <meta property="og:description" content="The Purple Elephant early-years calendar for Thong Lor (Sois 39, 49 and 55): the year month by month, add any event to your calendar.">
 <meta property="og:url" content="https://elcportal.elc.ac.th/purple-elephant/thong-lor/">
 <meta property="og:image" content="https://elcportal.elc.ac.th/assets/icon-512.png">
@@ -27,7 +27,7 @@
     <a class="brand" href="../../">
       <span class="desc"><span class="portal-mark" id="mark" aria-hidden="true"></span>ELC Portal</span>
     </a>
-    <span class="tape">v0.93</span>
+    <span class="tape">v1.0</span>
     <nav>
       <a class="navlink city-only" href="../../">This week</a>
       <a class="navlink city-only" href="../../activities/">Activities</a>
@@ -55,7 +55,7 @@
     </nav>
   </header>
 
-  <div class="crumb"><a href="../../">ELC Portal</a> &nbsp;/&nbsp; Purple Elephant 39, 49 and 55</div>
+  <div class="crumb"><a href="../../">ELC Portal</a> &nbsp;/&nbsp; The Purple Elephant 39, 49 and 55</div>
 
   <!-- Purple Elephant microsite (issue 0064). Calendar-first: the month grid (#cal-grid)
        and agenda (#cal-agenda) carry data-pe="thonglor", so render.js renders them from the
@@ -68,8 +68,8 @@
     <img class="spiral-art" src="../../assets/img/art/spiral.png" alt="" aria-hidden="true" loading="lazy" width="1600" height="1174">
     <div class="pe-hero">
       <div class="page-head">
-        <span class="eyebrow">Purple Elephant</span>
-        <h1>Purple Elephant 39, 49 and 55.</h1>
+        <span class="eyebrow">The Purple Elephant</span>
+        <h1>The Purple Elephant 39, 49 and 55.</h1>
         <p class="lead">The early years at ELC, at our three Thong Lor houses on Sois 39, 49 and 55. Here is the year month by month, with every event ready to add to your own calendar. The day to day and what to know is being written with the Purple Elephant team.</p>
         <div class="pe-houses">
           <span class="chip">Soi 39</span>
@@ -85,6 +85,24 @@
            contour-mark placeholder was retired 2026-08-03 (issue 0080); the City
            calendar page's spiral graphic now grounds the page instead. -->
     </div>
+
+
+    <!-- This week at this centre (issue 0123, relay #46). Trevor: "just a dialed back version so
+         quickly you can see whats on this week at Purple Elephants". So this is the home strip and
+         NOTHING else: no Full-calendar link (the month grid is directly below on this page), no
+         booking-window prompt, no cards. #week carries data-pe, so render.js reads this campus's own
+         rows out of the isolated peEvents array. The "no school" key is kept because it is the one
+         thing a family acts on; the audience keys came off everywhere at 0120. -->
+    <section class="section band weekband" aria-labelledby="wk-h">
+      <div class="sec-eyebrow">
+        <span class="eyebrow" id="wk-h">This week</span>
+        <span class="ln"></span>
+      </div>
+      <div class="weekstrip" id="week" data-pe="thonglor"></div>
+      <div class="legend wk">
+        <span><span class="d holiday"></span>No school</span>
+      </div>
+    </section>
 
     <div class="cal-wrap">
       <div class="cal-card">
@@ -120,7 +138,7 @@
     <span class="l">elcportal.elc.ac.th · ELC International Schools, Thong Lor</span>
     <span class="r">No login needed. Your child's learning lives in the Parent App.</span>
     <span class="foot-links"><a class="m-only" href="../../help/">Quick answers</a><a href="../../nuts-and-bolts/">Nuts and bolts</a><a href="../../privacy/">Privacy</a><a href="../../safeguarding/">Safeguarding</a><a href="../../verify/">Is it really us</a></span>
-    <span class="fine">v0.93</span>
+    <span class="fine">v1.0</span>
   </div>
 
   <div class="tabbar">

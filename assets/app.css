@@ -82,8 +82,8 @@ nav{display:flex;align-items:center;gap:28px;}
    The label rides the header <summary>, which is display:none at <=720px, so it can never widen
    the 8px-mono tabbar (relay #19). Mobile signal = .tab.active on the Centres button. */
 body[data-campus^="pe-"] .city-only{display:none;}
-body[data-campus="pe-thonglor"] .campus-summary::after{content:": Purple Elephant Thong Lor";}
-body[data-campus="pe-samakee"] .campus-summary::after{content:": Purple Elephant Samakee";}
+body[data-campus="pe-thonglor"] .campus-summary::after{content:": The Purple Elephant Thong Lor";}
+body[data-campus="pe-samakee"] .campus-summary::after{content:": The Purple Elephant Samakee";}
 .campus-switch .campus.active{color:var(--ink);font-weight:600;}
 button.tab{background:none;border:none;padding:0;}
 .cal-pop .campus-switch{display:flex;flex-direction:column;}

@@ -674,7 +674,13 @@
   var week = document.getElementById('week');
   if (week && P.calendarEvents) {
     var WK_DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var wkBy = expandByDate(coreRows(P.calendarEvents));   // 0071: comunita rows live on community/ · 0114: multi-day rows mark every day
+    /* 0123 (Trevor, relay #46): a Purple Elephant page carries data-pe on the strip mount, so
+       "this week" is that campus's own week. Same one-line pattern the grid and agenda mounts
+       already use (0064), reading the isolated peEvents array rather than a second data path.
+       No data-pe (the City home) reads calendarEvents unchanged. */
+    var wkPe = week.getAttribute('data-pe');
+    var wkSrc = wkPe ? (P.peEvents || []).filter(function (e) { return e.pe === wkPe; }) : P.calendarEvents;
+    var wkBy = expandByDate(coreRows(wkSrc));   // 0071: comunita rows live on community/ · 0114: multi-day rows mark every day
     var wkH = document.getElementById('wk-h');
     if (wkH) wkH.setAttribute('aria-live', 'polite');   // the heading announces the flip
     var renderWeek = function (off) {
@@ -1588,12 +1594,12 @@
   // data lands, the visible signal that the update propagated. Static HTML keeps a
   // hardcoded version string as the no-JS fallback.
   // 0097: the version number and the review-window disclaimer are two separate decisions, and
-  // they came apart at v0.93. The number is still 0.9x because Trevor's edit waves have not
+  // they came apart at v1.0. The number is still 0.9x because Trevor's edit waves have not
   // stopped and the 1.0 flip is his call out loud; the disclaimer went because families arrive
   // the next morning and it had stopped being true. Wording and reasoning both live in 0097.
   var fineStamp = document.querySelector('.fine');
   if (fineStamp && P.version) {
-    /* The review-window disclaimer clause came off here at v0.93 (issue 0097). The version
+    /* The review-window disclaimer clause came off here at v1.0 (issue 0097). The version
        number stays: the edit waves have not stopped, and the 1.0 flip is a call Trevor makes
        out loud. Both carriers must agree, this one and the static HTML footer, and THIS is
        the one that actually paints the footer: changing only the HTML looks fixed and is not.
