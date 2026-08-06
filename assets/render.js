@@ -1587,10 +1587,10 @@
   // data.js is network-first, so a new deploy restamps every page the moment fresh
   // data lands, the visible signal that the update propagated. Static HTML keeps a
   // hardcoded version string as the no-JS fallback.
-  // 0097: the version number and the disclaimer are two separate decisions, and they came apart
-  // at v0.93. The number is still 0.9x because Trevor's edit waves have not stopped and the 1.0
-  // flip is his call out loud, but the disclaimer went at 0.93 because families arrive the next
-  // morning and a page that tells them it is not a live school page would be the lie.
+  // 0097: the version number and the review-window disclaimer are two separate decisions, and
+  // they came apart at v0.93. The number is still 0.9x because Trevor's edit waves have not
+  // stopped and the 1.0 flip is his call out loud; the disclaimer went because families arrive
+  // the next morning and it had stopped being true. Wording and reasoning both live in 0097.
   var fineStamp = document.querySelector('.fine');
   if (fineStamp && P.version) {
     /* The review-window disclaimer clause came off here at v0.93 (issue 0097). The version
