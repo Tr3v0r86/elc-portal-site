@@ -69,6 +69,21 @@ nav{display:flex;align-items:center;gap:28px;}
    nav-dd dropdown (summary "Centres"); links flow into .dd-panel (display:contents)
    and take .dd-panel a styling. Mobile = a .cal-pop sheet cloned from .campus-switch. */
 .campus-switch{display:contents;}
+/* Campus scoping (ADR-0005 v1.4). The 4 pages under purple-elephant/ carry data-campus on
+   <body>, which sits outside all 5 chrome blocks check-chrome pins; .city-only sits on This week
+   + Activities on ALL 23 pages, so the gated header and tabbar stay byte-identical.
+   ponytail: CSS not JS. No new code in render.js, and both the subtraction and the label survive
+   JS being off. render.js is one un-caught scope with the calendar mounts downstream of the
+   campus block, and the only gate on it is node --check, so a null-deref there would blank the
+   calendar for every family with no pre-deploy warning. This cannot throw.
+   First load after a deploy serves cached CSS under stale-while-revalidate (sw.js tier 3), so the
+   subtraction lands on load two; the .active campus signal is already-shipped CSS and lands on
+   load one. Do NOT bump the SW CACHE for this: sw.js scopes bumps to HTML-to-JS contract changes.
+   The label rides the header <summary>, which is display:none at <=720px, so it can never widen
+   the 8px-mono tabbar (relay #19). Mobile signal = .tab.active on the Centres button. */
+body[data-campus^="pe-"] .city-only{display:none;}
+body[data-campus="pe-thonglor"] .campus-summary::after{content:": Purple Elephant Thong Lor";}
+body[data-campus="pe-samakee"] .campus-summary::after{content:": Purple Elephant Samakee";}
 .campus-switch .campus.active{color:var(--ink);font-weight:600;}
 button.tab{background:none;border:none;padding:0;}
 .cal-pop .campus-switch{display:flex;flex-direction:column;}
