@@ -102,6 +102,38 @@
     if (/no school/i.test(sub)) return false;           // the row already says it
     return true;
   }
+  /* Thai public holidays carry a reference link (Trevor, relay #68, issue 0142):
+     "Can all Thailand official holidays have an outward link... Ideal if the link can go to the
+     heading of each holiday but not vital, just linking to the page is enough." The page returns
+     403 to any automated fetch, so its per-holiday anchors could not be confirmed and the second
+     option is the one taken: one URL, no guessed fragments.
+
+     This is a property of a CLASS of row, not data about one event, which is why it lives here
+     rather than as an `ext` value typed into twenty-odd cells across three sheet tabs: if the URL
+     ever moves it is one line, and Sarah never has to know the convention exists.
+
+     The deny list runs FIRST and is the important half. Half the rows tagged `aud: holiday` are
+     ELC's own closures (professional development days, mid-term breaks, the Christmas break, the
+     International Schools Holiday), and sending a family to a page of Thai national holidays to
+     read about an ELC staff day would be a straightforwardly wrong link. A row that already has a
+     real destination keeps it: this never overrides an href or an ext. */
+  var THAI_HOLIDAY_URL = 'https://www.thaiembassy.com/thailand/thai-holidays';
+  var NOT_THAI_HOLIDAY = /professional development|international schools|mid-term|christmas|summer holiday|office (and accounting )?open|school holiday/i;
+  var THAI_HOLIDAY = /chakri|chulalongkorn|coronation|songkran|thai new year|makha bucha|visakha bucha|asa(rn|l)ha|khao phansa|queen|king|national day|labour day|constitution day/i;
+  function thaiHolidayUrl(e) {
+    if (!e || e.aud !== 'holiday') return null;
+    if (e.href || e.ext) return null;                 // a real destination always outranks a reference
+    var t = String(e.title || '');
+    if (NOT_THAI_HOLIDAY.test(t)) return null;        // ELC's own closure, not Thailand's
+    return THAI_HOLIDAY.test(t) ? THAI_HOLIDAY_URL : null;
+  }
+  /* What to call an outward link, so no surface claims the wrong destination. Every external link
+     on the site used to be the school's own site, and the copy said so in three places; the Thai
+     holiday reference is the first that is not. */
+  function extSiteLabel(url) {
+    return /(^|\/\/|\.)elc\.ac\.th/.test(String(url || '')) ? 'the school site' : 'Thai public holidays';
+  }
+
   /* Where a week-strip entry goes (issue 0131, Trevor relay #51). The strip was built for the
      City home, where an event with no page of its own can honestly fall back to /calendar/.
      0123 reused the strip on the Purple Elephant pages, and there that fallback walks a family
@@ -290,6 +322,25 @@
   console.assert(!noSchoolNote({ aud: 'holiday', sub: 'Normal school day' }), 'noSchoolNote: a tagged holiday that is a working day must NOT say it (Visakha Bucha)');
   console.assert(!noSchoolNote({ aud: 'holiday', sub: 'No school for children; Teacher In-Service Day' }), 'noSchoolNote: never doubles a row that already says it');
   console.assert(!noSchoolNote({ aud: 'parent', sub: '' }) && !noSchoolNote({ aud: 'child', sub: '' }), 'noSchoolNote: non-holiday audiences never say it');
+  // thaiHolidayUrl (0142): every real title in the sheet today, both sides. The deny list is the
+  // half worth pinning: these ELC closures are all tagged aud:holiday, and a link from a staff
+  // development day to a page of Thai national holidays is wrong in a way nobody would report.
+  ['The Queen Mother\'s Birthday Holiday', 'King Chulalongkorn Memorial Day', 'King Rama IX Birthday and National Day',
+   'Chakri Day', 'Coronation Day', 'Makha Bucha Day', 'Visakha Bucha Day', 'Thai New Year, Songkran',
+   'Songkran Holiday', 'King Vajiralongkorn\'s Birthday'].forEach(function (title) {
+    console.assert(thaiHolidayUrl({ aud: 'holiday', title: title }) === THAI_HOLIDAY_URL, 'thaiHolidayUrl: "' + title + '" is a Thai public holiday and links out');
+  });
+  ['Professional Development Day', 'International Schools Holiday', 'Holiday: ELC October mid-term break',
+   'Holiday: Christmas and New Year', 'Summer holiday', 'Holiday: Office and Accounting open',
+   'School holiday: office open'].forEach(function (title) {
+    console.assert(thaiHolidayUrl({ aud: 'holiday', title: title }) === null, 'thaiHolidayUrl: "' + title + '" is ELC\'s own closure and must NOT link to Thai holidays');
+  });
+  console.assert(thaiHolidayUrl({ aud: 'parent', title: 'Songkran party' }) === null, 'thaiHolidayUrl: only holiday rows');
+  console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Chakri Day', href: 'chakri/' }) === null, 'thaiHolidayUrl: a real page always outranks the reference');
+  console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Chakri Day', ext: 'https://www.elc.ac.th/x/' }) === null, 'thaiHolidayUrl: an existing ext link is never overridden');
+  console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Visakha Bucha Day : normal school day' }) === THAI_HOLIDAY_URL, 'thaiHolidayUrl: still a Thai holiday even on a day ELC stays open');
+  console.assert(extSiteLabel('https://www.elc.ac.th/summer-school/') === 'the school site' && extSiteLabel(THAI_HOLIDAY_URL) === 'Thai public holidays', 'extSiteLabel: names the real destination, never calls a third-party page the school site');
+
   // dayEvHref (0131): the exact revert Trevor found is planted here. A campus strip entry with
   // nowhere of its own to go must be a non-link, never the City calendar; the City home keeps
   // its fallback, because there /calendar/ IS where more detail lives.
@@ -735,7 +786,7 @@
         var wDow = WK_DOW[wi] + (wIsToday ? ' &middot; Today' : '');
         var wEvsHtml = wEvs.length
           ? wEvs.map(function (e) {
-              var wxt = evHref(e.href) ? null : extUrl(e);
+              var wxt = evHref(e.href) ? null : (extUrl(e) || thaiHolidayUrl(e));   // 0142
               var h = dayEvHref(evHref(e.href), wxt, !!wkPe, ROOT);   // 0131: no cross-campus fallback
               // 2026-08-06 (Trevor): the Parents/Children keys came off the strip, so a holiday
               // says it in words instead of relying on a dot shape. Every day of a multi-day
@@ -834,7 +885,7 @@
       var ev = g.rows[0];
       var feat = g.href ? featBy[g.href] : null;
       var linkHref = g.href ? evHref(g.href) : null;   // valid, on-disk internal page?
-      var extLink = linkHref ? null : extUrl(ev);       // else, an external school-site link (round 4)
+      var extLink = linkHref ? null : (extUrl(ev) || thaiHolidayUrl(ev));   // else external: the school site, or a Thai holiday reference (0142)
       var owed = !linkHref && !extLink && ev.aud !== 'holiday' && !ev.nopage;   // pageless + page owed -> pill + gate
       return { dates: dates, next: dates[0], ev: ev, feat: feat, href: linkHref || extLink, ext: !!extLink, owed: owed, featured: !!feat };
     }).filter(function (c) { return c.next; });
@@ -865,7 +916,7 @@
         if (c.href) {
           var go = c.feat ? c.feat.go : (c.ext ? 'On the school site' : 'See details');
           return '<a class="tile ev-card ev-link" href="' + c.href + '"' + (c.ext ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' +
-            escAttr(title) + ', ' + cuLabel(c.dates, false) + (c.ext ? ' · on the school site' : ' · event page') + '">' +
+            escAttr(title) + ', ' + cuLabel(c.dates, false) + (c.ext ? ' · on ' + extSiteLabel(c.href) : ' · event page') + '">' +
             when + '<h3>' + title + '</h3>' + body +
             '<span class="go">' + go + ' <span class="arw">&rarr;</span></span></a>';
         }
@@ -912,11 +963,11 @@
     var agRow = function (e) {
       var d = new Date(e.date + 'T00:00:00Z');
       var cHref = evHref(e.href);
-      var cExt = cHref ? null : extUrl(e);   // events that live on the main school site (round 4)
+      var cExt = cHref ? null : (extUrl(e) || thaiHolidayUrl(e));   // the school site, or a Thai holiday reference (0142)
       var inner = '<div class="et">' + e.title + '</div><div class="es">' + e.sub + '</div>';
       return '<div class="ev-row"><span class="dte' + (e.date === bkkToday ? ' today' : '') + '">' +
         DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
-        '<div class="ev-main">' + ((cHref || cExt) ? '<a class="ev-link" href="' + (cHref || cExt) + '"' + (cExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (cExt ? ' · on the school site' : ' · event page') + '">' + inner + '</a>' : inner) + '</div>' +
+        '<div class="ev-main">' + ((cHref || cExt) ? '<a class="ev-link" href="' + (cHref || cExt) + '"' + (cExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (cExt ? ' · on ' + extSiteLabel(cExt) : ' · event page') + '">' + inner + '</a>' : inner) + '</div>' +
         calActions(e.date, e.title, e.sub, e.href, e.until, cHref ? absHref(e.href) : (cExt || shareUrl)) + '</div>';
     };
     renderCalAgenda = function (y, m) {
@@ -996,10 +1047,15 @@
       var head = CAL_DOWS[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + FN_MONS[d.getUTCMonth()];
       var rows = evs.map(function (e) {
         var h = evHref(e.href);
+        // 0142: the popover only ever honoured internal pages, so an external row (and now a Thai
+        // holiday reference) rendered dead here while the agenda beside it linked. Same rule now.
+        var pExt = h ? null : (extUrl(e) || thaiHolidayUrl(e));
         var inner = '<span class="' + dotClass(e) + '"></span><span><span class="pt">' + e.title + '</span>' +
           (e.sub ? '<span class="ps">' + e.sub + '</span>' : '') + '</span>';
-        return h ? '<a class="pev" href="' + h + '">' + inner + '</a>'
-                 : '<div class="pev">' + inner + '</div>';
+        if (h) return '<a class="pev" href="' + h + '">' + inner + '</a>';
+        if (pExt) return '<a class="pev" href="' + pExt + '" target="_blank" rel="noopener" aria-label="' +
+          escAttr(e.title) + ' · on ' + extSiteLabel(pExt) + '">' + inner + '</a>';
+        return '<div class="pev">' + inner + '</div>';
       }).join('');
       pop = document.createElement('div');
       pop.className = 'cal-pop';

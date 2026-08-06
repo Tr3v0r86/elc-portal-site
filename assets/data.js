@@ -148,7 +148,7 @@ window.PORTAL = {
   notes: [
     { from: '2026-07-01', eyebrow: 'A note from Trevor', when: 'This month · August',
       title: 'Welcome to a new year.',
-      body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
+      body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. It is built to be used as a standalone app on your phone, and that is where it works best: follow the instructions in the Install app button at the bottom left, and the details and announcements here are always at your fingertips. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
       cta: { contact: 'trevor', label: 'Email me' },
       sig: 'Trevor · Head of Operations and Educational Experience' },
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
