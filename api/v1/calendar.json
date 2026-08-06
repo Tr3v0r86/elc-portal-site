@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-05T07:25:04.991Z",
+  "generated": "2026-08-06T02:59:47.981Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -148,7 +148,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -158,7 +157,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Safeguarding parent info session",
       "sub": ""
@@ -184,7 +182,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "ISB parent info session",
       "sub": ""
@@ -202,7 +199,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -212,7 +208,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Digital Safety parent info session",
       "sub": ""
@@ -248,7 +243,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Workshop: Emotional Regulation",
       "sub": ""
@@ -258,7 +252,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -342,7 +335,6 @@
       "type": "purple",
       "aud": "child",
       "nopage": true,
-      "community": true,
       "title": "K2 to Y6 Fun Field Day",
       "sub": ""
     },
@@ -352,7 +344,6 @@
       "type": "purple",
       "aud": "child",
       "nopage": true,
-      "community": true,
       "title": "K1 and Dove Centre Fun Field Day",
       "sub": ""
     },
@@ -389,7 +380,6 @@
       "type": "purple",
       "aud": "child",
       "nopage": true,
-      "community": true,
       "comunita": true,
       "title": "Puberty Workshop",
       "sub": "Y5 and Y6"
@@ -399,7 +389,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -409,7 +398,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Workshop: Supporting Behaviours",
       "sub": ""
@@ -419,7 +407,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -429,7 +416,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Workshop: Making Learning Visible",
       "sub": ""
@@ -472,7 +458,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Workshop: An Author's Workshop",
       "sub": ""
@@ -491,7 +476,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -501,7 +485,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Atelier explorations and learning",
       "sub": ""
@@ -511,7 +494,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Wycombe Abbey Head of School info session",
       "sub": ""
@@ -521,7 +503,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Emergent reading skill development",
       "sub": ""
@@ -531,7 +512,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Philosophy Circle with Y6",
       "sub": ""
@@ -549,7 +529,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Compass Initiatives: transitions to K1",
       "sub": "Morning, Atrium"
@@ -559,7 +538,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Y3 to Y6 Drama and Music Evening",
       "sub": ""
@@ -569,7 +547,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Y3 to Y6 Drama and Music Evening",
       "sub": ""
@@ -588,7 +565,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "The Wonder of Y6",
       "sub": ""
@@ -634,7 +610,6 @@
       "type": "purple",
       "aud": "parent",
       "until": "2027-04-29",
-      "community": true,
       "title": "Art From The Heart exhibition and fundraising week",
       "sub": "to 29 Apr"
     },
@@ -651,7 +626,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -693,7 +667,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Navigating the AI Terrain",
       "sub": ""
@@ -720,7 +693,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "community": true,
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""

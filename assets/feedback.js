@@ -1,7 +1,8 @@
 /* ELC Portal feedback widget.
    Floating bottom-right pill + modal. On submit it POSTs to the feedback
    relay (a Cloudflare Worker that files a GitHub issue, docs/issues/0020);
-   if the relay fails, it falls back to a pre-filled mailto to Trevor.
+   the thanks panel appears only after the relay answers ok:true. On any
+   failure the note stays on screen with retry and copy (docs/issues/0109).
    Carries a Cloudflare Turnstile token when one is available (docs/issues/0082).
    Styles consume tokens.css custom properties only.
    Self-contained; include with <script src> after tokens.css. */
@@ -18,6 +19,7 @@
   const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
   const TS_LOAD_MS = 6000;  // the script gets this long to answer before we stop waiting on it
   const TS_TOKEN_MS = 2000; // at submit, wait at most this long for a token, then send without
+  const SEND_MS = 8000;     // the relay gets this long to answer before the send counts as failed
 
   const css = `
     #fb-pill{position:fixed;bottom:26px;right:26px;z-index:9998;display:inline-flex;align-items:center;gap:10px;
@@ -62,10 +64,22 @@
     #fb-submit:hover{background:var(--aubergine-2);}
     #fb-submit:active{transform:translateY(1px);}
     #fb-submit .a{font-family:var(--mono);font-weight:700;}
+    #fb-submit:disabled{opacity:.55;cursor:default;transform:none;}
     #fb-thanks{display:none;text-align:center;padding:14px 0 6px;}
     #fb-thanks.show{display:block;}
     #fb-thanks .mk{width:38px;height:38px;border-radius:50%;background:var(--sage);color:var(--white-pure);display:inline-flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px;}
     #fb-thanks p{font-weight:300;font-size:15px;line-height:1.6;color:var(--charcoal);}
+    /* Failure state (docs/issues/0109): sits below the still-open form, styled off #fb-thanks. */
+    #fb-fail{display:none;text-align:center;padding:16px 0 4px;margin-top:18px;border-top:1px solid var(--rule);}
+    #fb-fail.show{display:block;}
+    #fb-fail p{font-weight:300;font-size:15px;line-height:1.6;color:var(--charcoal);margin-bottom:12px;}
+    #fb-fail .acts{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px;}
+    #fb-fail .acts button{font-family:var(--sans);font-weight:600;font-size:13px;padding:9px 16px;border-radius:6px;cursor:pointer;
+      background:var(--aubergine);color:var(--white-pure);border:1px solid var(--aubergine);transition:background .18s;}
+    #fb-fail .acts button:hover{background:var(--aubergine-2);}
+    #fb-fail .acts button.ghost{background:none;color:var(--aubergine);}
+    #fb-fail .acts button.ghost:hover{background:var(--paper);}
+    #fb-fail .addr{font-family:var(--mono);font-size:10px;letter-spacing:0.04em;color:var(--muted);margin-bottom:0;user-select:text;}
   `;
 
   const html = `
@@ -102,6 +116,14 @@
           <div class="mk">&#10003;</div>
           <p>Thank you. Your note is on its way.</p>
         </div>
+        <div id="fb-fail">
+          <p>That did not send. Your note is still here, so nothing is lost.</p>
+          <div class="acts">
+            <button id="fb-retry">Try again</button>
+            <button id="fb-copy" class="ghost">Copy note</button>
+          </div>
+          <p class="addr">Or send it to ${TO}</p>
+        </div>
       </div>
     </div>
   `;
@@ -121,6 +143,10 @@
   const submit = document.getElementById('fb-submit');
   const nameI  = document.getElementById('fb-name');
   const bodyI  = document.getElementById('fb-body');
+  const failP  = document.getElementById('fb-fail');
+  const retryB = document.getElementById('fb-retry');
+  const copyB  = document.getElementById('fb-copy');
+  const submitHTML = submit.innerHTML;
 
   /* ---- Turnstile (docs/issues/0082) ------------------------------------------------------
      Loaded from here rather than a <script> tag, for two reasons: one file changes instead of
@@ -128,8 +154,8 @@
      all.
 
      Fail-open is the entire design. Every failure below ends the same way, "send the note with
-     no token", and a tokenless note is answered ok:false by the relay, which is the mailto
-     fallback that already exists. There is no path where a family taps Send and nothing
+     no token", and a tokenless note answered ok:false by the relay lands in the visible
+     failure state (docs/issues/0109). There is no path where a family taps Send and nothing
      happens:
        no site key pasted yet   -> never loads, state 'dead'
        script blocked or offline-> onerror, state 'dead'
@@ -204,37 +230,47 @@
   function open(){ overlay.classList.add('open'); tsLoad(); setTimeout(()=>bodyI.focus(),50); }
   function close(){
     overlay.classList.remove('open');
-    setTimeout(()=>{ live.style.display=''; thanks.classList.remove('show'); nameI.value=''; bodyI.value=''; submit.disabled=false; }, 300);
+    setTimeout(()=>{ live.style.display=''; thanks.classList.remove('show'); failP.classList.remove('show'); nameI.value=''; bodyI.value=''; submit.disabled=false; submit.innerHTML=submitHTML; }, 300);
   }
   pill.addEventListener('click', open);
   closeB.addEventListener('click', close);
   overlay.addEventListener('click', function(e){ if(e.target===overlay) close(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && overlay.classList.contains('open')) close(); });
 
-  submit.addEventListener('click', function(){
+  // Directory URLs: /policies/ -> "policies", / -> "home".
+  function pageName(){
+    return location.pathname.replace(/index\.html$/,'').replace(/\/$/,'').split('/').pop() || 'home';
+  }
+
+  // The same body the old email fallback composed, now destined for the clipboard.
+  function noteText(){
+    return 'From: ' + (nameI.value.trim() || 'Anonymous') + '\n' +
+           'Page: ' + pageName() + '\n' +
+           'Version: ' + VERSION + '\n\n' +
+           bodyI.value.trim() + '\n';
+  }
+
+  function fail(){
+    submit.disabled = false;
+    submit.innerHTML = submitHTML;
+    failP.classList.add('show');
+  }
+
+  /* Honest submit (docs/issues/0109): the thanks panel appears only on the relay's ok:true.
+     Everything else - ok:false, a non-2xx or non-JSON answer (r.json() throws), a network
+     rejection, or the SEND_MS abort - lands in fail(), which keeps the form open with the
+     note still in the textarea and offers retry / copy. The widget never navigates away
+     from the page on any path. */
+  function doSend(){
     const text = bodyI.value.trim();
     if(!text){ bodyI.focus(); return; }
     submit.disabled = true;
-    const name = nameI.value.trim();
-    // Directory URLs: /policies/ -> "policies", / -> "home".
-    const page = location.pathname.replace(/index\.html$/,'').replace(/\/$/,'').split('/').pop() || 'home';
+    submit.textContent = 'Sending...';
+    failP.classList.remove('show');
+    copyB.textContent = 'Copy note';
 
-    function mailtoFallback(){
-      const subject = encodeURIComponent('[Portal feedback] ' + page);
-      const body = encodeURIComponent(
-        'From: ' + (name || 'Anonymous') + '\n' +
-        'Page: ' + page + '\n' +
-        'Version: ' + VERSION + '\n\n' +
-        text + '\n'
-      );
-      window.location.href = 'mailto:' + TO + '?subject=' + subject + '&body=' + body;
-    }
-
-    /* The thanks panel goes up NOW, before the token wait and before the network. Nobody is
-       left watching a spinner, and every branch below still reaches Trevor: the relay files it,
-       or the relay says no and the mailto carries it. */
-    live.style.display = 'none';
-    thanks.classList.add('show');
+    const ctrl = new AbortController();
+    const timer = setTimeout(function(){ ctrl.abort(); }, SEND_MS);
 
     tsToken()
       .then(function(token){
@@ -243,14 +279,37 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: name, body: text, page: page, version: VERSION,
+            name: nameI.value.trim(), body: text, page: pageName(), version: VERSION,
             website: document.getElementById('fb-hp').value,
             turnstileToken: token
-          })
+          }),
+          signal: ctrl.signal
         });
       })
       .then(function(r){ return r.json(); })
-      .then(function(res){ if(!res.ok) mailtoFallback(); })
-      .catch(mailtoFallback);
+      .then(function(res){
+        clearTimeout(timer);
+        if (res.ok === true){
+          submit.disabled = false;
+          submit.innerHTML = submitHTML;
+          live.style.display = 'none';
+          thanks.classList.add('show');
+        } else fail();
+      })
+      .catch(function(){ clearTimeout(timer); fail(); });
+  }
+
+  submit.addEventListener('click', doSend);
+  retryB.addEventListener('click', doSend);
+
+  copyB.addEventListener('click', function(){
+    // Fallback is a visible selection, never a silent no-op.
+    const selectInstead = function(){ bodyI.focus(); bodyI.select(); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(noteText()).then(
+        function(){ copyB.textContent = 'Copied'; },
+        selectInstead
+      );
+    } else selectInstead();
   });
 })();

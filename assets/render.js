@@ -9,6 +9,10 @@
   // one week-start helper, one set of day/month names. Every renderer below
   // reuses these; nothing recomputes its own.
   var bkkToday = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Bangkok' }).format(new Date()); // YYYY-MM-DD
+  // 0112: Payal + Sarah finalise workshop/social details by this date. Before it,
+  // pageless comunita rows say "Details coming 14 August"; from it, the honest
+  // "Page coming soon" posture (and the check-coming-up gate) resumes by itself.
+  var DETAILS_DUE = '2026-08-14';
   var FN_MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var CAL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
@@ -86,6 +90,23 @@
   // their rows through it. The community/ renderers below select exactly these rows;
   // the print sheet already drops them via cat (0066); search is page-based, unaffected.
   function coreRows(evs) { return (evs || []).filter(function (e) { return !e.comunita; }); }
+  // 0114: index rows by EVERY day they cover, not just the first. A multi-day row
+  // (`until` = inclusive last day, same contract toICS reads) lands on each day key,
+  // matching the print sheet's ycDayMap expansion. Guard until >= date so a
+  // malformed row cannot spin the loop.
+  function expandByDate(rows) {
+    var by = {};
+    (rows || []).forEach(function (e) {
+      if (!e.date) return;
+      var cur = new Date(e.date + 'T00:00:00Z');
+      var end = (e.until && e.until >= e.date) ? new Date(e.until + 'T00:00:00Z') : new Date(cur);
+      for (; cur <= end; cur.setUTCDate(cur.getUTCDate() + 1)) {
+        var k = cur.toISOString().slice(0, 10);
+        (by[k] = by[k] || []).push(e);
+      }
+    });
+    return by;
+  }
   function fmtDMY(iso) {
     var d = new Date(iso + 'T00:00:00Z');
     return d.getUTCDate() + ' ' + FN_MONS[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
@@ -222,6 +243,8 @@
   console.assert(agendaBucket('2026-10-20', '2026-10-02') === 0 && agendaBucket('2026-11-01', '2026-10-02') === 1 && agendaBucket('2026-10-31', '2026-10-02') === 0, 'agendaBucket: this-month vs later, month-end inclusive');
   console.assert(goldOnly([{ type: 'gold' }, { type: 'purple' }, { type: 'gold' }]).length === 2, 'goldOnly: gold events only');
   console.assert(coreRows([{ title: 'a' }, { title: 'b', comunita: true }, { title: 'c', comunita: false }]).length === 2 && coreRows(null).length === 0, 'coreRows: drops comunita rows, tolerates a missing island');
+  console.assert(Object.keys(expandByDate([{ date: '2026-10-12', until: '2026-10-16', title: 'x' }])).length === 5, 'expandByDate: until four days out yields five day keys');
+  console.assert(Object.keys(expandByDate([{ date: '2026-10-12', title: 'x' }])).length === 1, 'expandByDate: no until yields one day key');
   console.assert(termEnd([{ date: '2026-12-18', title: 'Last day of Term 1' }], '2026-07-11') === '2026-12-18', 'termEnd: next term close');
   console.assert(termEnd([{ date: '2026-08-01', title: 'x' }], '2026-01-01') === '2026-05-01', 'termEnd: 120-day fallback');
   console.assert(isDraftPage('glossary', ['glossary', 'refunds']) && !isDraftPage('calendar-print', ['glossary']), 'isDraftPage: membership');
@@ -400,39 +423,24 @@
     else { winMount.innerHTML = bookRows; }
   }
 
-  // La Comunità seams (sprint 4, issue 0039). #community-events (community/) lists
-  // upcoming community-tagged calendarEvents rows; #giving-next (community/giving/)
-  // shows the next community-tagged fundraising entry. Both self-remove when nothing
-  // is upcoming (air-tile pattern): the pages hardcode no claim either way.
-  // commRow is one event row (dated, linked title, add-to-calendar), shared with the
+  // La Comunità (sprint 4, issue 0039). The `community` flag and its two consumers
+  // (#community-events "Coming up" strip, #giving-next fundraiser card) were retired
+  // in 0102: the sheet's City tab dropped the column and giving/ is archived (0100).
+  // commRow is one event row (dated, linked title, add-to-calendar), used by the
   // comunita sections below (issue 0071). extLabel names what an external link opens.
   function commRow(e, extLabel) {
     var d = new Date(e.date + 'T00:00:00Z');
     var mHref = evHref(e.href);   // plan 1.2: same linked-title rule as the agendas
     var mExt = mHref ? null : extUrl(e);   // else, an external https link (round 4)
+    // 0112: a bare row (no page, no ext link) says when its details land, until
+    // DETAILS_DUE. Every row through here is comunita by construction (comunitaRows
+    // is the only caller's source), so no comunita check is needed.
     var mInner = '<div class="et">' + e.title + '</div>' +
-      (e.sub ? '<div class="es">' + e.sub + '</div>' : '');
+      (e.sub ? '<div class="es">' + e.sub + '</div>' : '') +
+      (!mHref && !mExt && bkkToday < DETAILS_DUE ? '<div class="es">Details coming 14 August</div>' : '');
     return '<div class="ev-row"><span class="dte">' + DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
       '<div class="ev-main">' + ((mHref || mExt) ? '<a class="ev-link" href="' + (mHref || mExt) + '"' + (mExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (mExt ? extLabel : ' · event page') + '">' + mInner + '</a>' : mInner) + '</div>' +
       addBtns(e.date, e.title, e.sub, e.href, e.until) + '</div>';
-  }
-  var commEvents = document.getElementById('community-events');
-  if (commEvents && P.calendarEvents) {
-    // comunita rows are excluded: they already render in their own Workshops /
-    // Social-mornings sections on this same page, and a row carrying both flags
-    // was doubling (Trevor 2026-08-05, the 8 Parent Social Mornings).
-    var commRows = P.calendarEvents
-      .filter(function (e) { return e.community && !e.comunita && e.date >= bkkToday; })
-      .sort(function (a, b) { return a.date < b.date ? -1 : 1; })
-      .slice(0, 6);
-    if (!commRows.length) commEvents.remove();
-    else {
-      commEvents.hidden = false;
-      commEvents.className = 'section';
-      commEvents.innerHTML =
-        '<div class="sec-eyebrow"><span class="eyebrow">Coming up</span><span class="ln"></span></div>' +
-        commRows.map(function (e) { return commRow(e, ' · on the school site'); }).join('');
-    }
   }
 
   // La Comunità split sections (issue 0071): the comunita rows that coreRows() filters
@@ -442,7 +450,7 @@
   // PE-tab comunita row is never invisible (no campus chip yet: copy/CD pass). A title
   // links out only when the row carries a registration URL on ext (Jotform etc.:
   // progressive enrichment, no hard content gate). Same self-remove-when-empty idiom
-  // as #community-events above, so the page ships inert until Sarah flags rows.
+  // (air-tile pattern), so the page ships inert until Sarah flags rows.
   //
   // 0079 (2026-08-03): workshops separated FULLY from the calendar, and this section is
   // their canonical home, so it STANDS EVEN WHEN EMPTY with an honest waiting line:
@@ -476,23 +484,6 @@
         ? rows.map(function (e) { return commRow(e, ' · registration page'); }).join('')
         : '<p class="page-note">' + sec.empty + '</p>');
   });
-  var givingNext = document.getElementById('giving-next');
-  if (givingNext && P.calendarEvents) {
-    var drive = P.calendarEvents
-      .filter(function (e) { return e.community && e.date >= bkkToday && /fundrais/i.test(e.title); })
-      .sort(function (a, b) { return a.date < b.date ? -1 : 1; })[0];
-    if (!drive) givingNext.remove();
-    else {
-      givingNext.hidden = false;
-      givingNext.className = 'section';
-      givingNext.innerHTML =
-        '<div class="sec-eyebrow"><span class="eyebrow">The next drive</span><span class="ln"></span></div>' +
-        '<div class="doc-list"><a class="doc-row" href="' + ROOT + 'calendar/">' +
-        ic('CAL') + '<div class="meta"><div class="nm">' + drive.title + '</div>' +
-        '<div class="sub">' + fmtDMY(drive.date) + (drive.sub ? ' · ' + drive.sub : '') + '</div></div>' +
-        '<div class="rt"><span class="tag">View calendar</span></div></a></div>';
-    }
-  }
 
   // Contact chips: any [data-contact="office|activities"] gets the live email
   // (and phone when it exists) from PORTAL.contacts, one edit point site-wide.
@@ -658,8 +649,7 @@
   var week = document.getElementById('week');
   if (week && P.calendarEvents) {
     var WK_DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var wkBy = {};
-    coreRows(P.calendarEvents).forEach(function (e) { (wkBy[e.date] = wkBy[e.date] || []).push(e); });   // 0071: comunita rows live on community/
+    var wkBy = expandByDate(coreRows(P.calendarEvents));   // 0071: comunita rows live on community/ · 0114: multi-day rows mark every day
     var wkH = document.getElementById('wk-h');
     if (wkH) wkH.setAttribute('aria-live', 'polite');   // the heading announces the flip
     var renderWeek = function (off) {
@@ -797,9 +787,13 @@
             '<span class="go">' + go + ' <span class="arw">&rarr;</span></span></a>';
         }
         // Inert card: no page to link to. Owed pages carry the honest "coming soon" pill;
-        // holidays and deliberately-pageless rows (nopage) do not.
+        // holidays and deliberately-pageless rows (nopage) do not. 0112: a comunita row
+        // is Payal + Sarah's until DETAILS_DUE, so its pill names the date instead;
+        // after that it reverts to "Page coming soon". Non-comunita owed rows (Open
+        // Evening, PTC) are Trevor's and keep "Page coming soon" throughout.
+        var pill = c.ev.comunita && bkkToday < DETAILS_DUE ? 'Details coming 14 August' : 'Page coming soon';
         return '<div class="tile ev-card ev-inert">' + when + '<h3>' + title + '</h3>' + body +
-          (c.owed ? '<span class="soon">Page coming soon</span>' : '') + '</div>';
+          (c.owed ? '<span class="soon">' + pill + '</span>' : '') + '</div>';
       }).join('');
     }
 
@@ -890,11 +884,10 @@
     // week strip, this grid and the print sheet (which was already Sunday-first).
     var CAL_DOWS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var AUD_CLASS = { parent: 'parent', child: 'child', holiday: 'holiday' };
-    var calByDate = {};
     // 0064: PE page filters peEvents via data-pe on the grid mount; main calendar unchanged.
     var gridPe = calGrid.getAttribute('data-pe');
     var gridSrc = coreRows(gridPe ? (P.peEvents || []).filter(function (e) { return e.pe === gridPe; }) : P.calendarEvents);   // 0071
-    gridSrc.forEach(function (e) { if (e.date) (calByDate[e.date] = calByDate[e.date] || []).push(e); });
+    var calByDate = expandByDate(gridSrc);   // 0114: multi-day rows mark every day they cover
     var calToday = new Date(bkkToday + 'T00:00:00Z');
     function calUtc(y, m, d) { return new Date(Date.UTC(y, m, d)); }
     function calIso(d) { return d.toISOString().slice(0, 10); }
@@ -979,9 +972,15 @@
         var presence = evs.length > 1
           ? '<span class="pdot" aria-hidden="true"></span><span class="pcount" aria-hidden="true">·' + evs.length + '</span>'
           : '';
-        var label = num + ' ' + CAL_MONTHS[view.m] + ', ' + evs.length + (evs.length === 1 ? ' event' : ' events');
+        // 0114 (Debra): a closure day SAYS so. The accessible name (and desktop hover
+        // title) reads "14 October, no school"; no visible text in the cell (a 44px
+        // square at 375px; making it fit is 0087's design call).
+        var noSchool = evs.some(function (e) { return e.aud === 'holiday'; });
+        var label = num + ' ' + CAL_MONTHS[view.m] + ', ' + (noSchool ? 'no school'
+          : evs.length + (evs.length === 1 ? ' event' : ' events'));
         html += '<button type="button" class="cal-cell has' + (isToday ? ' today' : '') +
-          '" data-iso="' + key + '" aria-haspopup="dialog" aria-label="' + escAttr(label) + '">' +
+          '" data-iso="' + key + '" aria-haspopup="dialog" aria-label="' + escAttr(label) + '"' +
+          (noSchool ? ' title="' + escAttr(label) + '"' : '') + '>' +
           num + '<span class="evs">' + dots + more + presence + '</span></button>';
       }
       calGrid.innerHTML = html;
@@ -1553,9 +1552,11 @@
 
   // Version stamp (0061): rewrite the footer fine print from PORTAL.version + build.
   // data.js is network-first, so a new deploy restamps every page the moment fresh
-  // data lands, the visible signal that the update propagated. The message text is
-  // unchanged; JS just prefixes the live version + build date. Static HTML keeps the
-  // hardcoded "v0.8 ..." as the no-JS fallback.
+  // data lands, the visible signal that the update propagated. Static HTML keeps a
+  // hardcoded version string as the no-JS fallback.
+  // 0097: the disclaimer clause is dropped at the 1.0 FAMILY launch and not before. Still 0.9x,
+  // still an internal review surface, so it stays true and stays here (Trevor 2026-08-06: waves of
+  // 0.9 edits through the day, "dont flip to 1.0 without checking").
   var fineStamp = document.querySelector('.fine');
   if (fineStamp && P.version) {
     fineStamp.textContent = P.version + (P.build ? ' · ' + P.build : '') +
