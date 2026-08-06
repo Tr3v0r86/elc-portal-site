@@ -33,8 +33,10 @@ window.PORTAL = {
   // (docs/verify-v0.5.md).
   // 0080 (2026-08-03): gate-card + the 7 armonia slugs dropped (pages archived).
   // 2026-08-05: glossary + community-giving dropped (pages archived, Trevor).
+  // 0135 + 0136: the two holding pages are drafts by definition, so the chip says so
+  // rather than leaving a family to guess why a page has no details on it.
   draftPages: ['hopes-and-wishes', 'photo-consent', 'how-to-pay',
-               'nuts-and-bolts', 'coffee-mornings'],
+               'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):
@@ -67,7 +69,15 @@ window.PORTAL = {
     nurse:      { label: 'School nurse',    email: 'apples@elc.ac.th',     phone: '+66 (0)2 381 2919' },
     // Safeguarding concerns go to the child protection officer, NOT the office
     // (Trevor 2026-08-05). Email only: no dedicated phone line given.
-    cp:         { label: 'Child protection officer', email: 'cp-officer@elc.ac.th' }
+    cp:         { label: 'Child protection officer', email: 'cp-officer@elc.ac.th' },
+    // PDPA and data requests go to the data protection address, NOT the office
+    // (Trevor 2026-08-06, relay #60, issue 0125). Email only, same shape as cp:
+    // no dedicated line was given and "Phone coming" would be a false promise.
+    dataprotection: { label: 'Data protection', email: 'dataprotection@elc.ac.th' },
+    // Trevor himself, for the note's "email me" link (issue 0138, relay #62). Lives here
+    // rather than as a raw mailto in the note so the address has one edit point like
+    // every other on the site. No phone: families reach him in person or by mail.
+    trevor:     { label: 'Trevor Cardozo', email: 'trevorc@elc.ac.th' }
   },
 
   // Office hours per campus (sprint 3 P7). null renders one honest "Office hours
@@ -138,7 +148,8 @@ window.PORTAL = {
   notes: [
     { from: '2026-07-01', eyebrow: 'A note from Trevor', when: 'This month · August',
       title: 'Welcome to a new year.',
-      body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell us, with the feedback button, and together we will make something that fits our school and our community.',
+      body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
+      cta: { contact: 'trevor', label: 'Email me' },
       sig: 'Trevor · Head of Operations and Educational Experience' },
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
     { from: '2026-08-10', eyebrow: 'A note from Trevor', when: '17 to 18 August',

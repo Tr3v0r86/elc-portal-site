@@ -21,6 +21,8 @@ const SHELL = [
   "community/",
   "help/",
   "new-family-orientation/",
+  "open-evening/",
+  "loy-krathong/",
   "what-happens-next/",
   "privacy/",
   "safeguarding/",

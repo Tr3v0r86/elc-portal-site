@@ -102,6 +102,15 @@
     if (/no school/i.test(sub)) return false;           // the row already says it
     return true;
   }
+  /* Where a week-strip entry goes (issue 0131, Trevor relay #51). The strip was built for the
+     City home, where an event with no page of its own can honestly fall back to /calendar/.
+     0123 reused the strip on the Purple Elephant pages, and there that fallback walks a family
+     to the OTHER campus's calendar: Trevor tapped a Thong Lor holiday and landed on City.
+     On a campus mount the fallback is dropped, so the row renders as plain text exactly as the
+     grid popover and the agenda on the same page already do. Returns null for "not a link". */
+  function dayEvHref(own, ext, isCampus, root) {
+    return own || ext || (isCampus ? null : (root + 'calendar/'));
+  }
   // La Comunità split (issue 0071): comunita:true rows live on community/ and stay off
   // every CORE calendar surface. This is THE filter point: the week strip, the coming-up
   // band, the calendar month grid and the calendar agenda (City and PE alike) all read
@@ -281,6 +290,13 @@
   console.assert(!noSchoolNote({ aud: 'holiday', sub: 'Normal school day' }), 'noSchoolNote: a tagged holiday that is a working day must NOT say it (Visakha Bucha)');
   console.assert(!noSchoolNote({ aud: 'holiday', sub: 'No school for children; Teacher In-Service Day' }), 'noSchoolNote: never doubles a row that already says it');
   console.assert(!noSchoolNote({ aud: 'parent', sub: '' }) && !noSchoolNote({ aud: 'child', sub: '' }), 'noSchoolNote: non-holiday audiences never say it');
+  // dayEvHref (0131): the exact revert Trevor found is planted here. A campus strip entry with
+  // nowhere of its own to go must be a non-link, never the City calendar; the City home keeps
+  // its fallback, because there /calendar/ IS where more detail lives.
+  console.assert(dayEvHref(null, null, true, '../../') === null, 'dayEvHref: a campus row with no destination is NOT a link (never the City calendar)');
+  console.assert(dayEvHref(null, null, false, '') === 'calendar/', 'dayEvHref: the City home still falls back to its own calendar');
+  console.assert(dayEvHref('hopes-and-wishes/', null, true, '../../') === 'hopes-and-wishes/', 'dayEvHref: a campus row WITH a page still links');
+  console.assert(dayEvHref(null, 'https://www.elc.ac.th/summer-school/', true, '../../') === 'https://www.elc.ac.th/summer-school/', 'dayEvHref: a campus row with an external link still links');
   // href grammar (plan 1.2/1.8): bare site-relative directory paths only.
   console.assert(HREF_RE.test('hopes-and-wishes/') && HREF_RE.test('events/sports-day/'), 'href grammar: accepts dir paths');
   console.assert(!HREF_RE.test('/abs/') && !HREF_RE.test('../up/') && !HREF_RE.test('https://x.test/') && !HREF_RE.test('no-slash'), 'href grammar: rejects abs, dot-segments, schemes, non-dir');
@@ -510,6 +526,26 @@
         : '<p class="page-note">' + sec.empty + '</p>');
   });
 
+  /* The 14 August programme date, in ONE place (issues 0127 + 0137, relays #58 + #61).
+     Trevor: "workshops and social mornings will be published on Friday August 14th."
+     Any [data-details-due] element says so until DETAILS_DUE and empties itself from that
+     morning, and any [data-details-hold] block is shown only while the wait is real. The
+     date is never written into markup, so 15 August needs no deploy and no memory. */
+  var dueLive = bkkToday < DETAILS_DUE;
+  document.querySelectorAll('[data-details-due]').forEach(function (el) {
+    el.textContent = dueLive ? 'The programme is published on Friday 14 August.' : '';
+  });
+  document.querySelectorAll('[data-details-hold]').forEach(function (el) {
+    if (dueLive) { el.hidden = false; } else { el.remove(); }
+  });
+  /* The other side of the same switch: listings that only become honest once the programme
+     is official. While the wait is real they are removed outright. AFTER the date this does
+     nothing at all, deliberately: the section mounts above have already decided whether they
+     have rows to show, and un-hiding here would override that and print an empty section. */
+  if (dueLive) {
+    document.querySelectorAll('[data-details-ready]').forEach(function (el) { el.remove(); });
+  }
+
   // Contact chips: any [data-contact="office|activities"] gets the live email
   // (and phone when it exists) from PORTAL.contacts, one edit point site-wide.
   var chips = document.querySelectorAll('[data-contact]');
@@ -608,9 +644,14 @@
       // Note CTA (plan 1.5): optional expiring link after the body. createElement +
       // textContent only: the note is this file's textContent surface, and stays so.
       // Renders only with BOTH href and label, and only until `until` (inclusive).
+      // 0138 (Trevor, relay #62): a cta may name a CONTACT instead of a page, and renders
+      // as a mailto built from PORTAL.contacts, so his address has the same one edit point
+      // every other address on the site has. Still createElement + textContent: the address
+      // comes from the contacts map, never from free text in the note.
       var noteBody = document.getElementById('note-body');
-      var ctaHref = current.cta && current.cta.label && (!current.cta.until || current.cta.until >= bkkToday)
-        ? evHref(current.cta.href) : null;
+      var ctaLive = current.cta && current.cta.label && (!current.cta.until || current.cta.until >= bkkToday);
+      var ctaMail = ctaLive && current.cta.contact && P.contacts && P.contacts[current.cta.contact];
+      var ctaHref = ctaMail ? ('mailto:' + ctaMail.email) : (ctaLive ? evHref(current.cta.href) : null);
       if (ctaHref && noteBody) {
         var ctaA = document.createElement('a');
         ctaA.className = 'note-cta';
@@ -695,13 +736,16 @@
         var wEvsHtml = wEvs.length
           ? wEvs.map(function (e) {
               var wxt = evHref(e.href) ? null : extUrl(e);
-              var h = evHref(e.href) || wxt || (ROOT + 'calendar/');
+              var h = dayEvHref(evHref(e.href), wxt, !!wkPe, ROOT);   // 0131: no cross-campus fallback
               // 2026-08-06 (Trevor): the Parents/Children keys came off the strip, so a holiday
               // says it in words instead of relying on a dot shape. Every day of a multi-day
               // break carries it, because 0114 expands the range across all of them.
               var wNote = noSchoolNote(e) ? '<span class="day-note">No school for children</span>' : '';
-              return '<a class="day-ev" href="' + h + '"' + (wxt ? ' target="_blank" rel="noopener"' : '') + '><span class="dot' + (e.aud ? ' ' + e.aud : (e.type === 'gold' ? ' gold' : '')) + '"></span>' +
-                '<span class="lbl">' + e.title + '</span></a>' + wNote;
+              var wInner = '<span class="dot' + (e.aud ? ' ' + e.aud : (e.type === 'gold' ? ' gold' : '')) + '"></span>' +
+                '<span class="lbl">' + e.title + '</span>';
+              return (h
+                ? '<a class="day-ev" href="' + h + '"' + (wxt ? ' target="_blank" rel="noopener"' : '') + '>' + wInner + '</a>'
+                : '<span class="day-ev">' + wInner + '</span>') + wNote;
             }).join('')
           : '<span class="day-none"></span>';
         wkCells.push('<div class="day' + (wIsToday ? ' today' : '') + '"><div class="day-top">' +
@@ -811,7 +855,11 @@
     } else {
       agenda.innerHTML = cuCards.slice(0, CU_CAP).map(function (c) {
         var title = c.feat ? c.feat.title : c.ev.title;
-        var blurb = c.feat ? c.feat.blurb : (c.ev.sub || '');
+        // 0132 (Trevor, relay #53): a holiday rotating into Coming up says what it means,
+        // the same words the week strip uses. Holiday rows carry an empty sub, so without
+        // this the card was the one surface that showed a closure day and said nothing.
+        // Never overrides an editorial blurb or a sub the row already carries.
+        var blurb = c.feat ? c.feat.blurb : (c.ev.sub || (noSchoolNote(c.ev) ? 'No school for children' : ''));
         var when = '<span class="when">' + cuLabel(c.dates, true) + '</span>';
         var body = blurb ? '<p>' + blurb + '</p>' : '';
         if (c.href) {
@@ -1010,7 +1058,10 @@
         // 0114 (Debra): a closure day SAYS so. The accessible name (and desktop hover
         // title) reads "14 October, no school"; no visible text in the cell (a 44px
         // square at 375px; making it fit is 0087's design call).
-        var noSchool = evs.some(function (e) { return e.aud === 'holiday'; });
+        // 0132: through noSchoolNote(), not a blanket aud check. The blanket version said
+        // "no school" for Visakha Bucha, whose own sub says children ARE in: the strip has
+        // refused that since 0120 and this cell was still announcing it to a screen reader.
+        var noSchool = evs.some(noSchoolNote);
         var label = num + ' ' + CAL_MONTHS[view.m] + ', ' + (noSchool ? 'no school'
           : evs.length + (evs.length === 1 ? ' event' : ' events'));
         html += '<button type="button" class="cal-cell has' + (isToday ? ' today' : '') +

@@ -100,7 +100,10 @@
       </summary>
       <div class="note-reveal">
         <div class="note-main">
-          <p id="note-body">This portal is the one place for everything your family does with ELC beyond the classroom: the week ahead, the calendar, sign-ups, and every policy and form. It is new, and I am building it in the open. Tell me what you need with the feedback button, and watch this page grow around your answers.</p>
+          <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]
+               and appends the "Email me" cta after it (0138). The mailto lives inline here
+               because with JS off there is no cta to append. -->
+          <p id="note-body">This portal is the one place for everything your family does with ELC beyond the classroom: the week ahead, the calendar, sign-ups, and every policy and form. It is new, and I am building it in the open. So tell me what you need: use the feedback button on any page, email me at <a href="mailto:trevorc@elc.ac.th">trevorc@elc.ac.th</a>, or come and see me in person at the gate or on the playground.</p>
           <div class="sig" id="note-sig">Trevor &middot; Head of Operations and Educational Experience</div>
           <div class="sig-sub">Supporting your family with everything outside the classroom.</div>
         </div>
@@ -177,16 +180,25 @@
              Trevor). The live-registration CTA to portal.elc.ac.th comes back when the
              date is set: restore the <a href="https://portal.elc.ac.th" target="_blank"
              rel="noopener"> wrapper + "Register for ASA" button then (0017 re-points it
-             at cutover). Until then the tile is honest coming-soon (rule 6). 0113: the
-             three ASA dates live on asa/ (the one canonical block), so the tile links
-             there rather than repeating them. -->
+             at cutover). Until then the tile is honest coming-soon (rule 6). 0126 (relay #57,
+             Trevor: "we want the ongoing ASA card to give insight into the timeline") replaces
+             0113's rule that the dates live on asa/ ALONE: the card now carries the four
+             milestones and still points at asa/ for the full block. The dates are canonical
+             unless Trevor changes them; their other surfaces are listed in docs/connections.md,
+             so a change here is a change in three places. -->
         <a class="tile reg-card tile-top-purple link" href="asa/">
           <span class="eyebrow">After school</span>
           <h3>ASA</h3>
           <!-- "after three" was inaccurate (some K2 ASAs start before 3pm); ASAs are
                simply activities that run after school, so the clock is dropped. -->
           <p>The hours after school, well spent. Sport, arts, design and tech, in short term blocks.</p>
-          <span class="btn block">Opens soon: the dates to hold <span class="arw">&rarr;</span></span>
+          <ul class="card-dates">
+            <li><span class="cd-when">19 and 20 Aug</span> <span class="cd-what">Showcase on campus</span></li>
+            <li><span class="cd-when">24 Aug</span> <span class="cd-what">Sign-up opens</span></li>
+            <li><span class="cd-when">7 Sep</span> <span class="cd-what">ASAs start</span></li>
+            <li><span class="cd-when">17 Dec</span> <span class="cd-what">Last day of ASAs</span></li>
+          </ul>
+          <span class="btn block">How ASA works <span class="arw">&rarr;</span></span>
         </a>
 
         <!-- ARMONIA tile retired 2026-08-03 (issue 0080): the Armonia tree moved to
@@ -202,6 +214,11 @@
           <span class="eyebrow">La Comunità</span>
           <h3>Workshops &amp; social mornings</h3>
           <p>Parent workshops, coffee and social mornings: the occasions that bring ELC families together across the year.</p>
+          <!-- 0127 (relay #58): render.js fills [data-details-due] with the publish date until
+               DETAILS_DUE and leaves it empty after, so the promise expires by itself rather
+               than by someone remembering. Deliberately empty in source: with JS off it says
+               nothing, which is honest, where a hardcoded date would go stale on 15 August. -->
+          <p class="card-note" data-details-due></p>
           <span class="btn block">See what's on <span class="arw">&rarr;</span></span>
         </a>
 

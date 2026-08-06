@@ -84,6 +84,16 @@
         <h3>After-school activities</h3>
         <p>The hours after school, well spent. Sport, arts, design and tech, chosen by term block. Pick what your child loves, or something new.</p>
         <div class="act-meta"><span class="chip">Years 3 to 6</span><span class="chip">Mon to Thu</span><span class="chip">Term block</span></div>
+        <!-- 0126/0128 (relays #57 + #59, Trevor: the ASA and events notes "also need to be
+             mirrored on activities"). Same four canonical milestones as the homepage card and
+             the canonical block on asa/. All three surfaces are listed together in
+             docs/connections.md: change a date and you change it in three places. -->
+        <ul class="card-dates">
+          <li><span class="cd-when">19 and 20 Aug</span> <span class="cd-what">Showcase on campus</span></li>
+          <li><span class="cd-when">24 Aug</span> <span class="cd-what">Sign-up opens</span></li>
+          <li><span class="cd-when">7 Sep</span> <span class="cd-what">ASAs start</span></li>
+          <li><span class="cd-when">17 Dec</span> <span class="cd-what">Last day of ASAs</span></li>
+        </ul>
         <div class="act-foot"><span class="status soon">Opens soon</span><a class="btn" href="../asa/">How ASA works <span class="arw">&rarr;</span></a></div>
       </div>
 
@@ -105,6 +115,10 @@
         <h3>Workshops</h3>
         <p>The year's parent workshops in one place: what is coming, when, and how to sign up. Each will link to its Jotform, with the session slides added afterward.</p>
         <div class="act-meta"><span class="chip">For parents</span><span class="chip">Sign up online</span><span class="chip">Year-round</span></div>
+        <!-- 0127/0128 (relays #58 + #59): the publish date, filled and expired by render.js
+             off the same DETAILS_DUE the homepage card and community/ read. Empty in source
+             on purpose so nothing goes stale on 15 August. -->
+        <p class="card-note" data-details-due></p>
         <!-- CTA re-pointed to community/ (Trevor 2026-08-05): workshops live there (0079). -->
         <div class="act-foot"><span class="status soon">Roadmap coming</span><a class="btn ghost" href="../community/">See workshops <span class="arw">&rarr;</span></a></div>
       </div>
