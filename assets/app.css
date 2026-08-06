@@ -429,6 +429,7 @@ button.cal-cell{-webkit-appearance:none;appearance:none;background:transparent;f
 .day-ev:hover .lbl{color:var(--purple);border-bottom-color:var(--purple);}
 .day-ev:focus-visible{outline:2px solid var(--purple);outline-offset:2px;border-radius:2px;}
 .day-none{font-family:var(--mono);font-size:13px;color:var(--faint);}
+.day-note{display:block;font-size:11.5px;line-height:1.3;color:var(--faint);margin:1px 0 0 16px;}
 /* Empty-day marker (pass C, CD call): keep the em-dash, but own it in CSS as a
    :empty::before so there is no text entity in the JS for the redact gate to miss.
    :empty bridges safely: it stays inert while render.js still emits the &mdash; text,

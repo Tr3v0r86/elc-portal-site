@@ -24,6 +24,12 @@
    out to a real browser (same detection render.js already uses for the
    coffee-mornings hint).
 
+   Not every iOS browser is Safari, and telling someone to use a toolbar they do not have
+   is a dead end (Adam, 2026-08-06: "I tried to Install App but it was giving me
+   directions for Safari (which I don't use)"). Chrome, Firefox and Edge on iOS all carry
+   Add to Home Screen behind their own menu instead of the Safari share toolbar, so they
+   get their own two steps: same branch, different words.
+
    Styles consume tokens.css custom properties only (ADR-0002).
    Self-check: node tools/install-mode.test.mjs */
 (function () {
@@ -39,7 +45,12 @@
     if (standalone) return 'none';              // already installed, nothing to offer
     if (hasPrompt) return 'prompt';             // Chromium: drive the real prompt
     if (/\bLine\//i.test(ua)) return 'inapp';   // in-app browser: cannot install here
-    if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';  // Safari: Share sheet, manual
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      // Every browser on iOS is WebKit, so none of them fires the prompt event, but only
+      // Safari puts Add to Home Screen behind the toolbar Share button. Chrome (CriOS),
+      // Firefox (FxiOS), Edge (EdgiOS) and Opera (OPT) keep it in their own menu.
+      return /CriOS|FxiOS|EdgiOS|OPT\//.test(ua) ? 'iosmenu' : 'ios';
+    }
     if (/Android/i.test(ua)) return 'android';  // pill now, event may upgrade the tap
     return 'none';                              // no install path we can offer
   }
@@ -91,6 +102,10 @@
     ios: {
       title: 'Add the Portal to your home screen',
       steps: ['Tap the Share button in the Safari toolbar.', 'Choose Add to Home Screen.']
+    },
+    iosmenu: {
+      title: 'Add the Portal to your home screen',
+      steps: ['Tap the browser menu (the three dots).', 'Choose Add to Home Screen.']
     },
     android: {
       title: 'Add the Portal to your home screen',

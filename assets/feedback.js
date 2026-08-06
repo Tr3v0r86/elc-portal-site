@@ -2,7 +2,9 @@
    Floating bottom-right pill + modal. On submit it POSTs to the feedback
    relay (a Cloudflare Worker that files a GitHub issue, docs/issues/0020);
    the thanks panel appears only after the relay answers ok:true. On any
-   failure the note stays on screen with retry and copy (docs/issues/0109).
+   failure the note stays on screen with retry and copy (docs/issues/0109),
+   and the reason the relay names is read back when the person can act on it
+   (docs/issues/0117).
    Carries a Cloudflare Turnstile token when one is available (docs/issues/0082).
    Styles consume tokens.css custom properties only.
    Self-contained; include with <script src> after tokens.css. */
@@ -117,7 +119,7 @@
           <p>Thank you. Your note is on its way.</p>
         </div>
         <div id="fb-fail">
-          <p>That did not send. Your note is still here, so nothing is lost.</p>
+          <p id="fb-fail-why">That did not send. Your note is still here, so nothing is lost.</p>
           <div class="acts">
             <button id="fb-retry">Try again</button>
             <button id="fb-copy" class="ghost">Copy note</button>
@@ -144,6 +146,7 @@
   const nameI  = document.getElementById('fb-name');
   const bodyI  = document.getElementById('fb-body');
   const failP  = document.getElementById('fb-fail');
+  const failWhy= document.getElementById('fb-fail-why');
   const retryB = document.getElementById('fb-retry');
   const copyB  = document.getElementById('fb-copy');
   const submitHTML = submit.innerHTML;
@@ -250,9 +253,21 @@
            bodyI.value.trim() + '\n';
   }
 
-  function fail(){
+  /* The relay names every rejection (docs/issues/0117): badjson · empty · toolong · rate ·
+     github · turnstile. A person who can act on the reason gets told it; everything else
+     keeps the generic line, because "the server had a problem" is not their business and
+     the retry / copy / email path is the same either way. */
+  const WHY = {
+    toolong: 'That note is longer than this form can send. Shorten it a little, or email it instead.',
+    rate: 'A lot of notes have come from this network in the last hour. Your note is still here, try again shortly.',
+    turnstile: 'The spam check did not pass. Your note is still here, try again.'
+  };
+  const WHY_DEFAULT = failWhy.textContent;
+
+  function fail(reason){
     submit.disabled = false;
     submit.innerHTML = submitHTML;
+    failWhy.textContent = WHY[reason] || WHY_DEFAULT;
     failP.classList.add('show');
   }
 
@@ -294,7 +309,7 @@
           submit.innerHTML = submitHTML;
           live.style.display = 'none';
           thanks.classList.add('show');
-        } else fail();
+        } else fail(res.reason);
       })
       .catch(function(){ clearTimeout(timer); fail(); });
   }

@@ -84,6 +84,24 @@
   }
   // type:'gold' = key date / milestone; drives the key-dates .ics feed (issue 0032 F3).
   function goldOnly(evs) { return evs.filter(function (e) { return e.type === 'gold'; }); }
+
+  /* "No school for children" (Trevor 2026-08-06). The Parents/Children legend came off the home
+     strip, so a holiday must say what it means in words rather than lean on a dot shape.
+
+     Two rows in the sheet prove a blanket `aud === 'holiday'` rule wrong, so it is guarded:
+       - 2027-05-20 "Visakha Bucha Day : normal school day" carries aud:holiday but children ARE
+         in school. The blanket rule printed "No school for children" directly under a title
+         saying the opposite.
+       - 2026-10-23 King Chulalongkorn already says it in its own sub, which read it twice.
+     The sheet is Sarah's and the agent does not edit it, so the guard lives here. If a future row
+     says "normal school day" in its sub, it is not a day off however it is tagged. */
+  function noSchoolNote(e) {
+    if (!e || e.aud !== 'holiday') return false;
+    var sub = String(e.sub || '');
+    if (/normal school day/i.test(sub)) return false;   // tagged holiday, children still in
+    if (/no school/i.test(sub)) return false;           // the row already says it
+    return true;
+  }
   // La Comunità split (issue 0071): comunita:true rows live on community/ and stay off
   // every CORE calendar surface. This is THE filter point: the week strip, the coming-up
   // band, the calendar month grid and the calendar agenda (City and PE alike) all read
@@ -256,6 +274,13 @@
   console.assert(bookingState({ from: '2026-08-10', until: '2026-08-19' }, '2026-08-19').closes === 'Closes today', 'bookingState: closes-today on until');
   console.assert(!bookingState({ from: '2026-08-10', until: '2026-08-19' }, '2026-08-20').show, 'bookingState: gone after until');
   console.assert(!bookingState({ date: '2026-08-19', label: 'x' }, '2026-08-15').show, 'bookingState: legacy regWindows shape never books');
+  // noSchoolNote (2026-08-06): the two real sheet rows that must NOT get the line, pinned so a
+  // future simplification back to `aud === 'holiday'` fails here instead of on a family's screen.
+  console.assert(noSchoolNote({ aud: 'holiday', sub: '' }), 'noSchoolNote: a plain holiday says it');
+  console.assert(noSchoolNote({ aud: 'holiday', sub: 'to 16 Oct' }), 'noSchoolNote: a dated multi-day break says it');
+  console.assert(!noSchoolNote({ aud: 'holiday', sub: 'Normal school day' }), 'noSchoolNote: a tagged holiday that is a working day must NOT say it (Visakha Bucha)');
+  console.assert(!noSchoolNote({ aud: 'holiday', sub: 'No school for children; Teacher In-Service Day' }), 'noSchoolNote: never doubles a row that already says it');
+  console.assert(!noSchoolNote({ aud: 'parent', sub: '' }) && !noSchoolNote({ aud: 'child', sub: '' }), 'noSchoolNote: non-holiday audiences never say it');
   // href grammar (plan 1.2/1.8): bare site-relative directory paths only.
   console.assert(HREF_RE.test('hopes-and-wishes/') && HREF_RE.test('events/sports-day/'), 'href grammar: accepts dir paths');
   console.assert(!HREF_RE.test('/abs/') && !HREF_RE.test('../up/') && !HREF_RE.test('https://x.test/') && !HREF_RE.test('no-slash'), 'href grammar: rejects abs, dot-segments, schemes, non-dir');
@@ -665,8 +690,12 @@
           ? wEvs.map(function (e) {
               var wxt = evHref(e.href) ? null : extUrl(e);
               var h = evHref(e.href) || wxt || (ROOT + 'calendar/');
+              // 2026-08-06 (Trevor): the Parents/Children keys came off the strip, so a holiday
+              // says it in words instead of relying on a dot shape. Every day of a multi-day
+              // break carries it, because 0114 expands the range across all of them.
+              var wNote = noSchoolNote(e) ? '<span class="day-note">No school for children</span>' : '';
               return '<a class="day-ev" href="' + h + '"' + (wxt ? ' target="_blank" rel="noopener"' : '') + '><span class="dot' + (e.aud ? ' ' + e.aud : (e.type === 'gold' ? ' gold' : '')) + '"></span>' +
-                '<span class="lbl">' + e.title + '</span></a>';
+                '<span class="lbl">' + e.title + '</span></a>' + wNote;
             }).join('')
           : '<span class="day-none"></span>';
         wkCells.push('<div class="day' + (wIsToday ? ' today' : '') + '"><div class="day-top">' +
@@ -1536,7 +1565,11 @@
         : /Line\//i.test(ua)
           ? 'Open this page in your browser first, then use the browser menu to add it to your home screen.'
           : /iPhone|iPad|iPod/i.test(ua)
-            ? 'In Safari, tap Share, then Add to Home Screen.'
+            /* Not every iOS browser is Safari, and only Safari has the toolbar Share
+               button this line used to name (Adam, 2026-08-06). One neutral sentence is
+               true in Safari, Chrome, Firefox and Edge alike; install.js does the real
+               per-browser coaching, this is a one-line hint. */
+            ? 'Tap Share, or your browser menu, then Add to Home Screen.'
             : 'Bookmark this page, or use your browser menu to add it to your home screen.';
     }
     var coffeeUrl = document.getElementById('coffee-page-url');
@@ -1554,13 +1587,18 @@
   // data.js is network-first, so a new deploy restamps every page the moment fresh
   // data lands, the visible signal that the update propagated. Static HTML keeps a
   // hardcoded version string as the no-JS fallback.
-  // 0097: the disclaimer clause is dropped at the 1.0 FAMILY launch and not before. Still 0.9x,
-  // still an internal review surface, so it stays true and stays here (Trevor 2026-08-06: waves of
-  // 0.9 edits through the day, "dont flip to 1.0 without checking").
+  // 0097: the version number and the disclaimer are two separate decisions, and they came apart
+  // at v0.93. The number is still 0.9x because Trevor's edit waves have not stopped and the 1.0
+  // flip is his call out loud, but the disclaimer went at 0.93 because families arrive the next
+  // morning and a page that tells them it is not a live school page would be the lie.
   var fineStamp = document.querySelector('.fine');
   if (fineStamp && P.version) {
-    fineStamp.textContent = P.version + (P.build ? ' · ' + P.build : '') +
-      ' · for internal feedback, not a live school page';
+    /* The review-window disclaimer clause came off here at v0.93 (issue 0097). The version
+       number stays: the edit waves have not stopped, and the 1.0 flip is a call Trevor makes
+       out loud. Both carriers must agree, this one and the static HTML footer, and THIS is
+       the one that actually paints the footer: changing only the HTML looks fixed and is not.
+       The clause itself is quoted in 0097, not here, because this file publishes. */
+    fineStamp.textContent = P.version + (P.build ? ' · ' + P.build : '');
   }
 
   // Page-open beacon (issue 0028 / W1): one anonymous datapoint per view, to the
