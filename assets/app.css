@@ -99,8 +99,17 @@ button.tab{background:none;border:none;padding:0;}
 .greet{margin-bottom:26px;}
 .greet .eyebrow{margin-bottom:10px;display:inline-block;}
 .greet h1{font-family:var(--serif);font-weight:400;font-optical-sizing:auto;font-size:clamp(30px,4.4vw,46px);line-height:1.05;
-  letter-spacing:-0.014em;color:var(--ink);max-width:20ch;}
+  letter-spacing:-0.014em;color:var(--ink);}
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;}
+
+/* 0139 (relay #63): page-top titles and leads used to stop at 18ch and 58ch, which inside
+   the 1092px content column is under half the width, so every page read as text pinned to
+   the left of its own hero. They now run the full content width, the same width as the hero
+   photo and the page body below them. .wrap's own 1180px cap is what bounds the line length
+   now, so there is one width rule for the page instead of two competing ones, and nothing
+   changes on a phone (both caps were already wider than the screen there).
+   The trade is a longer reading measure on a wide desktop: the lead is the one to pull back
+   to about 78ch if it ever reads long, and that is a one-value change here, not a redesign. */
 
 /* ---- tiles ---- */
 .tile{position:relative;background:var(--white);border:1px solid var(--rule);border-radius:10px;box-shadow:var(--shadow-quiet);
@@ -200,8 +209,8 @@ button.tab{background:none;border:none;padding:0;}
 .crumb a{color:var(--muted);} .crumb a:hover{color:var(--ink);}
 .page-head{margin-bottom:30px;}
 .page-head .eyebrow{display:inline-block;margin-bottom:12px;}
-.page-head h1{font-family:var(--serif);font-weight:400;font-optical-sizing:auto;font-size:clamp(30px,4.4vw,46px);line-height:1.04;letter-spacing:-0.014em;color:var(--ink);margin-bottom:14px;max-width:18ch;}
-.page-head .lead{font-size:clamp(15px,1.6vw,18px);font-weight:300;line-height:1.55;color:var(--charcoal);max-width:58ch;}
+.page-head h1{font-family:var(--serif);font-weight:400;font-optical-sizing:auto;font-size:clamp(30px,4.4vw,46px);line-height:1.04;letter-spacing:-0.014em;color:var(--ink);margin-bottom:14px;}
+.page-head .lead{font-size:clamp(15px,1.6vw,18px);font-weight:300;line-height:1.55;color:var(--charcoal);}
 .section{margin-bottom:34px;}
 .sec-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
 .sec-eyebrow .ln{height:1px;flex:1;background:var(--rule);}
@@ -1069,7 +1078,6 @@ a.doc-row:focus-visible{outline:2px solid var(--purple);outline-offset:-2px;bord
 
 .pe .pe-hero{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,3vw,40px);align-items:center;margin-bottom:36px;}
 .pe .pe-hero .page-head{margin-bottom:0;}
-.pe .pe-hero .lead{max-width:52ch;}
 
 /* Reserved hero-art seam: the curated child's purple-elephant drawing lands here via
    the art pipeline (potrace SVG, fill = --pe-art-ink, consent-gated), same class of

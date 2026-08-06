@@ -136,8 +136,8 @@ DTSTAMP:20260924T000000Z
 DTSTART;VALUE=DATE:20260924
 DTEND;VALUE=DATE:20260925
 SUMMARY:Open Evening
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/open-evening/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/open-evening/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261002-parent-teacher-conferences-progress@portal.elc.ac.th
@@ -181,8 +181,8 @@ DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
 SUMMARY:ELC celebrates Loy Krathong
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/loy-krathong/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/loy-krathong/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261123-y1-and-y2-holiday-pageant@portal.elc.ac.th

@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-06T21:33:42.636Z",
+  "generated": "2026-08-06T22:18:05.520Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -253,7 +253,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "child",
-      "nopage": true,
       "title": "ELC celebrates Loy Krathong",
       "sub": ""
     },
