@@ -8,7 +8,7 @@ window.PORTAL = {
   // update-propagation worked. feedback.js payloads also read version. The MASTHEAD
   // tape (.tape) stays shell-owned, hardcoded per page: bump it in the v0.8 stamp
   // pass. build = deploy date of the current shell (honest, not the viewer's clock).
-  version: 'v0.91',
+  version: 'v0.92',
   build: '6 Aug',
   term: 'Term 1',
 
@@ -386,7 +386,6 @@ window.PORTAL = {
   calendarEvents: [
     { date: '2026-07-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
     { date: '2026-08-12', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'The Queen Mother\'s Birthday Holiday', sub: '' },
-    { date: '2026-08-13', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New family welcome evening', sub: 'For City School and PE families, 6:00 to 8:30 at The Wine Merchant.' },
     { date: '2026-08-14', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New Family Orientation', sub: 'A warm welcome for families new to ELC.' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261928681379473', cohort: 'K1', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'K1 Coffee morning', sub: 'Information session' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K2 to Y6 Hopes and Wishes meetings', sub: '' },

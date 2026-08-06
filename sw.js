@@ -20,7 +20,6 @@ const SHELL = [
   "asa/",
   "community/",
   "help/",
-  "new-families/",
   "new-family-orientation/",
   "what-happens-next/",
   "privacy/",

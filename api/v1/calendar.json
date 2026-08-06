@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-06T02:59:47.981Z",
+  "generated": "2026-08-06T07:50:08.690Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -20,14 +20,6 @@
       "aud": "holiday",
       "title": "The Queen Mother's Birthday Holiday",
       "sub": ""
-    },
-    {
-      "date": "2026-08-13",
-      "cat": "event",
-      "type": "gold",
-      "aud": "parent",
-      "title": "New family welcome evening",
-      "sub": "For City School and PE families, 6:00 to 8:30 at The Wine Merchant."
     },
     {
       "date": "2026-08-14",

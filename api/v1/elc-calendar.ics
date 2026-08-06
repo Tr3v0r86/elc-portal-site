@@ -23,15 +23,6 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260813-new-family-welcome-evening@portal.elc.ac.th
-DTSTAMP:20260813T000000Z
-DTSTART;VALUE=DATE:20260813
-DTEND;VALUE=DATE:20260814
-SUMMARY:New family welcome evening\, For City School and PE families\, 6:00 to 8:30 at The Wine Merchant.
-URL:https://elcportal.elc.ac.th/new-family-orientation/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/new-family-orientation/
-END:VEVENT
-BEGIN:VEVENT
 UID:20260814-new-family-orientation@portal.elc.ac.th
 DTSTAMP:20260814T000000Z
 DTSTART;VALUE=DATE:20260814
