@@ -130,9 +130,8 @@
   /* What to call an outward link, so no surface claims the wrong destination. Every external link
      on the site used to be the school's own site, and the copy said so in three places; the Thai
      holiday reference is the first that is not. */
-  function extSiteLabel(url) {
-    return /(^|\/\/|\.)elc\.ac\.th/.test(String(url || '')) ? 'the school site' : 'Thai public holidays';
-  }
+  function isElcUrl(url) { return /(^|\/\/|\.)elc\.ac\.th/.test(String(url || '')); }
+  function extSiteLabel(url) { return isElcUrl(url) ? 'the school site' : 'Thai public holidays'; }
 
   /* Where a week-strip entry goes (issue 0131, Trevor relay #51). The strip was built for the
      City home, where an event with no page of its own can honestly fall back to /calendar/.
@@ -340,6 +339,9 @@
   console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Chakri Day', ext: 'https://www.elc.ac.th/x/' }) === null, 'thaiHolidayUrl: an existing ext link is never overridden');
   console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Visakha Bucha Day : normal school day' }) === THAI_HOLIDAY_URL, 'thaiHolidayUrl: still a Thai holiday even on a day ELC stays open');
   console.assert(extSiteLabel('https://www.elc.ac.th/summer-school/') === 'the school site' && extSiteLabel(THAI_HOLIDAY_URL) === 'Thai public holidays', 'extSiteLabel: names the real destination, never calls a third-party page the school site');
+  // 0143: one predicate behind BOTH the aria-label and the visible Coming-up label. The visible
+  // one was hardcoded for a month after extSiteLabel shipped, so pin the thing they now share.
+  console.assert(isElcUrl('https://www.elc.ac.th/summer-school/') && !isElcUrl(THAI_HOLIDAY_URL), 'isElcUrl: shared by the visible Coming-up label and extSiteLabel, so no surface announces a third-party page as the school site');
 
   // dayEvHref (0131): the exact revert Trevor found is planted here. A campus strip entry with
   // nowhere of its own to go must be a non-link, never the City calendar; the City home keeps
@@ -914,7 +916,12 @@
         var when = '<span class="when">' + cuLabel(c.dates, true) + '</span>';
         var body = blurb ? '<p>' + blurb + '</p>' : '';
         if (c.href) {
-          var go = c.feat ? c.feat.go : (c.ext ? 'On the school site' : 'See details');
+          // 0143: the VISIBLE label names the real destination too. 0142 routed all three
+          // aria-labels through extSiteLabel() and missed this one, the only outward label a
+          // sighted family actually reads, so a card pointing at thaiembassy.com still said
+          // "On the school site". ponytail: the shared predicate is the guard, not this line;
+          // a fourth destination means extending isElcUrl's callers, never re-hardcoding here.
+          var go = c.feat ? c.feat.go : (c.ext ? (isElcUrl(c.href) ? 'On the school site' : 'Thai public holidays') : 'See details');
           return '<a class="tile ev-card ev-link" href="' + c.href + '"' + (c.ext ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' +
             escAttr(title) + ', ' + cuLabel(c.dates, false) + (c.ext ? ' · on ' + extSiteLabel(c.href) : ' · event page') + '">' +
             when + '<h3>' + title + '</h3>' + body +
