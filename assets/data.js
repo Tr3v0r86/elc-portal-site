@@ -226,21 +226,6 @@ window.PORTAL = {
     // Y4 Lauren photo stays null: the headshot set's 'lauren' is last year's SSW
     // Lauren; identity unconfirmed for Lauren Marsh (new to Y4). Resolve at sign-off.
 
-    // DOVE (Trevor 2026-08-07, relaying April via Sarah Pelham): Dove was absent from
-    // the portal entirely. It is NOT in docs/sources/staffing-2026-27.md: that sheet
-    // predates the 2026-07-15 fold of the Dove Centre into the City School, so these two
-    // rows are Trevor's word, not the sheet's, and the sheet owes a Dove block.
-    // Youngest first, so Dove leads the K1→Y6 ascent (YEAR_ORDER in render.js).
-    // OPEN, deliberately not guessed: surnames · headshots (initials placeholder until
-    // they land) · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
-    { class: 'D1 Elger', year: 'Dove', campus: null, flag: null,
-      teachers: [ { name: 'Elger', role: 'Class teacher', photo: null, bio: null } ],
-      bookingUrl: null },
-
-    { class: 'D2 Carolyne', year: 'Dove', campus: null, flag: null,
-      teachers: [ { name: 'Carolyne', role: 'Class teacher', photo: null, bio: null } ],
-      bookingUrl: null },
-
     { class: 'K1 Sarah', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Sarah Jansen van Vuuren', role: 'Class teacher', photo: 'assets/img/team/sarah.jpg',
         bio: 'From South Africa and in Bangkok since 2022, Sarah holds an honours degree in education from the University of Cape Town. She builds a nurturing room where children explore, experiment and engage with the world, with strong relationships between families, staff and children at the centre. Outside school: hiking, swimming and photography.' } ],
@@ -363,6 +348,22 @@ window.PORTAL = {
         { name: 'Madison Moore', role: 'Class teacher', photo: 'assets/img/team/madison.jpg',
           bio: 'Maddy is from the United States, where a design degree led her to teaching. After two years in Year 4 she steps up to Year 6, aiming for a room where children feel safe, have fun and are genuinely challenged. Outside class: reading, learning Thai and taking up golf.' }
       ],
+      bookingUrl: null },
+
+    // DOVE (Trevor 2026-08-07, relaying April via Sarah Pelham): Dove was absent from
+    // the portal entirely. It is NOT in docs/sources/staffing-2026-27.md: that sheet
+    // predates the 2026-07-15 fold of the Dove Centre into the City School, so these two
+    // rows are Trevor's word, not the sheet's, and the sheet owes a Dove block.
+    // LAST on the page, after Y6, on Trevor's call (YEAR_ORDER in render.js decides the
+    // section order; these two sit last here so the file reads the way the page renders).
+    // OPEN, deliberately not guessed: surnames · headshots (initials placeholder until
+    // they land) · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
+    { class: 'D1 Elger', year: 'Dove', campus: null, flag: null,
+      teachers: [ { name: 'Elger', role: 'Class teacher', photo: null, bio: null } ],
+      bookingUrl: null },
+
+    { class: 'D2 Carolyne', year: 'Dove', campus: null, flag: null,
+      teachers: [ { name: 'Carolyne', role: 'Class teacher', photo: null, bio: null } ],
       bookingUrl: null }
   ],
 
