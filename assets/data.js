@@ -223,8 +223,9 @@ window.PORTAL = {
     // teacher's self-check + staffing sign-off (Payal + Heather + Trevor) before
     // parent-facing publish; the page-level draft note covers the interim.
     // PE49 K1 class (Tina) deliberately absent: Purple Elephant is out of launch scope.
-    // Y4 Lauren photo stays null: the headshot set's 'lauren' is last year's SSW
-    // Lauren; identity unconfirmed for Lauren Marsh (new to Y4). Resolve at sign-off.
+    // Y4 Lauren RESOLVED 2026-08-07: Trevor supplied the headshot directly, so the
+    // ambiguity is gone (the Headshots.zip 'lauren' was last year's SSW Lauren, and
+    // that file is still NOT the one wired here). team/lauren.jpg is Lauren Marsh.
 
     { class: 'K1 Sarah', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Sarah Jansen van Vuuren', role: 'Class teacher', photo: 'assets/img/team/sarah.jpg',
@@ -324,7 +325,7 @@ window.PORTAL = {
       bookingUrl: null },
 
     { class: 'Y4 Lauren', year: 'Y4', campus: null, flag: null,
-      teachers: [ { name: 'Lauren Marsh', role: 'Class teacher', photo: null,
+      teachers: [ { name: 'Lauren Marsh', role: 'Class teacher', photo: 'assets/img/team/lauren.jpg',
         bio: 'Lauren joins Year 4 with fifteen years across Key Stage 2, most recently in Thailand and before that Shanghai and England. A specialist in maths and history, she co-creates a room where children take the risks real learning needs. Mum to Winnie; loves the outdoors, gardening and reading.' } ],
       bookingUrl: null },
 
@@ -356,14 +357,14 @@ window.PORTAL = {
     // rows are Trevor's word, not the sheet's, and the sheet owes a Dove block.
     // LAST on the page, after Y6, on Trevor's call (YEAR_ORDER in render.js decides the
     // section order; these two sit last here so the file reads the way the page renders).
-    // OPEN, deliberately not guessed: surnames · headshots (initials placeholder until
-    // they land) · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
+    // Headshots landed 2026-08-07 (Trevor, direct). OPEN, deliberately not guessed:
+    // surnames · bios · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
     { class: 'D1 Elger', year: 'Dove', campus: null, flag: null,
-      teachers: [ { name: 'Elger', role: 'Class teacher', photo: null, bio: null } ],
+      teachers: [ { name: 'Elger', role: 'Class teacher', photo: 'assets/img/team/elger.jpg', bio: null } ],
       bookingUrl: null },
 
     { class: 'D2 Carolyne', year: 'Dove', campus: null, flag: null,
-      teachers: [ { name: 'Carolyne', role: 'Class teacher', photo: null, bio: null } ],
+      teachers: [ { name: 'Carolyne', role: 'Class teacher', photo: 'assets/img/team/carolyne.jpg', bio: null } ],
       bookingUrl: null }
   ],
 
