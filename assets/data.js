@@ -357,14 +357,14 @@ window.PORTAL = {
     // rows are Trevor's word, not the sheet's, and the sheet owes a Dove block.
     // LAST on the page, after Y6, on Trevor's call (YEAR_ORDER in render.js decides the
     // section order; these two sit last here so the file reads the way the page renders).
-    // Headshots landed 2026-08-07 (Trevor, direct). OPEN, deliberately not guessed:
-    // surnames · bios · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
+    // Headshots + surnames landed 2026-08-07 (Trevor, direct). OPEN, deliberately not
+    // guessed: bios · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
     { class: 'D1 Elger', year: 'Dove', campus: null, flag: null,
-      teachers: [ { name: 'Elger', role: 'Class teacher', photo: 'assets/img/team/elger.jpg', bio: null } ],
+      teachers: [ { name: 'Elger Sevilla', role: 'Class teacher', photo: 'assets/img/team/elger.jpg', bio: null } ],
       bookingUrl: null },
 
     { class: 'D2 Carolyne', year: 'Dove', campus: null, flag: null,
-      teachers: [ { name: 'Carolyne', role: 'Class teacher', photo: 'assets/img/team/carolyne.jpg', bio: null } ],
+      teachers: [ { name: 'Carolyne Thornton', role: 'Class teacher', photo: 'assets/img/team/carolyne.jpg', bio: null } ],
       bookingUrl: null }
   ],
 
