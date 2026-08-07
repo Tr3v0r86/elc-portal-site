@@ -9,7 +9,7 @@ window.PORTAL = {
   // tape (.tape) stays shell-owned, hardcoded per page: bump it in the v0.8 stamp
   // pass. build = deploy date of the current shell (honest, not the viewer's clock).
   version: 'v1.0',
-  build: '6 Aug',
+  build: '8 Aug',
   term: 'Term 1',
 
   // Live-feed subscribe controls (ADR-0006, superseded-for-launch by issue 0077). The UI

@@ -6,6 +6,11 @@
    Voice: sentence case, full stops, no em-dashes, no emoji.
    ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+/* 0149: the hidden attribute must outrank a class's display. [hidden]{display:none} is a UA
+   rule, so any author rule that sets display defeats it (.note is display:flex, which left
+   the empty #notice mount visible at 57px). Every JS-filled mount on this site ships hidden
+   and trusts the attribute, so the guard belongs here once, not per element. */
+[hidden]{display:none !important;}
 img,svg{display:block;max-width:100%;}
 html{overflow-x:hidden;}
 body{font-family:var(--sans);font-weight:300;background:var(--paper);color:var(--ink);line-height:1.6;

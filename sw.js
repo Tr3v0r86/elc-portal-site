@@ -3,14 +3,19 @@
       returning viewer online never opens a stale shell (0061); the cache is the
       offline safety net only.
    1) assets/fonts/  : cache-first, no revalidation (content-hashed URLs, immutable).
-   2) assets/data.js : network-first, cache fallback (the freshness point).
+   2) assets/data.js + assets/render.js : network-first, cache fallback (the freshness
+      point). render.js joined data.js here at 0149: HTML is network-first, so leaving the
+      renderer on SWR guaranteed fresh markup driven by a renderer one deploy behind on the
+      first load after every ship. They are one contract and must never be a version apart.
+      Costs no extra request (SWR was already refetching it every load, it just answered
+      from cache first) and offline is unchanged: the cached copy still answers.
    3) other same-origin GET : stale-while-revalidate (cached copy answers now, a
       background cache:'reload' fetch updates the cache for the next load).
    CACHE bump rule: routine asset edits need NO bump (SWR picks them up); HTML-to-JS
    contract changes DO need one (stale HTML + fresh JS is a real mixed-version risk
    under SWR).
    All URLs are relative to this script, so the site works at / or /portal-test/. */
-const CACHE = "elc-portal-shell-v26";
+const CACHE = "elc-portal-shell-v27";
 
 const SHELL = [
   "./",
@@ -135,8 +140,10 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  /* Tier 2: data.js is the freshness point: network first, cached copy when offline. */
-  if (url.pathname.endsWith("/assets/data.js")) {
+  /* Tier 2: data.js and render.js are the freshness point: network first, cached copy when
+     offline. Both, not just data.js (0149): the ids in the HTML, the islands in data.js and
+     the code that joins them ship together, and index.html is already network-first. */
+  if (url.pathname.endsWith("/assets/data.js") || url.pathname.endsWith("/assets/render.js")) {
     e.respondWith(
       fetch(req)
         .then((res) => {
