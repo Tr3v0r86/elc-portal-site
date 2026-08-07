@@ -168,6 +168,34 @@ window.PORTAL = {
       sig: 'Trevor · Head of Operations and Educational Experience' }
   ],
 
+  // Quick notices to families (issue 0148, Trevor 2026-08-07). A second tile under the
+  // leadership note, same markup and styling, for something short-lived that families need
+  // now: a safety update, a closure, a change of plan. NOT the note rotation: a notice is
+  // bounded by `until` and it clears itself on the day after, with no history kept. This
+  // island is the ONLY edit point (render.js removes the mount when nothing is live), so an
+  // expired notice can never sit stale on the page and there is no static fallback copy to
+  // forget about. Latest live one wins, same rule as notes[].
+  // Schema: { from: '2026-08-07',            // Bangkok civil date, inclusive
+  //           until: '2026-08-10',           // inclusive; the tile is gone on the 11th
+  //           eyebrow: 'A note from Payal',
+  //           when: 'Friday 7 August',       // written, not derived: it must not go stale
+  //           title, body, sig,
+  //           photo: 'hos.png',              // optional, site/assets/img/
+  //           cta: { href: 'safeguarding/', label: 'Read the policy' } }   // optional
+  // HAND-KEPT: pull-sheet.py never touches this island.
+  notices: [
+    // Payal's letter to families after the Nonthaburi school shooting, sent by email the
+    // same morning (Drive: "7/8/26 Safety Comms"). This is a truncation of that letter, not
+    // new copy, and it holds for four days.
+    { from: '2026-08-07', until: '2026-08-10',
+      eyebrow: 'A note from Payal',
+      when: 'Friday 7 August',
+      title: 'Where we stand today.',
+      body: 'Like you, we learned this morning of the tragic shooting at a school in Nonthaburi. Our hearts are with the students, educators and families affected. The incident is contained and has no connection to our schools. We have been in close contact with our security partners at the US Embassy since this morning, and our security teams at every campus are on heightened alert: you will notice this in the firm enforcement of campus access at our gates. Next week, before the children return, our whole staff walks through our safety policies and procedures together, including our lockdown procedure. If you would like to talk anything through with us, our doors are open.',
+      photo: 'hos.png',
+      sig: 'Payal Kogar · Head of Schools and Pedagogista' }
+  ],
+
   // ---- Hopes and Wishes / PTC booking (issue 0043, plan 2026-07-16) ----
   // The start-of-year parent-teacher conference. ONE page (site/hopes-and-wishes/)
   // renders these islands via render.js; Payal emails the single link. The SAME page

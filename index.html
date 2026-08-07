@@ -112,6 +112,33 @@
       <div class="note-history" id="note-history" hidden></div>
     </details>
 
+    <!-- QUICK NOTICE (0148, Trevor 2026-08-07): the same tile as the note above, for a
+         short-lived message to families. Ships EMPTY and hidden on purpose: render.js fills
+         it from the newest live PORTAL.notices entry and REMOVES the mount when none is
+         open, so data.js is the single edit point and an expired notice can never sit stale
+         here (the #reg-windows pattern, not the note's static-fallback pattern). No JS-off
+         copy for the same reason. Styling is the note's, unchanged; the collapsed/expanded
+         polish it inherits is the Claude Design lane (rule 7). -->
+    <details class="tile note tile-top-purple home-note" id="notice" hidden>
+      <summary class="note-summary">
+        <div class="who">
+          <!-- No src here on purpose: an empty src fires the error event at parse time and
+               the onerror would hide the headshot before render.js ever set the real one.
+               alt stays "" because the eyebrow beside it already names the person. -->
+          <img class="headshot" id="notice-photo" alt="" width="56" height="56" onerror="this.style.display='none'">
+          <div>
+            <span class="eyebrow" id="notice-eyebrow"></span>
+            <div class="when" id="notice-when"></div>
+          </div>
+        </div>
+        <h2 id="notice-title"></h2>
+      </summary>
+      <div class="note-main">
+        <p id="notice-body"></p>
+        <div class="sig" id="notice-sig"></div>
+      </div>
+    </details>
+
     <!-- THIS WEEK strip (P4 pass A): one Asia/Bangkok Sun-Sat week as day cards,
          each event linking into the calendar, so the week and the calendar are one
          connected surface. Weeks start Sunday and render.js injects a next-week

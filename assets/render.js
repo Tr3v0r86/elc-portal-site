@@ -756,6 +756,53 @@
     }
   }
 
+  // Quick notice (issue 0148, Trevor 2026-08-07): the second note tile, for a short-lived
+  // message to families. Newest live PORTAL.notices entry wins (from..until inclusive,
+  // Bangkok civil dates); the mount REMOVES ITSELF when none is open, which is what "clears
+  // itself after N days" means mechanically: nothing expires by elapsed time, the last day
+  // is written down in data.js. textContent only, same as the note. No history: a cleared
+  // notice is gone by design.
+  var noticeCard = document.getElementById('notice');
+  if (noticeCard) {
+    var liveNotice = null;
+    (P.notices || []).forEach(function (n) {
+      if (n.from <= bkkToday && (!n.until || n.until >= bkkToday)) liveNotice = n;
+    });
+    console.assert(!(function (t) { return [{ from: '2026-08-07', until: '2026-08-10' }].some(function (n) { return n.from <= t && n.until >= t; }); })('2026-08-11'), 'notice: clears the day after until');
+    if (!liveNotice) { noticeCard.remove(); }
+    else {
+      var nPhoto = document.getElementById('notice-photo');
+      // alt stays "": the eyebrow names the person, so the headshot is decorative and
+      // repeating the name would only add noise for a screen reader.
+      if (liveNotice.photo) { nPhoto.src = ROOT + 'assets/img/' + liveNotice.photo; }
+      else { nPhoto.remove(); }
+      document.getElementById('notice-eyebrow').textContent = liveNotice.eyebrow || '';
+      document.getElementById('notice-when').textContent = liveNotice.when || '';
+      document.getElementById('notice-title').textContent = liveNotice.title || '';
+      var nBody = document.getElementById('notice-body');
+      nBody.textContent = liveNotice.body || '';
+      document.getElementById('notice-sig').textContent = liveNotice.sig || '';
+      // Optional cta, one link after the body. Internal pages only (evHref): a notice is
+      // written in a hurry, so it never gets to mint a raw href.
+      var nHref = liveNotice.cta && liveNotice.cta.label ? evHref(liveNotice.cta.href) : null;
+      if (nHref) {
+        var nA = document.createElement('a');
+        nA.className = 'note-cta';
+        nA.href = nHref;
+        nA.textContent = liveNotice.cta.label;
+        nBody.parentNode.insertBefore(nA, nBody.nextSibling);
+      }
+      noticeCard.hidden = false;
+      // Read-state, same shape as the note but its own key: auto-open once per notice on
+      // this device, collapsed after. Keyed on `from`, so a new notice re-opens the tile.
+      var N_SEEN = 'elcp:notice-seen';
+      var nSeen = null;
+      try { nSeen = localStorage.getItem(N_SEEN); } catch (e) {}   // private mode: stays open
+      noticeCard.open = nSeen !== liveNotice.from;
+      if (noticeCard.open) { try { localStorage.setItem(N_SEEN, liveNotice.from); } catch (e) {} }
+    }
+  }
+
   // This-week strip (#week, home; P4 pass A): one Asia/Bangkok SUNDAY-TO-SATURDAY
   // week as day cards, each event linking into the calendar. Weeks start on Sunday
   // (relay #16, Trevor 2026-07-27) so a family checking on Sunday sees the week

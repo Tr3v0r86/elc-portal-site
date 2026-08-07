@@ -32,6 +32,7 @@ const SHELL = [
   "policies/photo-consent/",
   "arrival/",
   "nuts-and-bolts/",
+  "lunch/",
   "how-to-pay/",
   "purple-elephant/thong-lor/",
   "purple-elephant/samakee/",
