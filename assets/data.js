@@ -226,6 +226,21 @@ window.PORTAL = {
     // Y4 Lauren photo stays null: the headshot set's 'lauren' is last year's SSW
     // Lauren; identity unconfirmed for Lauren Marsh (new to Y4). Resolve at sign-off.
 
+    // DOVE (Trevor 2026-08-07, relaying April via Sarah Pelham): Dove was absent from
+    // the portal entirely. It is NOT in docs/sources/staffing-2026-27.md: that sheet
+    // predates the 2026-07-15 fold of the Dove Centre into the City School, so these two
+    // rows are Trevor's word, not the sheet's, and the sheet owes a Dove block.
+    // Youngest first, so Dove leads the K1→Y6 ascent (YEAR_ORDER in render.js).
+    // OPEN, deliberately not guessed: surnames · headshots (initials placeholder until
+    // they land) · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
+    { class: 'D1 Elger', year: 'Dove', campus: null, flag: null,
+      teachers: [ { name: 'Elger', role: 'Class teacher', photo: null, bio: null } ],
+      bookingUrl: null },
+
+    { class: 'D2 Carolyne', year: 'Dove', campus: null, flag: null,
+      teachers: [ { name: 'Carolyne', role: 'Class teacher', photo: null, bio: null } ],
+      bookingUrl: null },
+
     { class: 'K1 Sarah', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Sarah Jansen van Vuuren', role: 'Class teacher', photo: 'assets/img/team/sarah.jpg',
         bio: 'From South Africa and in Bangkok since 2022, Sarah holds an honours degree in education from the University of Cape Town. She builds a nurturing room where children explore, experiment and engage with the world, with strong relationships between families, staff and children at the centre. Outside school: hiking, swimming and photography.' } ],
@@ -607,7 +622,9 @@ window.PORTAL = {
     // sheet-fed one (0046: sheet stays planning SSOT, portal publishes). Restoring is
     // re-adding these rows; the WordPress pages are untouched and still live.
     { group: 'Health and safety', name: 'Safeguarding and child protection', sub: 'Our commitment, and who to speak to if something is not right.', kind: 'PDF', tag: 'PDF · 700 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safeguarding-and-Child-Protection-Policy-1.pdf' },
-    { group: 'Health and safety', name: 'Safeguarding triage chart', sub: 'How a concern moves from first report to action, at a glance.', kind: 'PDF', tag: 'PDF · 53 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safeguarding-Triage-Chart.pdf' },
+    // Re-uploaded 2026-08-07 04:07 UTC at the SAME URL (registry sheet row 14): 53 KB -> 23 KB
+    // (22,671 bytes, HEAD-checked). Sizes here are decimal KB, matching the 2026-07-08 pass.
+    { group: 'Health and safety', name: 'Safeguarding triage chart', sub: 'How a concern moves from first report to action, at a glance.', kind: 'PDF', tag: 'PDF · 23 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safeguarding-Triage-Chart.pdf' },
     { group: 'Health and safety', name: 'School emergency operations plan', sub: 'How the school prepares for and responds to an emergency.', kind: 'PDF', tag: 'PDF · 810 KB', href: 'https://www.elc.ac.th/wp-content/uploads/School-Emergency-Operations-Policy-and-Plan.pdf' },
     { group: 'Health and safety', name: 'Accident and illness process', sub: 'What happens when a child is hurt or unwell at school.', kind: 'PDF', tag: 'PDF · 44 KB', href: 'https://www.elc.ac.th/wp-content/uploads/ACCIDENT-ILLNESS-PROCESS-23-24.pdf' },
     { group: 'Health and safety', name: 'Outdoor air quality policy', sub: 'How we decide on outdoor play when the air is poor.', kind: 'PDF', tag: 'PDF · 138 KB', href: 'https://www.elc.ac.th/wp-content/uploads/2025_Outdoor_Air_Quality_Policy.pdf' },

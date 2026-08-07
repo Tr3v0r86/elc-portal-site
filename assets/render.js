@@ -1415,7 +1415,10 @@
   var teamMount = document.getElementById('team-cards');
   if (teamMount && P.ptc && P.classes) {
     var facesOnly = teamMount.hasAttribute('data-faces');
-    var YEAR_ORDER = ['demo', 'K1', 'K2', 'Y1', 'Y2', 'Y3', 'Y4', 'Y5', 'Y6'];
+    // 'Dove' leads the ascent (youngest first) and has no YEAR_LABEL entry on purpose:
+    // the fallback renders the year key, and "Dove" is already the whole name. The
+    // Dove Centre folded into the City School 2026-07-15, so no campus label either.
+    var YEAR_ORDER = ['demo', 'Dove', 'K1', 'K2', 'Y1', 'Y2', 'Y3', 'Y4', 'Y5', 'Y6'];
     var YEAR_LABEL = { demo: 'See how it works', K1: 'Kindergarten 1', K2: 'Kindergarten 2',
       Y1: 'Year 1', Y2: 'Year 2', Y3: 'Year 3', Y4: 'Year 4', Y5: 'Year 5', Y6: 'Year 6' };
     // Booking open while today <= the last PTC date; dormant after. Pure + assertable.
