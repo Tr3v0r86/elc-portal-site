@@ -34,6 +34,22 @@
      name. Light theme: same value, zero visual change. Consumers: .policies, the
      community closing panel. */
   --panel:var(--aubergine);
+  /* Heading ink ON the panel. Split out because --white-pure was doing two jobs
+     (button ink AND the policies heading) and the dark theme needs them to move in
+     opposite directions: button ink darkens with the grounds, panel headings must
+     stay bright. Light: the same #FFFFFF it always was. */
+  --panel-ink-strong:var(--white-pure);
+
+  /* Ink on a saturated accent chip (today's date on the red cell). Same split as
+     --panel-ink-strong and found the same way: --white-pure was the ink here too, and
+     in dark it drifted to 4.4:1 against the lifted red, just under AA. Light: #FFFFFF,
+     exactly as before. */
+  --ink-on-accent:var(--white-pure);
+
+  /* Hand-drawn line art (thai-houses, the spiral). The drawings are black ink on
+     paper; after dark they are the same drawings reversed, which is the reversed
+     lockup applied to the art layer rather than a recolour. Light: untouched. */
+  --art-invert:none;
   --sage:#5B7A4A;                      /* success (HANDOFF token list; feedback widget) */
   --amber:#B17B2E;                     /* caution / in-progress (doc-list status dot-chips; value = design-system tokens/colors.css) */
   --purple-tint:#ECE6F2;               /* today's day-card wash (P4 week strip); Claude Design may retune */
@@ -138,6 +154,17 @@
   --amber:#CE9F58;
   --purple-tint:#2E2540;
   --text-on-dark:#E4DDF0;   /* unchanged: it only ever sits on --panel, which stays deep */
+  /* Panel heading: brighter than the body ink above it, mirroring the light theme's
+     white-heading-over-lavender-body hierarchy. It must NOT follow --white-pure,
+     which darkens to near the panel colour and made "Policies and forms" vanish. */
+  --panel-ink-strong:#F6F2EA;
+
+  /* The room's own colour as ink on the red today-chip: 5.4:1, comfortably over AA,
+     and it reads as the chip being cut out of the page rather than printed on it. */
+  --ink-on-accent:var(--paper);
+
+  /* The line art reverses after dark: black ink becomes white ink, same drawing. */
+  --art-invert:invert(1);
 
   /* shadows read against the dark ground */
   --shadow-quiet:0 1px 0 rgba(0,0,0,0.30);

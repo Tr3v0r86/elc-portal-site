@@ -195,7 +195,7 @@ button.tab{background:none;border:none;padding:0;}
 .policies .rings{position:absolute;inset:0;pointer-events:none;
   background-image:repeating-radial-gradient(circle at 92% -8%,transparent 0 24px,rgba(244,242,234,0.06) 24px 25px);}
 .policies .eyebrow{margin-bottom:12px;position:relative;}
-.policies h3{font-family:var(--serif);font-weight:400;font-size:24px;color:var(--white-pure);margin-bottom:9px;position:relative;}
+.policies h3{font-family:var(--serif);font-weight:400;font-size:24px;color:var(--panel-ink-strong);margin-bottom:9px;position:relative;}
 .policies p{font-size:13.5px;line-height:1.55;color:var(--text-on-dark);flex:1;margin-bottom:16px;position:relative;}
 .policies .btn{position:relative;}
 
@@ -285,7 +285,7 @@ button.tab{background:none;border:none;padding:0;}
 .cal-cell{aspect-ratio:1/0.92;border-radius:6px;display:flex;align-items:flex-start;justify-content:flex-end;padding:6px 8px;font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--charcoal);position:relative;border:1px solid transparent;}
 .cal-cell.mut{color:var(--faint);}
 .cal-cell.has{border-color:var(--rule);background:var(--paper);}
-.cal-cell.today{background:var(--red);color:var(--white-pure);font-weight:700;border-color:var(--red);}
+.cal-cell.today{background:var(--red);color:var(--ink-on-accent);font-weight:700;border-color:var(--red);}
 .cal-cell .ev{position:absolute;left:8px;bottom:7px;width:7px;height:7px;border-radius:50%;background:var(--purple);}
 .cal-cell .ev.gold{background:var(--gold);}
 .cal-cell.today .ev{background:var(--white-pure);}
@@ -987,7 +987,7 @@ a.doc-row:focus-visible{outline:2px solid var(--purple);outline-offset:-2px;bord
 .note-summary::-webkit-details-marker{display:none;}
 .note-reveal{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,440px);align-items:center;gap:clamp(24px,3.2vw,38px);}
 .note-main{display:flex;flex-direction:column;min-width:0;}
-.note-art{width:100%;height:auto;justify-self:end;align-self:center;opacity:0.85;}
+.note-art{width:100%;height:auto;justify-self:end;align-self:center;opacity:0.85;filter:var(--art-invert);}
 @media(max-width:760px){.note-reveal{grid-template-columns:1fr;gap:16px;}.note-art{order:-1;max-width:190px;justify-self:start;}}
 /* Past-note history: a light-touch scroll inside the card. Reveals only when expanded
    (native <details>); render.js fills it from data.js notes[] older than the current. */
@@ -1026,7 +1026,7 @@ a.doc-row:focus-visible{outline:2px solid var(--purple);outline-offset:-2px;bord
    Design lane; tokens only. */
 .wrap.sub{position:relative;}
 .wrap.sub > :not(.spiral-art){position:relative;z-index:1;}
-.spiral-art{position:absolute;z-index:0;pointer-events:none;opacity:0.1;width:1400px;height:auto;max-width:none;left:6%;top:-600px;}
+.spiral-art{position:absolute;z-index:0;pointer-events:none;opacity:0.1;width:1400px;height:auto;max-width:none;left:6%;top:-600px;filter:var(--art-invert);}
 /* Responsive (P4 pass A integration, Claude Code lane per the handback flag): the
    spiral placement above is desktop-tuned px. Below 900px the 1400px art overflows
    and the -600px top pulls it off the visible band, so hide it and let the hero

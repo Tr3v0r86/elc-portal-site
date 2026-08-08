@@ -1879,9 +1879,42 @@
     reloaded = true;
     location.reload();
   }
+
+  /* ASK for an update, don't only react to one (Trevor, 2026-08-08, on his phone: the
+     settings cog was missing until he pulled to refresh). The handler below was
+     complete for what it did, but nothing ever triggered it in the installed app: a
+     browser only re-fetches sw.js on a NAVIGATION, and a PWA resumed from the app
+     switcher does not navigate. So a family could sit on a build for days, and
+     pull-to-refresh was the only cure: the update path existed but had no doorbell.
+
+     reg.update() is that doorbell, rung when the app is put away and again when it is
+     picked up. Putting it away is the valuable half: the new worker installs while
+     nobody is looking, controllerchange fires against a hidden page, the branch below
+     reloads immediately, and the family returns to a fresh app having seen nothing.
+     Throttled because visibilitychange also fires on every app-switcher glance. */
+  var resumedAt = 0;
+  var lastCheck = 0;
+  navigator.serviceWorker.ready.then(function (reg) {
+    function ask() {
+      var now = Date.now();
+      if (now - lastCheck < 60000) return;   // one check a minute is plenty
+      lastCheck = now;
+      try { reg.update(); } catch (e) {}     // offline / throttled by the UA: nothing to do
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') resumedAt = Date.now();
+      ask();
+    });
+    ask();
+  });
+
   navigator.serviceWorker.addEventListener('controllerchange', function () {
     if (!hadController) return;              // first SW claim on a fresh visit: nothing to refresh
-    if (document.visibilityState === 'visible') {
+    /* Just resumed: the family has arrived but has not started reading, so the reload
+       reads as the app opening rather than as the page yanked out from under them.
+       This is the case Trevor hit, and deferring here is what left him refreshing by
+       hand. Outside that window the original guard stands: never interrupt a reader. */
+    if (document.visibilityState === 'visible' && Date.now() - resumedAt > 5000) {
       // reader is looking: wait until the tab is hidden then shown again, so the
       // refresh lands on their return, not mid-sentence.
       document.addEventListener('visibilitychange', function onVis() {
@@ -1891,7 +1924,7 @@
         }
       });
     } else {
-      go();                                  // tab backgrounded: safe to reload now
+      go();          // backgrounded, or just picked up: reload now, nobody is mid-sentence
     }
   });
 })();

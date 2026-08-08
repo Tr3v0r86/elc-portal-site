@@ -15,7 +15,12 @@
    contract changes DO need one (stale HTML + fresh JS is a real mixed-version risk
    under SWR).
    All URLs are relative to this script, so the site works at / or /portal-test/. */
-const CACHE = "elc-portal-shell-v28";
+/* CACHE is bumped whenever a build must reach an ALREADY-INSTALLED app, not only on the
+   HTML-to-JS contract changes named above. The browser decides "is there an update?" by
+   byte-comparing THIS FILE: leave it identical and reg.update() finds nothing, no
+   controllerchange fires, and the update flow in render.js never runs. A themed-asset fix
+   that changes only app.css would therefore never reach a family who does not navigate. */
+const CACHE = "elc-portal-shell-v29";
 
 const SHELL = [
   "./",
