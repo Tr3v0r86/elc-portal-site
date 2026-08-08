@@ -28,6 +28,12 @@
   --gold-ink-deep:#2C2713;             /* was hardcoded as gold-button ink */
   --red:#A8443A; --red-lift:#C25A4E;
   --red-tint:#F2E2DF;                  /* status-banner alert wash (issue 0031); Claude Design may retune */
+  /* Held-still ground (0155 CD pass). ADR-0009: aubergine appears "only as ground";
+     in the dark theme the ink and ground jobs of --aubergine part ways (the reversed
+     lockup goes cream while a panel must stay deep), so the GROUND job gets its own
+     name. Light theme: same value, zero visual change. Consumers: .policies, the
+     community closing panel. */
+  --panel:var(--aubergine);
   --sage:#5B7A4A;                      /* success (HANDOFF token list; feedback widget) */
   --amber:#B17B2E;                     /* caution / in-progress (doc-list status dot-chips; value = design-system tokens/colors.css) */
   --purple-tint:#ECE6F2;               /* today's day-card wash (P4 week strip); Claude Design may retune */
@@ -54,6 +60,12 @@
 
   /* --- chrome --- */
   --nav-h:70px;
+  /* Sticky-chrome washes (issue 0155): the header and tab bar carried the only two
+     hardcoded surface colours in app.css (paper/white at blur opacity), which pinned
+     both bars light in dark mode. Tokenised so the theme reaches them; values are
+     the exact rgba() strings they replace. */
+  --nav-wash:rgba(244,242,234,0.82);
+  --tab-wash:rgba(251,250,246,0.94);
 
   /* --- Purple Elephant (early years) sub-brand seam (issue 0064). PE pages are
          ELC Portal pages (masthead stays, rule 3) fronting the early years. The
@@ -79,4 +91,60 @@
   --cal-ink:#54545A;        /* sheet body ink: cool grey, official register */
   --cal-dow:#B4B0A4;        /* weekday letters + empty day cells */
   --cal-foot:#A09C90;       /* footnote */
+}
+
+/* ============================================================
+   Dark theme (issue 0155, PRD 0004). Applied as data-theme="dark"
+   on <html> by the settings.js head bootstrap, pre-paint. Explicit
+   opt-in only: no prefers-color-scheme auto-switch, default is light.
+
+   CLAUDE DESIGN PASS 2026-08-08 (see design/handback-2026-08-08-dark-mode.md).
+   The reading, from ADR-0009: in the light room the aubergine is the quiet
+   wall behind the children's marks. After dark the whole room becomes that
+   wall: every ground is the aubergine held still and darkened, and the marks
+   go cream, exactly the way the sanctioned reversed lockup already does
+   (cream ring on aubergine). Light purple still leads, gold still supports,
+   brick red is still never larger than a tick. The print/--cal-* register is
+   deliberately NOT themed: the fridge sheet prints light whatever the screen
+   does.
+   ============================================================ */
+:root[data-theme="dark"]{
+  /* grounds: aubergine-cast near-blacks, never neutral or blue-grey.
+     paper < white < white-pure keeps the same raised-surface order. */
+  --paper:#17141B; --white:#211D28;
+  --white-pure:#2A2534;
+
+  /* ink onto the cream axis (the paper's own family, warmed) */
+  --ink:#EDE9DF; --charcoal:#D7D2C6; --muted:#A5A095; --faint:#767065;
+
+  /* hairlines: aubergine-warmed, one step above the surfaces they sit on */
+  --rule:#3D3648; --rule-2:#342E3F;
+
+  /* accents. --aubergine here is the MARK job only (wordmark, ring, ghost
+     ink, hovers, small filled buttons): it goes cream-lavender per the
+     reversed lockup. The GROUND job moved to --panel below, which stays
+     deep. --white-pure (button ink) darkens with the grounds, so filled
+     buttons become light marks with dark ink: mark-on-wall, not wall. */
+  --purple:#A98FC9;
+  --purple-hover:#B9A1D6;
+  --aubergine:#C9BDE2; --aubergine-2:#B9AAD8;
+  --panel:#2E2547;
+  --gold:#B4A67C; --gold-deep:#C8B689; --gold-tint:#2F2A1F;
+  --gold-hover:#C7B88D;
+  --gold-ink-deep:#241F0F;
+  --red:#CE7266; --red-lift:#DA867B;
+  --red-tint:#3C2623;
+  --sage:#84A472;
+  --amber:#CE9F58;
+  --purple-tint:#2E2540;
+  --text-on-dark:#E4DDF0;   /* unchanged: it only ever sits on --panel, which stays deep */
+
+  /* shadows read against the dark ground */
+  --shadow-quiet:0 1px 0 rgba(0,0,0,0.30);
+  --shadow-hard:3px 3px 0 rgba(0,0,0,0.45);
+  --shadow-sheet:0 -10px 30px rgba(0,0,0,0.55);
+
+  /* sticky-chrome washes */
+  --nav-wash:rgba(23,20,27,0.85);
+  --tab-wash:rgba(33,29,40,0.94);
 }

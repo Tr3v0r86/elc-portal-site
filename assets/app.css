@@ -37,7 +37,7 @@ header .tape{margin-left:14px;margin-right:auto;flex:none;}
 
 /* ---- header / nav ---- */
 header{position:sticky;top:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(20px,4vw,44px);background:rgba(244,242,234,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);}
+  padding:0 clamp(20px,4vw,44px);background:var(--nav-wash);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
 /* Masthead wordmark = the CD branded lockup "ELC Portal" (Trevor 2026-07-20: "ELC
    Portal is the canonical name"). Hanken Grotesk 600 per the CD handover appendix; the
@@ -189,7 +189,7 @@ button.tab{background:none;border:none;padding:0;}
 .status.soon{color:var(--muted);border:1px solid var(--rule);}
 
 /* ---- policies (aubergine small inversion) ---- */
-.policies{grid-column:span 4;padding:22px;background:var(--aubergine);border:1px solid var(--aubergine);border-radius:10px;
+.policies{grid-column:span 4;padding:22px;background:var(--panel);border:1px solid var(--panel);border-radius:10px;
   color:var(--text-on-dark);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;transition:transform .12s;text-decoration:none;}
 .policies:hover{transform:translateY(-1px);}
 .policies .rings{position:absolute;inset:0;pointer-events:none;
@@ -560,7 +560,7 @@ span.day-ev:hover .lbl{color:var(--ink);border-bottom-color:transparent;}
   body{padding-bottom:var(--chrome-b);}
   .foot-strip{flex-direction:column;align-items:flex-start;gap:8px;text-align:left;}
   .tabbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:55;justify-content:space-around;align-items:center;
-    padding:9px 6px calc(9px + env(safe-area-inset-bottom));background:rgba(251,250,246,0.94);backdrop-filter:blur(10px);border-top:1px solid var(--rule);}
+    padding:9px 6px calc(9px + env(safe-area-inset-bottom));background:var(--tab-wash);backdrop-filter:blur(10px);border-top:1px solid var(--rule);}
   .tab{display:flex;flex-direction:column;align-items:center;gap:4px;font-family:var(--mono);font-size:8px;font-weight:700;
     letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);flex:1;cursor:pointer;text-decoration:none;}
   .tab .ic{width:22px;height:22px;stroke:var(--faint);stroke-width:1.6;fill:none;}
@@ -639,7 +639,7 @@ a.win-row.book-row:focus-visible{outline:2px solid var(--purple);outline-offset:
         readable, targetable and responsive with the existing tokens. ---- */
 .cm-intro{margin-bottom:34px;}
 .page-hero{position:relative;height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden;
-  margin-bottom:24px;border-radius:10px;background:var(--aubergine);color:var(--text-on-dark);}
+  margin-bottom:24px;border-radius:10px;background:var(--panel);color:var(--text-on-dark);}
 /* 0050 sweep: retired the pre-photo text-hero variant (.page-hero span); its
    line-height:1 moved onto .cap below, which it was silently styling. */
 .page-hero img{width:100%;height:100%;object-fit:cover;object-position:center 32%;}
