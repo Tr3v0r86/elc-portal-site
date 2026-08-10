@@ -107,10 +107,14 @@ window.PORTAL = {
   //     href: 'hopes-and-wishes/',             // must resolve to site/<href>index.html
   //     label: 'Book your Hopes and Wishes time',
   //     sub: 'All year groups · 17 to 18 Aug' }
+  // HELD BACK until Tue 11 Aug 12:00 Asia/Bangkok (Trevor 2026-08-10): the prompt
+  // went live before he had seen it. bookingState() in render.js compares whole
+  // days only and render.js is frozen (ADR-0010), so the hour lives here. Delete
+  // this .filter once the window is open; it gates every row, not just this one.
   bookingWindows: [
     { from: '2026-08-10', until: '2026-08-18', href: 'hopes-and-wishes/',
       label: 'Book your Hopes and Wishes time', sub: 'All year groups · 17 to 18 Aug' }
-  ],
+  ].filter(function () { return Date.now() >= Date.parse('2026-08-11T05:00:00Z'); }),   // 12:00 +07
 
   // Coming up cards (slice 2, issue 0047). EDITORIAL curation (D2): each row here
   // promotes ONE event group to a homepage card. href is the group identity: every
