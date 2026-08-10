@@ -36,7 +36,8 @@ window.PORTAL = {
   // 0135 + 0136: the two holding pages are drafts by definition, so the chip says so
   // rather than leaving a family to guess why a page has no details on it.
   draftPages: ['hopes-and-wishes', 'photo-consent', 'how-to-pay',
-               'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong'],
+               'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong',
+               'pe-samakee-nuts-and-bolts'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):
@@ -77,7 +78,15 @@ window.PORTAL = {
     // Trevor himself, for the note's "email me" link (issue 0138, relay #62). Lives here
     // rather than as a raw mailto in the note so the address has one edit point like
     // every other on the site. No phone: families reach him in person or by mail.
-    trevor:     { label: 'Trevor Cardozo', email: 'trevorc@elc.ac.th' }
+    trevor:     { label: 'Trevor Cardozo', email: 'trevorc@elc.ac.th' },
+    // The Purple Elephant Samakee runs its own line and its own inbox: the centre is in
+    // Nonthaburi, not Thong Lor, so the school office number reaches the wrong building
+    // (issue 0161, Trevor 2026-08-10). Number + address per the centre's public page,
+    // https://www.elc.ac.th/schools/purple-elephant-samakee/
+    samakee:    { label: 'The Purple Elephant Samakee', email: 'purpleelephant.samakee@elc.ac.th', phone: '+66 (0)2 003 5185' },
+    // Isabella Hydon, centre head and administrator at Samakee (Trevor 2026-08-10).
+    // Email only: families reach the centre itself on the samakee line above.
+    isabella:   { label: 'Isabella Hydon', email: 'isabellah@elc.ac.th' }
   },
 
   // Office hours per campus (sprint 3 P7). null renders one honest "Office hours
@@ -149,27 +158,40 @@ window.PORTAL = {
   // each body before deploy). The HoS letter stays a live seam: index.html renders a
   // "note from Payal coming" line and issue 0007 holds her real-copy path.
   // render.js shows the latest note whose `from` <= today (Bangkok).
+  //
+  // ⚠️ AUTO-ROTATION IS OFF (Trevor 2026-08-10, issue 0164). A queued note used to
+  // publish itself the moment its `from` date arrived: the 10 Aug note replaced the
+  // welcome note on the landing page before Trevor had read it live. render.js is
+  // frozen (ADR-0010) and its date pick stays, so the hold lives here instead:
+  // exactly ONE row is live at a time and every future note sits commented out
+  // below. A queued note goes live only when Trevor says so in that exchange:
+  // uncomment it, set `from` to that day or earlier, then deploy. Never uncomment a
+  // dated row because its date has passed, and never add a row with a future `from`.
   notes: [
     { from: '2026-07-01', eyebrow: 'A note from Trevor', when: 'This month · August',
       title: 'Welcome to a new year.',
       body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. It is built to be used as a standalone app on your phone, and that is where it works best: follow the instructions in the Install app button at the bottom left, and the details and announcements here are always at your fingertips. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
       cta: { contact: 'trevor', label: 'Email me' },
-      sig: 'Trevor · Head of Operations and Educational Experience' },
-    // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
-    { from: '2026-08-10', eyebrow: 'A note from Trevor', when: '17 to 18 August',
-      title: 'We start with your hopes.',
-      body: 'On 17 and 18 August your child\'s teachers sit down with you for Hopes and Wishes: what you want this year to hold for your child, in your words. It is my favourite way to begin the year. Everything else on this page can wait until you have booked your time.',
-      cta: { href: 'hopes-and-wishes/', label: 'Book your time', until: '2026-08-18' },
-      sig: 'Trevor · Head of Operations and Educational Experience' },
-    { from: '2026-08-17', eyebrow: 'A note from Trevor', when: '17 to 25 August',
-      title: 'Come and meet your year team.',
-      body: 'Your year group\'s coffee morning lands between 17 and 25 August: this is the information session for the year ahead, where you meet the coordinators and administrators who hold your year together and hear how it runs. The social mornings that run through the rest of the year are a different, more relaxed thing. Times are on the calendar; come find me while you are there.',
-      cta: { href: 'coffee-mornings/', label: 'Find your year group' },
-      sig: 'Trevor · Head of Operations and Educational Experience' },
-    { from: '2026-08-24', eyebrow: 'A note from Trevor', when: 'This week',
-      title: 'Everyone is in.',
-      body: 'From this week every child, every year group, every campus is in school. The rhythm of the year starts now: the week ahead lives on this page, and anything you need to sign up for is under Activities. Tell me what is missing; this page is built from what families ask for.',
       sig: 'Trevor · Head of Operations and Educational Experience' }
+
+    // ---- QUEUED, NOT LIVE. Trevor's explicit yes activates one of these. ----
+    // Drafted copy, held here so nothing publishes itself. To go live: uncomment ONE
+    // row, comment the row it replaces, set `from` to today or earlier, deploy.
+    // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    // { from: '2026-08-10', eyebrow: 'A note from Trevor', when: '17 to 18 August',
+    //   title: 'We start with your hopes.',
+    //   body: 'On 17 and 18 August your child\'s teachers sit down with you for Hopes and Wishes: what you want this year to hold for your child, in your words. It is my favourite way to begin the year. Everything else on this page can wait until you have booked your time.',
+    //   cta: { href: 'hopes-and-wishes/', label: 'Book your time', until: '2026-08-18' },
+    //   sig: 'Trevor · Head of Operations and Educational Experience' },
+    // { from: '2026-08-17', eyebrow: 'A note from Trevor', when: '17 to 25 August',
+    //   title: 'Come and meet your year team.',
+    //   body: 'Your year group\'s coffee morning lands between 17 and 25 August: this is the information session for the year ahead, where you meet the coordinators and administrators who hold your year together and hear how it runs. The social mornings that run through the rest of the year are a different, more relaxed thing. Times are on the calendar; come find me while you are there.',
+    //   cta: { href: 'coffee-mornings/', label: 'Find your year group' },
+    //   sig: 'Trevor · Head of Operations and Educational Experience' },
+    // { from: '2026-08-24', eyebrow: 'A note from Trevor', when: 'This week',
+    //   title: 'Everyone is in.',
+    //   body: 'From this week every child, every year group, every campus is in school. The rhythm of the year starts now: the week ahead lives on this page, and anything you need to sign up for is under Activities. Tell me what is missing; this page is built from what families ask for.',
+    //   sig: 'Trevor · Head of Operations and Educational Experience' }
   ],
 
   // Quick notices to families (issue 0148, Trevor 2026-08-07). A second tile under the
@@ -187,6 +209,8 @@ window.PORTAL = {
   //           photo: 'hos.png',              // optional, site/assets/img/
   //           cta: { href: 'safeguarding/', label: 'Read the policy' } }   // optional
   // HAND-KEPT: pull-sheet.py never touches this island.
+  // Same hold as notes[] (Trevor 2026-08-10, issue 0164): never queue a notice with a
+  // future `from`. A notice is added the day it should appear, not ahead of time.
   notices: [
     // Payal's letter to families after the Nonthaburi school shooting, sent by email the
     // same morning (Drive: "7/8/26 Safety Comms"). This is a truncation of that letter, not
