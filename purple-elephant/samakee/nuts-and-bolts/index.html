@@ -61,8 +61,10 @@
   <!-- Issue 0161. Content = the Samakee "2026-2027 SMK info for year beginning" deck, page 2,
        written by Isabella Hydon and transcribed to docs/sources/pe-samakee-info-deck.md.
        First of the four PE content pages 0064 left as holding shells. One owner per fact: this
-       page owns Samakee's day times, packing, lanyards and who to ask; dates stay in the
-       calendar (peEvents), never retyped here beyond the two first days. Draft-chipped
+       page owns Samakee's day times, packing, lanyards and who to ask. NO DATES HERE, not even the
+       first days (Trevor 2026-08-10): every date is anchored in the calendar SSOT sheet, reaches the
+       page through peEvents, and this page links to the calendar rather than restating it. A date
+       typed into copy is a second source that cannot be corrected from the sheet. Draft-chipped
        (data.js draftPages) until Isabella confirms the open lines in 0161. -->
   <main class="wrap sub pe" data-page="pe-samakee-nuts-and-bolts">
     <div class="page-head">
@@ -96,8 +98,8 @@
         </div>
         <a class="doc-row" href="../">
           <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../../../assets/img/icons.svg#i-go"/></svg></span>
-          <div class="meta"><div class="nm">The first days, and every date after them</div>
-          <div class="sub">K1 and K2 start on Tuesday 18 August, T1 and T2 on Wednesday 19 August. The rest of the year, holidays included, is on the Samakee calendar.</div></div>
+          <div class="meta"><div class="nm">The first day, and every date after it</div>
+          <div class="sub">The first days for each year group, the holidays and the whole year sit on the Samakee calendar, which is updated every week.</div></div>
           <div class="rt"><span class="tag">Calendar</span></div>
         </a>
       </div>
@@ -107,17 +109,17 @@
       <div class="sec-eyebrow"><span class="eyebrow">What to pack, every day</span><span class="ln"></span></div>
       <div class="doc-list">
         <div class="doc-row">
-          <span class="ic">WATER</span>
+          <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../../../assets/img/icons.svg#i-bottle"/></svg></span>
           <div class="meta"><div class="nm">A reusable water bottle</div>
           <div class="sub">In the backpack every day, named.</div></div>
         </div>
         <div class="doc-row">
-          <span class="ic">SPARE</span>
+          <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../../../assets/img/icons.svg#i-shirt"/></svg></span>
           <div class="meta"><div class="nm">A complete change of clothes</div>
           <div class="sub">Every day, in the backpack. Young children play with water, sand, paint and clay, and a spare set means the day carries on.</div></div>
         </div>
         <div class="doc-row">
-          <span class="ic">DIAPER</span>
+          <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../../../assets/img/icons.svg#i-baby"/></svg></span>
           <div class="meta"><div class="nm">A supply of diapers, for T1 and T2</div>
           <div class="sub">Send a supply to keep at school. We will let you know when it is running low.</div></div>
         </div>
@@ -157,12 +159,11 @@
         <!-- Isabella's card reuses the H&W team-card component (.doc-row.team-card + .tc-faces +
              .headshot), so her portrait sits beside her name with no new CSS: app.css is frozen
              and this shape already exists for the City School teacher cards.
-             NO PHOTO YET: `assets/img/team/isabella.jpg` does not exist and the link gate blocked
-             the 10 Aug deploy on it. Carrying the component's own null state (.hs-ph initials, the
-             same one render.js falls back to for a teacher with no photo) rather than a dead src.
-             Swap in the <img> above the moment her portrait lands in assets/img/team/. -->
+             Her portrait landed 2026-08-10 and replaces the .hs-ph initials the card shipped with
+             on the 10 Aug deploy: assets/img/team/isabella.jpg, 560px square to match every other
+             photo in assets/img/team/, cropped from Trevor's original. -->
         <div class="doc-row team-card">
-          <span class="tc-faces"><span class="hs-ph" aria-hidden="true">IH</span></span>
+          <span class="tc-faces"><img class="headshot" src="../../../assets/img/team/isabella.jpg" alt="" width="48" height="48" loading="lazy"></span>
           <div class="meta"><div class="nm">Isabella Hydon</div>
           <div class="tname">Centre head and administrator <span class="role">Samakee</span></div>
           <div class="sub">Isabella is the person to ask about anything on this page. Your child's teacher is the person to ask about your child. <span data-contact="isabella"></span></div></div>
