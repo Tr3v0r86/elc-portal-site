@@ -70,6 +70,7 @@ const SHELL = [
   "assets/img/art/welcome.svg",
   "assets/img/art/thai-houses.svg",
   "assets/img/art/spiral.png",
+  "assets/img/art/samakee-greeting.png",
   "assets/icon-180.png",
   "assets/icon-192.png",
   "assets/icon-512.png",
