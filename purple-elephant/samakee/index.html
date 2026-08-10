@@ -64,15 +64,22 @@
        add-to-calendar as the main /calendar/ page. The rest are honest holding shells for the
        Purple Elephant team to populate. Public-safe. -->
   <main class="wrap sub pe">
-    <!-- Background wash, Samakee only (Trevor 2026-08-10, issue 0161): same .spiral-art slot and
-         treatment the City School and Thong Lor use for Giovanni's spiral, carrying this centre's
-         own greeting artwork instead. Trevor's call: subtle like the spiral, NOT a hero. Same
-         10% opacity, same desktop-only rule, so it grounds the page and never competes with the
-         title. Source = the Samakee parent deck cover (docs/sources/pe-samakee-info-deck.md), paper
-         texture keyed out to alpha so only the drawn marks wash in.
-         ⚠️ Placeholder resolution: cut from the deck's flattened slide (344x286 real px). At 10%
-         opacity the softness does not read; Trevor's original file overwrites the same path. -->
-    <img class="spiral-art" src="../../assets/img/art/samakee-greeting.png" alt="" aria-hidden="true" loading="lazy" width="900" height="981">
+    <!-- Background wash, Samakee only (Trevor 2026-08-10, issue 0161): the .spiral-art slot the
+         City School and Thong Lor use for Giovanni's spiral, carrying this centre's own greeting
+         artwork instead. Trevor: subtle like the spiral, NOT a hero, and then: too faint and too
+         big, mimic the spiral's implementation exactly. So this asset is built to spiral.png's
+         spec rather than eyeballed: 1600x1120, mode LA, ink BLACK at full alpha with the .spiral-art
+         rule's opacity:0.1 doing all the fading. A pale asset at 10% double-fades, which is what
+         "too faint" was; a drawing scaled past the slot's crop line is what "too big" was. The
+         drawing is sized to the visible band (source y 686 to 1120, everything above is clipped by
+         top:-600px) so nothing is cut, and it sits at the top of the content area as the spiral does.
+         Measured against spiral.png, not guessed: 514 css px of visible ink vs its 836, mean
+         effective luminance 95 vs its 0 (its 0 is thin lines only; matching it exactly would turn
+         the elephant's filled body into a smudge).
+         Source = the Samakee parent deck cover (docs/sources/pe-samakee-info-deck.md), paper texture
+         keyed to alpha. ⚠️ Cut from the deck's flattened slide (344x286 real px); Trevor's original
+         file replaces it, and the recipe above has to be re-run when it does. -->
+    <img class="spiral-art" src="../../assets/img/art/samakee-greeting.png" alt="" aria-hidden="true" loading="lazy" width="1600" height="1120">
     <div class="pe-hero">
       <div class="page-head">
         <span class="eyebrow">The Purple Elephant</span>

@@ -1027,6 +1027,12 @@ a.doc-row:focus-visible{outline:2px solid var(--purple);outline-offset:-2px;bord
 .wrap.sub{position:relative;}
 .wrap.sub > :not(.spiral-art){position:relative;z-index:1;}
 .spiral-art{position:absolute;z-index:0;pointer-events:none;opacity:0.1;width:1400px;height:auto;max-width:none;left:6%;top:-600px;filter:var(--art-invert);}
+/* Samakee's wash is the centre's own COLOUR artwork, not Giovanni's grey spiral, and colour needs
+   more than 0.1 to still be colour: measured at 0.1 the purple is a hueless grey ghost. 0.30 is
+   Trevor's call, 2026-08-10, issue 0161, on a frozen surface (ADR-0010). Campus-scoped, so every
+   other .spiral-art keeps the spiral's 0.1 exactly. --art-invert is dropped here for the same
+   reason: inverting purple gives yellow-green, which is fine for grey line art and wrong for this. */
+body[data-campus="pe-samakee"] .spiral-art{opacity:0.30;filter:none;}
 /* Responsive (P4 pass A integration, Claude Code lane per the handback flag): the
    spiral placement above is desktop-tuned px. Below 900px the 1400px art overflows
    and the -600px top pulls it off the visible band, so hide it and let the hero
