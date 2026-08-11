@@ -27,6 +27,26 @@ window.PORTAL = {
   // never today-anchored.
   academicYear: { start: '2026-08-01', end: '2027-07-31' },
 
+  // Workshops + social mornings programme switch (issues 0112 / 0127 / 0137).
+  // MOVED OUT OF render.js 2026-08-11 (Trevor, ADR-0013). It was `DETAILS_DUE =
+  // '2026-08-14'` inside the frozen renderer, which meant the entire programme
+  // published ITSELF at Bangkok midnight on the 14th, and the date could not be moved
+  // without editing a frozen surface. It is now a switch thrown by hand: there is no
+  // date arithmetic left, so nothing here fires on a clock.
+  //   published: false -> the "coming on <date>" hold copy shows; the workshops and
+  //                       social mornings listings stay off the community page
+  //   published: true  -> hold copy goes, both listings publish
+  // Absent island = treated as still waiting, so a stripped data.js can never publish
+  // an unfinished programme. The two strings below are the exact parent-facing copy, so
+  // changing the date is one edit in one place and nothing is assembled from anything.
+  // tools/check-coming-up.mjs reads `published` too: the gate's page-owed grace and the
+  // page's hold copy are now the same switch, never two dates that can disagree.
+  programme: {
+    published: false,
+    dueShort: 'Details coming 14 August',
+    dueLong: 'The programme is published on Friday 14 August.'
+  },
+
   // Pages still being finalised (sprint 3 D5). render.js prepends a visible
   // "We are finalising this page" chip on any page whose content-root data-page key
   // is listed here. Removing a key = that page's verify-artifact row is signed off

@@ -9,10 +9,15 @@
   // one week-start helper, one set of day/month names. Every renderer below
   // reuses these; nothing recomputes its own.
   var bkkToday = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Bangkok' }).format(new Date()); // YYYY-MM-DD
-  // 0112: Payal + Sarah finalise workshop/social details by this date. Before it,
-  // pageless comunita rows say "Details coming 14 August"; from it, the honest
-  // "Page coming soon" posture (and the check-coming-up gate) resumes by itself.
-  var DETAILS_DUE = '2026-08-14';
+  // 0112 / 0127 / 0137: Payal + Sarah finalise the workshops + social mornings
+  // programme, and PORTAL.programme (data.js) is the switch that publishes it.
+  // This WAS `DETAILS_DUE = '2026-08-14'` right here, which published the programme by
+  // itself at Bangkok midnight on the 14th from inside a frozen file. ADR-0013 forbids
+  // a parent-facing surface changing on a clock, so the date arithmetic is gone: the
+  // switch is thrown by hand in data.js. Missing island = still waiting, so a stripped
+  // data.js never publishes an unfinished programme.
+  var PROG = P.programme || {};
+  var dueLive = !PROG.published;
   var FN_MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var CAL_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
@@ -526,12 +531,12 @@
     var d = new Date(e.date + 'T00:00:00Z');
     var mHref = evHref(e.href);   // plan 1.2: same linked-title rule as the agendas
     var mExt = mHref ? null : extUrl(e);   // else, an external https link (round 4)
-    // 0112: a bare row (no page, no ext link) says when its details land, until
-    // DETAILS_DUE. Every row through here is comunita by construction (comunitaRows
-    // is the only caller's source), so no comunita check is needed.
+    // 0112: a bare row (no page, no ext link) says when its details land, while the
+    // programme is still held. Every row through here is comunita by construction
+    // (comunitaRows is the only caller's source), so no comunita check is needed.
     var mInner = '<div class="et">' + e.title + '</div>' +
       (e.sub ? '<div class="es">' + e.sub + '</div>' : '') +
-      (!mHref && !mExt && bkkToday < DETAILS_DUE ? '<div class="es">Details coming 14 August</div>' : '');
+      (!mHref && !mExt && dueLive && PROG.dueShort ? '<div class="es">' + PROG.dueShort + '</div>' : '');
     return '<div class="ev-row"><span class="dte">' + DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
       '<div class="ev-main">' + ((mHref || mExt) ? '<a class="ev-link" href="' + (mHref || mExt) + '"' + (mExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (mExt ? extLabel : ' · event page') + '">' + mInner + '</a>' : mInner) + '</div>' +
       addBtns(e.date, e.title, e.sub, e.href, e.until) + '</div>';
@@ -579,14 +584,14 @@
         : '<p class="page-note">' + sec.empty + '</p>');
   });
 
-  /* The 14 August programme date, in ONE place (issues 0127 + 0137, relays #58 + #61).
+  /* The programme hold, in ONE place (issues 0127 + 0137, relays #58 + #61).
      Trevor: "workshops and social mornings will be published on Friday August 14th."
-     Any [data-details-due] element says so until DETAILS_DUE and empties itself from that
-     morning, and any [data-details-hold] block is shown only while the wait is real. The
-     date is never written into markup, so 15 August needs no deploy and no memory. */
-  var dueLive = bkkToday < DETAILS_DUE;
+     Any [data-details-due] element carries the promise while PORTAL.programme.published
+     is false and empties when it flips, and any [data-details-hold] block is shown only
+     while the wait is real. The date is never written into markup: it lives once, in
+     data.js, as copy. Flipping the switch is a deliberate deploy, not a midnight. */
   document.querySelectorAll('[data-details-due]').forEach(function (el) {
-    el.textContent = dueLive ? 'The programme is published on Friday 14 August.' : '';
+    el.textContent = dueLive ? (PROG.dueLong || '') : '';
   });
   document.querySelectorAll('[data-details-hold]').forEach(function (el) {
     if (dueLive) { el.hidden = false; } else { el.remove(); }
@@ -976,10 +981,10 @@
         }
         // Inert card: no page to link to. Owed pages carry the honest "coming soon" pill;
         // holidays and deliberately-pageless rows (nopage) do not. 0112: a comunita row
-        // is Payal + Sarah's until DETAILS_DUE, so its pill names the date instead;
-        // after that it reverts to "Page coming soon". Non-comunita owed rows (Open
-        // Evening, PTC) are Trevor's and keep "Page coming soon" throughout.
-        var pill = c.ev.comunita && bkkToday < DETAILS_DUE ? 'Details coming 14 August' : 'Page coming soon';
+        // is Payal + Sarah's while the programme is held, so its pill names the date
+        // instead; once published it reverts to "Page coming soon". Non-comunita owed
+        // rows (Open Evening, PTC) are Trevor's and keep "Page coming soon" throughout.
+        var pill = c.ev.comunita && dueLive && PROG.dueShort ? PROG.dueShort : 'Page coming soon';
         return '<div class="tile ev-card ev-inert">' + when + '<h3>' + title + '</h3>' + body +
           (c.owed ? '<span class="soon">' + pill + '</span>' : '') + '</div>';
       }).join('');
@@ -1503,9 +1508,12 @@
       }).join('');
     }
     // Honest closed line when the window has passed (cards stay; Book turns off).
-    // Skipped in faces mode: the page makes no booking claim to withdraw (0078).
+    // The `!facesOnly` skip is GONE (2026-08-11): it was right while faces mode showed
+    // no Book cell, but the cards now carry real booking buttons, so suppressing this
+    // left every card reading "Bookings closed" under a status line still offering to
+    // book. One claim, one place.
     var ptcStatus = document.getElementById('ptc-status');
-    if (ptcStatus && !ptcIsOpen && !facesOnly) {
+    if (ptcStatus && !ptcIsOpen) {
       ptcStatus.textContent = 'Bookings are closed. The next conferences are in October.';
     }
 
