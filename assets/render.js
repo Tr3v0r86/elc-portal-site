@@ -1453,12 +1453,14 @@
   // no photo -> initials placeholder, no bio -> "coming" line. Booking is LINK-OUT
   // only (rule 1); no embed. Open/dormant derives from ptc.dates, no manual flag.
   //
-  // KISS MODE (issue 0078, 2026-08-03): the mount carrying data-faces renders the same
-  // class-keyed cards with the bios and the booking cell OMITTED, and drops the demo
-  // card (a booking walkthrough is meaningless with no booking on the page). Teachers
-  // send their own booking links; the page only explains the programme. classes[] keeps
-  // every bio and bookingUrl untouched in data.js, so Payal's 2026-08-10 call reverses
-  // this by deleting one attribute from the page HTML. No data, CSS or renderer rebuild.
+  // KISS MODE (issue 0078, 2026-08-03; booking cell restored 2026-08-11 per Trevor):
+  // the mount carrying data-faces renders the same class-keyed cards with bios OMITTED
+  // and drops the demo card (a booking walkthrough is meaningless with no booking on
+  // the page). The Book cell itself is NOT omitted: real per-teacher links (sheet
+  // pull, 2026-08-11) now render for every class, Dove sharing one combined link.
+  // classes[] keeps every bio untouched in data.js, so a full KISS reversal is still
+  // just deleting the data-faces attribute from the page HTML. No data, CSS or
+  // renderer rebuild.
   var teamMount = document.getElementById('team-cards');
   if (teamMount && P.ptc && P.classes) {
     var facesOnly = teamMount.hasAttribute('data-faces');
@@ -1539,7 +1541,7 @@
           '<span class="tc-faces">' + c.teachers.map(avatar).join('') + '</span>' +
           '<div class="meta"><div class="nm">' + c.class + (chips ? ' ' + chips : '') + '</div>' +
           c.teachers.map(function (t) { return teacherLine(t, facesOnly); }).join('') + '</div>' +
-          (facesOnly ? '' : '<div class="rt">' + bookCell(c, state) + '</div>') + '</div>';
+          '<div class="rt">' + bookCell(c, state) + '</div></div>';
       }).join('');
       return '<div class="section" id="y-' + y + '">' +
         '<div class="sec-eyebrow"><span class="eyebrow">' + (YEAR_LABEL[y] || y) + '</span><span class="ln"></span></div>' +

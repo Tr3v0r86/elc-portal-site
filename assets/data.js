@@ -286,109 +286,109 @@ window.PORTAL = {
     { class: 'K1 Sarah', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Sarah Jansen van Vuuren', role: 'Class teacher', photo: 'assets/img/team/sarah.jpg',
         bio: 'From South Africa and in Bangkok since 2022, Sarah holds an honours degree in education from the University of Cape Town. She builds a nurturing room where children explore, experiment and engage with the world, with strong relationships between families, staff and children at the centre. Outside school: hiking, swimming and photography.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2-qu8rDwGKwYh9ZqiI3ijSCN18Vd0jCD35hj3t2pU4YeIy11565JUo1UuypnCe_EBSOqOD4ZLC' },
 
     { class: 'K1 Bee', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Blathain Callaghan', role: 'Class teacher', photo: 'assets/img/team/bee.jpg',
         bio: 'From Ireland and in Bangkok since 2019, Bee joins ELC this year. With a degree in early childhood studies and ten years alongside our youngest learners, she is passionate about learning through play. Off the clock: Gaelic football, museums and exploring the city.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/MQ41ynbCSin652zC9' },
 
     { class: 'K1 Katie', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Ekaterina Mokrushina', role: 'Class teacher', photo: 'assets/img/team/katie.jpg',
         bio: 'Katie has taught K1 at ELC since 2019, after classrooms in Beijing and Chengdu, and speaks Mandarin. A master\'s in educational technology made her our technology integration lead, and she is always happy to talk with families about screen time at home. Beyond school: tennis and diving.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/21kVzC2gRnktKX7Z6' },
 
     // 5th K1 class (Trevor 2026-07-17): K1 = Sarah, Bee, Katie, SINEAD, Rae. The
     // sheet's "Sinead replacement, hire TBC" row is stale: Sinead stays, no new hire.
     { class: 'K1 Sinead', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Sinead McGee', role: 'Class teacher', photo: 'assets/img/team/sinead.jpg',
         bio: 'Sinead is from Ireland and lives in Bangkok with her husband and two daughters. With a PGDE in early years and classrooms in the UK, China and Cambodia behind her, she builds a safe, nurturing room grounded in inquiry, agency and collaboration. Off duty: good food, weight lifting and a good cup of coffee.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/6dqcnFXrL8erpeHv7' },
 
     { class: 'K1 Rae', year: 'K1', campus: null, flag: null,
       teachers: [ { name: 'Rae-Lynn Neill', role: 'Class teacher', photo: 'assets/img/team/rae.jpg',
         bio: 'Rae has been part of ELC since 2013. From Ontario, Canada, with degrees in arts and education, she is now training in dyslexia support: literacy is her passion. She believes children learn best through play, inquiry and the senses, in a room built on inclusivity.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3Gf5ELqO3d1l5h3isiDv5I656O2WgaUFJQlXgbyTh6SO2ynWiDc-9M2Ia38l18bsrfvrPfiGlP' },
 
     { class: 'K2 Izzy', year: 'K2', campus: null, flag: null,
       teachers: [ { name: 'Isreal Tan', role: 'Class teacher', photo: 'assets/img/team/izzy.jpg',
         bio: 'From New Zealand with an education degree from Victoria University of Wellington, Izzy has been part of ELC for over ten years in roles across the school. He documents children\'s learning with a photographer\'s eye and takes their ideas seriously. Outside: rugby, world music and Bangkok\'s food.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/RgyqHJHxztDtxg9M7' },
 
     { class: 'K2 Nasreen', year: 'K2', campus: null, flag: null,
       teachers: [ { name: 'Nasreen Hassan', role: 'Class teacher', photo: 'assets/img/team/nas.jpg',
         bio: 'Ms Nas comes from Cape Town with fifteen years of teaching behind her, ten of them international. In her K2 room, curiosity and joy sit beside the academics, and she counts a child happy to arrive as half the job done. Outside school: yoga, cooking and the hand pan.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/RBfPLTras7Knymss5' },
 
     { class: 'K2 Kelly', year: 'K2', campus: null, flag: null,
       teachers: [ { name: 'Kelly Wadenholm', role: 'Class teacher', photo: 'assets/img/team/kelly.jpg',
         bio: 'Kelly grew up in Bangkok with Stockholm roots, then spent six years in Melbourne earning her early years degree and teaching kindergarten. She builds a room where every child feels valued and takes an active part in their own learning. Off duty she stays active, eats Thai food and heads for the beach.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/diWMkG3MvvhqzK6w8' },
 
     { class: 'K2 Jess', year: 'K2', campus: null, flag: null,
       teachers: [ { name: 'Jessica Melton', role: 'Class teacher', photo: 'assets/img/team/jess.jpg',
         bio: 'Jess is from Virginia and has taught in Thailand since 2016, with a master\'s in teaching multilingual learners. Homeroom and learning support roles taught her to build language-rich rooms where children feel safe, seen and heard. Outside school: art, singing, studying Thai and scuba diving.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/2fLaQdevccj7f3oQ7' },
 
     { class: 'K2 Emillia', year: 'K2', campus: null, flag: null,
       teachers: [ { name: 'Emillia Harris', role: 'Class teacher', photo: 'assets/img/team/emillia.jpg',
         bio: 'Emillia is from the UK, with a primary education degree from Leeds Trinity, and has called Bangkok home for four years. She believes young children thrive when encouraged to wonder, test ideas and discover, and loves bringing the natural world into the room. Happiest outdoors, especially by the beach.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/dnymKStwjNQFtri27' },
 
     { class: 'Y1 Tammy', year: 'Y1', campus: null, flag: null,
       teachers: [ { name: 'Tammy Sion', role: 'Class teacher', photo: 'assets/img/team/tammy.jpg',
         bio: 'Tammy is from Singapore, with over twenty five years of teaching across Singapore and Australia and an early childhood degree from Monash. She builds an inclusive room where every voice matters and every idea is met with curiosity and respect. Outside school: shopping and a good murder mystery.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1SglIDZv2ryQbLT-xvEeYBoFGCyDWoC8Kn8S4TPqjFupU7LlERVgi7-c3HQS8Hm7zSCUaTYicc' },
 
     { class: 'Y1 Rowan', year: 'Y1', campus: null, flag: null,
       teachers: [ { name: 'Rowan Hayworth', role: 'Class teacher', photo: 'assets/img/team/rowan.jpg',
         bio: 'Rowan trained in Scotland and taught in Spain before Bangkok. He believes every child deserves to feel safe, heard and valued, and shows up each day with the energy for it. Beyond the classroom you will find him playing Gaelic football or padel, mic in hand given the chance.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/UduCWn19yYRLPXpJA' },
 
     { class: 'Y1 Rin', year: 'Y1', campus: null, flag: null,
       teachers: [ { name: 'Rarinthip Gandhi', role: 'Class teacher', photo: 'assets/img/team/rin.jpg',
         bio: 'Rin starts her third year at the City School, moving to Year 1 after two years in Year 3. A computer science background and a master\'s in education from Exeter shape a room where children think creatively, collaborate joyfully and embrace challenges. Outside: adventure outdoors and new cultures.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/uc2VfGqPmWRGvkez5' },
 
     { class: 'Y1 Meg', year: 'Y1', campus: null, flag: null,
       teachers: [ { name: 'Meghan Costello', role: 'Class teacher', photo: 'assets/img/team/meg.jpg',
         bio: 'Meg is from Vermont, USA, with dual master\'s degrees in education and special education. She has taught in New Hampshire and in Nagoya, Japan, and builds a classroom where children feel safe to explore and express themselves with joyful curiosity. This year she is excited to explore Thailand and its language.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/6Htk5o43aAL16kcf6' },
 
     { class: 'Y2 Julie', year: 'Y2', campus: null, flag: null,
       teachers: [ { name: 'Julie Thomson', role: 'Class teacher', photo: 'assets/img/team/julie.jpg',
         bio: 'Julie is from New Zealand and arrives after six years teaching in Doha, Qatar, fourteen years in classrooms in all. She believes children learn best where it is safe to ask questions, make mistakes and explore the world around them. Outside school: new places, different foods and other cultures.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/JuWzRxukFozpQwp69' },
 
     { class: 'Y2 Eric', year: 'Y2', campus: null, flag: null,
       teachers: [ { name: 'Eric Olorenshaw', role: 'Class teacher', photo: 'assets/img/team/eric.jpg',
         bio: 'Eric is Canadian, from the Toronto area, with a master of teaching from the University of Toronto and fifteen years across South Korea, Bahrain and Bangkok. His passion is helping children imagine and design a sustainable future. Many Year 2 families will already know him from last year.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/wj2wLcDciZYd4ufZ8' },
 
     { class: 'Y2 Kobus', year: 'Y2', campus: null, flag: null,
       teachers: [ { name: 'Kobus Roux', role: 'Class teacher', photo: 'assets/img/team/kobus.jpg',
         bio: 'Born in South Africa and in Thailand since 2015, Kobus is a qualified elementary teacher who loves building a real relationship with every child in a room where all feel seen. This is his second year as a City School homeroom teacher. Outside: rugby, scuba diving, hiking and family.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/4RkZjQUZYLWekwLH9' },
 
     { class: 'Y3 Sophie', year: 'Y3', campus: null, flag: null,
       teachers: [ { name: 'Sophie Mottet', role: 'Class teacher', photo: 'assets/img/team/sophie.jpg',
         bio: 'Now in her third year on the Year 3 team, Sophie studied psychology in Montreal and teaching in Wellington. She builds classrooms grounded in curiosity, respect and connection, and keeps learning alongside the children. At home she is happiest trying out a new recipe.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/Eqm5U8ui5cwDGRoX6' },
 
     { class: 'Y3 Keyyona', year: 'Y3', campus: null, flag: null,
       teachers: [ { name: 'Keyyona Lennon-Booker', role: 'Class teacher', photo: 'assets/img/team/keyyona.jpg',
         bio: 'Keyyona is from the USA with a decade of teaching across South Korea and Hong Kong, where she earned her PGDE and master\'s at the University of Hong Kong. Her room is child-centred and inquiry-driven, growing confident, compassionate and globally minded learners. Outside: staying active and Bangkok\'s food scene.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/WExzWfqWYfQypY3c9' },
 
     { class: 'Y4 Lauren', year: 'Y4', campus: null, flag: null,
       teachers: [ { name: 'Lauren Marsh', role: 'Class teacher', photo: 'assets/img/team/lauren.jpg',
         bio: 'Lauren joins Year 4 with fifteen years across Key Stage 2, most recently in Thailand and before that Shanghai and England. A specialist in maths and history, she co-creates a room where children take the risks real learning needs. Mum to Winnie; loves the outdoors, gardening and reading.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0nJ8DU5gEW1Qzm3j9qg89bHBMo8v4lwcMx5wyqGI4z1xTIRYQ0thtPMHwLHxbd-PS6yR8-Ziup' },
 
     { class: 'Y4 Carl', year: 'Y4', campus: null, flag: null,
       teachers: [ { name: 'Carl Allinson', role: 'Class teacher', photo: 'assets/img/team/carl.jpg',
         bio: 'Carl is from the UK, a geologist turned teacher with fifteen years across Germany, China, South Korea, Spain and Thailand. His daughter Sunny is in K2 here. In his room children choose work that matches their level and goals, building confidence and ownership. Outside: music, football and travel.' } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/THFw1vJSfEzKVB9e9' },
 
     { class: 'Y5 Clifford and Athena', year: 'Y5', campus: null, flag: null,
       teachers: [
@@ -396,7 +396,7 @@ window.PORTAL = {
           bio: 'Originally from the UK with a decade teaching in Seoul, Clifford is in his second year in Bangkok. He is drawn to educational technology and to shaping learning around each child in a collaborative room. Outside school he reads, stays active and heads for the water when he can.' },
         { name: 'Athena Lee Moria', role: 'Associate teacher', photo: 'assets/img/team/athena.jpg', bio: null }
       ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/Pe8avZiwXXJyy4BQ6' },
 
     { class: 'Y6 Chrissy and Maddy', year: 'Y6', campus: null, flag: null,
       teachers: [
@@ -405,7 +405,7 @@ window.PORTAL = {
         { name: 'Madison Moore', role: 'Class teacher', photo: 'assets/img/team/madison.jpg',
           bio: 'Maddy is from the United States, where a design degree led her to teaching. After two years in Year 4 she steps up to Year 6, aiming for a room where children feel safe, have fun and are genuinely challenged. Outside class: reading, learning Thai and taking up golf.' }
       ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/u8dFxgFvZNB8LrZo6' },
 
     // DOVE (Trevor 2026-08-07, relaying April via Sarah Pelham): Dove was absent from
     // the portal entirely. It is NOT in docs/sources/staffing-2026-27.md: that sheet
@@ -415,13 +415,15 @@ window.PORTAL = {
     // section order; these two sit last here so the file reads the way the page renders).
     // Headshots + surnames landed 2026-08-07 (Trevor, direct). OPEN, deliberately not
     // guessed: bios · which H&W day Dove sits on (ptc.dates names K2-Y6 and K1 only).
+    // Dove books as one appointment (sheet gives Dove a single combined link, not
+    // per-teacher): both cards share the same bookingUrl.
     { class: 'D1 Elger', year: 'Dove', campus: null, flag: null,
       teachers: [ { name: 'Elger Sevilla', role: 'Class teacher', photo: 'assets/img/team/elger.jpg', bio: null } ],
-      bookingUrl: null },
+      bookingUrl: 'https://calendar.app.google/KbVKUGUjKsscrUz27' },
 
     { class: 'D2 Carolyne', year: 'Dove', campus: null, flag: null,
       teachers: [ { name: 'Carolyne Thornton', role: 'Class teacher', photo: 'assets/img/team/carolyne.jpg', bio: null } ],
-      bookingUrl: null }
+      bookingUrl: 'https://calendar.app.google/KbVKUGUjKsscrUz27' }
   ],
 
   // Honest sport statuses (PRD 0002 F2 confirmed truth as of 2026-07-07)
