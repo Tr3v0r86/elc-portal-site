@@ -55,7 +55,9 @@ window.PORTAL = {
   // 2026-08-05: glossary + community-giving dropped (pages archived, Trevor).
   // 0135 + 0136: the two holding pages are drafts by definition, so the chip says so
   // rather than leaving a family to guess why a page has no details on it.
-  draftPages: ['hopes-and-wishes', 'photo-consent', 'how-to-pay',
+  // 2026-08-13 (Trevor): hopes-and-wishes dropped. Dates, teachers and the booking
+  // links are all real now, so the chip was the last thing on the page still hedging.
+  draftPages: ['photo-consent', 'how-to-pay',
                'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong',
                'pe-samakee-nuts-and-bolts'],
 
@@ -174,9 +176,10 @@ window.PORTAL = {
   // This-week strip derives from calendarEvents in render.js (current week, else next up).
   // No separate week[]: one source of truth (issue 0018).
 
-  // Note rotation, single voice: Trevor (0051 parent-facing hard launch; Trevor cools
-  // each body before deploy). The HoS letter stays a live seam: index.html renders a
-  // "note from Payal coming" line and issue 0007 holds her real-copy path.
+  // Note rotation, THREE voices: Trevor · Heather · Payal (Trevor 2026-08-11, issue 0168).
+  // This replaces 0051's single-voice-for-hard-launch rule, which is spent. Nobody else:
+  // a fourth voice is a decision, not an edit. Trevor cools every body before deploy
+  // whoever signed it, and the eyebrow names the person ('A note from Heather').
   // render.js shows the latest note whose `from` <= today (Bangkok).
   //
   // ⚠️ AUTO-ROTATION IS OFF (Trevor 2026-08-10, issue 0164). A queued note used to
@@ -198,6 +201,17 @@ window.PORTAL = {
     // Drafted copy, held here so nothing publishes itself. To go live: uncomment ONE
     // row, comment the row it replaces, set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Heather's start-of-year note, her copy (issue 0168). Intended for Sunday 16 August.
+    // It is HELD, not dated: ADR-0013 consequence 4 bars a row with a future `from`, so
+    // going live is Trevor uncommenting this on the day and deploying, not a clock.
+    // Two edits to her text, both flagged to Trevor: the banned two-word phrase for this
+    // site (HARD rule 3, and the redaction gate enforces it, comments included) reads
+    // 'ELC Portal', and her first sentence became the title so the body does not repeat it.
+    // { from: '2026-08-16', eyebrow: 'A note from Heather', when: 'This week · 17 to 21 August',
+    //   title: 'Welcome to the school year and to ELC Portal.',
+    //   body: 'Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child\'s success.',
+    //   sig: 'Heather Pease · Head of Teaching and Learning' },
     // { from: '2026-08-10', eyebrow: 'A note from Trevor', when: '17 to 18 August',
     //   title: 'We start with your hopes.',
     //   body: 'On 17 and 18 August your child\'s teachers sit down with you for Hopes and Wishes: what you want this year to hold for your child, in your words. It is my favourite way to begin the year. Everything else on this page can wait until you have booked your time.',
@@ -270,7 +284,7 @@ window.PORTAL = {
     // below; the H&W page copy is hardcoded in hopes-and-wishes/index.html. They
     // are deliberate seams for the October/March PTC reuse (issue 0043): wire a
     // render.js mount when that page goes data-driven, or cut them then.
-    slotNote: 'Twenty minutes, one to one with your child\'s teacher.',   // hours TBC (Payal)
+    slotNote: 'Twenty minutes, one to one with your child\'s teacher.',   // == the page's #ptc-status line
     questionnaireUrl: null,
     packUrl: null
   },
@@ -412,7 +426,7 @@ window.PORTAL = {
 
     { class: 'Y5 Clifford and Athena', year: 'Y5', campus: null, flag: null,
       teachers: [
-        { name: 'Clifford Sumner', role: 'Class teacher, room 5A', photo: 'assets/img/team/clifford.jpg',
+        { name: 'Clifford Sumner', role: 'Class teacher', photo: 'assets/img/team/clifford.jpg',
           bio: 'Originally from the UK with a decade teaching in Seoul, Clifford is in his second year in Bangkok. He is drawn to educational technology and to shaping learning around each child in a collaborative room. Outside school he reads, stays active and heads for the water when he can.' },
         { name: 'Athena Lee Moria', role: 'Associate teacher', photo: 'assets/img/team/athena.jpg', bio: null }
       ],
