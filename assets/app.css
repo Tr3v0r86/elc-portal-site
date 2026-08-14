@@ -72,34 +72,70 @@ nav{display:flex;align-items:center;gap:28px;}
 .nav-dd .dd-panel a:hover{color:var(--ink);background:var(--paper);}
 /* campus switcher (issue 0067): SCAFFOLD, Claude Design to restyle. Desktop = a
    nav-dd dropdown (summary "Centres"); links flow into .dd-panel (display:contents)
-   and take .dd-panel a styling. Mobile = a .cal-pop sheet cloned from .campus-switch. */
+   and take .dd-panel a styling. Mobile = a .cal-pop sheet cloned from the .dd-panel
+   that wraps this switcher, which since 0174 is the same route the Sign up and
+   Documents sheets take. */
 .campus-switch{display:contents;}
-/* Campus scoping (ADR-0005 v1.4). The 4 pages under purple-elephant/ carry data-campus on
-   <body>, which sits outside all 5 chrome blocks check-chrome pins; .city-only sits on This week
-   + Activities on ALL 23 pages, so the gated header and tabbar stay byte-identical.
-   ponytail: CSS not JS. No new code in render.js, and both the subtraction and the label survive
-   JS being off. render.js is one un-caught scope with the calendar mounts downstream of the
-   campus block, and the only gate on it is node --check, so a null-deref there would blank the
-   calendar for every family with no pre-deploy warning. This cannot throw.
+/* Campus scoping (ADR-0005 v1.4). The pages under purple-elephant/ carry data-campus on
+   <body>, which sits outside all 5 chrome blocks check-chrome pins; .city-only sits on the
+   City-only chrome items on ALL 28 pages, so the gated header and tabbar stay byte-identical.
+   0174 changed WHICH items those are, not the mechanism: in the header the marker now rides
+   This week plus the whole Sign up and Documents <details> groups; in the tabbar it rides
+   This week, Sign up and Documents. Calendar and Centres stay, which is exactly the 2-tab
+   Purple Elephant bar 0110 decided and Trevor reaffirmed on 2026-08-14 ("PE pages dont adopt
+   anything until we build out the content").
+   ponytail: CSS not JS. The subtraction and the campus label both survive JS being off, and the
+   0174 sheet opener sits downstream of them, so a fault there cannot bring the subtraction down
+   with it. render.js is one un-caught scope with the calendar mounts below this point, and the
+   only gate on it is node --check, so a null-deref there would blank the calendar for every
+   family with no pre-deploy warning. Nothing here can throw.
    First load after a deploy serves cached CSS under stale-while-revalidate (sw.js tier 3), so the
    subtraction lands on load two; the .active campus signal is already-shipped CSS and lands on
-   load one. Do NOT bump the SW CACHE for this: sw.js scopes bumps to HTML-to-JS contract changes.
+   load one. 0174 DOES bump the SW CACHE, because it is an HTML-to-JS contract change: the new
+   data-sheet / data-sheet-panel attributes are read by render.js, and stale HTML with a fresh
+   renderer would leave the sheets unwired.
    The label rides the header <summary>, which is display:none at <=720px, so it can never widen
-   the 8px-mono tabbar (relay #19). Mobile signal = .tab.active on the Centres button. */
+   the 8px-mono tabbar (relay #19). Mobile signal = .tab.active on the campus calendar, which
+   marks the page rather than the switcher (0110 note 3). */
 body[data-campus^="pe-"] .city-only{display:none;}
 body[data-campus="pe-thonglor"] .campus-summary::after{content:": The Purple Elephant Thong Lor";}
 body[data-campus="pe-samakee"] .campus-summary::after{content:": The Purple Elephant Samakee";}
 .campus-switch .campus.active{color:var(--ink);font-weight:600;}
-button.tab{background:none;border:none;padding:0;}
 .cal-pop .campus-switch{display:flex;flex-direction:column;}
 .cal-pop .campus{padding:13px 2px;border-top:1px solid var(--rule-2);font-size:15.5px;color:var(--charcoal);text-decoration:none;}
 .cal-pop .campus:first-child{border-top:none;}
+/* 0174: one sheet grammar for all three groups (Sign up, Documents, Centres). The mobile
+   sheet clones the group's header .dd-panel, so the desktop dropdown and the mobile sheet
+   are one markup and can never disagree. Inside the sheet the panel is not a floating
+   dropdown any more, so its positioning and card chrome are undone and the rows fall back
+   to the campus-row rhythm already shipped above. The Centres panel wraps .campus-switch,
+   whose own rules still apply; the values here match them on purpose so all three sheets
+   read the same. Row labels can be two words long on a phone, hence white-space:normal
+   against the dropdown's nowrap. Scaffolding: the look is Claude Design's (rule 7).
+   display:flex is LOAD-BEARING, not tidying. The dropdown's own flex column comes from
+   `.nav-dd .dd-panel`, and the clone lives in .cal-pop with no .nav-dd ancestor, so that
+   rule stops applying the moment the panel is cloned: without this the panel falls back to
+   display:block, the rows go inline and the sheet renders as wrapped running text. Caught in
+   the browser at 375px, not by any gate, which is why the sheets get looked at on a phone.
+   button.tab was deleted with this block: 0174 turned the Centres <button> into an anchor
+   so it works with JS off, and no <button class="tab"> is left anywhere in site/. */
+.cal-pop .dd-panel{display:flex;flex-direction:column;position:static;top:auto;right:auto;min-width:0;padding:0;gap:0;background:none;border:none;border-radius:0;box-shadow:none;}
+.cal-pop .dd-panel a{padding:13px 2px;border-top:1px solid var(--rule-2);border-radius:0;font-size:15.5px;color:var(--charcoal);text-decoration:none;white-space:normal;}
+.cal-pop .dd-panel a:first-child{border-top:none;}
+.cal-pop .dd-panel a:hover{background:none;color:var(--ink);}
 
 /* footer FAQ links: mobile only (no top nav below 720px) */
 .foot-links .m-only{display:none;}
 
 /* ---- layout ---- */
-.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(26px,4vw,42px) clamp(20px,4vw,44px) 60px;}
+/* Text size (issue 0173) is one declaration, on purpose. `zoom` scales the whole
+   content region (type, spacing, cards, artwork) so nothing grows into a box
+   that stayed still, and no future font-size has to opt in. The chrome that feeds
+   layout geometry (header, tab bar, topline, contour field) sits outside .wrap and
+   is invariant by construction, which is what 0110's measured 58px bar depends on.
+   ponytail: `zoom`, not a transform: transforms don't reflow, so a scaled page
+   would overflow sideways at 375px. Firefox < 126 ignores it and gets Default. */
+.wrap{zoom:var(--text-zoom);position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(26px,4vw,42px) clamp(20px,4vw,44px) 60px;}
 .wrap.sub{padding-top:18px;}
 .greet{margin-bottom:26px;}
 .greet .eyebrow{margin-bottom:10px;display:inline-block;}
@@ -274,7 +310,14 @@ button.tab{background:none;border:none;padding:0;}
 
 /* calendar */
 .cal-wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start;}
-.cal-card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:22px 24px;}
+/* The month card is the one surface the text step cannot carry (issue 0173 §3): seven
+   columns across a 375px phone is a width problem, not a type problem, and at Extra
+   large the grid needs 328px inside a 288px box, which clips Friday and Saturday off
+   under html{overflow-x:hidden}. So it holds at Default on every step, and the agenda
+   list beside it is the reading path that scales. Dividing by the same factor is what
+   "holds" means here: the card cancels exactly the zoom .wrap applied, so it renders
+   byte-identical at all three steps rather than approximately. */
+.cal-card{zoom:calc(1 / var(--text-zoom));background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:22px 24px;}
 .cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
 .cal-top h3{font-family:var(--serif);font-weight:400;font-size:23px;color:var(--ink);}
 .cal-nav{display:flex;gap:8px;}
@@ -424,6 +467,15 @@ button.cal-cell{-webkit-appearance:none;appearance:none;background:transparent;f
      leaves a top strip of page showing for tap-outside-to-close. vh fallback for old engines. */
   .cal-pop{position:fixed!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;width:auto!important;min-width:0!important;max-width:none!important;max-height:85vh;max-height:85dvh;overflow-y:auto;border-radius:16px 16px 0 0;border:none;border-top:3px solid var(--purple);box-shadow:var(--shadow-sheet);padding:16px 18px calc(18px + env(safe-area-inset-bottom));animation:sheet-up .22s ease;}
   .cal-pop::before{content:"";display:block;width:38px;height:4px;border-radius:999px;background:var(--rule);margin:0 auto 12px;}
+  /* The nav sheets (Sign up, Documents, Centres) are appended to <body> by render.js,
+     so the text step has to reach them by hand: they sit outside .wrap and are the
+     reading path, not chrome. Scoped to body's own children on purpose, because the
+     calendar day popover shares this class and is appended INSIDE the grid, where a
+     second zoom would compound with .wrap's. The viewport cap divides by the same
+     factor: vh resolves in the zoomed coordinate space, so a bare 85dvh would render
+     at 110% of the screen at Extra large and run off the top unreachable, which is
+     the exact bug the cap exists for. */
+  body > .cal-pop{zoom:var(--text-zoom);max-height:calc(85vh / var(--text-zoom));max-height:calc(85dvh / var(--text-zoom));}
 }
 @keyframes sheet-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
 
@@ -816,6 +868,11 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
    The subscribe strip is dead on paper (the button can't be tapped and the footer already
    carries the "live calendar online" note), so it drops. */
 @media print{
+  /* Paper ignores the text step (issue 0173, Trevor's yes 2026-08-14): a page is laid
+     out for A4, and a reader's screen preference must not silently change what a
+     printer puts on a sheet. The three fridge sheets never load settings.js so they
+     were already invariant; this covers a browser-printed ordinary page. */
+  :root,:root[data-textsize]{--text-zoom:1;}
   .yc-subscribe{display:none;}
   /* trim the running masthead a touch: the header spacer is the biggest per-page
      overhead (~40mm), so a smaller mast buys bottom buffer for physical printers'
@@ -897,9 +954,10 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
 .ev-empty{padding:16px 20px;font-weight:300;font-size:14px;color:var(--muted);}
 .ev-empty a{color:var(--purple);text-decoration:underline;text-underline-offset:3px;}
 
-/* Ongoing band reuses .bento + existing .reg-card / .sport / .policies; a slim
-   calendar quick-link takes the retired Events card's slot. */
-.quick-cal{grid-column:span 4;}
+/* Ongoing band reuses .bento + existing .reg-card / .sport / .policies. The .quick-cal
+   modifier that dressed the calendar quick-link was deleted with the 0174 nav sweep: the
+   card itself was retired on 2026-08-14 (0174 Half A) and no element in site/ carries the
+   class, so both its rules were dead. */
 
 /* the leadership note reads as a letter when it spans full width */
 .note.home-note{max-width:none;}
@@ -917,7 +975,7 @@ a.key-num:hover,a.key-num:focus-visible{text-decoration:underline;text-underline
 .note.home-note .hos-coming{margin-top:26px;padding-top:15px;font-family:var(--serif);font-style:italic;font-size:13px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);}
 
 @media(max-width:940px){.ev-cards{grid-template-columns:1fr 1fr;}}
-@media(max-width:720px){.ev-cards{grid-template-columns:1fr;}.quick-cal{grid-column:span 12;}}
+@media(max-width:720px){.ev-cards{grid-template-columns:1fr;}}
 @media print{.ev-card{break-inside:avoid;}.ev-card.ev-link h3{color:var(--ink)!important;text-decoration-color:var(--gold)!important;}}
 
 /* Kob khun wall (issue 0074): gratitude + celebrations band, below Ongoing. Cards reuse

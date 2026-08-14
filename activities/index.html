@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Activities · ELC Portal</title>
+<title>Sign up · ELC Portal</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F4F2EA">
-<meta name="description" content="Everything to sign up for this term at ELC: after-school activities and community events.">
-<meta property="og:title" content="Activities · ELC Portal">
-<meta property="og:description" content="Everything to sign up for this term at ELC: after-school activities and community events.">
+<meta name="description" content="Everything to sign up for at ELC: after-school activities, workshops and events, and kindergarten extended hours.">
+<meta property="og:title" content="Sign up · ELC Portal">
+<meta property="og:description" content="Everything to sign up for at ELC: after-school activities, workshops and events, and kindergarten extended hours.">
 <meta property="og:url" content="https://elcportal.elc.ac.th/activities/">
 <meta property="og:image" content="https://elcportal.elc.ac.th/assets/icon-512.png">
 <meta property="og:type" content="website">
@@ -31,11 +31,27 @@
     <span class="tape">v1.0</span>
     <nav>
       <a class="navlink city-only" href="../">This week</a>
-      <a class="navlink city-only active" href="../activities/">Activities</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink active">Sign up</summary>
+        <div class="dd-panel" data-sheet-panel="signup" data-sheet-label="Choose what to sign up for">
+          <a href="../activities/">Everything to sign up for</a>
+          <a href="../asa/">ASA</a>
+          <a href="../community/">Workshops &amp; social mornings</a>
+          <a href="../extended-hours/">Extended hours</a>
+        </div>
+      </details>
       <a class="navlink campus-cal" href="../calendar/">Calendar</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Documents</summary>
+        <div class="dd-panel" data-sheet-panel="documents" data-sheet-label="Choose a documents page">
+          <a href="../policies/">Policies &amp; forms</a>
+          <a href="../help/">Quick answers</a>
+          <a href="../nuts-and-bolts/">Nuts and bolts</a>
+        </div>
+      </details>
       <details class="nav-dd">
         <summary class="navlink campus-summary">Centres</summary>
-        <div class="dd-panel">
+        <div class="dd-panel" data-sheet-panel="centres" data-sheet-label="Choose an ELC centre">
           <div class="campus-switch" role="group" aria-label="Choose an ELC centre">
             <a class="campus" href="../">The City School</a>
             <a class="campus" href="../purple-elephant/thong-lor/">The Purple Elephant Thong Lor</a>
@@ -43,26 +59,23 @@
           </div>
         </div>
       </details>
-      <a class="navlink city-only" href="../policies/">Policies</a>
-      <details class="nav-dd city-only">
-        <summary class="navlink">FAQ</summary>
-        <div class="dd-panel">
-          <a href="../help/">Quick answers</a>
-          
-          <a href="../nuts-and-bolts/">Nuts and bolts</a>
-        </div>
-      </details>
       <div class="nav-search"><input type="search" id="q" data-root="../" placeholder="Search the portal" aria-label="Search the portal"><div id="q-results" hidden></div></div>
     </nav>
   </header>
 
-  <div class="crumb"><a href="../">This week</a> &nbsp;/&nbsp; Activities</div>
+  <div class="crumb"><a href="../">This week</a> &nbsp;/&nbsp; Sign up</div>
 
+  <!-- SIGN UP HUB (issue 0171, Federico + Trevor 2026-08-13). The nav label is now
+       "Sign up" and this page is the one place a family signs up for anything beyond
+       the classroom. Three strands, in Trevor's order: after-school activities ·
+       workshops and events · extended hours. The slug stays activities/ on purpose
+       (renaming the URL touches the sw cache map, every internal href and any link a
+       family already holds: a separate decision, not a copy edit). -->
   <main class="wrap sub">
     <div class="page-head">
-      <span class="eyebrow">Register · Term 1</span>
+      <span class="eyebrow">Register</span>
       <h1>Everything to sign up for.</h1>
-      <p class="lead">Browse what is coming up this term and start a booking. Registration is handled by the office; this is where it begins.</p>
+      <p class="lead">Three things to sign up for at ELC: after-school activities, workshops and events, and extended hours for kindergarten. Registration is handled by the office; this is where it begins.</p>
     </div>
 
     <!-- registration-windows countdown retired in P4 pass A: sport dates are
@@ -72,10 +85,13 @@
          site (sport per PRD-0003 decision 9, Armonia was the `music` card), so both
          chips filtered the grid to nothing. A filter that empties the page is worse than
          no filter. Restore each chip with its card. -->
+    <!-- One chip per strand. The Extended hours chip (0171) shipped WITH its card, which
+         is the rule the two retirements above wrote. -->
     <div class="filter">
       <button class="f on">All</button>
       <button class="f" data-cat="after-school">After school</button>
       <button class="f" data-cat="events">Workshops</button>
+      <button class="f" data-cat="extended-hours">Extended hours</button>
     </div>
 
     <div class="act-grid">
@@ -123,6 +139,20 @@
         <!-- CTA re-pointed to community/ (Trevor 2026-08-05): workshops live there (0079). -->
         <div class="act-foot"><span class="status soon">Roadmap coming</span><a class="btn ghost" href="../community/">See workshops <span class="arw">&rarr;</span></a></div>
       </div>
+
+      <!-- EXTENDED HOURS (issue 0171, the third strand). K1 only, The City School only.
+           Facts landed 2026-08-14 (Trevor, from Anna and Briana's programme): 3/4/5 days,
+           English or Mandarin, to 14:30, rolling admission, sign-up opens 17 Aug, first
+           day 19 Aug. The Jotform is still owed and lands on extended-hours/ ONLY, so
+           the CTA points at the page, never at a form. The claim repeats on the home
+           Ongoing card and on extended-hours/ itself: see docs/connections.md. -->
+      <div class="tile act-card tile-top-purple" data-cat="extended-hours">
+        <span class="eyebrow">Kindergarten</span>
+        <h3>Extended hours</h3>
+        <p>More flexible this year: your K1 child stays on to 14:30, on 3, 4 or 5 days a week you choose, in English or in Mandarin. Join at any time, and add days at any time.</p>
+        <div class="act-meta"><span class="chip">K1</span><span class="chip">3, 4 or 5 days</span><span class="chip">English or Mandarin</span></div>
+        <div class="act-foot"><span class="status soon">Sign-up opens 17 Aug</span><a class="btn ghost" href="../extended-hours/">How it works <span class="arw">&rarr;</span></a></div>
+      </div>
     </div>
 
     <div class="tile how">
@@ -144,10 +174,10 @@
 
   <div class="tabbar">
     <a class="tab city-only" href="../"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>This week</a>
-    <a class="tab city-only active" href="../activities/"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Activities</a>
+    <a class="tab city-only active" href="../activities/" data-sheet="signup"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
     <a class="tab campus-cal" href="../calendar/"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
-    <a class="tab city-only" href="../policies/"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Policies</a>
-    <button class="tab" type="button" id="centres-tab" aria-haspopup="dialog" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</button>
+    <a class="tab city-only" href="../policies/" data-sheet="documents"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Documents</a>
+    <a class="tab" href="../" data-sheet="centres"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</a>
   </div>
 
   <script src="../assets/data.js"></script>

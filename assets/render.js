@@ -391,59 +391,97 @@
     else { window.open('https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url), '_blank', 'noopener'); }
   });
 
-  /* Campus switcher (issue 0067). Desktop: highlight the current centre in the
-     header .campus-switch. Mobile: the #centres-tab button opens a bottom sheet
-     (cloned from the header switcher, so hrefs already carry this page's depth),
-     reusing the day-sheet convention (.cal-pop + body.sheet-open). */
+  /* Group sheets (issues 0067, 0174). One opener, three consumers.
+
+     Desktop: each nav group is a details.nav-dd whose .dd-panel holds that group's
+     destinations. Mobile: the matching tab carries data-sheet="<group>" and opens
+     that SAME panel as a bottom sheet, cloned at open time, reusing the day-sheet
+     convention (.cal-pop + body.sheet-open). Cloning from the header is what keeps
+     the two honest: the sheet and the dropdown are one markup, so they cannot
+     disagree, and the hrefs already carry this page's depth.
+
+     0174 retired the #centres-tab special case this generalises. It also repaired a
+     real hole: Centres was a <button>, so with JS off it did nothing. Every tab is
+     now a real anchor at its group's page (Sign up -> activities/, Documents ->
+     policies/, Centres -> the City School front door, which is the switcher's own
+     first row), and the opener only intercepts the tap when JS is running. The
+     aria-haspopup/aria-expanded pair is set HERE rather than in the markup for the
+     same reason: with JS off those tabs are plain links and must not claim a dialog.
+
+     Panels are found by data-sheet-panel, tabs by data-sheet, and a tab whose panel
+     is missing is simply left as a link. tools/check-chrome.py asserts the two sets
+     match, so a half-wired group fails the gate rather than dying quietly here. */
   (function () {
+    // Desktop label + the sheet's copy of it: mark the centre this page belongs to.
+    // Runs before any clone, so the clone carries the marker for free.
     var sw = document.querySelector('.campus-switch');
-    if (!sw) return;
-    function centreOf(href) {
-      if (/purple-elephant\/thong-lor\//.test(href)) return 'thonglor';
-      if (/purple-elephant\/samakee\//.test(href)) return 'samakee';
-      return 'city';
-    }
-    var here = /\/purple-elephant\/thong-lor(\/|$)/.test(location.pathname) ? 'thonglor'
-             : /\/purple-elephant\/samakee(\/|$)/.test(location.pathname) ? 'samakee'
-             : 'city';
-    var links = sw.querySelectorAll('.campus');
-    for (var i = 0; i < links.length; i++) {
-      if (centreOf(links[i].getAttribute('href')) === here) {
-        links[i].classList.add('active');
-        links[i].setAttribute('aria-current', 'page');
+    if (sw) {
+      var centreOf = function (href) {
+        if (/purple-elephant\/thong-lor\//.test(href)) return 'thonglor';
+        if (/purple-elephant\/samakee\//.test(href)) return 'samakee';
+        return 'city';
+      };
+      var here = /\/purple-elephant\/thong-lor(\/|$)/.test(location.pathname) ? 'thonglor'
+               : /\/purple-elephant\/samakee(\/|$)/.test(location.pathname) ? 'samakee'
+               : 'city';
+      var links = sw.querySelectorAll('.campus');
+      for (var i = 0; i < links.length; i++) {
+        if (centreOf(links[i].getAttribute('href')) === here) {
+          links[i].classList.add('active');
+          links[i].setAttribute('aria-current', 'page');
+        }
       }
     }
 
-    var tab = document.getElementById('centres-tab');
-    if (!tab) return;
-    var sheet = null;
+    var sheet = null;    // the open .cal-pop, or null
+    var opener = null;   // the tab that opened it, or null
     function closeSheet(returnFocus) {
       if (!sheet) return;
       sheet.remove(); sheet = null;
       document.body.classList.remove('sheet-open');
-      tab.setAttribute('aria-expanded', 'false');
-      if (returnFocus) tab.focus();
+      if (opener) {
+        opener.setAttribute('aria-expanded', 'false');
+        if (returnFocus) opener.focus();
+        opener = null;
+      }
     }
-    function openSheet() {
-      if (sheet) { closeSheet(false); return; }
+    function openSheet(tab, panel) {
+      var again = (opener === tab);   // tapping the open group's tab closes it
+      closeSheet(false);
+      if (again) return;
+      opener = tab;
       sheet = document.createElement('div');
       sheet.className = 'cal-pop';
       sheet.setAttribute('role', 'dialog');
       sheet.setAttribute('aria-modal', 'true');
-      sheet.setAttribute('aria-label', 'Choose an ELC centre');
+      sheet.setAttribute('aria-label', panel.getAttribute('data-sheet-label') || 'Choose a page');
       sheet.tabIndex = -1;
-      sheet.appendChild(sw.cloneNode(true));   // depth-correct links + the .active marker
+      sheet.appendChild(panel.cloneNode(true));   // depth-correct links + any .active marker
       document.body.appendChild(sheet);
       document.body.classList.add('sheet-open');
       tab.setAttribute('aria-expanded', 'true');
       sheet.focus();
     }
-    tab.addEventListener('click', function () { openSheet(); });
+    var tabs = document.querySelectorAll('.tab[data-sheet]');
+    for (var t = 0; t < tabs.length; t++) {
+      (function (tab) {
+        var panel = document.querySelector('.dd-panel[data-sheet-panel="' + tab.getAttribute('data-sheet') + '"]');
+        if (!panel) return;   // no panel: leave the tab as the plain link it already is
+        tab.setAttribute('aria-haspopup', 'dialog');
+        tab.setAttribute('aria-expanded', 'false');
+        tab.addEventListener('click', function (e) {
+          // Let a modified click do what the reader asked (new tab, download).
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
+          openSheet(tab, panel);
+        });
+      })(tabs[t]);
+    }
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(true); });
-    // Tap outside the sheet (and not on the tab) closes it.
+    // Tap outside the sheet (and not on the tab that opened it) closes it.
     document.addEventListener('click', function (e) {
       if (!sheet) return;
-      if (sheet.contains(e.target) || tab.contains(e.target)) return;
+      if (sheet.contains(e.target) || (opener && opener.contains(e.target))) return;
       closeSheet(false);
     });
   })();
@@ -613,8 +651,12 @@
       if (!c) return;
       // No phone on the contact = email only (the cp contact is email-only by
       // design, 2026-08-05; "Phone coming" would be a false promise there).
+      // The house format brackets the Thai trunk zero (+66 (0)2 381 2919). E.164 drops it
+      // after the country code, so "(0)" goes before the punctuation strip - otherwise the
+      // link dials +66023812919, which some handsets refuse outright (issue 0163). The
+      // printed string keeps the brackets: display and dial string are separate facts.
       var phone = c.phone
-        ? ' &middot; <a href="tel:' + c.phone.replace(/[^+0-9]/g, '') + '">' + c.phone + '</a>'
+        ? ' &middot; <a href="tel:' + c.phone.replace('(0)', '').replace(/[^+0-9]/g, '') + '">' + c.phone + '</a>'
         : '';
       el.innerHTML = '<a href="mailto:' + c.email + '">' + c.email + '</a>' + phone;
     });

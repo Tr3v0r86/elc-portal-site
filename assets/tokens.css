@@ -83,6 +83,14 @@
   --nav-wash:rgba(244,242,234,0.82);
   --tab-wash:rgba(251,250,246,0.94);
 
+  /* --- text size (issue 0173). One factor, applied as a real zoom on the content
+         region only, NOT a per-declaration font-size sweep. Trevor 2026-08-14:
+         "ideally this is just a zoom surface so we keep the default the default and
+         build to that": design and build target Default and nothing else, and a
+         font-size added tomorrow scales without anyone remembering it exists.
+         Set on <html> as data-textsize by the settings.js head bootstrap. --- */
+  --text-zoom:1;
+
   /* --- Purple Elephant (early years) sub-brand seam (issue 0064). PE pages are
          ELC Portal pages (masthead stays, rule 3) fronting the early years. The
          lead accent aliases --purple so a bespoke PE colour later swaps at ONE
@@ -108,6 +116,13 @@
   --cal-dow:#B4B0A4;        /* weekday letters + empty day cells */
   --cal-foot:#A09C90;       /* footnote */
 }
+
+/* Text size steps (issue 0173). Two overrides, and that is the whole feature:
+   everything inside the content region scales together, so type, spacing, cards
+   and images keep their proportions instead of type growing into fixed boxes.
+   Default sets no attribute and computes byte-identical to today. */
+:root[data-textsize="large"]{--text-zoom:1.15;}
+:root[data-textsize="xl"]{--text-zoom:1.3;}
 
 /* ============================================================
    Dark theme (issue 0155, PRD 0004). Applied as data-theme="dark"

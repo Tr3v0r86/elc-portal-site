@@ -31,25 +31,32 @@
     <span class="tape">v1.0</span>
     <nav>
       <a class="navlink city-only" href="../">This week</a>
-      <a class="navlink city-only" href="../activities/">Activities</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Sign up</summary>
+        <div class="dd-panel" data-sheet-panel="signup" data-sheet-label="Choose what to sign up for">
+          <a href="../activities/">Everything to sign up for</a>
+          <a href="../asa/">ASA</a>
+          <a href="../community/">Workshops &amp; social mornings</a>
+          <a href="../extended-hours/">Extended hours</a>
+        </div>
+      </details>
       <a class="navlink campus-cal" href="../calendar/">Calendar</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Documents</summary>
+        <div class="dd-panel" data-sheet-panel="documents" data-sheet-label="Choose a documents page">
+          <a href="../policies/">Policies &amp; forms</a>
+          <a href="../help/">Quick answers</a>
+          <a href="../nuts-and-bolts/">Nuts and bolts</a>
+        </div>
+      </details>
       <details class="nav-dd">
         <summary class="navlink campus-summary">Centres</summary>
-        <div class="dd-panel">
+        <div class="dd-panel" data-sheet-panel="centres" data-sheet-label="Choose an ELC centre">
           <div class="campus-switch" role="group" aria-label="Choose an ELC centre">
             <a class="campus" href="../">The City School</a>
             <a class="campus" href="../purple-elephant/thong-lor/">The Purple Elephant Thong Lor</a>
             <a class="campus" href="../purple-elephant/samakee/">The Purple Elephant Samakee</a>
           </div>
-        </div>
-      </details>
-      <a class="navlink city-only" href="../policies/">Policies</a>
-      <details class="nav-dd city-only">
-        <summary class="navlink">FAQ</summary>
-        <div class="dd-panel">
-          <a href="../help/">Quick answers</a>
-          
-          <a href="../nuts-and-bolts/">Nuts and bolts</a>
         </div>
       </details>
       <div class="nav-search"><input type="search" id="q" data-root="../" placeholder="Search the portal" aria-label="Search the portal"><div id="q-results" hidden></div></div>
@@ -88,6 +95,11 @@
           <div class="meta"><div class="nm">Is the school open as normal today</div>
           <div class="sub">A banner appears at the top of every page here when anything changes, and your campus writes to you directly.</div></div>
         </div>
+        <div class="doc-row">
+          <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../assets/img/icons.svg#i-ask"/></svg></span>
+          <div class="meta"><div class="nm">Photographs and updates from my child's day</div>
+          <div class="sub">Teachers, coordinators and specialists post photographs and short updates in the Parent App, and every policy sits in its documents section. Sign in at <a href="https://portal.parent.cloud/login">portal.parent.cloud</a>, or use the app on your phone: <a href="https://play.google.com/store/apps/details?id=eu.parent.android.app&amp;hl=en">Google Play</a> &middot; <a href="https://apps.apple.com/th/app/parent-child-care-app/id1152401574">App Store</a>. If you cannot get in, ask the office. <span data-contact="office"></span></div></div>
+        </div>
       </div>
     </div>
 
@@ -97,7 +109,7 @@
         <div class="doc-row">
           <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../assets/img/icons.svg#i-ask"/></svg></span>
           <div class="meta"><div class="nm">A question about ASA, Armonia or sport</div>
-          <div class="sub">The <a href="../activities/">Activities page</a> covers after-school activities and La Comunità. Armonia and sport are not on the portal yet, so for those, or anything the page does not answer: <span data-contact="activities"></span></div></div>
+          <div class="sub">The <a href="../activities/">sign up page</a> covers after-school activities and La Comunità. Armonia and sport are not on the portal yet, so for those, or anything the page does not answer: <span data-contact="activities"></span></div></div>
         </div>
         <div class="doc-row">
           <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../assets/img/icons.svg#i-ask"/></svg></span>
@@ -162,10 +174,10 @@
 
   <div class="tabbar">
     <a class="tab city-only" href="../"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>This week</a>
-    <a class="tab city-only" href="../activities/"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Activities</a>
+    <a class="tab city-only" href="../activities/" data-sheet="signup"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
     <a class="tab campus-cal" href="../calendar/"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
-    <a class="tab city-only" href="../policies/"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Policies</a>
-    <button class="tab" type="button" id="centres-tab" aria-haspopup="dialog" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</button>
+    <a class="tab city-only active" href="../policies/" data-sheet="documents"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Documents</a>
+    <a class="tab" href="../" data-sheet="centres"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</a>
   </div>
 
   <script src="../assets/data.js"></script>

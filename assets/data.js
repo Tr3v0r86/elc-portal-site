@@ -8,6 +8,10 @@ window.PORTAL = {
   // update-propagation worked. feedback.js payloads also read version. The MASTHEAD
   // tape (.tape) stays shell-owned, hardcoded per page: bump it in the v0.8 stamp
   // pass. build = deploy date of the current shell (honest, not the viewer's clock).
+  // BUILD METADATA (issue 0153): version · build · term are set by the deploy pass,
+  // not by a content editor. Third custody class in this file, alongside the
+  // BEGIN/END SHEET-OWNED fences and the HAND-KEPT marks. Leave these alone when you
+  // are here to change content: they are stamped when the site ships.
   version: 'v1.0',
   build: '8 Aug',
   term: 'Term 1',
@@ -43,8 +47,8 @@ window.PORTAL = {
   // page's hold copy are now the same switch, never two dates that can disagree.
   programme: {
     published: false,
-    dueShort: 'Details coming 14 August',
-    dueLong: 'The programme is published on Friday 14 August.'
+    dueShort: 'Coming the week of 17 August',
+    dueLong: 'The programme is coming the week of 17 August.'
   },
 
   // Pages still being finalised (sprint 3 D5). render.js prepends a visible
@@ -57,6 +61,11 @@ window.PORTAL = {
   // rather than leaving a family to guess why a page has no details on it.
   // 2026-08-13 (Trevor): hopes-and-wishes dropped. Dates, teachers and the booking
   // links are all real now, so the chip was the last thing on the page still hedging.
+  // 0171: extended-hours was added 2026-08-14 AM and dropped the same day PM. The facts
+  // landed (Trevor, from Anna and Briana's programme) and the page now states them all;
+  // the only thing pending is the Jotform link, and its own row says exactly when it
+  // arrives (Monday 17 August), so a draft chip would hedge a page that is no longer
+  // hedging. Same close-out the hopes-and-wishes drop above set on 2026-08-13.
   draftPages: ['photo-consent', 'how-to-pay',
                'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong',
                'pe-samakee-nuts-and-bolts'],
@@ -461,12 +470,21 @@ window.PORTAL = {
   ],
 
   // Honest sport statuses (PRD 0002 F2 confirmed truth as of 2026-07-07)
+  // DORMANT since 2026-08-03 (issue 0080), and it is a fourth custody class: sports +
+  // sportNote are still true but are rendered on no surface at all. Sport came off every
+  // page and the data stayed so a restore is markup-only. The sport page is archived, the
+  // home tile and the activities card are gone, and this island is unmapped in the search
+  // build. Sport registration is being built inside the WordPress ASA surface on
+  // portal.elc.ac.th instead. Do not edit these expecting to see anything change on
+  // screen, and do not delete them: deleting throws away the restore path 0080 kept on
+  // purpose. (Issue 0153 moved this mark out of the runbook and onto the field itself.)
   sports: [
     { name: 'Football',   status: 'open', label: 'Open now' },
     { name: 'Basketball', status: 'soon', label: 'Opens 7 Sep' },
     { name: 'Cricket',    status: 'soon', label: 'Opens 7 Sep' },
     { name: 'Swimming',   status: 'soon', label: 'Opens 7 Sep' }
   ],
+  // DORMANT with sports[] above (0080): rendered nowhere.
   sportNote: 'Parent info evening 20 Aug. Sign-up opens 7 Sep.',
 
   // (Refund and withdrawal content is deliberately NOT on the portal, Trevor 2026-07-12.)
@@ -598,7 +616,7 @@ window.PORTAL = {
   // only on the /purple-elephant/ microsites. NOT the coffee-morning `cohort` key.
   // BEGIN SHEET-OWNED: peEvents
   peEvents: [
-    { date: '2026-08-03', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-11', pe: 'samakee', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 11 Aug.' },
+    { date: '2026-08-03', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', pe: 'samakee', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
     { date: '2026-08-12', cat: 'holiday', type: 'purple', aud: 'holiday', pe: 'samakee', title: 'The Queen Mother\'s Birthday Holiday', sub: '' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', pe: 'samakee', title: 'Hopes and Wishes for K1 and K2', sub: '' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', pe: 'samakee', title: 'Meet and Greet for T1 and T2 parents', sub: 'By appointment only.' },
@@ -649,8 +667,9 @@ window.PORTAL = {
     { date: '2027-07-05', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2027-07-30', pe: 'samakee', title: 'Summer holiday', sub: 'Office and accounting open.' },
     { date: '2027-07-26', cat: 'event', type: 'purple', aud: 'parent', until: '2027-07-30', pe: 'samakee', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'to 30 Jul' },
     { date: '2027-07-28', cat: 'holiday', type: 'purple', aud: 'holiday', pe: 'samakee', title: 'King Vajiralongkorn\'s Birthday', sub: '' },
-    { date: '2026-08-03', cat: 'event', type: 'purple', aud: 'child', until: '2026-08-14', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', pe: 'thonglor', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'to 14 Aug' },
+    { date: '2026-08-03', cat: 'event', type: 'purple', aud: 'child', until: '2026-08-11', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', pe: 'thonglor', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'to 11 Aug' },
     { date: '2026-08-12', cat: 'holiday', type: 'purple', aud: 'holiday', pe: 'thonglor', title: 'The Queen Mother\'s Birthday Holiday', sub: '' },
+    { date: '2026-08-13', cat: 'event', type: 'purple', aud: 'child', until: '2026-08-14', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', pe: 'thonglor', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'to 14 Aug' },
     { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', nopage: true, pe: 'thonglor', title: 'Meet and Greet with Parents', sub: 'PE 39, 49 and 55' },
     { date: '2026-08-24', cat: 'event', type: 'gold', aud: 'child', nopage: true, pe: 'thonglor', title: 'Start of Term 1', sub: '' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', pe: 'thonglor', title: 'International Schools Holiday', sub: '' },

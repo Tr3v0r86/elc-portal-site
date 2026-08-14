@@ -10,10 +10,12 @@
    or every navigation flashes light. Everything DOM-heavy waits for DOMContentLoaded.
 
    Storage: one JSON blob, localStorage 'elcp:settings' =
-     { campus: 'city' | 'pe-thong-lor' | 'pe-samakee', theme: 'light' | 'dark' }
+     { campus: 'city' | 'pe-thong-lor' | 'pe-samakee', theme: 'light' | 'dark',
+       text: 'default' | 'large' | 'xl' }
    A missing key, an unknown value, a malformed blob, or private mode all mean
-   today's behaviour exactly: City, light. Unknown keys are ignored rather than
-   preserved, so a later version adding one costs no migration. */
+   today's behaviour exactly: City, light, default text. Unknown keys are ignored
+   rather than preserved, so a later version adding one costs no migration, which
+   is why the 'text' key (issue 0173) needed none. */
 (function () {
   'use strict';
 
@@ -28,15 +30,20 @@
     'pe-thong-lor': 'The Purple Elephant Thong Lor',
     'pe-samakee': 'The Purple Elephant Samakee'
   };
+  /* Text size (issue 0173): three steps, not a slider: every step is a state
+     somebody has to be able to verify on a real page. 'default' writes no
+     attribute, so Default renders byte-identical to before this shipped. */
+  var TEXT_LABEL = { 'default': 'Default', 'large': 'Large', 'xl': 'Extra large' };
 
   function load() {
-    var s = { campus: 'city', theme: 'light' };
+    var s = { campus: 'city', theme: 'light', text: 'default' };
     try {
       var raw = localStorage.getItem(KEY);
       if (raw) {
         var got = JSON.parse(raw);
         if (CAMPUS_LABEL[got.campus]) s.campus = got.campus;
         if (got.theme === 'dark') s.theme = 'dark';
+        if (TEXT_LABEL[got.text]) s.text = got.text;
       }
     } catch (e) { /* private mode or bad blob: defaults stand */ }
     return s;
@@ -63,6 +70,15 @@
     if (m) m.setAttribute('content', THEME_COLOR[theme] || THEME_COLOR.light);
   }
   applyTheme(settings.theme);
+
+  /* --- text size bootstrap: same pre-paint seam as the theme, and for the same
+         reason. The attribute has to land before the stylesheets paint or every
+         navigation flashes at the wrong size. --- */
+  function applyText(text) {
+    if (text === 'large' || text === 'xl') document.documentElement.setAttribute('data-textsize', text);
+    else document.documentElement.removeAttribute('data-textsize');
+  }
+  applyText(settings.text);
 
   /* --- default centre: redirect once per browser SESSION, at root entry only ---
      The entry flag is set on every page load, so following any link (including the
@@ -122,6 +138,11 @@
         (settings.campus === k ? ' checked' : '') + '>' + CAMPUS_LABEL[k] + '</label>';
     }).join('');
 
+    var textRows = Object.keys(TEXT_LABEL).map(function (k) {
+      return '<label><input type="radio" name="sp-text" value="' + k + '"' +
+        (settings.text === k ? ' checked' : '') + '>' + TEXT_LABEL[k] + '</label>';
+    }).join('');
+
     dlg.innerHTML =
       '<h2>Settings</h2>' +
       '<p class="sp-sub">Saved on this device only.</p>' +
@@ -131,6 +152,8 @@
       '<label><input type="radio" name="sp-theme" value="light"' + (settings.theme !== 'dark' ? ' checked' : '') + '>Light</label>' +
       '<label><input type="radio" name="sp-theme" value="dark"' + (settings.theme === 'dark' ? ' checked' : '') + '>Dark</label>' +
       '</fieldset>' +
+      '<fieldset><legend>Text size</legend>' + textRows +
+      '<p class="sp-note">Makes the page bigger, not just the words, so nothing crowds. The menus and the printed calendar stay the same size.</p></fieldset>' +
       '<div class="sp-actions"><button type="button" class="sp-close">Done</button></div>';
 
     document.body.appendChild(dlg);
@@ -144,6 +167,13 @@
         settings.theme = r.value;
         save(settings);
         applyTheme(settings.theme);
+      });
+    });
+    dlg.querySelectorAll('input[name="sp-text"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        settings.text = r.value;
+        save(settings);
+        applyText(settings.text);
       });
     });
 

@@ -45,25 +45,32 @@
     <span class="tape">v1.0</span>
     <nav>
       <a class="navlink city-only active" href="./">This week</a>
-      <a class="navlink city-only" href="activities/">Activities</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Sign up</summary>
+        <div class="dd-panel" data-sheet-panel="signup" data-sheet-label="Choose what to sign up for">
+          <a href="activities/">Everything to sign up for</a>
+          <a href="asa/">ASA</a>
+          <a href="community/">Workshops &amp; social mornings</a>
+          <a href="extended-hours/">Extended hours</a>
+        </div>
+      </details>
       <a class="navlink campus-cal" href="calendar/">Calendar</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Documents</summary>
+        <div class="dd-panel" data-sheet-panel="documents" data-sheet-label="Choose a documents page">
+          <a href="policies/">Policies &amp; forms</a>
+          <a href="help/">Quick answers</a>
+          <a href="nuts-and-bolts/">Nuts and bolts</a>
+        </div>
+      </details>
       <details class="nav-dd">
         <summary class="navlink campus-summary">Centres</summary>
-        <div class="dd-panel">
+        <div class="dd-panel" data-sheet-panel="centres" data-sheet-label="Choose an ELC centre">
           <div class="campus-switch" role="group" aria-label="Choose an ELC centre">
             <a class="campus" href="./">The City School</a>
             <a class="campus" href="purple-elephant/thong-lor/">The Purple Elephant Thong Lor</a>
             <a class="campus" href="purple-elephant/samakee/">The Purple Elephant Samakee</a>
           </div>
-        </div>
-      </details>
-      <a class="navlink city-only" href="policies/">Policies</a>
-      <details class="nav-dd city-only">
-        <summary class="navlink">FAQ</summary>
-        <div class="dd-panel">
-          <a href="help/">Quick answers</a>
-          
-          <a href="nuts-and-bolts/">Nuts and bolts</a>
         </div>
       </details>
       <div class="nav-search"><input type="search" id="q" data-root="" placeholder="Search the portal" aria-label="Search the portal"><div id="q-results" hidden></div></div>
@@ -196,12 +203,26 @@
       </div>
     </section>
 
-    <!-- ONGOING band (slice 2). Persistent quick-links, not time-bound: ASA,
-         Armonia, Sport, Policies regrouped under one heading. The slice-1 Events
-         reg-card (repointed to calendar/) is retired into an honest Calendar
-         quick-link, since Coming up now owns events. Reuses the .bento grid. -->
+    <!-- ONGOING band (slice 2). Persistent quick-links, not time-bound, reusing the
+         .bento grid. History of the slots: the slice-1 Events reg-card became a Calendar
+         quick-link once Coming up owned events, then that quick-link left too (0174 Half
+         A) for Extended hours. Armonia and Sport were retired in 0080. Policies left on
+         2026-08-14 for the Documents and info band directly below (0174 Half B phase 1,
+         Trevor's yes that day). So the band now holds exactly the three sign-up strands
+         of 0171: ASA · Workshops and social mornings · Extended hours. Nothing else
+         belongs here; a new sign-up strand does, and a document does not.
+         NAME: the band equals the Sign up group exactly now, so "Ongoing" is arguably the
+         wrong word for it. Renaming it is spec question 6 in issue 0174 and Trevor has not
+         answered, so the name stays as it is. Do not rename it on inference. -->
+    <!-- ⚠️ Card COUNT is load-bearing: the bento balance was set by Claude Design and a
+         change to it is design work (rule 7). Three cards of span 4 now fill the
+         12-column bento exactly, which is the tidiest this band has been; swap a card for
+         a card, and do not go to two or four without a CD pass. -->
     <section class="section band" aria-labelledby="og-h">
-      <div class="sec-eyebrow"><span class="eyebrow" id="og-h">Ongoing</span><span class="ln"></span></div>
+      <!-- Renamed Ongoing -> Sign up (Trevor, 2026-08-14 walkthrough, 0174 question 6):
+           after 0174 phase 1 this band holds exactly the three sign-up strands, so it
+           matches the Sign up tab and sheet by name. id="og-h" stays: it is plumbing. -->
+      <div class="sec-eyebrow"><span class="eyebrow" id="og-h">Sign up</span><span class="ln"></span></div>
       <div class="bento">
         <!-- ASA -->
         <!-- ASA registration CLOSED until the AY26-27 open date (unset as of 2026-08-05,
@@ -235,9 +256,12 @@
 
         <!-- LA COMUNITÀ (0071 follow-up, Trevor feedback 2026-07-28): community/ is now
              the home for workshops + social mornings, off the core calendar, and this is
-             its Ongoing entry. Sits THIRD ahead of Calendar (Trevor 2026-07-28): the three
-             sign-up surfaces group first, the year reference follows.
-             Bento rebalance for the fourth reg-card = CD (rule 7). -->
+             its Ongoing entry. Trevor's 2026-07-28 rule was "the three sign-up surfaces
+             group first, the year reference follows", written when the fourth card was
+             Calendar. 0174 Half A retired the Calendar card and Half B phase 1 moved
+             Policies out, so the rule has nothing left to order: the band is the three
+             sign-up strands of 0171 and only those. This card keeps its place through
+             both changes; only the cards around it moved. -->
         <a class="tile reg-card tile-top-purple link" href="community/">
           <span class="eyebrow">La Comunità</span>
           <h3>Workshops &amp; social mornings</h3>
@@ -250,13 +274,33 @@
           <span class="btn block">See what's on <span class="arw">&rarr;</span></span>
         </a>
 
-        <!-- CALENDAR quick-link (slice 2: the Events reg-card retired here; eyebrow
-             was "Events", Coming up now owns event promotion) -->
-        <a class="tile reg-card tile-top-purple link quick-cal" href="calendar/">
-          <span class="eyebrow">The year</span>
-          <h3>Calendar</h3>
-          <p>Every date for the year: events, terms and days off, in one place.</p>
-          <span class="btn block">Open the calendar <span class="arw">&rarr;</span></span>
+        <!-- CALENDAR quick-link RETIRED here 2026-08-14 (issue 0174 Half A, relay #111,
+             Trevor). Kindergarten extended hours takes its slot, one for one, so the bento
+             count is unchanged and no CD rebalance is triggered (rule 7). The calendar is
+             not orphaned: it keeps its own chrome navlink and tab on every page, and the
+             Coming up band above still heads "Full calendar" at calendar/. The card was
+             the third route, not the only one. Its .quick-cal class was a span-4 modifier
+             identical to .reg-card's own span, so nothing moved; the two dead rules were
+             deleted from app.css with the 0174 Half B phase 2 nav sweep. -->
+
+        <!-- EXTENDED HOURS (issue 0171, Federico + Trevor 2026-08-13). Honest coming-soon
+             under HARD rule 6: no days, no hours, no price, no start date anywhere, because
+             Anna and Briana still hold them. The same claim is stated on the activities/
+             hub strand and on extended-hours/ itself: see docs/connections.md before
+             editing this copy. -->
+        <!-- Facts landed 2026-08-14 (Trevor, from Anna and Briana's programme): not new,
+             more flexible. The dates note is on the homepage BY TREVOR'S INSTRUCTION
+             ("this note should be on the homepage"); the full story lives on
+             extended-hours/ and the claim's surfaces are walked in docs/connections.md. -->
+        <a class="tile reg-card tile-top-purple link" href="extended-hours/">
+          <span class="eyebrow">Kindergarten</span>
+          <h3>Extended hours</h3>
+          <p>More flexible this year: K1 children stay on to 14:30, on 3, 4 or 5 days a week you choose, in English or in Mandarin.</p>
+          <ul class="card-dates">
+            <li><span class="cd-when">17 Aug</span> <span class="cd-what">Sign-up opens</span></li>
+            <li><span class="cd-when">19 Aug</span> <span class="cd-what">First day, with the school year</span></li>
+          </ul>
+          <span class="btn block">How it works <span class="arw">&rarr;</span></span>
         </a>
 
         <!-- SPORT TILE RETIRED 2026-08-03 (issue 0080, PRD-0003 decision 9: "sport comes
@@ -265,17 +309,75 @@
              promise a portal flow that does not exist. data.js keeps `sports` + `sportNote`
              dormant (statuses stay true), so restoring the tile is markup only. -->
 
-        <!-- POLICIES -->
+        <!-- POLICIES card MOVED OUT 2026-08-14 to the Documents and info band below
+             (0174 Half B phase 1). It is the same markup, copy and href, in a new home:
+             it was the one card here that a family reads rather than signs up for. -->
+      </div>
+    </section>
+
+    <!-- DOCUMENTS AND INFO band (issue 0174 Half B phase 1, relay #111). Built on Trevor's
+         explicit yes of 2026-08-14, which is the structure yes ADR-0010 requires before a
+         new section may be added to this page. One band for what a family reads rather
+         than signs up for: the policy library, the quick answers page, and the practical
+         everyday. The three destinations existed already; what was missing was one place
+         on the front door that says so.
+         GRAMMAR: deliberately the Ongoing band's, element for element (.section.band +
+         .sec-eyebrow + .bento), reusing only tile classes that already exist. That is why
+         it needed no app.css edit and why none was made: app.css is frozen (ADR-0010) and
+         the look, balance and any new tile treatment are Claude Design's (rule 7).
+         PLACEMENT: below Ongoing, above the Kob khun wall. That is the default proposed in
+         spec question 7, taken as a default and not as a settled answer. The band reads
+         nothing from its neighbours and nothing reads it, so Trevor can move it as one
+         block without touching anything else.
+         SPANS: three cards of span 4 fill the 12-column bento exactly, matching Ongoing.
+         Between 721px and 940px .policies widens to span 12 and takes its own row, so the
+         two cards under it leave a four-column gap at that one width. Nothing overflows,
+         and nothing was changed to close it, because that is a balance judgement (rule 7).
+         WHAT IS NOT BUILT: the rest of 0174 Half B, meaning the five-tab mobile bar, the
+         sheet-per-tab mechanic, and the top-nav regroup that would absorb the FAQ dropdown
+         into this same group. All of it needs frozen render.js and app.css plus Trevor's
+         answers to spec questions 1 to 5, so this band stands on its own for now and the
+         nav above it is unchanged. -->
+    <section class="section band" aria-labelledby="di-h">
+      <div class="sec-eyebrow"><span class="eyebrow" id="di-h">Documents and info</span><span class="ln"></span></div>
+      <div class="bento">
+        <!-- POLICIES (moved here from Ongoing 2026-08-14, markup and copy unchanged).
+             Its "Documents" eyebrow now sits inside a band whose name starts with the same
+             word. Left as it is on purpose: copy is Trevor's call, not an agent's. -->
         <a class="policies" href="policies/">
           <span class="eyebrow on-dark">Documents</span>
           <h3>Policies &amp; forms</h3>
           <p>Term dates, uniform, medical and conduct. Read it once, find it always.</p>
           <span class="btn gold block">Open policies <span class="arw">&rarr;</span></span>
         </a>
+
+        <!-- QUICK ANSWERS (help/). The card is headed the way the page presents itself,
+             which is also what the nav dropdown, the footer link and the page title all
+             call it; "FAQ" carries the grouping in the eyebrow. The nav's own FAQ dropdown
+             is untouched: folding it into this group is part of the unbuilt top-nav
+             regroup, not of this band. -->
+        <a class="tile reg-card tile-top-purple link" href="help/">
+          <span class="eyebrow">FAQ</span>
+          <h3>Quick answers</h3>
+          <p>Quick answers to the questions families ask most, each one with the person to contact.</p>
+          <span class="btn block">Find your answer <span class="arw">&rarr;</span></span>
+        </a>
+
+        <!-- NUTS AND BOLTS. Named "Nuts and bolts" to match the nav, the footer and the
+             closing note below, so the page names one destination one way. The copy is the
+             page's own promise, shortened: see docs/connections.md before editing it, as
+             the closing note at the foot of this page makes the same promise in prose. -->
+        <a class="tile reg-card tile-top-purple link" href="nuts-and-bolts/">
+          <span class="eyebrow">Day to day</span>
+          <h3>Nuts and bolts</h3>
+          <p>Where to park, when the day starts and ends, what to send, and who to call.</p>
+          <span class="btn block">Read the detail <span class="arw">&rarr;</span></span>
+        </a>
       </div>
     </section>
 
-    <!-- KOB KHUN WALL (issue 0074): gratitude + celebrations, below Ongoing. Two card
+    <!-- KOB KHUN WALL (issue 0074): gratitude + celebrations, below the Documents and info
+         band that 0174 Half B phase 1 inserted above it on 2026-08-14. Two card
          templates for v1.0, both reusing the .ev-card shell so the band matches the rest
          of the landing page: a CELEBRATION card (a child or alumnus, linking out to the
          story) and a VOICES card (several parent thank-yous folded into one piece).
@@ -319,7 +421,10 @@
       </div>
     </section>
 
-    <p class="page-note">The practical everyday (parking, the school day, lunches and what to send) lives in <a href="nuts-and-bolts/">the nuts and bolts</a>. And there is more to school life than the schedule: <a href="community/">get to know the ELC community</a>.</p>
+    <!-- Closing page-note REMOVED 2026-08-14 (Trevor, walkthrough): it was redundant
+         signposting once the Documents and info band (0174) put nuts-and-bolts a card
+         away, and it duplicated destinations the chrome already carries. This was also
+         one of the walkthrough flags queued in the 0174 build records. -->
   </main>
 
   <div class="foot-strip">
@@ -333,10 +438,10 @@
   <!-- bottom tabs (mobile) -->
   <div class="tabbar">
     <a class="tab city-only active" href="./"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>This week</a>
-    <a class="tab city-only" href="activities/"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Activities</a>
+    <a class="tab city-only" href="activities/" data-sheet="signup"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
     <a class="tab campus-cal" href="calendar/"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
-    <a class="tab city-only" href="policies/"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Policies</a>
-    <button class="tab" type="button" id="centres-tab" aria-haspopup="dialog" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</button>
+    <a class="tab city-only" href="policies/" data-sheet="documents"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Documents</a>
+    <a class="tab" href="./" data-sheet="centres"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</a>
   </div>
 
   <script src="assets/data.js"></script>

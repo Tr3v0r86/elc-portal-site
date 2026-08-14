@@ -31,25 +31,32 @@
     <span class="tape">v1.0</span>
     <nav>
       <a class="navlink city-only" href="../">This week</a>
-      <a class="navlink city-only" href="../activities/">Activities</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Sign up</summary>
+        <div class="dd-panel" data-sheet-panel="signup" data-sheet-label="Choose what to sign up for">
+          <a href="../activities/">Everything to sign up for</a>
+          <a href="../asa/">ASA</a>
+          <a href="../community/">Workshops &amp; social mornings</a>
+          <a href="../extended-hours/">Extended hours</a>
+        </div>
+      </details>
       <a class="navlink campus-cal" href="../calendar/">Calendar</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Documents</summary>
+        <div class="dd-panel" data-sheet-panel="documents" data-sheet-label="Choose a documents page">
+          <a href="../policies/">Policies &amp; forms</a>
+          <a href="../help/">Quick answers</a>
+          <a href="../nuts-and-bolts/">Nuts and bolts</a>
+        </div>
+      </details>
       <details class="nav-dd">
         <summary class="navlink campus-summary">Centres</summary>
-        <div class="dd-panel">
+        <div class="dd-panel" data-sheet-panel="centres" data-sheet-label="Choose an ELC centre">
           <div class="campus-switch" role="group" aria-label="Choose an ELC centre">
             <a class="campus" href="../">The City School</a>
             <a class="campus" href="../purple-elephant/thong-lor/">The Purple Elephant Thong Lor</a>
             <a class="campus" href="../purple-elephant/samakee/">The Purple Elephant Samakee</a>
           </div>
-        </div>
-      </details>
-      <a class="navlink city-only" href="../policies/">Policies</a>
-      <details class="nav-dd city-only">
-        <summary class="navlink">FAQ</summary>
-        <div class="dd-panel">
-          <a href="../help/">Quick answers</a>
-          
-          <a href="../nuts-and-bolts/">Nuts and bolts</a>
         </div>
       </details>
       <div class="nav-search"><input type="search" id="q" data-root="../" placeholder="Search the portal" aria-label="Search the portal"><div id="q-results" hidden></div></div>
@@ -78,16 +85,17 @@
          no rows (honest waiting line) instead of self-removing. Coffee mornings keep the
          self-remove idiom. Structure only: CD skins in the 0.8/0.9 loop (rule 7). -->
     <!-- 0137 (Trevor, relay #61): "community needs to be temporarily locked until Aug 14th
-         when the content is official as per the new homepage card." Until then this page
-         holds: the listings below are withheld and this block stands in their place, so the
-         page does not contradict the homepage card promising a 14 August publication.
+         when the content is official as per the new homepage card." Date slipped to the
+         week of 17 August (Trevor, 2026-08-14). Until then this page holds: the listings
+         below are withheld and this block stands in their place, so the page and the
+         homepage card promise the same week.
          "Locked" is editorial, not access control: the route, the chrome and the page's
          explanation of what La Comunità is all stay. The switch is render.js's DETAILS_DUE,
-         the same single date the homepage card reads, so 14 August needs no deploy.
+         the same single date the homepage card reads, so the date needs no second edit.
          Hidden in markup and revealed by JS: with JS off nothing unofficial is shown. -->
     <div class="section" data-details-hold hidden>
-      <div class="sec-eyebrow"><span class="eyebrow">Coming on 14 August</span><span class="ln"></span></div>
-      <p class="page-note">The workshops and social mornings programme for this year is being finalised, and it is published here on Friday 14 August. Nothing is bookable before then. Once it is up you will find every occasion listed on this page with its date, and the ones that need a place reserved will say so.</p>
+      <div class="sec-eyebrow"><span class="eyebrow">Coming the week of 17 August</span><span class="ln"></span></div>
+      <p class="page-note">The workshops and social mornings programme for this year is being finalised, and it is coming to this page the week of 17 August. Nothing is bookable before then. Once it is up you will find every occasion listed on this page with its date, and the ones that need a place reserved will say so.</p>
     </div>
 
     <section id="community-workshops" data-details-ready hidden></section>
@@ -142,10 +150,10 @@
 
   <div class="tabbar">
     <a class="tab city-only" href="../"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>This week</a>
-    <a class="tab city-only" href="../activities/"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Activities</a>
+    <a class="tab city-only active" href="../activities/" data-sheet="signup"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
     <a class="tab campus-cal" href="../calendar/"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
-    <a class="tab city-only" href="../policies/"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Policies</a>
-    <button class="tab" type="button" id="centres-tab" aria-haspopup="dialog" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</button>
+    <a class="tab city-only" href="../policies/" data-sheet="documents"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Documents</a>
+    <a class="tab" href="../" data-sheet="centres"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</a>
   </div>
 
   <script src="../assets/data.js"></script>

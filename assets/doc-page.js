@@ -167,7 +167,23 @@
     ::slotted([slot="header"]),
     ::slotted([slot="footer"]) { display: block; box-sizing: border-box; }
     @media print {
-      :host { background: none; padding: 0; min-width: 0; min-height: 0; }
+      :host {
+        background: none; padding: 0; min-width: 0; min-height: 0;
+        /* The sheet carries its own edge inset, because @page margin does not
+         * survive the print dialog: Chrome's Margins control persists per
+         * profile, and set to None it overrides the rule with no web API to
+         * read, set or lock it (issue 0170). So the fixed running header and
+         * footer - the copy nearest the paper edge - get a quarter inch of
+         * paper as a FLOOR: still 45% of the page margin where that is
+         * larger, never less than 0.25in (below that a printer's own hardware
+         * margin clips the line), and never more than the page margin itself,
+         * so margin="0" still full-bleeds. The floor stays under the 0.35in
+         * slot pad, so the spacers below still clear the fixed slots and the
+         * printable body height is unchanged - a sheet tuned to land on one
+         * page still lands on one page. */
+        --doc-slot-inset:
+          max(calc(var(--doc-page-margin) * 0.45), min(var(--doc-page-margin), 0.25in));
+      }
       .sheet {
         width: auto; margin: 0; box-shadow: none; border-radius: 0;
         padding: 0 var(--doc-page-margin);
@@ -183,11 +199,11 @@
       .ftr-space { height: max(var(--doc-page-margin), calc(var(--doc-ftr-h) + var(--doc-ftr-pad))); }
       ::slotted([slot="header"]) {
         position: fixed; top: 0; left: 0; right: 0; margin: 0;
-        padding: calc(var(--doc-page-margin) * 0.45) var(--doc-page-margin) 0;
+        padding: var(--doc-slot-inset) var(--doc-page-margin) 0;
       }
       ::slotted([slot="footer"]) {
         position: fixed; bottom: 0; left: 0; right: 0; margin: 0;
-        padding: 0 var(--doc-page-margin) calc(var(--doc-page-margin) * 0.45);
+        padding: 0 var(--doc-page-margin) var(--doc-slot-inset);
       }
     }
   `;
