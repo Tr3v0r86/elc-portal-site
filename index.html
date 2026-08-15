@@ -98,24 +98,30 @@
     <details class="tile note tile-top-purple home-note" id="home-note" open>
       <summary class="note-summary">
         <div class="who">
-          <img class="headshot" src="assets/img/trevor.png" alt="Trevor" width="56" height="56" onerror="this.style.display='none'">
+          <!-- Headshot is STATIC and follows the live note's signer by hand: swap this src
+               when the note changes (heather.png is owed; onerror hides the slot until the
+               file lands). Making it follow notes[] automatically is render.js (frozen),
+               filed as an issue. -->
+          <img class="headshot" src="assets/img/heather.png" alt="Heather" width="56" height="56" onerror="this.style.display='none'">
           <div>
-            <span class="eyebrow" id="note-eyebrow">A note from Trevor</span>
-            <div class="when" id="note-when">This month · August</div>
+            <span class="eyebrow" id="note-eyebrow">A note from Heather</span>
+            <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">Welcome to a new year.</h2>
+        <h2 id="note-title">Welcome to the school year and to ELC Portal.</h2>
       </summary>
       <div class="note-reveal">
         <div class="note-main">
-          <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]
-               and appends the "Email me" cta after it (0138). The mailto lives inline here
-               because with JS off there is no cta to append. -->
-          <p id="note-body">This portal is the one place for everything your family does with ELC beyond the classroom: the week ahead, the calendar, sign-ups, and every policy and form. It is built to be used as a standalone app on your phone, and that is where it works best: follow the instructions in the Install app button at the bottom left, and the details and announcements here are always at your fingertips. It is new, and I am building it in the open. So tell me what you need: use the feedback button on any page, email me at <a href="mailto:trevorc@elc.ac.th">trevorc@elc.ac.th</a>, or come and see me in person at the gate or on the playground.</p>
-          <div class="sig" id="note-sig">Trevor &middot; Head of Operations and Educational Experience</div>
-          <div class="sig-sub">Supporting your family with everything outside the classroom.</div>
+          <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
+          <p id="note-body">Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child's success.</p>
+          <div class="sig" id="note-sig">Heather Pease &middot; Head of Teaching and Learning</div>
+          <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
+               signer, and render.js does not rewrite it. Reintroduce only as a per-note
+               field. -->
         </div>
-        <img class="note-art" src="assets/img/art/thai-houses.svg" alt="" aria-hidden="true" loading="lazy" width="520" height="277">
+        <!-- Children's clay houses with their drawings behind (Trevor 2026-08-15, replacing
+             the thai-houses.svg placeholder): photo + graphic cut from the classroom shot. -->
+        <img class="note-art" src="assets/img/art/clay-houses.png" alt="" aria-hidden="true" loading="lazy" width="520" height="379">
       </div>
       <div class="note-history" id="note-history" hidden></div>
     </details>

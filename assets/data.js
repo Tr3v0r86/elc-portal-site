@@ -147,14 +147,12 @@ window.PORTAL = {
   //     href: 'hopes-and-wishes/',             // must resolve to site/<href>index.html
   //     label: 'Book your Hopes and Wishes time',
   //     sub: 'All year groups · 17 to 18 Aug' }
-  // HELD BACK until Tue 11 Aug 12:00 Asia/Bangkok (Trevor 2026-08-10): the prompt
-  // went live before he had seen it. bookingState() in render.js compares whole
-  // days only and render.js is frozen (ADR-0010), so the hour lives here. Delete
-  // this .filter once the window is open; it gates every row, not just this one.
-  bookingWindows: [
-    { from: '2026-08-10', until: '2026-08-18', href: 'hopes-and-wishes/',
-      label: 'Book your Hopes and Wishes time', sub: 'All year groups · 17 to 18 Aug' }
-  ].filter(function () { return Date.now() >= Date.parse('2026-08-11T05:00:00Z'); }),   // 12:00 +07
+  // EMPTY BY POLICY (Trevor 2026-08-15): the H&W booking row came down early because
+  // the homepage should stay static and predictable, and each banner is one more
+  // system to keep updated; coordinators and class teachers carry that comms load
+  // directly. Before adding a row here, ask whether the event page + week strip
+  // already cover it. (The 08-11 hold-back .filter went with the row it gated.)
+  bookingWindows: [],
 
   // Coming up cards (slice 2, issue 0047). EDITORIAL curation (D2): each row here
   // promotes ONE event group to a homepage card. href is the group identity: every
@@ -200,26 +198,29 @@ window.PORTAL = {
   // uncomment it, set `from` to that day or earlier, then deploy. Never uncomment a
   // dated row because its date has passed, and never add a row with a future `from`.
   notes: [
-    { from: '2026-07-01', eyebrow: 'A note from Trevor', when: 'This month · August',
-      title: 'Welcome to a new year.',
-      body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. It is built to be used as a standalone app on your phone, and that is where it works best: follow the instructions in the Install app button at the bottom left, and the details and announcements here are always at your fingertips. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
-      cta: { contact: 'trevor', label: 'Email me' },
-      sig: 'Trevor · Head of Operations and Educational Experience' },
-
-    // Heather's start-of-year note (issue 0168), LIVE. Intended for Sunday 16 August;
-    // Trevor moved the flip to Saturday 15 August in that exchange ("okay to roll it
-    // over to a new message when parents check this weekend"), so `from` is the deploy
-    // day per ADR-0013 (never a future date). Trevor's welcome above rotates into
-    // Earlier notes on its own because this `from` is later.
-    { from: '2026-08-15', eyebrow: 'A note from Heather', when: 'This week · 17 to 21 August',
+    // ONE note at a time (Trevor 2026-08-15): a new note CLEARS the old one, no history.
+    // The 0168 three-voice rotation keeps its voices, but retired notes are commented out
+    // below rather than left live, so render.js's Earlier notes list stays empty by data.
+    // Heather's start-of-year note (issue 0168), LIVE since 2026-08-15 (Trevor moved the
+    // flip from Sunday in that exchange; `from` = deploy day per ADR-0013, never future).
+    // `when` stays EMPTY on notes (Trevor 2026-08-15): no dates, no cadence words.
+    // Notes roll over periodically; parents should not read a schedule into them.
+    { from: '2026-08-15', eyebrow: 'A note from Heather', when: '',
       title: 'Welcome to the school year and to ELC Portal.',
       body: 'Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child\'s success.',
       sig: 'Heather Pease · Head of Teaching and Learning' }
 
-    // ---- QUEUED, NOT LIVE. Trevor's explicit yes activates one of these. ----
-    // Drafted copy, held here so nothing publishes itself. To go live: uncomment ONE
-    // row, comment the row it replaces, set `from` to today or earlier, deploy.
+    // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
+    // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
+    // set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Trevor's launch welcome, RETIRED 2026-08-15 when Heather's note replaced it.
+    // { from: '2026-07-01', eyebrow: 'A note from Trevor', when: 'This month · August',
+    //   title: 'Welcome to a new year.',
+    //   body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. It is built to be used as a standalone app on your phone, and that is where it works best: follow the instructions in the Install app button at the bottom left, and the details and announcements here are always at your fingertips. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
+    //   cta: { contact: 'trevor', label: 'Email me' },
+    //   sig: 'Trevor · Head of Operations and Educational Experience' },
     //
     // { from: '2026-08-10', eyebrow: 'A note from Trevor', when: '17 to 18 August',
     //   title: 'We start with your hopes.',
