@@ -68,7 +68,7 @@ window.PORTAL = {
   // hedging. Same close-out the hopes-and-wishes drop above set on 2026-08-13.
   draftPages: ['photo-consent', 'how-to-pay',
                'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong',
-               'pe-samakee-nuts-and-bolts'],
+               'pe-samakee-nuts-and-bolts', 'transport', 'library'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):
