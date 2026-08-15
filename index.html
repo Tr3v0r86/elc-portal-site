@@ -298,16 +298,26 @@
              more flexible. The dates note is on the homepage BY TREVOR'S INSTRUCTION
              ("this note should be on the homepage"); the full story lives on
              extended-hours/ and the claim's surfaces are walked in docs/connections.md. -->
-        <a class="tile reg-card tile-top-purple link" href="extended-hours/">
+        <!-- JOTFORM LANDED 2026-08-16 (Trevor, issue 0182). His instruction: "should be one
+             click on the homepage (have both register and how it works)". So the card stops
+             being a whole-tile link to extended-hours/ and becomes a plain tile with two
+             CTAs, and the 17 Aug "sign-up opens" row is now false the moment the Register
+             button works, so it states the live state instead. The tile is a <div> only
+             because an <a> cannot nest an <a>; it reuses .act-foot, which already exists
+             for exactly this two-CTA footer on activities/ (no app.css edit, rule 7). -->
+        <div class="tile reg-card tile-top-purple">
           <span class="eyebrow">Kindergarten</span>
           <h3>Extended hours</h3>
           <p>More flexible this year: K1 children stay on to 14:30, on 3, 4 or 5 days a week you choose, in English or in Mandarin.</p>
           <ul class="card-dates">
-            <li><span class="cd-when">17 Aug</span> <span class="cd-what">Sign-up opens</span></li>
+            <li><span class="cd-when">Open now</span> <span class="cd-what">Sign-up is open</span></li>
             <li><span class="cd-when">19 Aug</span> <span class="cd-what">First day, with the school year</span></li>
           </ul>
-          <span class="btn block">How it works <span class="arw">&rarr;</span></span>
-        </a>
+          <div class="act-foot">
+            <a class="btn purple" href="https://form.jotform.com/262251103636448" target="_blank" rel="noopener">Register <span class="arw">&rarr;</span></a>
+            <a class="btn ghost" href="extended-hours/">How it works <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
 
         <!-- SPORT TILE RETIRED 2026-08-03 (issue 0080, PRD-0003 decision 9: "sport comes
              off the site"). Sport is built with the rest of the ASAs on the WordPress ASA
