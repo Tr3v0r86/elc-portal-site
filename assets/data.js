@@ -204,23 +204,23 @@ window.PORTAL = {
       title: 'Welcome to a new year.',
       body: 'ELC Portal is new this year: one place for everything your family does with us beyond the classroom. It is built to be used as a standalone app on your phone, and that is where it works best: follow the instructions in the Install app button at the bottom left, and the details and announcements here are always at your fingertips. We are building it not just for our community, but with you. Just as we shape the children\'s learning around relationships and listening, this page grows from what families tell us they need. So tell me what you need: use the feedback button on any page, email me, or come and see me in person at the gate or on the playground.',
       cta: { contact: 'trevor', label: 'Email me' },
-      sig: 'Trevor · Head of Operations and Educational Experience' }
+      sig: 'Trevor · Head of Operations and Educational Experience' },
+
+    // Heather's start-of-year note (issue 0168), LIVE. Intended for Sunday 16 August;
+    // Trevor moved the flip to Saturday 15 August in that exchange ("okay to roll it
+    // over to a new message when parents check this weekend"), so `from` is the deploy
+    // day per ADR-0013 (never a future date). Trevor's welcome above rotates into
+    // Earlier notes on its own because this `from` is later.
+    { from: '2026-08-15', eyebrow: 'A note from Heather', when: 'This week · 17 to 21 August',
+      title: 'Welcome to the school year and to ELC Portal.',
+      body: 'Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child\'s success.',
+      sig: 'Heather Pease · Head of Teaching and Learning' }
 
     // ---- QUEUED, NOT LIVE. Trevor's explicit yes activates one of these. ----
     // Drafted copy, held here so nothing publishes itself. To go live: uncomment ONE
     // row, comment the row it replaces, set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
     //
-    // Heather's start-of-year note, her copy (issue 0168). Intended for Sunday 16 August.
-    // It is HELD, not dated: ADR-0013 consequence 4 bars a row with a future `from`, so
-    // going live is Trevor uncommenting this on the day and deploying, not a clock.
-    // Two edits to her text, both flagged to Trevor: the banned two-word phrase for this
-    // site (HARD rule 3, and the redaction gate enforces it, comments included) reads
-    // 'ELC Portal', and her first sentence became the title so the body does not repeat it.
-    // { from: '2026-08-16', eyebrow: 'A note from Heather', when: 'This week · 17 to 21 August',
-    //   title: 'Welcome to the school year and to ELC Portal.',
-    //   body: 'Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child\'s success.',
-    //   sig: 'Heather Pease · Head of Teaching and Learning' },
     // { from: '2026-08-10', eyebrow: 'A note from Trevor', when: '17 to 18 August',
     //   title: 'We start with your hopes.',
     //   body: 'On 17 and 18 August your child\'s teachers sit down with you for Hopes and Wishes: what you want this year to hold for your child, in your words. It is my favourite way to begin the year. Everything else on this page can wait until you have booked your time.',
