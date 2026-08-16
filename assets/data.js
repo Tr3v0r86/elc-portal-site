@@ -170,8 +170,14 @@ window.PORTAL = {
     { href: 'hopes-and-wishes/', title: 'Hopes and Wishes',
       blurb: 'Twenty minutes with your child\'s teacher to start the year, in your words.',
       go: 'Find your class' },
+    // Blurb leads with "Information session" (Trevor 2026-08-17): "coffee morning" is
+    // the canonical name families hear, but the primary purpose is information sharing,
+    // not the social mornings that run through the rest of the year. The card has no
+    // subheading slot (render.js is frozen, ADR-0010) and the eyebrow carries the date,
+    // so the lead sentence of the blurb is the subheading. Same framing as the
+    // /coffee-mornings/ lead: change both together.
     { href: 'coffee-mornings/', title: 'Coffee morning',
-      blurb: 'Meet your year group\'s coordinators and administrators and hear how the year runs, in the opening weeks.',
+      blurb: 'Information session for the year ahead. Meet your year group\'s coordinators and administrators and hear how the year runs.',
       go: 'Find your year group' }
   ],
 

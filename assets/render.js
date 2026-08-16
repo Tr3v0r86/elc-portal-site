@@ -1306,13 +1306,30 @@
 
     // Category glyph + label. Grayscale-safe: the shape carries meaning without
     // colour, so the key survives a black-and-white print (WCAG 1.4.1 precedent).
+    //
+    // ONE SHAPE SYSTEM ACROSS PAPER AND SCREEN. The paper key used to invert the
+    // screen's: a filled circle meant holiday here and parent event on the calendar
+    // page, and a diamond meant conferences here and children-only there. A family
+    // who pinned the sheet to the fridge and then opened the calendar met two
+    // contradictory symbol systems for the same year. The screen convention wins
+    // (it is what families see most, and it is the WCAG shape system taught on every
+    // dot surface), so the three audiences read the same on both:
+    //   ○ ring = no school · ● filled circle = parents · ◆ diamond = children only.
+    // Paper carries two splits the screen does not, because the printed key has room
+    // for them: a staff day inside "no school" and conferences inside "parents". Those
+    // two take shapes the screen never uses (▲ and ■), so they cannot invert anything.
+    // The glyph set is deliberately the five characters that already printed here: a
+    // fridge sheet is the one surface where a missing glyph is unrecoverable.
+    // The console.asserts under the key hold this; do not reassign a shape past them.
     var YC_CAT = {
-      H:  { glyph: '●', label: 'Holiday, school closed' },
-      PD: { glyph: '○', label: 'Staff day, no children' },
-      PT: { glyph: '◆', label: 'Parent-teacher conferences' },
-      SE: { glyph: '■', label: 'School event, parents invited' },
-      SC: { glyph: '▲', label: 'For children, parents not expected' }
+      H:  { glyph: '○', label: 'Holiday, school closed' },
+      PD: { glyph: '▲', label: 'Staff day, no children' },
+      PT: { glyph: '■', label: 'Parent-teacher conferences' },
+      SE: { glyph: '●', label: 'School event, parents invited' },
+      SC: { glyph: '◆', label: 'For children, parents not expected' }
     };
+    // The shapes the calendar page and week strip already teach (app.css aud block).
+    var YC_SHARED = { '○': 'holiday', '●': 'parent', '◆': 'child' };
     var YC_PREC = { H: 5, PT: 4, PD: 3, SC: 2, SE: 1 };   // category that wins a shared day cell
     function ycTxt(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
 
@@ -1407,6 +1424,14 @@
     console.assert(ycCat({ aud: 'parent', title: 'Parent Teacher Conferences (Progress)' }) === 'PT', 'ycCat: conferences -> PT');
     console.assert(ycCat({ aud: 'parent', title: 'K1 Coffee morning' }) === 'SE', 'ycCat: parent event -> SE');
     console.assert(ycCat({ aud: 'child', title: 'K1 first day of school' }) === 'SC', 'ycCat: children-only -> SC');
+    // The paper key must never invert the screen again: each aud prints the shape the
+    // calendar page teaches for it, and the two paper-only splits stay off those shapes.
+    console.assert(YC_SHARED[YC_CAT[ycCat({ aud: 'holiday', title: 'Songkran' })].glyph] === 'holiday'
+      && YC_SHARED[YC_CAT[ycCat({ aud: 'parent', title: 'Coffee morning' })].glyph] === 'parent'
+      && YC_SHARED[YC_CAT[ycCat({ aud: 'child', title: 'Sports day' })].glyph] === 'child',
+      'print key: each aud prints the shape the screen teaches for it');
+    console.assert(!YC_SHARED[YC_CAT.PD.glyph] && !YC_SHARED[YC_CAT.PT.glyph],
+      'print key: the paper-only splits must not reuse a screen shape');
     console.assert(ycKeyDay({ date: '2026-10-12', until: '2026-10-16' }) === '12–16', 'ycKeyDay: same-month range');
     console.assert(ycKeyDay({ date: '2026-12-21', until: '2027-01-09' }) === '21 Dec to 9 Jan', 'ycKeyDay: cross-month range');
   }
