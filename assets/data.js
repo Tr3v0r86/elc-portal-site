@@ -546,7 +546,7 @@ window.PORTAL = {
     { date: '2026-08-19', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'K1 first day of school', sub: '' },
     { date: '2026-08-20', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940913095460', cohort: 'Y3 to Y6', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'Y3 to Y6 Coffee morning', sub: 'Information session' },
     { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940118766462', cohort: 'Y2', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'Y2 Coffee morning', sub: 'Information session' },
-    { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'asa/', title: 'ASA Enrolments Start', sub: '' },
+    { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'asa/', pin: true, title: 'ASA Enrolments Start', sub: '' },
     { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940122478457', cohort: 'K2', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'K2 Coffee morning', sub: 'Information session' },
     { date: '2026-08-25', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/262158847629471', cohort: 'Dove', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'Dove Coffee morning', sub: 'Information session' },
     { date: '2026-09-07', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'ASA\'s Start', sub: '' },

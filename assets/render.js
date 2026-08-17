@@ -948,7 +948,8 @@
   // Coming up band (P4 pass A, supersedes the curated featuredEvents model): AUTOMATIC
   // next-30-days feed derived from calendarEvents. Rows sharing an href are one card
   // (dates merged); a pageless row is its own card. featuredEvents survives as an
-  // editorial OVERLAY supplying title/blurb/go for a featured href (chronological sort, round 2: no reorder).
+  // editorial OVERLAY supplying title/blurb/go for a featured href (chronological sort,
+  // round 2: no reorder; pinned rows lead since 0185).
   // Card state (plan §4): linked (has a real page) -> anchor + "see details"; pageless
   // and page-owed (not holiday, not nopage) -> inert card + "coming soon" pill; holiday
   // or nopage -> inert card, no pill. Cap 4; overflow keeps the label "Full calendar +N
@@ -983,13 +984,23 @@
       var linkHref = g.href ? evHref(g.href) : null;   // valid, on-disk internal page?
       var extLink = linkHref ? null : (extUrl(ev) || thaiHolidayUrl(ev));   // else external: the school site, or a Thai holiday reference (0142)
       var owed = !linkHref && !extLink && ev.aud !== 'holiday' && !ev.nopage;   // pageless + page owed -> pill + gate
-      return { dates: dates, next: dates[0], ev: ev, feat: feat, href: linkHref || extLink, ext: !!extLink, owed: owed, featured: !!feat };
+      var pinned = g.rows.some(function (r) { return r.pin; });   // an href group is pinned if any merged row carries the sheet flag
+      return { dates: dates, next: dates[0], ev: ev, feat: feat, href: linkHref || extLink, ext: !!extLink, owed: owed, featured: !!feat, pinned: pinned };
     }).filter(function (c) { return c.next; });
     // Chronological by next date (Trevor 2026-07-19, workshopping round 2): the Coming-up
     // band reads in date order. featuredEvents still supplies title/blurb/go via the overlay,
-    // but no longer reorders the feed. ponytail: if a high-consequence event ever sinks below
-    // the cap, the pin flag (TODOS) is the fix, not a return to featured-first.
-    cuCards.sort(function (a, b) { return a.next < b.next ? -1 : 1; });
+    // but no longer reorders the feed. pin:true (sheet flag, issue 0185: the round-2
+    // ponytail, built when ASA Enrolments sank below the cap on 2026-08-18) lifts a
+    // high-consequence event above the cap fold: pinned cards sort first, chronological
+    // within each group, so a pinned card only misses the band when 4+ pinned cluster.
+    // With no pinned rows the order is byte-identical to round 2.
+    function cuCompare(a, b) {
+      if (!a.pinned !== !b.pinned) return a.pinned ? -1 : 1;
+      return a.next < b.next ? -1 : 1;
+    }
+    console.assert(cuCompare({ next: '2026-08-24', pinned: true }, { next: '2026-08-18' }) < 0, 'cuCompare: a pinned card leads an earlier unpinned one');
+    console.assert(cuCompare({ next: '2026-08-24', pinned: true }, { next: '2026-08-18', pinned: true }) > 0, 'cuCompare: two pinned cards stay chronological');
+    cuCards.sort(cuCompare);
 
     var cuMore = document.getElementById('cu-more');
     if (cuMore && cuCards.length > CU_CAP) {

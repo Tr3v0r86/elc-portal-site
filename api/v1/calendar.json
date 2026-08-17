@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-17T22:50:40.236Z",
+  "generated": "2026-08-17T23:51:33.392Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -120,6 +120,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "pin": true,
       "title": "ASA Enrolments Start",
       "sub": ""
     },
