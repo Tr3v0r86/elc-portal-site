@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-16T22:59:16.863Z",
+  "generated": "2026-08-17T09:48:45.988Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -116,6 +116,14 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "title": "ASA Enrolments Start",
+      "sub": ""
+    },
+    {
+      "date": "2026-08-24",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
       "ext": "https://form.jotform.com/261940122478457",
       "cohort": "K2",
       "time": "8:30 to 9:30 am",
@@ -137,11 +145,29 @@
     },
     {
       "date": "2026-09-07",
+      "cat": "event",
+      "type": "gold",
+      "aud": "child",
+      "nopage": true,
+      "title": "ASA's Start",
+      "sub": ""
+    },
+    {
+      "date": "2026-09-07",
       "cat": "social",
       "type": "purple",
       "aud": "parent",
       "comunita": true,
       "title": "Parent Social Morning",
+      "sub": ""
+    },
+    {
+      "date": "2026-09-11",
+      "cat": "event",
+      "type": "gold",
+      "aud": "child",
+      "nopage": true,
+      "title": "After School Community Event at The City School",
       "sub": ""
     },
     {
@@ -167,6 +193,15 @@
       "type": "purple",
       "aud": "parent",
       "title": "Open Evening",
+      "sub": ""
+    },
+    {
+      "date": "2026-09-26",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "nopage": true,
+      "title": "Open House at The City School",
       "sub": ""
     },
     {
@@ -336,6 +371,15 @@
       "aud": "child",
       "nopage": true,
       "title": "K1 and Dove Centre Fun Field Day",
+      "sub": ""
+    },
+    {
+      "date": "2026-12-17",
+      "cat": "event",
+      "type": "gold",
+      "aud": "child",
+      "nopage": true,
+      "title": "Last Day of ASA's",
       "sub": ""
     },
     {
@@ -609,7 +653,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "title": "New Families and PE Families to ELC",
+      "title": "New Families and The Purple Elephant Families to ELC",
       "sub": ""
     },
     {
@@ -650,7 +694,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "title": "New Families and PE Families to ELC",
+      "title": "New Families and The Purple Elephant Families to ELC",
       "sub": "Afternoon K1 session"
     },
     {

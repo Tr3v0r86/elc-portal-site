@@ -59,11 +59,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260923-pe-open-house@portal.elc.ac.th
+UID:20260923-the-purple-elephant-49-open-house@portal.elc.ac.th
 DTSTAMP:20260923T000000Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
-SUMMARY:PE Open House
+SUMMARY:The Purple Elephant 49 Open House
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -86,11 +86,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261019-k1-project-share-at-pe-campuses-with-chiara@portal.elc.ac.th
+UID:20261019-k1-project-share-at-the-purple-elephant-campuses-with-chiara@portal.elc.ac.th
 DTSTAMP:20261019T000000Z
 DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
-SUMMARY:K1 Project Share at PE Campuses with Chiara
+SUMMARY:K1 Project Share at The Purple Elephant Campuses with Chiara
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -99,7 +99,7 @@ UID:20261023-king-chulalongkorn-memorial-day@portal.elc.ac.th
 DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-SUMMARY:King Chulalongkorn Memorial Day\, No school for children\; Teacher In-Service Day
+SUMMARY:King Chulalongkorn Memorial Day\, No school for children
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -122,29 +122,29 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261215-pe-39-christmas-party@portal.elc.ac.th
+UID:20261215-the-purple-elephant-39-christmas-party@portal.elc.ac.th
 DTSTAMP:20261215T000000Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
-SUMMARY:PE 39 Christmas Party
+SUMMARY:The Purple Elephant 39 Christmas Party
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261216-pe-49-christmas-party@portal.elc.ac.th
+UID:20261216-the-purple-elephant-49-christmas-party@portal.elc.ac.th
 DTSTAMP:20261216T000000Z
 DTSTART;VALUE=DATE:20261216
 DTEND;VALUE=DATE:20261217
-SUMMARY:PE 49 Christmas Party
+SUMMARY:The Purple Elephant 49 Christmas Party
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261217-pe-55-christmas-party@portal.elc.ac.th
+UID:20261217-the-purple-elephant-55-christmas-party@portal.elc.ac.th
 DTSTAMP:20261217T000000Z
 DTSTART;VALUE=DATE:20261217
 DTEND;VALUE=DATE:20261218
-SUMMARY:PE 55 Christmas Party
+SUMMARY:The Purple Elephant 55 Christmas Party
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -176,11 +176,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270111-school-resumes-for-term-2@portal.elc.ac.th
+UID:20270111-professional-development-day@portal.elc.ac.th
 DTSTAMP:20270111T000000Z
 DTSTART;VALUE=DATE:20270111
 DTEND;VALUE=DATE:20270112
-SUMMARY:School resumes for Term 2
+SUMMARY:Professional Development Day\, No school for children
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -230,11 +230,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270426-new-families-and-pe-families-to-elc@portal.elc.ac.th
+UID:20270426-new-families-and-the-purple-elephant-families-to-elc@portal.elc.ac.th
 DTSTAMP:20270426T000000Z
 DTSTART;VALUE=DATE:20270426
 DTEND;VALUE=DATE:20270427
-SUMMARY:New Families and PE Families to ELC\, Afternoon K1 session
+SUMMARY:New Families and The Purple Elephant Families to ELC\, Afternoon K1 session
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -248,11 +248,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270510-new-families-and-pe-families-to-elc@portal.elc.ac.th
+UID:20270510-new-families-and-the-purple-elephant-families-to-elc@portal.elc.ac.th
 DTSTAMP:20270510T000000Z
 DTSTART;VALUE=DATE:20270510
 DTEND;VALUE=DATE:20270511
-SUMMARY:New Families and PE Families to ELC\, Afternoon K1 session
+SUMMARY:New Families and The Purple Elephant Families to ELC\, Afternoon K1 session
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
