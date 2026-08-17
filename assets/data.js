@@ -68,7 +68,7 @@ window.PORTAL = {
   // hedging. Same close-out the hopes-and-wishes drop above set on 2026-08-13.
   draftPages: ['photo-consent', 'how-to-pay',
                'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong',
-               'pe-samakee-nuts-and-bolts', 'transport', 'library'],
+               'pe-samakee-nuts-and-bolts', 'library'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):
@@ -117,7 +117,13 @@ window.PORTAL = {
     samakee:    { label: 'The Purple Elephant Samakee', email: 'purpleelephant.samakee@elc.ac.th', phone: '+66 (0)2 003 5185' },
     // Isabella Hydon, centre head and administrator at Samakee (Trevor 2026-08-10).
     // Email only: families reach the centre itself on the samakee line above.
-    isabella:   { label: 'Isabella Hydon', email: 'isabellah@elc.ac.th' }
+    isabella:   { label: 'Isabella Hydon', email: 'isabellah@elc.ac.th' },
+    // Blue Jade run the bus. Both are the vendor's own parent-facing lines, given by Sarah
+    // 2026-08-17 (issue 0044): the email is the address families are asked to whitelist, and
+    // the hotline is the only number that reaches a moving bus. Sarah's reply typed the
+    // hotline with an extra trailing digit; Trevor confirmed the correct 10-digit number
+    // 2026-08-17. NOT the school office: a bus question routed to the office loses the driver.
+    bluejade:   { label: 'Blue Jade transport', email: 'transportELC@blue-jade.com', phone: '+66 (0)62 862 4613' }
   },
 
   // Office hours per campus (sprint 3 P7). null renders one honest "Office hours
