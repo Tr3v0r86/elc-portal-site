@@ -538,7 +538,7 @@ window.PORTAL = {
     { date: '2026-07-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
     { date: '2026-08-12', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'The Queen Mother\'s Birthday Holiday', sub: '' },
     { date: '2026-08-14', cat: 'event', type: 'gold', aud: 'parent', href: 'new-family-orientation/', title: 'New Family Orientation', sub: 'A warm welcome for families new to ELC.' },
-    { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261928681379473', cohort: 'K1', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'K1 Coffee morning', sub: 'Information session' },
+    { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261928681379473', cohort: 'K1', time: '8:30 to 9:30 am', venue: 'The Atrium', slides: { href: 'https://elcportal.elc.ac.th/coffee-mornings/k1-parent-coffee-morning-2026.pdf', tag: 'PDF' }, title: 'K1 Coffee morning', sub: 'Information session' },
     { date: '2026-08-17', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K2 to Y6 Hopes and Wishes meetings', sub: '' },
     { date: '2026-08-18', cat: 'event', type: 'purple', aud: 'parent', href: 'hopes-and-wishes/', title: 'K1 Hopes and Wishes meetings', sub: '' },
     { date: '2026-08-18', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'K2 to Y6 first day of school', sub: '' },

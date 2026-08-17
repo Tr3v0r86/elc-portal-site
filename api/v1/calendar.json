@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-17T22:26:50.715Z",
+  "generated": "2026-08-17T22:43:20.041Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -38,6 +38,10 @@
       "cohort": "K1",
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
+      "slides": {
+        "href": "https://elcportal.elc.ac.th/coffee-mornings/k1-parent-coffee-morning-2026.pdf",
+        "tag": "PDF"
+      },
       "title": "K1 Coffee morning",
       "sub": "Information session"
     },
