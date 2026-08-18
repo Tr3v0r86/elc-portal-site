@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-17T23:51:33.392Z",
+  "generated": "2026-08-18T00:41:20.529Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -120,7 +120,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "pin": true,
       "title": "ASA Enrolments Start",
       "sub": ""
     },
@@ -401,9 +400,9 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
-      "until": "2027-01-08",
+      "until": "2027-01-10",
       "title": "Holiday: Christmas and New Year",
-      "sub": "to 9 Jan"
+      "sub": "to 10 Jan"
     },
     {
       "date": "2027-01-11",

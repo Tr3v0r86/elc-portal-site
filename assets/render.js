@@ -944,19 +944,26 @@
   console.assert(cuLabel(['2026-08-17', '2026-08-18'], true) === 'MON 17 to TUE 18 Aug', 'cuLabel: same-month range, month once');
   console.assert(cuLabel(['2026-08-22'], true) === 'SAT 22 Aug', 'cuLabel: single day');
   console.assert(cuLabel(['2026-09-28', '2026-10-02'], false) === '28 Sep to 2 Oct', 'cuLabel: cross-month keeps both, aria form drops the weekday');
+  console.assert(cuLabel(['2026-10-12', '2026-10-16'], true) === 'MON 12 to FRI 16 Oct', 'cuLabel: a single multi-day row spans start to `until`');
 
   // Coming up band (P4 pass A, supersedes the curated featuredEvents model): AUTOMATIC
-  // next-30-days feed derived from calendarEvents. Rows sharing an href are one card
+  // next-14-days feed derived from calendarEvents. Rows sharing an href are one card
   // (dates merged); a pageless row is its own card. featuredEvents survives as an
-  // editorial OVERLAY supplying title/blurb/go for a featured href (chronological sort,
-  // round 2: no reorder; pinned rows lead since 0185).
+  // editorial OVERLAY supplying title/blurb/go for a featured href.
+  // THE WINDOW IS THE ONLY LIMITER (Trevor 2026-08-18, replacing the 30-day + cap-4
+  // model): every event inside 14 days surfaces, none is cut, so a family never has to
+  // click through to learn something was held back. The window shrank 30 -> 14 to pay for
+  // that: modelled across the whole 26-27 calendar it renders 2 to 9 cards and is never
+  // empty. The card CAP is gone, and with it the "+N more" header rewrite (nothing is
+  // held back to count). pin:true is gone too (issue 0185, retired the day it shipped):
+  // it existed only to lift a card above the cap fold, and with no fold it bought nothing
+  // but a break in chronology. Order is chronological, ALWAYS, ties by sheet row order.
   // Card state (plan §4): linked (has a real page) -> anchor + "see details"; pageless
   // and page-owed (not holiday, not nopage) -> inert card + "coming soon" pill; holiday
-  // or nopage -> inert card, no pill. Cap 4; overflow keeps the label "Full calendar +N
-  // more". Empty window -> the honest .ev-empty line.
+  // or nopage -> inert card, no pill. Empty window -> the honest .ev-empty line.
   var agenda = document.getElementById('agenda');
   if (agenda && P.calendarEvents) {
-    var CU_WINDOW_DAYS = 30, CU_CAP = 4;
+    var CU_WINDOW_DAYS = 14;
     var cuHorizon = isoPlusDays(bkkToday, CU_WINDOW_DAYS);
     var featBy = {};
     (P.featuredEvents || []).forEach(function (f) { if (f && f.href) featBy[f.href] = f; });
@@ -971,47 +978,63 @@
       (P.calendarEvents || []).concat(P.peEvents || [])
         .filter(function (e) { return e.comunita && e.cat !== 'social'; }));
     cuSrc.forEach(function (e) {
-      if (!e.date || e.date < bkkToday || e.date > cuHorizon) return;
+      // A multi-day row stays in the band while it is STILL RUNNING: the test is its
+      // END date, not its start. The old start-only test dropped 13 rows across the year
+      // the morning after each began -- the October break, Songkran, and the 18-day
+      // Christmas holiday, which is why 22 to 27 Dec used to render "Nothing coming up"
+      // in the middle of the closure it was meant to be announcing. expandByDate() has
+      // read `until` this way all along; the band was the outlier, not the rule.
+      var eEnd = (e.until && e.until >= e.date) ? e.until : e.date;
+      if (!e.date || eEnd < bkkToday || e.date > cuHorizon) return;
       var key = e.href || ('row:' + e.date + ':' + e.title);   // pageless rows never collide with an href group
       if (!cuMap[key]) { cuMap[key] = { rows: [], href: e.href || null }; cuOrder.push(key); }
       cuMap[key].rows.push(e);
     });
     var cuCards = cuOrder.map(function (key) {
       var g = cuMap[key];
-      var dates = g.rows.map(function (r) { return r.date; }).sort();
+      // Each row contributes its start AND its end, so cuLabel's first/last span the
+      // real run: the October break reads "MON 12 to FRI 16 Oct", not a bare "MON 12 Oct"
+      // with the end date exiled to the blurb. dates[0] is still the earliest start, so
+      // `next` (the sort key) is unchanged for every single-day row.
+      var dates = g.rows.reduce(function (acc, r) {
+        acc.push(r.date);
+        if (r.until && r.until > r.date) acc.push(r.until);
+        return acc;
+      }, []).sort();
       var ev = g.rows[0];
       var feat = g.href ? featBy[g.href] : null;
       var linkHref = g.href ? evHref(g.href) : null;   // valid, on-disk internal page?
       var extLink = linkHref ? null : (extUrl(ev) || thaiHolidayUrl(ev));   // else external: the school site, or a Thai holiday reference (0142)
       var owed = !linkHref && !extLink && ev.aud !== 'holiday' && !ev.nopage;   // pageless + page owed -> pill + gate
-      var pinned = g.rows.some(function (r) { return r.pin; });   // an href group is pinned if any merged row carries the sheet flag
-      return { dates: dates, next: dates[0], ev: ev, feat: feat, href: linkHref || extLink, ext: !!extLink, owed: owed, featured: !!feat, pinned: pinned };
+      return { dates: dates, next: dates[0], ev: ev, feat: feat, href: linkHref || extLink, ext: !!extLink, owed: owed, featured: !!feat };
     }).filter(function (c) { return c.next; });
-    // Chronological by next date (Trevor 2026-07-19, workshopping round 2): the Coming-up
-    // band reads in date order. featuredEvents still supplies title/blurb/go via the overlay,
-    // but no longer reorders the feed. pin:true (sheet flag, issue 0185: the round-2
-    // ponytail, built when ASA Enrolments sank below the cap on 2026-08-18) lifts a
-    // high-consequence event above the cap fold: pinned cards sort first, chronological
-    // within each group, so a pinned card only misses the band when 4+ pinned cluster.
-    // With no pinned rows the order is byte-identical to round 2.
+    // Chronological by next date, with NOTHING allowed to jump the queue (Trevor
+    // 2026-08-18): featuredEvents supplies title/blurb/go via the overlay and pin:true is
+    // retired, so no data row can reorder the feed. Returns 0 on equal dates -- a proper
+    // three-way compare, not the old `? -1 : 1`, which reported "greater" for two equal
+    // dates and left same-day cards (three of them on 18 Aug alone) ordered by the sort's
+    // internals rather than by intent. With 0 the sort is stable and ties fall back to
+    // data.js row order -- which pull-events.py sort_events() emits as (pe, date, title),
+    // so same-day cards read ALPHABETICALLY BY TITLE, not in sheet row order. That is the
+    // tiebreak: deterministic and reproducible from the data, not from the sort internals.
     function cuCompare(a, b) {
-      if (!a.pinned !== !b.pinned) return a.pinned ? -1 : 1;
-      return a.next < b.next ? -1 : 1;
+      return a.next < b.next ? -1 : a.next > b.next ? 1 : 0;
     }
-    console.assert(cuCompare({ next: '2026-08-24', pinned: true }, { next: '2026-08-18' }) < 0, 'cuCompare: a pinned card leads an earlier unpinned one');
-    console.assert(cuCompare({ next: '2026-08-24', pinned: true }, { next: '2026-08-18', pinned: true }) > 0, 'cuCompare: two pinned cards stay chronological');
+    console.assert(cuCompare({ next: '2026-08-18' }, { next: '2026-08-24' }) < 0, 'cuCompare: earlier card leads');
+    console.assert(cuCompare({ next: '2026-08-24' }, { next: '2026-08-18' }) > 0, 'cuCompare: later card follows');
+    console.assert(cuCompare({ next: '2026-08-18' }, { next: '2026-08-18' }) === 0, 'cuCompare: same date ties, so the stable sort keeps sheet order');
     cuCards.sort(cuCompare);
 
-    var cuMore = document.getElementById('cu-more');
-    if (cuMore && cuCards.length > CU_CAP) {
-      cuMore.innerHTML = 'Full calendar &middot; +' + (cuCards.length - CU_CAP) + ' more <span class="arw">&rarr;</span>';
-    }   // else keep the default "Full calendar ->" label (never removed: the band always links out)
+    // #cu-more keeps its default "Full calendar ->" label, always. The old "+N more"
+    // rewrite counted the cards the cap had HIDDEN; with the cap gone nothing inside the
+    // window is ever hidden, so a count would be a lie. The link itself stays (the band
+    // always links out -- the rest of the year lives on the calendar page).
 
     if (!cuCards.length) {
       agenda.innerHTML = '<p class="ev-empty">Nothing coming up in the next few weeks. ' +
         '<a href="' + ROOT + 'calendar/">See the whole year</a>.</p>';
     } else {
-      agenda.innerHTML = cuCards.slice(0, CU_CAP).map(function (c) {
+      agenda.innerHTML = cuCards.map(function (c) {
         var title = c.feat ? c.feat.title : c.ev.title;
         // 0132 (Trevor, relay #53): a holiday rotating into Coming up says what it means,
         // the same words the week strip uses. Holiday rows carry an empty sub, so without
