@@ -240,6 +240,9 @@ body[data-campus="pe-samakee"] .campus-summary::after{content:": The Purple Elep
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--rule);}
 .foot-strip .l{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
 .foot-strip .r{font-size:12.5px;color:var(--muted);font-weight:300;}
+/* Parent App mark in the footer sentence: the global img{display:block} reset would
+   force it onto its own line; scope it back to inline here (Trevor's yes, 2026-08-18). */
+.foot-strip .r img{display:inline-block;vertical-align:text-bottom;}
 .foot-strip .fine{flex-basis:100%;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);}
 
 /* ============================================================
