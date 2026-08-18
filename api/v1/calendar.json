@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-18T11:16:33.473Z",
+  "generated": "2026-08-18T22:42:55.998Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -79,6 +79,10 @@
       "cohort": "Y1",
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
+      "slides": {
+        "href": "https://elcportal.elc.ac.th/coffee-mornings/y1-parent-coffee-morning-2026.pdf",
+        "tag": "PDF"
+      },
       "title": "Y1 Coffee morning",
       "sub": "Information session"
     },
@@ -89,6 +93,14 @@
       "aud": "child",
       "nopage": true,
       "title": "K1 first day of school",
+      "sub": ""
+    },
+    {
+      "date": "2026-08-20",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "title": "ASA Showcase",
       "sub": ""
     },
     {
