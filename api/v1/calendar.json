@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-20T00:00:42.570Z",
+  "generated": "2026-08-20T05:00:42.303Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -112,6 +112,10 @@
       "cohort": "Y3 to Y6",
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
+      "slides": {
+        "href": "https://elcportal.elc.ac.th/coffee-mornings/y3-to-y6-parent-coffee-morning-2026.pdf",
+        "tag": "PDF"
+      },
       "title": "Y3 to Y6 Coffee morning",
       "sub": "Information session"
     },
@@ -212,15 +216,6 @@
       "sub": ""
     },
     {
-      "date": "2026-09-26",
-      "cat": "event",
-      "type": "purple",
-      "aud": "parent",
-      "nopage": true,
-      "title": "Open House at The City School",
-      "sub": ""
-    },
-    {
       "date": "2026-10-01",
       "cat": "workshop",
       "type": "purple",
@@ -236,6 +231,15 @@
       "aud": "parent",
       "title": "Parent Teacher Conferences (Progress)",
       "sub": "No school for children"
+    },
+    {
+      "date": "2026-10-03",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "nopage": true,
+      "title": "Open House at The City School",
+      "sub": ""
     },
     {
       "date": "2026-10-05",
