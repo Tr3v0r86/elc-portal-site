@@ -104,6 +104,15 @@ URL:https://elcportal.elc.ac.th/coffee-mornings/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT
 BEGIN:VEVENT
+UID:20260821-dove-coffee-morning@portal.elc.ac.th
+DTSTAMP:20260821T000000Z
+DTSTART;VALUE=DATE:20260821
+DTEND;VALUE=DATE:20260822
+SUMMARY:Dove Coffee morning\, Information session
+URL:https://elcportal.elc.ac.th/coffee-mornings/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+END:VEVENT
+BEGIN:VEVENT
 UID:20260821-y2-coffee-morning@portal.elc.ac.th
 DTSTAMP:20260821T000000Z
 DTSTART;VALUE=DATE:20260821
@@ -127,15 +136,6 @@ DTSTAMP:20260824T000000Z
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
 SUMMARY:K2 Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
-END:VEVENT
-BEGIN:VEVENT
-UID:20260825-dove-coffee-morning@portal.elc.ac.th
-DTSTAMP:20260825T000000Z
-DTSTART;VALUE=DATE:20260825
-DTEND;VALUE=DATE:20260826
-SUMMARY:Dove Coffee morning\, Information session
 URL:https://elcportal.elc.ac.th/coffee-mornings/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
 END:VEVENT

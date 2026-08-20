@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-20T08:58:05.411Z",
+  "generated": "2026-08-20T13:14:13.175Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -124,6 +124,18 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262158847629471",
+      "cohort": "Dove",
+      "time": "9 to 10 am",
+      "venue": "Welcome Room, Lagora",
+      "title": "Dove Coffee morning",
+      "sub": "Information session"
+    },
+    {
+      "date": "2026-08-21",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
       "ext": "https://form.jotform.com/261940118766462",
       "cohort": "Y2",
       "time": "8:30 to 9:30 am",
@@ -149,18 +161,6 @@
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
       "title": "K2 Coffee morning",
-      "sub": "Information session"
-    },
-    {
-      "date": "2026-08-25",
-      "cat": "event",
-      "type": "purple",
-      "aud": "parent",
-      "ext": "https://form.jotform.com/262158847629471",
-      "cohort": "Dove",
-      "time": "8:30 to 9:30 am",
-      "venue": "The Atrium",
-      "title": "Dove Coffee morning",
       "sub": "Information session"
     },
     {
