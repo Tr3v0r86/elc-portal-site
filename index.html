@@ -231,17 +231,32 @@
       <div class="sec-eyebrow"><span class="eyebrow" id="og-h">Sign up</span><span class="ln"></span></div>
       <div class="bento">
         <!-- ASA -->
-        <!-- ASA registration CLOSED until the AY26-27 open date (unset as of 2026-08-05,
-             Trevor). The live-registration CTA to portal.elc.ac.th comes back when the
-             date is set: restore the <a href="https://portal.elc.ac.th" target="_blank"
-             rel="noopener"> wrapper + "Register for ASA" button then (0017 re-points it
-             at cutover). Until then the tile is honest coming-soon (rule 6). 0126 (relay #57,
+        <!-- ASA registration CLOSED until 10am Mon 2026-08-24 (Trevor 2026-08-05, date and
+             time confirmed 2026-08-20). ⚠ THE OLD RESTORE INSTRUCTION HERE WAS UNBUILDABLE AND
+             IS RETIRED. It said to restore an <a> WRAPPER around this card, but the card is no
+             longer an <a> (it took the brochure CTA on 2026-08-20 and became a two-CTA <div>),
+             and it named a "Register for ASA" label that measures 299px into a 293px .act-foot
+             at the 375px mobile preset, i.e. it clips on a phone. Exact markup, measured widths
+             and Trevor's one-front-door rule: docs/issues/0179. ADR-0013: human-triggered.
+             The 0017 note still holds: the CTA target is re-pointed at the domain cutover.
+             Until then the tile is honest coming-soon (rule 6). 0126 (relay #57,
              Trevor: "we want the ongoing ASA card to give insight into the timeline") replaces
              0113's rule that the dates live on asa/ ALONE: the card now carries the four
              milestones and still points at asa/ for the full block. The dates are canonical
              unless Trevor changes them; their other surfaces are listed in docs/connections.md,
              so a change here is a change in three places. -->
-        <a class="tile reg-card tile-top-purple link" href="asa/">
+        <!-- BROCHURE LANDED 2026-08-20 (Trevor: "host this PDF both on the ASA page and be
+             clickable on the card on the homepage"). The tile is a <div> only because an <a>
+             cannot nest an <a>; it reuses .act-foot, exactly as the extended hours card did
+             for the same reason on 2026-08-16 (issue 0182, no app.css edit, rule 7).
+             ⚠ This trades away whole-card clickability, which is the OPPOSITE direction to
+             relay #139 / issue 0190 (Trevor, p1: "ASA and workshop are clickable cards but
+             extended hours is not. It should follow the same system"). 0190 is needs-triage
+             and undecided; this is his newer, explicit instruction, so it ships and 0190
+             now has to settle the band one way or the other. The brochure button is plain
+             .btn, NOT .btn purple: purple is the live-registration colour on the extended
+             hours card and ASA sign-up is not open yet (rule 6). -->
+        <div class="tile reg-card tile-top-purple">
           <span class="eyebrow">After school</span>
           <h3>ASA</h3>
           <!-- "after three" was inaccurate (some K2 ASAs start before 3pm); ASAs are
@@ -249,12 +264,15 @@
           <p>The hours after school, well spent. Sport, arts, design and tech, in short term blocks.</p>
           <ul class="card-dates">
             <li><span class="cd-when">20–21 Aug</span> <span class="cd-what">Showcase on campus</span></li>
-            <li><span class="cd-when">24 Aug</span> <span class="cd-what">Sign-up opens</span></li>
+            <li><span class="cd-when">24 Aug</span> <span class="cd-what">Sign-up opens at 10am</span></li>
             <li><span class="cd-when">7 Sep</span> <span class="cd-what">ASAs start</span></li>
             <li><span class="cd-when">17 Dec</span> <span class="cd-what">Last day of ASAs</span></li>
           </ul>
-          <span class="btn block">How ASA works <span class="arw">&rarr;</span></span>
-        </a>
+          <div class="act-foot">
+            <a class="btn" href="asa/asa-term-1-showcase-2026.pdf" target="_blank" rel="noopener">Brochure <span class="arw">&rarr;</span></a>
+            <a class="btn ghost" href="asa/">How ASA works <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
 
         <!-- ARMONIA tile retired 2026-08-03 (issue 0080): the Armonia tree moved to
              site-archive/ pending the programme rebuild. Restore the tile when it returns.

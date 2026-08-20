@@ -69,7 +69,7 @@
     <div class="page-head">
       <span class="eyebrow">After-school activities</span>
       <h1>ASA: the after-school programme.</h1>
-      <p class="lead">Clubs and activities after the school day, taught by ELC's own staff and curated partners. Sessions run from 2:30 to 4pm, and on some days a second block runs from 4 to 5:30pm. Rebuilt for 2026/27: clearer, fairer, easier to join.</p>
+      <p class="lead">Clubs and activities after the school day, taught by ELC staff and chosen specialists. Sessions run 2:30 to 4pm, with a second block from 4 to 5:30pm on some days.</p>
     </div>
 
     <div class="section">
@@ -77,27 +77,34 @@
       <div class="doc-list">
         <div class="doc-row">
           <span class="ic">1</span>
-          <div class="meta"><div class="nm">Browse</div><div class="sub">ASAs run in two terms: September to December, then January to June. Each term's programme is published here before it starts: what's on, which days, which year groups.</div></div>
+          <div class="meta"><div class="nm">Browse</div><div class="sub">Two terms a year: September to December, then January to June. Each term's programme is published here before it starts.</div></div>
         </div>
         <div class="doc-row">
           <span class="ic">2</span>
-          <div class="meta"><div class="nm">Choose</div><div class="sub">Pick with your child. Places are confirmed in the order registrations arrive. If a group fills, the waitlist keeps your place in line and we email you when a spot opens.</div></div>
+          <div class="meta"><div class="nm">Choose</div><div class="sub">Pick with your child. Places are given in the order registrations arrive. If a group fills, the waitlist holds your place and we email you when one opens.</div></div>
         </div>
         <div class="doc-row">
           <span class="ic">3</span>
-          <div class="meta"><div class="nm">Sign up</div><div class="sub">Registration runs on the same system you already know. One form per child, confirmation by email.</div></div>
+          <div class="meta"><div class="nm">Sign up</div><div class="sub">One form per child, on the system you already use. Confirmation comes by email.</div></div>
         </div>
       </div>
-      <!-- Registration closed until the AY26-27 open date is set (Trevor 2026-08-05).
-           Restore: <a class="btn" href="https://portal.elc.ac.th">Go to sign-up</a> -->
+      <!-- Registration closed until 10am Mon 2026-08-24 (Trevor 2026-08-05, date and time
+           confirmed 2026-08-20). DO NOT restore from a remembered snippet: the exact replacement
+           markup, the measured label widths, and Trevor's one-front-door rule live in
+           docs/issues/0179. The old instruction here ("Go to sign-up") is retired. ADR-0013:
+           human-triggered, Trevor says go. -->
       <!-- The ASA dates (relay #25, issue 0113; fourth date added from relay #57, issue 0126;
            Showcase moved to 20 AND 21 Aug, drop-off and pick-up, per Trevor's 2026-08-19 12:48
            "ASA Showcase Thursday and Friday" email, superseding the 08-17 "20 Aug only" call).
            This is the CANONICAL dated block. 0126 changed the rule around it: the homepage and
            activities cards no longer stay a bare "opens soon", they carry the timeline too and
            point here for the full story. 17 December is the last day of ASAs and is NOT the last
-           day of Term 1 (18 December): two adjacent dates, deliberately not merged. -->
-      <p class="btn-row"><span class="status soon">Registration opens soon</span> <span class="page-note">The ASA Showcase runs on campus on 20 and 21 August, at drop-off and pick-up. ASA sign-up opens 24 August. ASAs start 7 September and run until 17 December.</span></p>
+           day of Term 1 (18 December): two adjacent dates, deliberately not merged.
+           2026-08-20: the sign-up date gains a TIME, 10am, from page 21 of the Term 1
+           Showcase brochure ("SIGN-UP OPENS 24 August @ 10am"). Trevor asked for it under
+           the brochure button; it is added to all three date surfaces so they do not
+           disagree on precision. -->
+      <p class="btn-row"><span class="status soon">Registration opens soon</span> <span class="page-note">The Showcase runs on campus on 20 and 21 August, at drop-off and pick-up. Sign-up opens 24 August at 10am. ASAs start 7 September and run to 17 December.</span></p>
     </div>
 
     <div class="section">
@@ -107,12 +114,37 @@
              the SAME component on ../activities/ on 2026-08-05 and this caller was missed, so
              one shape rendered two ways: that is what "stand alone" named. `tile how` is the
              shared shape, and it now looks the same wherever it appears. -->
+        <!-- 2026-08-20 (Trevor): the Term 1 programme IS published, so this tile stops
+             promising it and hands it over. The brochure is hosted in this directory
+             (asa-term-1-showcase-2026.pdf, 24 pages, wired with tools/fetch-deck.py in
+             local mode: the 0049 share check does NOT apply, the source was a file). The
+             same PDF is linked from the homepage ASA card. The 10am under the button is
+             new precision on the 24 August claim and is stated on three surfaces now:
+             see docs/connections.md before editing it. -->
+        <!-- SCOPE RULE FOR THIS PAGE (Trevor, /family-review 2026-08-20): "We want super high
+             level understanding of whats on offer and how it works on this page. A parent should
+             be able to click the showcase so they can see the details." So the page states the
+             SHAPE of the programme and routes to the brochure. Do NOT add an activity table here,
+             and do not list the 28 activities, their days, their times or their per-activity year
+             groups. Per-activity prerequisites (the Swim Team 25-metre requirement, brochure p10)
+             live on the WordPress registration page, not here. The mobile week-view Trevor asked
+             for in the same exchange is issue 0194 and is a SEPARATE surface, not this section. -->
         <div class="txt">
-          <div class="hd">Term 1 programme</div>
-          <div class="sub">The Term 1 2026/27 programme lands here when it is published in August. Until then, this page shows the shape of what's coming: sport, arts, design, music, and maker activities across the week, for K2 to Year 6.</div>
+          <div class="hd">Term 1 programme, September to December</div>
+          <div class="sub">Twenty-eight activities for K2 to Year 6: making and tech, studio arts, sport and movement, language and music. The brochure has every activity, what children do in it, and who teaches it.</div>
         </div>
+        <a class="btn" href="asa-term-1-showcase-2026.pdf" target="_blank" rel="noopener">Term 1 brochure · PDF <span class="arw">&rarr;</span></a>
       </div>
-      <p class="page-note btn-row">Questions about the programme? Email <a href="mailto:activities@elc.ac.th">activities@elc.ac.th</a> · registration and logistics are handled by Ms Neung and Mr Mark from registration through to the end of each term.</p>
+      <p class="page-note btn-row">Registration opens 24 August at 10am.</p>
+      <!-- CHILD-AGENCY LINE, /family-review 2026-08-20, Trevor "put that line on launch".
+           The Big-3 apex has a child line as well as a parent one ("the best part of my day
+           is Armonia, my ASA or sport") and this page had no child in it. The invitation is
+           NOT new: brochure pages 19 and 20 already carry it ("A language not here that you
+           want? Let us know at Activities@elc.ac.th", same for instruments). It was only
+           reachable by downloading 11.8 MB, so it is lifted onto the surface and generalised
+           from languages/instruments to any activity. It leads the note and owns the email;
+           questions and the owners follow, so the section still carries two notes, not three. -->
+      <p class="page-note btn-row">Something your child wants to try that isn't on the list? Tell us at <a href="mailto:activities@elc.ac.th">activities@elc.ac.th</a>. Questions go there too, and Ms Neung and Mr Mark handle registration and logistics through the term.</p>
     </div>
 
     <div class="section" id="after">
@@ -120,24 +152,24 @@
       <div class="doc-list">
         <div class="doc-row">
           <span class="ic">1</span>
-          <div class="meta"><div class="nm">A confirmation email arrives</div><div class="sub">Your registration lands the moment you submit it, and a confirmation email follows to the address you gave, usually within minutes. It comes from the system you registered on, so check the inbox of the email address you typed into the form.</div></div>
+          <div class="meta"><div class="nm">A confirmation email arrives</div><div class="sub">Your registration lands the moment you submit it. A confirmation email follows within minutes, to the address you typed into the form.</div></div>
         </div>
         <div class="doc-row">
           <span class="ic">2</span>
-          <div class="meta"><div class="nm">If a place is limited, the email says so</div><div class="sub">Some activities cap their numbers. If a group is full, your confirmation says so plainly, and you keep your place in line. If a spot opens, we email you. You never need to re-register.</div></div>
+          <div class="meta"><div class="nm">If a place is limited, the email says so</div><div class="sub">Some activities cap their numbers. If a group is full, your confirmation says so and you keep your place in line. We email you when a spot opens. You never need to re-register.</div></div>
         </div>
         <div class="doc-row">
           <span class="ic">3</span>
-          <div class="meta"><div class="nm">If nothing arrives within one school day</div><div class="sub">Check your spam folder, then search your inbox for your child's name. Still nothing? Email <span data-contact="activities"></span> with your child's name and the activity, and we will confirm your registration by hand. An unanswered registration is our problem to fix, never a reason to submit the form again.</div></div>
+          <div class="meta"><div class="nm">If nothing arrives within one school day</div><div class="sub">Check your spam folder, then search your inbox for your child's name. Still nothing? Email <span data-contact="activities"></span> with your child's name and the activity, and we will confirm it by hand. An unanswered registration is ours to fix, never a reason to submit the form again.</div></div>
         </div>
         <a class="doc-row" href="../how-to-pay/">
           <span class="ic icx"><svg class="ig" aria-hidden="true"><use href="../assets/img/icons.svg#i-go"/></svg></span>
           <div class="meta"><div class="nm">How to pay</div>
-          <div class="sub">Paying for an activity is done in person at the school office.</div></div>
+          <div class="sub">In person at the school office.</div></div>
           <div class="rt"><span class="tag">View</span></div>
         </a>
       </div>
-      <p class="page-note btn-row">Registration and payment messages only come from official ELC channels. If anything feels off, read <a href="../verify/">how to know it is really us</a> before you pay anything.</p>
+      <p class="page-note btn-row">Registration and payment messages only come from official ELC channels. If anything feels off, read <a href="../verify/">how to know it is really us</a> before you pay.</p>
     </div>
   </main>
 

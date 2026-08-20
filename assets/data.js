@@ -184,7 +184,18 @@ window.PORTAL = {
     // /coffee-mornings/ lead: change both together.
     { href: 'coffee-mornings/', title: 'Coffee morning',
       blurb: 'Information session for the year ahead. Meet your year group\'s coordinators and administrators and hear how the year runs.',
-      go: 'Find your year group' }
+      go: 'Find your year group' },
+    // ASA (Trevor 2026-08-20: the Term 1 brochure "should also be pushed to the main ASA
+    // showcase card on the homepage"). The 20-21 Aug Showcase row and the 24 Aug
+    // enrolments row share href 'asa/', so they fold into ONE card and this overlay
+    // names it. The card CANNOT open the PDF itself: render.js (FROZEN) always links a
+    // grouped card to its internal page when one exists (linkHref || extLink, ~line
+    // 1009), so the honest shape is blurb names the brochure, card lands on asa/, and
+    // the brochure button there is the next tap. The go label names the real
+    // destination per 0143's rule. Ages out with its rows after 24 Aug; safe to leave.
+    { href: 'asa/', title: 'ASA Showcase',
+      blurb: 'The Term 1 brochure is out: every activity, who teaches it, and what children do. Sign-up opens at 10am on Monday 24 August.',
+      go: 'Brochure and how ASA works' }
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
