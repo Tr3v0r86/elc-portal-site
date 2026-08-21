@@ -544,6 +544,18 @@ window.PORTAL = {
   // Coffee-morning rows additionally carry: cohort (K1|K2|Y1|Y2|'Y3 to Y6'|Dove) ·
   // time/venue (null = "To be confirmed") · slides (null until the deck lands, then
   // { href:'https://…', tag:'PDF' }; HTTPS only or the build gate rejects).
+  //
+  // SAFEGUARDING RULE for every event row, sheet-owned or hand-kept (Trevor 2026-08-21,
+  // 0204 tier C, /safeguarding-review): parent-audience events MAY carry a public start
+  // time and venue; child-audience events and performances NEVER carry per-cohort stage
+  // times or "Y2 on stage at X" granularity: that detail travels by email only. Two
+  // adjacent facts under the same rule: last-day hometime subs are generalised to
+  // "Early hometime" (0204 tier B, 2026-08-21) and the elc.ac.th public site is the
+  // disclosure baseline (whatever it already publishes is portal-safe). Enforcement is
+  // the PULL=1 review step: a sheet edit that imports cohort-level performance times or
+  // resurrects the hometime clocks gets generalised HERE before deploy. Held repo-side
+  // deliberately while the events system builds out; Sarah has not been asked to hold
+  // it at the sheet yet.
   // BEGIN SHEET-OWNED: calendarEvents
   calendarEvents: [
     { date: '2026-07-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
