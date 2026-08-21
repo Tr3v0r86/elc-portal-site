@@ -93,31 +93,85 @@
     '#install-coach p,#install-coach li{font-weight:300;font-size:14.5px;line-height:1.6;' +
     'color:var(--charcoal);}' +
     '#install-coach ol{margin:0 0 18px 18px;}' +
-    '#install-coach li{margin-bottom:6px;}' +
+    '#install-coach li{margin-bottom:9px;}' +
+    /* Glyph chip: the icon a parent is hunting for, at reading size, inline in the
+       sentence that names it. Borrowed wholesale from the pill's icon spec above
+       (13px, 1.8 stroke, --aubergine) so the two read as one family, in a --rule
+       box on --paper so it reads as a button rather than as decoration. */
+    '#install-coach .gl{display:inline-flex;align-items:center;justify-content:center;' +
+    'width:22px;height:22px;vertical-align:-6px;margin:0 3px;' +
+    'border:1px solid var(--rule);border-radius:5px;background:var(--paper);}' +
+    '#install-coach .gl svg{width:13px;height:13px;stroke:var(--aubergine);' +
+    'stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}' +
     '#install-coach button{background:var(--aubergine);color:var(--white-pure);' +
     'border:1px solid var(--aubergine);border-radius:6px;font-family:var(--sans);' +
     'font-weight:600;font-size:13.5px;padding:10px 18px;cursor:pointer;}';
 
+  /* Inline 24x24 stroke paths, not a sprite entry: install.js injects itself onto pages
+     at three different directory depths, so a <use href="assets/img/icons.svg#..."> here
+     would need a relative path this file cannot know. The pill above already carries its
+     glyph inline for the same reason. Geometry follows the sprite's conventions: 24 box,
+     integer coordinates, round caps, stroke only.
+
+     Each mark is the platform's own, drawn to be recognised rather than to be pretty. The
+     iOS Share mark is a tray with the arrow breaking out through its top edge, which is
+     why the shaft overlaps the box. Chrome's menu is three dots HORIZONTAL on iOS and
+     VERTICAL on Android, so those are two glyphs, not one reused. */
+  var ICONS = {
+    share:   '<path d="M8 12H5v8h14v-8h-3"/><path d="M12 3v10"/><path d="M8 7l4-4 4 4"/>',
+    dotsh:   '<circle cx="6" cy="12" r="1.5" fill="var(--aubergine)" stroke="none"/>' +
+             '<circle cx="12" cy="12" r="1.5" fill="var(--aubergine)" stroke="none"/>' +
+             '<circle cx="18" cy="12" r="1.5" fill="var(--aubergine)" stroke="none"/>',
+    dotsv:   '<circle cx="12" cy="6" r="1.5" fill="var(--aubergine)" stroke="none"/>' +
+             '<circle cx="12" cy="12" r="1.5" fill="var(--aubergine)" stroke="none"/>' +
+             '<circle cx="12" cy="18" r="1.5" fill="var(--aubergine)" stroke="none"/>',
+    addhome: '<path d="M4 4h16v16H4z"/><path d="M12 9v6"/><path d="M9 12h6"/>',
+    openout: '<path d="M10 6H5v13h13v-5"/><path d="M14 5h5v5"/><path d="M19 5l-8 8"/>'
+  };
+
+  /* A step is an array of parts. A string part is text; an object part is a glyph chip.
+     Deliberately NOT a plain string any more: the old shape set li.textContent, which
+     cannot carry an element, and a card that only NAMES an unlabelled icon is the whole
+     defect (issue 0207). No positional claim in the copy on purpose: Safari's toolbar
+     sits at the bottom by default but moves to the top under the Single Tab layout, so
+     the symbol is the invariant and the symbol is what gets shown. */
   var COACH = {
     ios: {
       title: 'Add the Portal to your home screen',
-      steps: ['Tap the Share button in the Safari toolbar.', 'Choose Add to Home Screen.']
+      steps: [['Tap the', { i: 'share' }, ' Share button in the Safari toolbar.'],
+        ['Choose', { i: 'addhome' }, ' Add to Home Screen.']]
     },
     iosmenu: {
       title: 'Add the Portal to your home screen',
-      steps: ['Tap the browser menu (the three dots).', 'Choose Add to Home Screen.']
+      steps: [['Tap the browser menu, the', { i: 'dotsh' }, ' three dots.'],
+        ['Choose', { i: 'addhome' }, ' Add to Home Screen.']]
     },
     android: {
       title: 'Add the Portal to your home screen',
-      steps: ['Tap the browser menu (the three dots, top right).',
-        'Choose Add to Home screen, then Install.']
+      steps: [['Tap the browser menu, the', { i: 'dotsv' }, ' three dots, top right.'],
+        ['Choose', { i: 'addhome' }, ' Add to Home screen, then Install.']]
     },
     inapp: {
       title: 'Open the Portal in your browser first',
-      steps: ['Tap the menu, then choose Open in browser.',
-        'Add the Portal to your home screen from there.']
+      steps: [['Tap the menu, then choose', { i: 'openout' }, ' Open in browser.'],
+        ['Add the Portal to your home screen from there.']]
     }
   };
+
+  /* Text parts go in as text nodes, never as markup: the strings above are ours, but
+     building them with innerHTML would leave a hole for the next person to widen. */
+  function buildStep(parts) {
+    var li = document.createElement('li');
+    parts.forEach(function (part) {
+      if (typeof part === 'string') { li.appendChild(document.createTextNode(part)); return; }
+      var chip = document.createElement('span');
+      chip.className = 'gl';
+      chip.setAttribute('aria-hidden', 'true');
+      chip.innerHTML = '<svg viewBox="0 0 24 24">' + ICONS[part.i] + '</svg>';
+      li.appendChild(chip);
+    });
+    return li;
+  }
 
   function render(kind) {
     var style = document.createElement('style');
@@ -141,9 +195,7 @@
       dlg.innerHTML = '<h2></h2><ol></ol><button type="button">Got it</button>';
       dlg.querySelector('h2').textContent = copy.title;
       copy.steps.forEach(function (step) {
-        var li = document.createElement('li');
-        li.textContent = step;
-        dlg.querySelector('ol').appendChild(li);
+        dlg.querySelector('ol').appendChild(buildStep(step));
       });
       document.body.appendChild(dlg);
       dlg.querySelector('button').addEventListener('click', function () { dlg.close(); });
