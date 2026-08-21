@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-21T08:46:07.482Z",
+  "generated": "2026-08-21T08:56:32.641Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -408,7 +408,7 @@
       "aud": "child",
       "nopage": true,
       "title": "Last day of Term 1",
-      "sub": "11:30 hometime K1 and K2, 12:00 hometime Y1 to Y6"
+      "sub": "Early hometime: your campus confirms times"
     },
     {
       "date": "2026-12-21",
@@ -767,7 +767,7 @@
       "aud": "child",
       "nopage": true,
       "title": "Last day of the school year",
-      "sub": "Hometime 11:30 for K1 and K2, 12:00 for Y1 to Y6"
+      "sub": "Early hometime: your campus confirms times"
     },
     {
       "date": "2027-06-21",
