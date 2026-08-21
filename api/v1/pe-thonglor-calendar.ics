@@ -64,8 +64,8 @@ DTSTAMP:20260923T000000Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
 SUMMARY:The Purple Elephant 49 Open House
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/open-house/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261002-professional-development-day@portal.elc.ac.th
