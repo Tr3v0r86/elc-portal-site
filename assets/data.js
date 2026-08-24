@@ -192,9 +192,16 @@ window.PORTAL = {
     // grouped card to its internal page when one exists (linkHref || extLink, ~line
     // 1009), so the honest shape is blurb names the brochure, card lands on asa/, and
     // the brochure button there is the next tap. The go label names the real
-    // destination per 0143's rule. Ages out with its rows after 24 Aug; safe to leave.
-    { href: 'asa/', title: 'ASA Showcase',
-      blurb: 'The Term 1 brochure is out: every activity, who teaches it, and what children do. Sign-up opens at 10am on Monday 24 August.',
+    // destination per 0143's rule.
+    // ⚠️ RETITLED "ASA sign up" 2026-08-24 (Trevor: "No longer ASA Showcase"). The overlay
+    // supplies the card's TITLE, BLURB and GO LABEL and nothing else: it has no lifetime of its
+    // own, so this card lives or dies by its calendarEvents rows (render.js:987). With no
+    // `until` on the 24 Aug row that means IT AGES OUT ON 25 AUGUST, which is not what Trevor
+    // asked for ("have it run until September 4th") and cannot be fixed from this island. The
+    // route, its cost and the reason it was not done by hand are in issue 0211.
+    // This island IS pull-proof, so the retitle is durable; the row is not.
+    { href: 'asa/', title: 'ASA sign up',
+      blurb: 'Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. The Term 1 brochure has every activity, who teaches it, and what children do.',
       go: 'Brochure and how ASA works' }
   ],
 
@@ -228,15 +235,35 @@ window.PORTAL = {
     // flip from Sunday in that exchange; `from` = deploy day per ADR-0013, never future).
     // `when` stays EMPTY on notes (Trevor 2026-08-15): no dates, no cadence words.
     // Notes roll over periodically; parents should not read a schedule into them.
-    { from: '2026-08-15', eyebrow: 'A note from Heather', when: '',
-      title: 'Welcome to the school year and to ELC Portal.',
-      body: 'Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child\'s success.',
-      sig: 'Heather Pease · Head of Teaching and Learning' }
+    // ASA sign-up announcement, LIVE 2026-08-24 on Trevor's word (issue 0179).
+    // ⚠ WRITTEN TO BE TRUE BEFORE 10am (Trevor 2026-08-24: "Im launching this note before
+    // 10am"). It states the opening as a FACT with a time on it rather than a state, so the
+    // sentence is correct at 09:00 and still correct at 15:00 without a second deploy. Do not
+    // "fix" it to the present tense after 10am: rotate the whole note instead.
+    // The cta is INTERNAL on purpose: `evHref` in render.js rejects schemes (render.js:39), so
+    // a note cta cannot carry an off-portal URL and the Register buttons live on the ASA card
+    // and on asa/. That is also the one-front-door reader path (CLAUDE.md rule 3): the note
+    // routes to asa/, asa/ carries the button, the parent is never told a second address.
+    // ⚠ The activities@elc.ac.th address is PLAIN TEXT here, not a link: render.js sets the
+    // body with textContent, and a note gets exactly ONE cta, which Trevor asked to spend on
+    // the ASA page. The address IS a live mailto one tap away on asa/ (site/asa/index.html:147).
+    { from: '2026-08-24', eyebrow: 'A note from Trevor', when: '',
+      title: 'After school activities open for sign up today.',
+      body: 'Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. Twenty-eight activities run from 7 September to 17 December: making and tech, studio arts, sport and movement, language and music. The ASA page has the brochure with every activity, what each one costs, and what happens after you register. Having trouble registering, or any questions? Email activities@elc.ac.th.',
+      cta: { href: 'asa/', label: 'See the activities' },
+      sig: 'Trevor · Head of Operations and Educational Experience' }
 
     // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
     // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
     // set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Heather's start-of-year note (issue 0168), RETIRED 2026-08-24 when the ASA sign-up
+    // announcement replaced it. It ran from 2026-08-15.
+    // { from: '2026-08-15', eyebrow: 'A note from Heather', when: '',
+    //   title: 'Welcome to the school year and to ELC Portal.',
+    //   body: 'Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child\'s success.',
+    //   sig: 'Heather Pease · Head of Teaching and Learning' },
     //
     // Trevor's launch welcome, RETIRED 2026-08-15 when Heather's note replaced it.
     // { from: '2026-07-01', eyebrow: 'A note from Trevor', when: 'This month · August',
@@ -524,7 +551,14 @@ window.PORTAL = {
   // last day, athletics/field day, cultural celebrations), 'holiday' (no school / closed).
   // "Registration/booking opens" folds into 'parent'. Presentation metadata, retune freely.
   // Optional until:'YYYY-MM-DD' (inclusive last day) on multi-day rows: drives ICS DTEND
-  // (exclusive until+1) in render.js AND build-api's feed; visual surfaces stay start-anchored.
+  // (exclusive until+1) in render.js AND build-api's feed.
+  // ⚠️ "visual surfaces stay start-anchored" USED TO BE HERE AND IS FALSE (corrected 2026-08-24).
+  // 0114 made the week strip and the month grid expand a row onto EVERY covered day
+  // (expandByDate, render.js:160), 0186 made the Coming-up band span start to until in its
+  // eyebrow and keep the row alive until `until` passes (render.js:987), and the print year
+  // sheet paints a glyph on every covered day (render.js:1396). So an `until` is visible on
+  // five surfaces, not one: budget for weekend cells too, and remember the row TITLE repeats
+  // on each of them (a row named "...Start" spanning twelve days reads as a lie). See 0187.
   // Optional nopage:true = deliberately page-less (a portal page is never owed): exempts the
   // row from the Coming-up "coming soon" pill AND the check-coming-up coverage gate. Set on
   // children-only school days and programme rows (summer festivals). aud:'holiday' is exempt
@@ -580,7 +614,7 @@ window.PORTAL = {
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'International Schools Holiday', sub: '' },
     { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', title: 'Open Evening', sub: '' },
     { date: '2026-10-01', cat: 'workshop', type: 'purple', aud: 'parent', comunita: true, title: 'ISB parent info session', sub: '' },
-    { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
+    { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', title: 'Open House at The City School', sub: '' },
     { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', comunita: true, title: 'Parent Social Morning', sub: '' },
     { date: '2026-10-08', cat: 'workshop', type: 'purple', aud: 'parent', comunita: true, title: 'Digital Safety parent info session', sub: '' },

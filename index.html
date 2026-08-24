@@ -99,29 +99,40 @@
       <summary class="note-summary">
         <div class="who">
           <!-- Headshot is STATIC and follows the live note's signer by hand: swap this src
-               when the note changes (heather.png is owed; onerror hides the slot until the
-               file lands). Making it follow notes[] automatically is render.js (frozen),
-               filed as an issue. -->
-          <img class="headshot" src="assets/img/heather.png" alt="Heather" width="56" height="56" onerror="this.style.display='none'">
+               when the note changes (onerror hides the slot until the file lands). Making it
+               follow notes[] automatically is render.js (frozen), filed as an issue.
+               2026-08-24: Heather -> Trevor with the ASA sign-up note. -->
+          <img class="headshot" src="assets/img/trevor.png" alt="Trevor" width="56" height="56" onerror="this.style.display='none'">
           <div>
-            <span class="eyebrow" id="note-eyebrow">A note from Heather</span>
+            <span class="eyebrow" id="note-eyebrow">A note from Trevor</span>
             <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">Welcome to the school year and to ELC Portal.</h2>
+        <h2 id="note-title">After school activities open for sign up today.</h2>
       </summary>
       <div class="note-reveal">
         <div class="note-main">
           <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
-          <p id="note-body">Whether your family is returning to our gardens or joining us for the very first time, we are thrilled to begin this journey together. This busy week brings many meaningful opportunities to connect, from our Hopes and Wishes meetings and year level Coffee Mornings to the excitement and anticipation of the first day of school. Transitioning into a new routine takes a community, and we look forward to working together to build a strong, supportive foundation for your child's success.</p>
-          <div class="sig" id="note-sig">Heather Pease &middot; Head of Teaching and Learning</div>
+          <p id="note-body">Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. Twenty-eight activities run from 7 September to 17 December: making and tech, studio arts, sport and movement, language and music. The ASA page has the brochure with every activity, what each one costs, and what happens after you register. Having trouble registering, or any questions? Email activities@elc.ac.th.</p>
+          <div class="sig" id="note-sig">Trevor &middot; Head of Operations and Educational Experience</div>
           <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
                signer, and render.js does not rewrite it. Reintroduce only as a per-note
                field. -->
         </div>
-        <!-- Children's clay houses with their drawings behind (Trevor 2026-08-15, replacing
-             the thai-houses.svg placeholder): photo + graphic cut from the classroom shot. -->
-        <img class="note-art" src="assets/img/art/clay-houses.png" alt="" aria-hidden="true" loading="lazy" width="520" height="379">
+        <!-- Children building on the light table, shot from overhead: backlit silhouettes of
+             sticks, wheels, boards and two hands working a component (Trevor 2026-08-24, with
+             the ASA sign-up note). A single frame lifted from his 5-minute build video at
+             t=159.6s, cropped to the light panel (880x660 from a 1280x720 source, so this is a
+             NATIVE 1:1 crop, not an upscale) and encoded at JPEG q2, 96 KB. The master frame,
+             plus the 20-second seamless time-lapse built from the same video and NOT shipped,
+             are parked in design/reference/art-src/ (see docs/issues/0208 for why the animation
+             did not ship and what it would take).
+             880 wide is exactly 2x the 440px desktop slot, so it is retina-sharp; mobile caps
+             the slot at 190px. .note-art carries --art-invert, which is invert(1) in dark
+             theme: this frame is near-monochrome, so it reverses correctly the way the token
+             intends (black ink to white ink). The yellow wheels and the green board do flip
+             hue there; judged acceptable, recorded in 0208. -->
+        <img class="note-art" src="assets/img/art/light-table-build.jpg" alt="" aria-hidden="true" loading="lazy" width="880" height="660">
       </div>
       <div class="note-history" id="note-history" hidden></div>
     </details>
@@ -188,8 +199,13 @@
     <div class="windows" id="air-tile"></div>
 
     <!-- COMING UP band (P4 pass A): render.js fills #agenda from PORTAL.calendarEvents,
-         AUTOMATIC over the next 30 days, featured groups first then most imminent, cap 4
-         with "Full calendar +N more" on overflow. Each card auto-fills from its row; a
+         AUTOMATIC over the next 14 days (CU_WINDOW_DAYS, render.js:966), strict chronological
+         order, NO CAP. ⚠️ The old description here said "next 30 days, featured groups first
+         then most imminent, cap 4 with Full calendar +N more on overflow": all four clauses are
+         retired. Trevor 2026-08-18 made the window the only limiter and the +N more header
+         rewrite is gone (render.js:953-960, :1028-1031). Note the deploy gate scans a DIFFERENT
+         window, 40 days (tools/deploy-production.sh:85), so a row can fail the gate long before
+         it reaches the band. Each card auto-fills from its row; a
          page-owed row shows a "coming soon" pill (.ev-card .soon), a nopage/holiday row
          is inert with no pill. The coverage gate (tools/check-coming-up) fails loud when a
          non-exempt in-window row has no page. Add-to-calendar carries the event-page URL.
@@ -231,31 +247,29 @@
       <div class="sec-eyebrow"><span class="eyebrow" id="og-h">Sign up</span><span class="ln"></span></div>
       <div class="bento">
         <!-- ASA -->
-        <!-- ASA registration CLOSED until 10am Mon 2026-08-24 (Trevor 2026-08-05, date and
-             time confirmed 2026-08-20). ⚠ THE OLD RESTORE INSTRUCTION HERE WAS UNBUILDABLE AND
-             IS RETIRED. It said to restore an <a> WRAPPER around this card, but the card is no
-             longer an <a> (it took the brochure CTA on 2026-08-20 and became a two-CTA <div>),
-             and it named a "Register for ASA" label that measures 299px into a 293px .act-foot
-             at the 375px mobile preset, i.e. it clips on a phone. Exact markup, measured widths
-             and Trevor's one-front-door rule: docs/issues/0179. ADR-0013: human-triggered.
-             The 0017 note still holds: the CTA target is re-pointed at the domain cutover.
-             Until then the tile is honest coming-soon (rule 6). 0126 (relay #57,
-             Trevor: "we want the ongoing ASA card to give insight into the timeline") replaces
-             0113's rule that the dates live on asa/ ALONE: the card now carries the four
-             milestones and still points at asa/ for the full block. The dates are canonical
-             unless Trevor changes them; their other surfaces are listed in docs/connections.md,
-             so a change here is a change in three places. -->
-        <!-- BROCHURE LANDED 2026-08-20 (Trevor: "host this PDF both on the ASA page and be
-             clickable on the card on the homepage"). The tile is a <div> only because an <a>
-             cannot nest an <a>; it reuses .act-foot, exactly as the extended hours card did
-             for the same reason on 2026-08-16 (issue 0182, no app.css edit, rule 7).
-             ⚠ This trades away whole-card clickability, which is the OPPOSITE direction to
-             relay #139 / issue 0190 (Trevor, p1: "ASA and workshop are clickable cards but
-             extended hours is not. It should follow the same system"). 0190 is needs-triage
-             and undecided; this is his newer, explicit instruction, so it ships and 0190
-             now has to settle the band one way or the other. The brochure button is plain
-             .btn, NOT .btn purple: purple is the live-registration colour on the extended
-             hours card and ASA sign-up is not open yet (rule 6). -->
+        <!-- ASA registration is OPEN. Flipped 2026-08-24 on Trevor's word (issue 0179,
+             ADR-0013: human-triggered, not clock-triggered). The card is a two-CTA <div>, not
+             an <a>, because an <a> cannot nest an <a>. The register target is portal.elc.ac.th,
+             the cart, and the label NEVER names it (CLAUDE.md rule 3, one front door): the
+             parent clicks a button that says sign up and does not learn there are two hosts.
+             ⚠ .act-foot is flex with NO flex-wrap (app.css:304, FROZEN, issue 0195), so label
+             width is a hard constraint, not a preference. Measured pairs are tabulated in 0179;
+             "Register for ASA" (299px into a 293px foot at the 375px preset) is the label that
+             cannot ship. 0126 (relay #57) keeps the four milestones on this card; their other
+             surfaces are listed in docs/connections.md, so a change here is a change in three
+             places. The register href is the cart host as it stands today; issue 0017, the
+             domain cutover gate, is closed, so if that host ever moves the target moves with
+             it and this comment is where to look. -->
+        <!-- THE BROCHURE BUTTON WAS DROPPED HERE 2026-08-24, on purpose. Three buttons do
+             not fit and .act-foot cannot wrap, so the flip spends the slot on the action. The
+             brochure's job was the pre-registration decide window, which closed at 10am; it is
+             still one click away on asa/, which is what "How ASA works" opens. Dropping "How
+             ASA works" instead would orphan the brochure, the fees table, the confirmation
+             contract and the child-suggestion line from the homepage entirely (issue 0179).
+             `.btn purple` is the live-registration colour, the convention the extended hours
+             card set on 2026-08-16 (issue 0182). ⚠ This card still trades away whole-card
+             clickability, the opposite direction to relay #139 / issue 0190; that stays
+             undecided and the Sign up band stays split until 0190 lands. -->
         <div class="tile reg-card tile-top-purple">
           <span class="eyebrow">After school</span>
           <h3>ASA</h3>
@@ -264,12 +278,12 @@
           <p>The hours after school, well spent. Sport, arts, design and tech, in short term blocks.</p>
           <ul class="card-dates">
             <li><span class="cd-when">20–21 Aug</span> <span class="cd-what">Showcase on campus</span></li>
-            <li><span class="cd-when">24 Aug</span> <span class="cd-what">Sign-up opens at 10am</span></li>
+            <li><span class="cd-when">24 Aug</span> <span class="cd-what">Sign-up opens 10am</span></li>
             <li><span class="cd-when">7 Sep</span> <span class="cd-what">ASAs start</span></li>
             <li><span class="cd-when">17 Dec</span> <span class="cd-what">Last day of ASAs</span></li>
           </ul>
           <div class="act-foot">
-            <a class="btn" href="asa/asa-term-1-showcase-2026.pdf" target="_blank" rel="noopener">Brochure <span class="arw">&rarr;</span></a>
+            <a class="btn purple" href="https://portal.elc.ac.th" target="_blank" rel="noopener">Register <span class="arw">&rarr;</span></a>
             <a class="btn ghost" href="asa/">How ASA works <span class="arw">&rarr;</span></a>
           </div>
         </div>

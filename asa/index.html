@@ -88,11 +88,11 @@
           <div class="meta"><div class="nm">Sign up</div><div class="sub">One form per child, on the system you already use. Confirmation comes by email.</div></div>
         </div>
       </div>
-      <!-- Registration closed until 10am Mon 2026-08-24 (Trevor 2026-08-05, date and time
-           confirmed 2026-08-20). DO NOT restore from a remembered snippet: the exact replacement
-           markup, the measured label widths, and Trevor's one-front-door rule live in
-           docs/issues/0179. The old instruction here ("Go to sign-up") is retired. ADR-0013:
-           human-triggered, Trevor says go. -->
+      <!-- Registration OPENED 10am Mon 2026-08-24, flipped on Trevor's word (issue 0179,
+           ADR-0013: human-triggered). The button target is portal.elc.ac.th, the cart, and the
+           label never names it (CLAUDE.md rule 3, one front door). `.btn purple` is the
+           live-registration colour. The Showcase sentence was dropped from the note below with
+           the same edit: it was in the past by 10am and it was the reason the block ran long. -->
       <!-- The ASA dates (relay #25, issue 0113; fourth date added from relay #57, issue 0126;
            Showcase moved to 20 AND 21 Aug, drop-off and pick-up, per Trevor's 2026-08-19 12:48
            "ASA Showcase Thursday and Friday" email, superseding the 08-17 "20 Aug only" call).
@@ -101,10 +101,16 @@
            point here for the full story. 17 December is the last day of ASAs and is NOT the last
            day of Term 1 (18 December): two adjacent dates, deliberately not merged.
            2026-08-20: the sign-up date gains a TIME, 10am, from page 21 of the Term 1
-           Showcase brochure ("SIGN-UP OPENS 24 August @ 10am"). Trevor asked for it under
-           the brochure button; it is added to all three date surfaces so they do not
-           disagree on precision. -->
-      <p class="btn-row"><span class="status soon">Registration opens soon</span> <span class="page-note">The Showcase runs on campus on 20 and 21 August, at drop-off and pick-up. Sign-up opens 24 August at 10am. ASAs start 7 September and run to 17 December.</span></p>
+           Showcase brochure ("SIGN-UP OPENS 24 August @ 10am").
+           ⚠️ 2026-08-24: THIS BLOCK NO LONGER LISTS FOUR DATES. The Showcase sentence was
+           dropped when sign-up opened, because it was in the past by 10am, so this page states
+           the sign-up state plus start and end and nothing else. That makes it SHORTER than the
+           home and activities cards, which still lead their .card-dates lists with the finished
+           20-21 Aug Showcase (Trevor's call, 0126 says those cards carry the timeline). So the
+           "canonical page has the complete story" claim in docs/connections.md is currently
+           inverted: the cards have more milestones than the page they point at. Recorded, not
+           silently fixed, in issue 0211. -->
+      <p class="btn-row"><a class="btn purple" href="https://portal.elc.ac.th" target="_blank" rel="noopener">Register <span class="arw">&rarr;</span></a> <span class="page-note">Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. ASAs start 7 September and run to 17 December.</span></p>
     </div>
 
     <div class="section">
@@ -118,9 +124,11 @@
              promising it and hands it over. The brochure is hosted in this directory
              (asa-term-1-showcase-2026.pdf, 24 pages, wired with tools/fetch-deck.py in
              local mode: the 0049 share check does NOT apply, the source was a file). The
-             same PDF is linked from the homepage ASA card. The 10am under the button is
-             new precision on the 24 August claim and is stated on three surfaces now:
-             see docs/connections.md before editing it. -->
+             same PDF is linked from the homepage ASA card.
+             ⚠️ 2026-08-24: the brochure button was DROPPED from the homepage ASA card when
+             sign-up opened. .act-foot cannot wrap, three buttons do not fit, and the slot went
+             to Register. So this tile is now the ONLY route to the brochure from the home page,
+             one click deep via "How ASA works". Do not remove it. -->
         <!-- SCOPE RULE FOR THIS PAGE (Trevor, /family-review 2026-08-20): "We want super high
              level understanding of whats on offer and how it works on this page. A parent should
              be able to click the showcase so they can see the details." So the page states the
@@ -135,7 +143,7 @@
         </div>
         <a class="btn" href="asa-term-1-showcase-2026.pdf" target="_blank" rel="noopener">Term 1 brochure · PDF <span class="arw">&rarr;</span></a>
       </div>
-      <p class="btn-row"><a class="btn" href="fees/">ASA fees <span class="arw">&rarr;</span></a> <span class="page-note">Registration opens 24 August at 10am. Every activity's price per session and term fee.</span></p>
+      <p class="btn-row"><a class="btn" href="fees/">ASA fees <span class="arw">&rarr;</span></a> <span class="page-note">Every activity's price per session and term fee. Chosen something? <a href="https://portal.elc.ac.th" target="_blank" rel="noopener">Register</a>.</span></p>
       <!-- CHILD-AGENCY LINE, /family-review 2026-08-20, Trevor "put that line on launch".
            The Big-3 apex has a child line as well as a parent one ("the best part of my day
            is Armonia, my ASA or sport") and this page had no child in it. The invitation is
