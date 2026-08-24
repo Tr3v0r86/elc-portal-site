@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-24T00:38:52.435Z",
+  "generated": "2026-08-24T08:48:00.049Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -269,6 +269,15 @@
       "sub": "to 16 Oct"
     },
     {
+      "date": "2026-10-22",
+      "cat": "workshop",
+      "type": "purple",
+      "aud": "parent",
+      "comunita": true,
+      "title": "Language of Maths",
+      "sub": ""
+    },
+    {
       "date": "2026-10-23",
       "cat": "holiday",
       "type": "purple",
@@ -291,8 +300,8 @@
       "type": "purple",
       "aud": "parent",
       "comunita": true,
-      "title": "Parent Workshop: Emotional Regulation",
-      "sub": ""
+      "title": "Language of Maths",
+      "sub": "Please note: The second date is a repeat session of the workshop held the previous week. To give all families an opportunity to attend, please RSVP to one session only."
     },
     {
       "date": "2026-11-02",
