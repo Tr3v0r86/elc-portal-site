@@ -401,6 +401,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270313-open-house-at-the-city-school@portal.elc.ac.th
+DTSTAMP:20270313T000000Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:Open House at The City School
+URL:https://elcportal.elc.ac.th/open-house/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270319-parent-teacher-conference-progress@portal.elc.ac.th
 DTSTAMP:20270319T000000Z
 DTSTART;VALUE=DATE:20270319

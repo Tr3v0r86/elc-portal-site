@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-24T08:48:00.049Z",
+  "generated": "2026-08-25T09:46:04.628Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -177,6 +177,7 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262360861224453",
       "comunita": true,
       "title": "Parent Social Morning",
       "sub": ""
@@ -187,6 +188,7 @@
       "type": "gold",
       "aud": "child",
       "nopage": true,
+      "ext": "https://form.jotform.com/262288919933473",
       "title": "After School Community Event at The City School",
       "sub": ""
     },
@@ -195,9 +197,13 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262360929144459",
+      "time": "8:30 to 9:30 am",
+      "venue": "The Atrium",
+      "nopage": true,
       "comunita": true,
-      "title": "Safeguarding parent info session",
-      "sub": ""
+      "title": "Safe Passages, Bright Horizons",
+      "sub": "Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally"
     },
     {
       "date": "2026-09-18",
@@ -213,15 +219,6 @@
       "type": "purple",
       "aud": "parent",
       "title": "Open Evening",
-      "sub": ""
-    },
-    {
-      "date": "2026-10-01",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "ISB parent info session",
       "sub": ""
     },
     {
@@ -246,17 +243,9 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262360716288462",
       "comunita": true,
       "title": "Parent Social Morning",
-      "sub": ""
-    },
-    {
-      "date": "2026-10-08",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Digital Safety parent info session",
       "sub": ""
     },
     {
@@ -273,9 +262,10 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262360685205456",
       "comunita": true,
       "title": "Language of Maths",
-      "sub": ""
+      "sub": "Experiencing, Communicating & Exploring the Magic of Maths"
     },
     {
       "date": "2026-10-23",
@@ -299,18 +289,10 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "ext": "https://form.jotform.com/262360746297465",
       "comunita": true,
       "title": "Language of Maths",
-      "sub": "Please note: The second date is a repeat session of the workshop held the previous week. To give all families an opportunity to attend, please RSVP to one session only."
-    },
-    {
-      "date": "2026-11-02",
-      "cat": "social",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Social Morning",
-      "sub": ""
+      "sub": "Repeat of the 22 Oct session. RSVP to one session only."
     },
     {
       "date": "2026-11-04",
@@ -439,52 +421,6 @@
       "sub": ""
     },
     {
-      "date": "2027-01-14",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "child",
-      "nopage": true,
-      "comunita": true,
-      "title": "Puberty Workshop",
-      "sub": "Y5 and Y6"
-    },
-    {
-      "date": "2027-01-18",
-      "cat": "social",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Social Morning",
-      "sub": ""
-    },
-    {
-      "date": "2027-01-28",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Workshop: Supporting Behaviours",
-      "sub": ""
-    },
-    {
-      "date": "2027-02-01",
-      "cat": "social",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Social Morning",
-      "sub": ""
-    },
-    {
-      "date": "2027-02-08",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Workshop: Making Learning Visible",
-      "sub": ""
-    },
-    {
       "date": "2027-02-11",
       "cat": "workshop",
       "type": "purple",
@@ -518,15 +454,6 @@
       "sub": ""
     },
     {
-      "date": "2027-02-19",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Workshop: An Author's Workshop",
-      "sub": ""
-    },
-    {
       "date": "2027-02-22",
       "cat": "holiday",
       "type": "purple",
@@ -536,48 +463,11 @@
       "sub": "to 26 Feb"
     },
     {
-      "date": "2027-03-01",
-      "cat": "social",
+      "date": "2027-03-13",
+      "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "comunita": true,
-      "title": "Parent Social Morning",
-      "sub": ""
-    },
-    {
-      "date": "2027-03-04",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Atelier explorations and learning",
-      "sub": ""
-    },
-    {
-      "date": "2027-03-09",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Wycombe Abbey Head of School info session",
-      "sub": ""
-    },
-    {
-      "date": "2027-03-11",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Emergent reading skill development",
-      "sub": ""
-    },
-    {
-      "date": "2027-03-17",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Philosophy Circle with Y6",
+      "title": "Open House at The City School",
       "sub": ""
     },
     {
@@ -589,48 +479,12 @@
       "sub": "No school for children"
     },
     {
-      "date": "2027-03-22",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Compass Initiatives: transitions to K1",
-      "sub": "Morning, Atrium"
-    },
-    {
-      "date": "2027-03-22",
-      "cat": "event",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Y3 to Y6 Drama and Music Evening",
-      "sub": ""
-    },
-    {
-      "date": "2027-03-25",
-      "cat": "event",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Y3 to Y6 Drama and Music Evening",
-      "sub": ""
-    },
-    {
       "date": "2027-04-01",
       "cat": "event",
       "type": "purple",
       "aud": "child",
       "nopage": true,
       "title": "ELC Songkran celebrations",
-      "sub": ""
-    },
-    {
-      "date": "2027-04-01",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "The Wonder of Y6",
       "sub": ""
     },
     {
@@ -660,15 +514,6 @@
       "sub": "to 15 Apr"
     },
     {
-      "date": "2027-04-22",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Math at ELC",
-      "sub": ""
-    },
-    {
       "date": "2027-04-26",
       "cat": "event",
       "type": "purple",
@@ -683,15 +528,6 @@
       "type": "purple",
       "aud": "parent",
       "title": "New Families and The Purple Elephant Families to ELC",
-      "sub": ""
-    },
-    {
-      "date": "2027-05-03",
-      "cat": "social",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Social Morning",
       "sub": ""
     },
     {
@@ -727,15 +563,6 @@
       "sub": "Afternoon K1 session"
     },
     {
-      "date": "2027-05-13",
-      "cat": "workshop",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Navigating the AI Terrain",
-      "sub": ""
-    },
-    {
       "date": "2027-05-20",
       "cat": "holiday",
       "type": "purple",
@@ -751,15 +578,6 @@
       "nopage": true,
       "title": "The Queen's Birthday: holiday",
       "sub": "Holiday"
-    },
-    {
-      "date": "2027-06-07",
-      "cat": "social",
-      "type": "purple",
-      "aud": "parent",
-      "comunita": true,
-      "title": "Parent Social Morning",
-      "sub": ""
     },
     {
       "date": "2027-06-09",

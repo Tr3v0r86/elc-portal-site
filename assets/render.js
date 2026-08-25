@@ -574,7 +574,7 @@
     // (comunitaRows is the only caller's source), so no comunita check is needed.
     var mInner = '<div class="et">' + e.title + '</div>' +
       (e.sub ? '<div class="es">' + e.sub + '</div>' : '') +
-      (!mHref && !mExt && dueLive && PROG.dueShort ? '<div class="es">' + PROG.dueShort + '</div>' : '');
+      (!mHref && !mExt ? '<div class="es">' + (dueLive && PROG.dueShort ? PROG.dueShort : 'Coming') + '</div>' : '');
     return '<div class="ev-row"><span class="dte">' + DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
       '<div class="ev-main">' + ((mHref || mExt) ? '<a class="ev-link" href="' + (mHref || mExt) + '"' + (mExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (mExt ? extLabel : ' · event page') + '">' + mInner + '</a>' : mInner) + '</div>' +
       addBtns(e.date, e.title, e.sub, e.href, e.until) + '</div>';
