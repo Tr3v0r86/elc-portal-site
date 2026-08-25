@@ -125,7 +125,7 @@ BEGIN:VEVENT
 UID:20260824-asa-enrolments-start@portal.elc.ac.th
 DTSTAMP:20260824T000000Z
 DTSTART;VALUE=DATE:20260824
-DTEND;VALUE=DATE:20260825
+DTEND;VALUE=DATE:20260906
 SUMMARY:ASA Enrolments Start
 URL:https://elcportal.elc.ac.th/asa/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/asa/
