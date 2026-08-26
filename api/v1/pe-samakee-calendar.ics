@@ -68,6 +68,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20260924-open-evening@portal.elc.ac.th
+DTSTAMP:20260924T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:Open Evening\, Parents only.
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20260926-open-house-at-the-purple-elephant-samakee@portal.elc.ac.th
 DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260926
@@ -75,15 +84,6 @@ DTEND;VALUE=DATE:20260927
 SUMMARY:Open House at The Purple Elephant Samakee\, For new families.
 URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
-END:VEVENT
-BEGIN:VEVENT
-UID:20261002-open-evening@portal.elc.ac.th
-DTSTAMP:20261002T000000Z
-DTSTART;VALUE=DATE:20261002
-DTEND;VALUE=DATE:20261003
-SUMMARY:Open Evening\, Parents only.
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261009-parent-teacher-conference@portal.elc.ac.th
@@ -162,7 +162,7 @@ UID:20261218-last-day-of-term-1@portal.elc.ac.th
 DTSTAMP:20261218T000000Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
-SUMMARY:Last day of Term 1\, Early hometime: the centre confirms times.
+SUMMARY:Last day of Term 1\, Early dismissal. Hometime 11:00 for T1 and T2\, 11:30 for K1 and K2.
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -414,7 +414,7 @@ UID:20270617-last-day-of-term-2@portal.elc.ac.th
 DTSTAMP:20270617T000000Z
 DTSTART;VALUE=DATE:20270617
 DTEND;VALUE=DATE:20270618
-SUMMARY:Last day of Term 2\, Early hometime: the centre confirms times.
+SUMMARY:Last day of Term 2\, Early dismissal. Hometime 11:00 for T1 and T2\, 11:30 for K1 and K2.
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT

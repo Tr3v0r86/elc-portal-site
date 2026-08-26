@@ -153,7 +153,7 @@ UID:20261218-last-day-of-term-1@portal.elc.ac.th
 DTSTAMP:20261218T000000Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
-SUMMARY:Last day of Term 1\, Early hometime
+SUMMARY:Last day of Term 1\, Hometime 12 pm
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -284,11 +284,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270618-last-day-of-the-school-year@portal.elc.ac.th
+UID:20270618-last-day-of-school-year-hometime-12-pm@portal.elc.ac.th
 DTSTAMP:20270618T000000Z
 DTSTART;VALUE=DATE:20270618
 DTEND;VALUE=DATE:20270619
-SUMMARY:Last day of the school year\, Early hometime
+SUMMARY:Last day of School Year\; Hometime 12 pm
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
