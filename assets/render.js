@@ -1716,10 +1716,11 @@
       if (state !== 'past') return '<p class="cm-slide-note">Slides will be added within 24 hours after the morning.</p>';
       var due = isoPlusDays(row.date, 1);
       if (todayISO <= due) return '<p class="cm-slide-note">Slides are on their way. Expected by ' + fmtDMY(due) + '.</p>';
-      var office = P.contacts && P.contacts.office && P.contacts.office.email;
-      var helpHref = office ? 'mailto:' + office : ROOT + 'help/';
-      return '<p class="cm-slide-note">Slides are not available yet. <a class="cm-inline-action" href="' + escAttr(helpHref) + '">' +
-        (office ? 'Ask the school office' : 'Get help') + '</a>.</p>';
+      // Past the due date with no deck: say nothing (Trevor 2026-08-26). The old
+      // "Slides are not available yet, ask the school office" line turned a quiet gap
+      // into a standing apology on a card that is otherwise complete. Dove is the one
+      // row this applies to: it stays on the page with no deck (Trevor 2026-08-26).
+      return '';
     }
     function coffeeCard(row) {
       var state = coffeeState(row.date, bkkToday);
@@ -1788,10 +1789,8 @@
       'coffeeCard: HTTPS ext renders the registration link; absent or non-HTTPS ext renders none');
     console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-18').indexOf('Expected by 18 Aug 2026') > -1,
       'coffeeSlides: missing past deck keeps its dated expectation through the due date');
-    console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-19').indexOf('Slides are not available yet') > -1 &&
-      coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-19').indexOf('on their way') === -1 &&
-      coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-19').indexOf('mailto:office@elc.ac.th') > -1,
-      'coffeeSlides: overdue deck is unavailable, not on its way');
+    console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-19') === '',
+      'coffeeSlides: overdue deck renders nothing at all');
     console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-20', slides: null }, '2026-08-17').indexOf('within 24 hours') > -1,
       'coffeeSlides: upcoming promise unchanged');
     console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: { href: 'https://example.com/deck', tag: 'PDF' } }, '2026-08-19').indexOf('target="_blank" rel="noopener"') > -1,

@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-26T02:57:29.589Z",
+  "generated": "2026-08-26T10:37:18.347Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -140,6 +140,10 @@
       "cohort": "Y2",
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
+      "slides": {
+        "href": "https://elcportal.elc.ac.th/coffee-mornings/y2-parent-coffee-morning-2026.pdf",
+        "tag": "PDF"
+      },
       "title": "Y2 Coffee morning",
       "sub": "Information session"
     },
@@ -161,6 +165,10 @@
       "cohort": "K2",
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
+      "slides": {
+        "href": "https://elcportal.elc.ac.th/coffee-mornings/k2-parent-coffee-morning-2026.pdf",
+        "tag": "PDF"
+      },
       "title": "K2 Coffee morning",
       "sub": "Information session"
     },

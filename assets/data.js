@@ -66,8 +66,12 @@ window.PORTAL = {
   // the only thing pending is the Jotform link, and its own row says exactly when it
   // arrives (Monday 17 August), so a draft chip would hedge a page that is no longer
   // hedging. Same close-out the hopes-and-wishes drop above set on 2026-08-13.
+  // 0049: coffee-mornings dropped 2026-08-26 (Trevor). Five of the six cohorts carry
+  // their deck; Dove stays on the page with no deck and, since the same day, no slides
+  // line at all, so nothing on the page is pending an answer any more. Same close-out
+  // as hopes-and-wishes and extended-hours above.
   draftPages: ['photo-consent', 'how-to-pay',
-               'nuts-and-bolts', 'coffee-mornings', 'open-evening', 'loy-krathong',
+               'nuts-and-bolts', 'open-evening', 'loy-krathong',
                'pe-samakee-nuts-and-bolts', 'library'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
@@ -604,9 +608,9 @@ window.PORTAL = {
     { date: '2026-08-20', cat: 'event', type: 'purple', aud: 'parent', href: 'asa/', title: 'ASA Showcase', sub: '' },
     { date: '2026-08-20', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940913095460', cohort: 'Y3 to Y6', time: '8:30 to 9:30 am', venue: 'The Atrium', slides: { href: 'https://elcportal.elc.ac.th/coffee-mornings/y3-to-y6-parent-coffee-morning-2026.pdf', tag: 'PDF' }, title: 'Y3 to Y6 Coffee morning', sub: 'Information session' },
     { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/262158847629471', cohort: 'Dove', time: '9 to 10 am', venue: 'Welcome Room, Lagora', title: 'Dove Coffee morning', sub: 'Information session' },
-    { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940118766462', cohort: 'Y2', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'Y2 Coffee morning', sub: 'Information session' },
+    { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940118766462', cohort: 'Y2', time: '8:30 to 9:30 am', venue: 'The Atrium', slides: { href: 'https://elcportal.elc.ac.th/coffee-mornings/y2-parent-coffee-morning-2026.pdf', tag: 'PDF' }, title: 'Y2 Coffee morning', sub: 'Information session' },
     { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', until: '2026-09-05', href: 'asa/', title: 'ASA Enrolments Start', sub: '' },
-    { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940122478457', cohort: 'K2', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'K2 Coffee morning', sub: 'Information session' },
+    { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940122478457', cohort: 'K2', time: '8:30 to 9:30 am', venue: 'The Atrium', slides: { href: 'https://elcportal.elc.ac.th/coffee-mornings/k2-parent-coffee-morning-2026.pdf', tag: 'PDF' }, title: 'K2 Coffee morning', sub: 'Information session' },
     { date: '2026-09-07', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'ASA\'s Start', sub: '' },
     { date: '2026-09-07', cat: 'social', type: 'purple', aud: 'parent', ext: 'https://form.jotform.com/262360861224453', comunita: true, title: 'Parent Social Morning', sub: '' },
     { date: '2026-09-11', cat: 'event', type: 'gold', aud: 'child', nopage: true, ext: 'https://form.jotform.com/262288919933473', title: 'After School Community Event at The City School', sub: '' },
