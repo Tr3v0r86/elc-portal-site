@@ -44,7 +44,11 @@
   function mode(ua, standalone, hasPrompt) {
     if (standalone) return 'none';              // already installed, nothing to offer
     if (hasPrompt) return 'prompt';             // Chromium: drive the real prompt
-    if (/\bLine\//i.test(ua)) return 'inapp';   // in-app browser: cannot install here
+    // In-app browsers cannot add to the home screen at all, and coaching a toolbar
+    // they do not have is the Adam-2026-08-06 dead end from another direction. ELC
+    // pushes portal links by email and LINE and families forward them on from there,
+    // so Facebook, Messenger, Instagram and WeChat are live paths, not theoretical.
+    if (/\bLine\/|FBAN|FBAV|FB_IAB|Instagram|MicroMessenger/i.test(ua)) return 'inapp';
     if (/iPhone|iPad|iPod/i.test(ua)) {
       // Every browser on iOS is WebKit, so none of them fires the prompt event, but only
       // Safari puts Add to Home Screen behind the toolbar Share button. Chrome (CriOS),
@@ -132,29 +136,43 @@
   /* A step is an array of parts. A string part is text; an object part is a glyph chip.
      Deliberately NOT a plain string any more: the old shape set li.textContent, which
      cannot carry an element, and a card that only NAMES an unlabelled icon is the whole
-     defect (issue 0207). No positional claim in the copy on purpose: Safari's toolbar
-     sits at the bottom by default but moves to the top under the Single Tab layout, so
-     the symbol is the invariant and the symbol is what gets shown. */
+     defect (issue 0207). Rewritten by 0205 (relay #162, a parent stuck on an
+     iPhone): the old two steps named the right two actions and described neither
+     findably. Safari auto-hides the bottom bar on scroll, so getting it back is now
+     step 1; Add to Home Screen sits below the app row in the share sheet, so the drag
+     is its own step; and the Add confirm is stated rather than assumed.
+     The bottom-centre claim is a deliberate trade: Safari's toolbar moves to the top
+     under the Single Tab layout, so that sentence is wrong for a minority, where
+     'somewhere on screen' was useless to everyone. The glyph carries the invariant
+     either way.
+     ponytail: iosmenu stays ONE branch for Chrome, Firefox, Edge and Opera rather than
+     four. Their menus differ by position, not by name, and a confidently wrong position
+     is worse than naming the icon. Split it only if a family reports being stuck. */
   var COACH = {
     ios: {
       title: 'Add the Portal to your home screen',
-      steps: [['Tap the', { i: 'share' }, ' Share button in the Safari toolbar.'],
-        ['Choose', { i: 'addhome' }, ' Add to Home Screen.']]
+      steps: [['If there is no toolbar along the bottom of the screen, scroll down once to bring it back.'],
+        ['Tap the', { i: 'share' }, ' Share button in that toolbar, bottom centre.'],
+        ['Slide the sheet upwards, past the row of apps, then choose', { i: 'addhome' }, ' Add to Home Screen.'],
+        ['Tap Add, top right.']]
     },
     iosmenu: {
       title: 'Add the Portal to your home screen',
-      steps: [['Tap the browser menu, the', { i: 'dotsh' }, ' three dots.'],
-        ['Choose', { i: 'addhome' }, ' Add to Home Screen.']]
+      steps: [['Tap the browser menu, the', { i: 'dotsh' }, ' three dots in your browser toolbar.'],
+        ['Scroll down the menu, then choose', { i: 'addhome' }, ' Add to Home Screen.'],
+        ['Tap Add.']]
     },
     android: {
       title: 'Add the Portal to your home screen',
       steps: [['Tap the browser menu, the', { i: 'dotsv' }, ' three dots, top right.'],
-        ['Choose', { i: 'addhome' }, ' Add to Home screen, then Install.']]
+        ['Choose', { i: 'addhome' }, ' Add to Home screen. Some phones say Install app instead: either one is right.'],
+        ['Tap Install to confirm.']]
     },
     inapp: {
       title: 'Open the Portal in your browser first',
-      steps: [['Tap the menu, then choose', { i: 'openout' }, ' Open in browser.'],
-        ['Add the Portal to your home screen from there.']]
+      steps: [['You are in an app\'s own built-in browser, and it cannot add anything to the home screen.'],
+        ['Tap the menu, then choose', { i: 'openout' }, ' Open in browser.'],
+        ['In Safari or Chrome, tap Install app again and follow the steps there.']]
     }
   };
 

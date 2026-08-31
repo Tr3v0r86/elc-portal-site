@@ -71,9 +71,12 @@ window.PORTAL = {
   // their deck; Dove stays on the page with no deck and, since the same day, no slides
   // line at all, so nothing on the page is pending an answer any more. Same close-out
   // as hopes-and-wishes and extended-hours above.
+  // 0161: pe-samakee-nuts-and-bolts dropped 2026-08-31 (Trevor). The page states
+  // Isabella's card, Samakee's own phone line and email, and the Parent App row;
+  // nothing on it is pending an answer, so the chip was hedging a page that is not.
   draftPages: ['photo-consent', 'how-to-pay',
                'nuts-and-bolts', 'open-evening', 'loy-krathong',
-               'pe-samakee-nuts-and-bolts', 'library'],
+               'library'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
   // To raise a notice, replace null with an object and deploy (see docs/runbook.md):
