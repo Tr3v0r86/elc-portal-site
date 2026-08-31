@@ -990,7 +990,12 @@
       // read `until` this way all along; the band was the outlier, not the rule.
       var eEnd = (e.until && e.until >= e.date) ? e.until : e.date;
       if (!e.date || eEnd < bkkToday || e.date > cuHorizon) return;
-      var key = e.href || ('row:' + e.date + ':' + e.title);   // pageless rows never collide with an href group
+      // 0225: a comunita row is its OWN card even when a co-windowed sibling shares
+      // community/. Merging by href was a side effect of giving every comunita row the
+      // same destination (0220 rev 4 / 0221), not intent -- 2026-08-05 already unbundled
+      // the single 0079 card, and a merged card cannot say which event a family clicked.
+      // Non-comunita rows still merge by href (two coffee-morning rows = one card).
+      var key = (e.comunita ? null : e.href) || ('row:' + e.date + ':' + e.title);   // pageless rows never collide with an href group
       if (!cuMap[key]) { cuMap[key] = { rows: [], href: e.href || null }; cuOrder.push(key); }
       cuMap[key].rows.push(e);
     });
@@ -1054,7 +1059,13 @@
           // "On the school site". ponytail: the shared predicate is the guard, not this line;
           // a fourth destination means extending isElcUrl's callers, never re-hardcoding here.
           var go = c.feat ? c.feat.go : (c.ext ? (isElcUrl(c.href) ? 'On the school site' : 'Thai public holidays') : 'See details');
-          return '<a class="tile ev-card ev-link" href="' + c.href + '"' + (c.ext ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' +
+          // 0225: a comunita card deep-links to ITS OWN block on community/, whose cards
+          // carry id="ev-<date>". The fragment is DERIVED from the row date at both ends,
+          // so it is never typed in the sheet, never sits inside a SHEET-OWNED fence, and
+          // needs no widening of check-data-hrefs.mjs's bare-dir href grammar. A fragment
+          // landing on a page with no such id is an inert no-op, not a broken link.
+          var frag = (c.ev.comunita && !c.ext) ? '#ev-' + c.ev.date : '';
+          return '<a class="tile ev-card ev-link" href="' + c.href + frag + '"' + (c.ext ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' +
             escAttr(title) + ', ' + cuLabel(c.dates, false) + (c.ext ? ' · on ' + extSiteLabel(c.href) : ' · event page') + '">' +
             when + '<h3>' + title + '</h3>' + body +
             '<span class="go">' + go + ' <span class="arw">&rarr;</span></span></a>';
@@ -1867,6 +1878,28 @@
         requestAnimationFrame(function () { hashTarget.scrollIntoView({ block: 'start' }); });
       }
     }
+  }
+
+  // 0225: deep-link into the community event cards. A Coming up card links to
+  // community/#ev-<date>; arriving on that fragment opens THAT event and closes every
+  // other one, so a family lands on the thing they clicked instead of on whichever card
+  // the markup ships open. With no hash the page keeps its own [open] default (next
+  // upcoming). Deliberately NOT folded into the coffee-mornings hash block above: that
+  // one lives inside `if (coffeeMount)` and never runs here.
+  var evCards = document.querySelectorAll('details.ev-detail');
+  if (evCards.length) {
+    // Also on hashchange: a hash-only move is a SAME-DOCUMENT navigation, so the script
+    // does not re-run. Without this, browser back/forward between two events leaves the
+    // first one open and the URL lying about what is on screen.
+    var openHashEvent = function () {
+      if (!location.hash) return;
+      var evTarget = document.getElementById(location.hash.slice(1));
+      if (!evTarget || !evTarget.classList.contains('ev-detail')) return;
+      for (var ei = 0; ei < evCards.length; ei++) evCards[ei].open = (evCards[ei] === evTarget);
+      requestAnimationFrame(function () { evTarget.scrollIntoView({ block: 'start' }); });
+    };
+    openHashEvent();
+    window.addEventListener('hashchange', openHashEvent);
   }
 
   // Version stamp (0061): rewrite the footer fine print from PORTAL.version + build.
