@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-template="section-stack">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planning view · ELC Portal</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F4F2EA">
+<meta name="description" content="Internal planning view: every event this academic year by month and campus, read live from the calendar sheet.">
+<meta property="og:title" content="Planning view · ELC Portal">
+<meta property="og:description" content="Internal planning view: every event this academic year by month and campus, read live from the calendar sheet.">
+<meta property="og:url" content="https://elcportal.elc.ac.th/planning/">
+<meta property="og:image" content="https://elcportal.elc.ac.th/assets/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20role%3D%22img%22%20aria-label%3D%22ELC%20Portal%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%23F4F2EA%22%2F%3E%3Cg%20transform%3D%22translate(50%2050)%20scale(0.64)%20translate(-50%20-50)%22%20fill%3D%22none%22%20stroke%3D%22%2333254A%22%20stroke-width%3D%223.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M57.7%2048.7C57.7%2049.3%2057.6%2050.0%2057.5%2050.6C57.4%2051.2%2057.2%2051.8%2057.0%2052.4C56.8%2053.1%2056.6%2053.7%2056.3%2054.3C56.0%2054.8%2055.7%2055.5%2055.3%2056.0C54.8%2056.5%2054.3%2057.0%2053.7%2057.3C53.2%2057.6%2052.5%2057.8%2051.8%2057.9C51.2%2058.0%2050.5%2058.0%2049.8%2057.9C49.2%2057.8%2048.6%2057.6%2048.0%2057.5C47.4%2057.4%2046.9%2057.2%2046.3%2057.1C45.8%2057.0%2045.2%2056.9%2044.6%2056.8C44.1%2056.7%2043.4%2056.6%2042.9%2056.3C42.3%2056.1%2041.8%2055.8%2041.3%2055.4C40.8%2055.0%2040.4%2054.5%2040.1%2054.0C39.7%2053.5%2039.5%2052.9%2039.3%2052.3C39.0%2051.7%2038.9%2051.1%2038.7%2050.5C38.6%2049.9%2038.5%2049.3%2038.4%2048.7C38.3%2048.1%2038.2%2047.4%2038.3%2046.8C38.4%2046.1%2038.5%2045.5%2038.7%2044.9C39.0%2044.3%2039.4%2043.7%2039.8%2043.2C40.2%2042.7%2040.7%2042.3%2041.2%2041.9C41.7%2041.6%2042.3%2041.3%2042.8%2040.9C43.3%2040.6%2043.9%2040.3%2044.4%2040.0C45.0%2039.7%2045.5%2039.4%2046.1%2039.2C46.7%2039.0%2047.4%2038.8%2048.0%2038.8C48.6%2038.8%2049.3%2038.9%2049.9%2039.1C50.5%2039.3%2051.1%2039.6%2051.6%2040.0C52.1%2040.4%2052.5%2040.8%2053.0%2041.3C53.4%2041.7%2053.7%2042.1%2054.1%2042.6C54.5%2043.0%2054.9%2043.4%2055.3%2043.8C55.7%2044.3%2056.1%2044.7%2056.5%2045.2C56.8%2045.7%2057.1%2046.3%2057.3%2046.8C57.5%2047.4%2057.6%2048.1%2057.7%2048.7Z%22%2F%3E%3Cpath%20d%3D%22M68.6%2049.1C68.4%2050.4%2068.0%2051.7%2067.7%2052.9C67.3%2054.2%2066.9%2055.4%2066.5%2056.6C66.0%2057.8%2065.6%2059.0%2065.1%2060.3C64.5%2061.5%2064.0%2062.8%2063.2%2064.0C62.4%2065.1%2061.6%2066.3%2060.5%2067.3C59.4%2068.2%2058.1%2069.1%2056.8%2069.6C55.5%2070.2%2054.0%2070.5%2052.6%2070.6C51.2%2070.8%2049.7%2070.6%2048.3%2070.5C46.9%2070.3%2045.5%2070.0%2044.2%2069.6C42.9%2069.2%2041.6%2068.8%2040.3%2068.3C39.1%2067.8%2037.8%2067.2%2036.7%2066.4C35.5%2065.7%2034.4%2064.9%2033.5%2063.9C32.5%2062.9%2031.7%2061.8%2031.0%2060.6C30.3%2059.5%2029.7%2058.2%2029.3%2056.9C28.8%2055.7%2028.4%2054.4%2028.1%2053.1C27.8%2051.8%2027.6%2050.4%2027.4%2049.1C27.3%2047.7%2027.3%2046.3%2027.4%2044.9C27.6%2043.5%2027.9%2042.1%2028.5%2040.8C29.0%2039.6%2029.8%2038.3%2030.7%2037.3C31.6%2036.2%2032.7%2035.3%2033.7%2034.5C34.8%2033.7%2036.0%2033.0%2037.1%2032.3C38.3%2031.7%2039.4%2031.1%2040.6%2030.5C41.8%2029.9%2043.0%2029.2%2044.3%2028.8C45.6%2028.3%2046.9%2027.8%2048.3%2027.6C49.7%2027.4%2051.2%2027.3%2052.6%2027.5C54.0%2027.6%2055.5%2028.1%2056.7%2028.7C58.0%2029.3%2059.3%2030.1%2060.4%2031.0C61.5%2031.9%2062.5%2032.9%2063.4%2034.0C64.3%2035.0%2065.2%2036.1%2065.9%2037.3C66.6%2038.5%2067.2%2039.7%2067.7%2041.0C68.2%2042.3%2068.5%2043.7%2068.6%2045.0C68.8%2046.3%2068.7%2047.7%2068.6%2049.1Z%22%2F%3E%3Cpath%20d%3D%22M81.8%2049.6C81.5%2051.7%2081.0%2053.8%2080.5%2055.8C79.9%2057.9%2079.3%2059.8%2078.6%2061.8C77.8%2063.8%2077.0%2065.7%2076.0%2067.6C74.9%2069.4%2073.7%2071.2%2072.3%2072.8C70.8%2074.4%2069.1%2075.8%2067.3%2077.0C65.5%2078.1%2063.5%2079.0%2061.5%2079.6C59.5%2080.3%2057.4%2080.7%2055.3%2081.1C53.2%2081.4%2051.1%2081.5%2049.0%2081.6C46.9%2081.6%2044.8%2081.6%2042.7%2081.3C40.6%2080.9%2038.5%2080.5%2036.5%2079.7C34.6%2079.0%2032.6%2077.9%2030.9%2076.7C29.2%2075.5%2027.7%2073.9%2026.3%2072.3C24.9%2070.7%2023.8%2068.9%2022.8%2067.1C21.7%2065.3%2020.8%2063.5%2019.9%2061.6C19.0%2059.8%2018.1%2057.9%2017.4%2055.8C16.8%2053.8%2016.1%2051.7%2015.8%2049.6C15.5%2047.4%2015.4%2045.1%2015.7%2042.9C16.0%2040.8%2016.7%2038.5%2017.6%2036.6C18.6%2034.6%2019.9%2032.7%2021.3%2031.1C22.7%2029.4%2024.4%2027.9%2026.0%2026.6C27.7%2025.2%2029.4%2024.0%2031.2%2022.9C33.0%2021.8%2034.8%2020.8%2036.8%2020.0C38.7%2019.2%2040.7%2018.4%2042.8%2018.0C44.8%2017.6%2046.9%2017.5%2049.0%2017.5C51.1%2017.6%2053.2%2018.0%2055.2%2018.5C57.2%2019.0%2059.1%2019.8%2061.0%2020.6C62.9%2021.4%2064.8%2022.3%2066.6%2023.3C68.4%2024.3%2070.3%2025.3%2072.0%2026.6C73.7%2027.9%2075.4%2029.3%2076.8%2031.0C78.2%2032.7%2079.5%2034.6%2080.3%2036.6C81.2%2038.6%2081.7%2040.9%2081.9%2043.0C82.2%2045.2%2082.0%2047.4%2081.8%2049.6Z%22%2F%3E%3Cpath%20d%3D%22M93.0%2050.7C92.9%2053.5%2092.4%2056.3%2091.8%2059.0C91.1%2061.7%2090.3%2064.4%2089.2%2066.9C88.2%2069.5%2086.9%2072.0%2085.4%2074.3C83.9%2076.6%2082.2%2078.8%2080.2%2080.8C78.3%2082.7%2076.1%2084.5%2073.8%2086.1C71.5%2087.6%2069.0%2089.0%2066.5%2090.1C64.0%2091.2%2061.3%2092.2%2058.6%2092.9C55.9%2093.6%2053.0%2094.1%2050.2%2094.3C47.4%2094.5%2044.4%2094.5%2041.6%2094.1C38.7%2093.7%2035.8%2092.9%2033.2%2091.8C30.5%2090.7%2027.9%2089.2%2025.7%2087.4C23.4%2085.7%2021.4%2083.6%2019.5%2081.4C17.7%2079.2%2016.2%2076.8%2014.9%2074.4C13.5%2071.9%2012.4%2069.4%2011.4%2066.8C10.4%2064.2%209.6%2061.6%209.0%2058.9C8.4%2056.3%208.0%2053.5%207.9%2050.7C7.8%2048.0%207.9%2045.2%208.4%2042.4C8.9%2039.7%209.7%2037.0%2010.7%2034.4C11.7%2031.8%2013.1%2029.3%2014.6%2026.9C16.1%2024.6%2017.9%2022.4%2019.8%2020.3C21.7%2018.3%2023.8%2016.3%2026.1%2014.7C28.4%2013.1%2030.9%2011.6%2033.5%2010.4C36.1%209.3%2038.9%208.4%2041.7%207.9C44.5%207.4%2047.4%207.3%2050.2%207.5C53.0%207.6%2055.8%208.1%2058.5%208.8C61.3%209.4%2063.9%2010.4%2066.5%2011.5C69.0%2012.6%2071.5%2013.8%2073.9%2015.3C76.3%2016.7%2078.6%2018.3%2080.7%2020.2C82.8%2022.1%2084.8%2024.2%2086.5%2026.5C88.1%2028.8%2089.6%2031.4%2090.6%2034.0C91.7%2036.6%2092.4%2039.5%2092.8%2042.3C93.2%2045.1%2093.2%2048.0%2093.0%2050.7Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/app.css">
+<script src="../assets/settings.js"></script>
+</head>
+<body>
+  <div class="topline"></div>
+  <svg id="topo" aria-hidden="true"></svg>
+
+  <header>
+    <a class="brand" href="../">
+      <span class="desc"><span class="portal-mark" id="mark" aria-hidden="true"></span>ELC Portal</span>
+    </a>
+    <span class="tape">v1.0</span>
+    <nav>
+      <a class="navlink city-only" href="../">This week</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Sign up</summary>
+        <div class="dd-panel" data-sheet-panel="signup" data-sheet-label="Choose what to sign up for">
+          <a href="../activities/">Everything to sign up for</a>
+          <a href="../asa/">ASA</a>
+          <a href="../community/">Workshops &amp; coffee mornings</a>
+          <a href="../extended-hours/">Extended hours</a>
+        </div>
+      </details>
+      <a class="navlink campus-cal" href="../calendar/">Calendar</a>
+      <details class="nav-dd city-only">
+        <summary class="navlink">Documents</summary>
+        <div class="dd-panel" data-sheet-panel="documents" data-sheet-label="Choose a documents page">
+          <a href="../policies/">Policies &amp; forms</a>
+          <a href="../help/">Quick answers</a>
+          <a href="../nuts-and-bolts/">Nuts and bolts</a>
+        </div>
+      </details>
+      <details class="nav-dd">
+        <summary class="navlink campus-summary">Centres</summary>
+        <div class="dd-panel" data-sheet-panel="centres" data-sheet-label="Choose an ELC centre">
+          <div class="campus-switch" role="group" aria-label="Choose an ELC centre">
+            <a class="campus" href="../">The City School</a>
+            <a class="campus" href="../purple-elephant/thong-lor/">The Purple Elephant Thong Lor</a>
+            <a class="campus" href="../purple-elephant/samakee/">The Purple Elephant Samakee</a>
+          </div>
+        </div>
+      </details>
+      <div class="nav-search"><input type="search" id="q" data-root="../" placeholder="Search the portal" aria-label="Search the portal"><div id="q-results" hidden></div></div>
+    </nav>
+  </header>
+
+  <style>
+  /* Page-local interface (issue 0231). Deliberate exception to the usual "reuse app.css"
+     habit: Trevor asked for a custom, web-first surface that mimics the office booking sheet,
+     which has no equivalent in the portal's family components. Tokens seam still holds, every
+     value below is a var() from tokens.css or a layout number this table needs and nothing
+     else does. Claude Design can retune any of it at the token layer.
+     ponytail: one <style>, one table, no framework. */
+  .plan-head{max-width:none;margin-bottom:18px;}
+  .plan-meta{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);}
+  .plan-meta .ok{color:var(--sage);}
+  .plan-meta .warn{color:var(--red);}
+  .plan-key{display:flex;flex-wrap:wrap;gap:7px 18px;align-items:center;margin-top:12px;
+    font-size:12px;color:var(--muted);}
+  .plan-key span{display:inline-flex;align-items:center;gap:7px;}
+  .plan-key i{width:14px;height:14px;border:1px solid var(--rule);display:inline-block;flex:none;}
+  .plan-key i.city{background:var(--gold-tint);}
+  .plan-key i.tl{background:var(--red-tint);}
+  .plan-key i.smk{background:var(--purple-tint);}
+  .plan-key i.noplan{width:8px;height:8px;border:none;border-radius:50%;background:var(--red);}
+
+  .plan-scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--white);}
+  table.plan{border-collapse:collapse;width:100%;min-width:900px;font-size:14px;}
+  table.plan th{position:sticky;top:0;z-index:2;background:var(--white);text-align:left;
+    font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);padding:11px 14px;border-bottom:1px solid var(--rule);white-space:nowrap;}
+  table.plan td{padding:9px 14px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+  table.plan td.mo{font-family:var(--serif);font-size:21px;line-height:1.1;color:var(--ink);
+    background:var(--white);border-right:1px solid var(--rule);white-space:nowrap;width:1%;
+    border-bottom:1px solid var(--rule);}
+  table.plan td.cam{font-size:13px;line-height:1.25;color:var(--charcoal);white-space:nowrap;width:1%;
+    border-right:1px solid var(--rule);}
+  table.plan td.ev{min-width:290px;}
+  table.plan td.dt{white-space:nowrap;font-variant-numeric:tabular-nums;}
+  table.plan td.tm{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--charcoal);}
+  table.plan td.lo{color:var(--charcoal);}
+  table.plan tr.city td{background:var(--gold-tint);}
+  table.plan tr.tl td{background:var(--red-tint);}
+  table.plan tr.smk td{background:var(--purple-tint);}
+  table.plan tr.city td.mo,table.plan tr.tl td.mo,table.plan tr.smk td.mo{background:var(--white);}
+  table.plan tr.closed td{background:var(--white);color:var(--muted);font-size:12.5px;}
+  table.plan tr:hover td:not(.mo){filter:brightness(0.985);}
+  table.plan a.ev-name{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold-deep);
+    text-underline-offset:3px;}
+  table.plan a.ev-name:hover{color:var(--purple);text-decoration-color:var(--purple);}
+  table.plan a.ev-name:focus-visible{outline:2px solid var(--purple);outline-offset:2px;}
+  table.plan .noplan{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);
+    margin-left:8px;vertical-align:1px;flex:none;}
+  table.plan .coh{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--gold-deep);margin-right:7px;}
+  @media (max-width:700px){
+    table.plan td.mo{font-size:16px;}
+    .plan-scroll{border-left:none;border-right:none;}
+  }
+  </style>
+
+  <main class="wrap sub">
+    <div class="page-head plan-head">
+      <span class="eyebrow">Internal planning view</span>
+      <h1>Events by month and campus.</h1>
+      <p class="lead">The office booking view, generated. Read straight from the calendar sheet every time this page opens, so it is never a copy that has drifted. Event names link to their tab in the Events Tasks and Timelines sheet.</p>
+      <p class="plan-meta" id="plan-meta"><span>Loading the calendar sheet</span></p>
+      <p class="plan-key">
+        <span><i class="city"></i>The City School</span>
+        <span><i class="tl"></i>PE 39, 49 &amp; 55</span>
+        <span><i class="smk"></i>PE Samakee</span>
+        <span><i class="noplan"></i>No planning tab yet</span>
+      </p>
+    </div>
+
+    <div class="plan-scroll">
+      <table class="plan">
+        <thead><tr>
+          <th scope="col">Month</th><th scope="col">Campus</th><th scope="col">Workshop or event</th>
+          <th scope="col">Date</th><th scope="col">Time</th><th scope="col">Location</th>
+        </tr></thead>
+        <tbody id="plan-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+
+  <div class="foot-strip">
+    <span class="foot-mark" aria-hidden="true"></span><img class="foot-lockup" src="../assets/img/elc-logo.svg" alt="ELC International Schools Bangkok" width="63" height="58">
+    <span class="l">elcportal.elc.ac.th · ELC International Schools, Thong Lor</span>
+    <span class="r"><a href="https://portal.parent.cloud/login" target="_blank" rel="noopener"><img src="../assets/img/parent-app.png" alt="Parent App" width="14" height="14"></a> No login needed. Your child's learning lives in the <a href="https://portal.parent.cloud/login" target="_blank" rel="noopener">Parent App</a>.</span>
+    <span class="foot-links"><a class="m-only" href="../help/">Quick answers</a><a href="../nuts-and-bolts/">Nuts and bolts</a><a href="../privacy/">Privacy</a><a href="../safeguarding/">Safeguarding</a><a href="../verify/">Is it really us</a></span>
+    <span class="fine">v1.0</span>
+  </div>
+
+  <div class="tabbar">
+    <a class="tab city-only" href="../"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>This week</a>
+    <a class="tab city-only" href="../activities/" data-sheet="signup"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
+    <a class="tab campus-cal" href="../calendar/"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
+    <a class="tab city-only" href="../policies/" data-sheet="documents"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Documents</a>
+    <a class="tab" href="../" data-sheet="centres"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</a>
+  </div>
+
+  <script src="../assets/data.js"></script>
+  <script src="../assets/render.js"></script>
+  <script src="../assets/contour.js"></script>
+  <script src="../assets/feedback.js"></script>
+  <script src="../assets/install.js"></script>
+
+  <script>
+  /* Internal planning view (issue 0231). Reads the three published campus tabs of the calendar
+     SSOT on every load so planners never read a stale copy, and falls back to the data.js the
+     site already carries when the sheet cannot be reached. Renders the office booking layout:
+     month and campus as merged cells, one row per event.
+     ponytail: no build step, no framework, no dependency. */
+  (function () {
+    var PUB = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS5w--GtvoorbsaHX70Oc6meI9c5uUFNtE8QNl0HsscNWrHYwlfGOOMRGvdQWY2UlDEbPxMheijG7zn/pub?single=true&output=csv&gid=";
+    var TASKS = "https://docs.google.com/spreadsheets/d/181_cZCH9gy6wH7K8rWtlO3wt8HPyWneP-tjgpXgrgwM/edit?gid=";
+    var CAMPUS = [
+      { key: "city", label: "The City School", gid: "442839732" },
+      { key: "tl",   label: "PE 39, 49 & 55",  gid: "2062792822" },
+      { key: "smk",  label: "PE Samakee",      gid: "131810185" }
+    ];
+
+    /* Planning tabs, and the calendar rows each plans: [campus, date, title keyword]. Date alone
+       cross-wires two events sharing a day, so the keyword is load bearing. A new tab in the
+       sheet needs a line here or its events read as unplanned (red dot). */
+    var TABS = [
+      { gid: "141807517",  rows: [["tl", "2026-09-29", "building bridges"]] },
+      { gid: "1270856002", rows: [["city", "2026-09-11", "football"]] },
+      { gid: "1301917816", rows: [["tl", "2026-09-23", "open house"]] },
+      { gid: "955718104",  rows: [["smk", "2026-09-26", "open house"]] },
+      { gid: "2025949777", rows: [["city", "2026-09-24", "open evening"]] },
+      { gid: "2093555622", rows: [["smk", "2026-09-24", "open evening"]] },
+      { gid: "1077716773", rows: [["city", "2026-10-03", "open house"]] },
+      { gid: "918115498",  rows: [["city", "2026-10-02", "parent teacher"]] },
+      { gid: "824923387",  rows: [["city", "2026-11-24", "loy krathong"]] },
+      { gid: "1135675787", rows: [["city", "2027-05-27", "wan wai khru"]] },
+      { gid: "821167439",  rows: [["city", "2026-12-04", "national day"]] },
+      { gid: "1987086538", rows: [["city", "2026-11-26", "k1 holiday pageant"]] },
+      { gid: "1154640180", rows: [["city", "2026-08-20", "asa showcase"]] },
+      { gid: "1724713024", rows: [["city", "2026-08-14", "new family orientation"]] },
+      { gid: "903747973",  rows: [["city", "2026-08-17", "hopes and wishes"],
+                                  ["city", "2026-08-18", "hopes and wishes"],
+                                  ["smk", "2026-08-17", "hopes and wishes"]] },
+      { gid: "422055281",  rows: [["tl", "2027-05-18", "t1 family tours"]] }
+    ];
+    /* Ongoing tabs: one tab covers a series, not a date. */
+    var SERIES = [
+      { gid: "1161016910", test: function (e) { return e.campus === "city" && e.cat === "social"; } },
+      { gid: "1180904130", test: function (e) { return e.campus === "city" && e.href.indexOf("information-sessions/") === 0; } }
+    ];
+
+    var MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+                  "August", "September", "October", "November", "December"];
+    var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    function csvRows(text) {
+      var rows = [], row = [], field = "", quoted = false, i, c;
+      for (i = 0; i < text.length; i++) {
+        c = text[i];
+        if (quoted) {
+          if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+          else if (c === '"') { quoted = false; }
+          else { field += c; }
+        } else if (c === '"') { quoted = true; }
+        else if (c === ",") { row.push(field); field = ""; }
+        else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
+        else if (c !== "\r") { field += c; }
+      }
+      if (field.length || row.length) { row.push(field); rows.push(row); }
+      return rows;
+    }
+
+    function fromCsv(text, campus) {
+      var rows = csvRows(text);
+      if (!rows.length) return [];
+      var head = rows[0].map(function (h) { return h.trim(); });
+      return rows.slice(1).map(function (r) {
+        var o = {};
+        head.forEach(function (h, i) { o[h] = (r[i] || "").trim(); });
+        return o;
+      }).filter(function (o) { return o.date && o.title; }).map(function (o) {
+        return { campus: campus, date: o.date, until: o.until || "", cat: o.cat || "event",
+                 title: o.title, time: o.time || "", venue: o.venue || "",
+                 cohort: o.cohort || "", href: o.href || "" };
+      });
+    }
+
+    function fromData() {
+      var out = [], P = window.PORTAL || {};
+      (P.calendarEvents || []).forEach(function (e) {
+        out.push({ campus: "city", date: e.date, until: e.until || "", cat: e.cat || "event",
+                   title: e.title, time: e.time || "", venue: e.venue || "",
+                   cohort: e.cohort || "", href: e.href || "" });
+      });
+      (P.peEvents || []).forEach(function (e) {
+        out.push({ campus: e.pe === "samakee" ? "smk" : "tl", date: e.date, until: e.until || "",
+                   cat: e.cat || "event", title: e.title, time: e.time || "", venue: e.venue || "",
+                   cohort: e.cohort || "", href: e.href || "" });
+      });
+      return out;
+    }
+
+    function tabFor(e) {
+      var t = (e.title || "").toLowerCase(), i, j, r;
+      for (i = 0; i < TABS.length; i++) {
+        for (j = 0; j < TABS[i].rows.length; j++) {
+          r = TABS[i].rows[j];
+          if (r[0] === e.campus && r[1] === e.date && t.indexOf(r[2]) !== -1) return TABS[i].gid;
+        }
+      }
+      for (i = 0; i < SERIES.length; i++) { if (SERIES[i].test(e)) return SERIES[i].gid; }
+      return null;
+    }
+
+    function when(e) {
+      var d = new Date(e.date + "T00:00:00");
+      if (e.until) {
+        var u = new Date(e.until + "T00:00:00");
+        return d.getMonth() === u.getMonth()
+          ? d.getDate() + " to " + u.getDate() + " " + MONTHS[u.getMonth()].slice(0, 3)
+          : d.getDate() + " " + MONTHS[d.getMonth()].slice(0, 3) + " to " + u.getDate() + " " + MONTHS[u.getMonth()].slice(0, 3);
+      }
+      return DAYS[d.getDay()] + " " + d.getDate() + " " + MONTHS[d.getMonth()].slice(0, 3);
+    }
+
+    function cell(row, cls, text) {
+      var td = document.createElement("td");
+      td.className = cls;
+      if (text) td.textContent = text;
+      row.appendChild(td);
+      return td;
+    }
+
+    function render(events, live) {
+      var body = document.getElementById("plan-body");
+      var meta = document.getElementById("plan-meta");
+      body.textContent = "";
+      var months = {}, order = [];
+      events.forEach(function (e) {
+        var key = e.date.slice(0, 7);
+        if (!months[key]) { months[key] = []; order.push(key); }
+        months[key].push(e);
+      });
+      order.sort();
+
+      var shown = 0, unplanned = 0;
+      order.forEach(function (key) {
+        var all = months[key];
+        var live_ = all.filter(function (e) { return e.cat !== "holiday"; });
+        var closed = all.filter(function (e) { return e.cat === "holiday"; });
+        var groups = CAMPUS.map(function (c) {
+          return { c: c, rows: live_.filter(function (e) { return e.campus === c.key; })
+                                    .sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; }) };
+        }).filter(function (g) { return g.rows.length; });
+        if (!groups.length && !closed.length) return;
+
+        var span = groups.reduce(function (n, g) { return n + g.rows.length; }, 0) + (closed.length ? 1 : 0);
+        var first = true;
+
+        groups.forEach(function (g) {
+          g.rows.forEach(function (e, i) {
+            var tr = document.createElement("tr");
+            tr.className = g.c.key;
+            if (first) {
+              var mo = cell(tr, "mo", MONTHS[+key.slice(5) - 1]);
+              mo.rowSpan = span;
+              first = false;
+            }
+            if (i === 0) { cell(tr, "cam", g.c.label).rowSpan = g.rows.length; }
+
+            var ev = cell(tr, "ev");
+            var gid = tabFor(e);
+            if (gid) {
+              var a = document.createElement("a");
+              a.className = "ev-name";
+              a.href = TASKS + gid + "#gid=" + gid;
+              a.target = "_blank";
+              a.rel = "noopener";
+              a.title = "Open this event's tab in the Events Tasks and Timelines sheet";
+              a.textContent = e.title;
+              ev.appendChild(a);
+            } else {
+              unplanned++;
+              ev.appendChild(document.createTextNode(e.title));
+              var dot = document.createElement("span");
+              dot.className = "noplan";
+              dot.title = "No planning tab in the Events Tasks and Timelines sheet yet";
+              dot.setAttribute("role", "img");
+              dot.setAttribute("aria-label", "No planning tab yet");
+              ev.appendChild(dot);
+            }
+
+            var dt = cell(tr, "dt");
+            if (e.cohort) {
+              var coh = document.createElement("span");
+              coh.className = "coh";
+              coh.textContent = e.cohort;
+              dt.appendChild(coh);
+            }
+            dt.appendChild(document.createTextNode(when(e)));
+            cell(tr, "tm", e.time);
+            cell(tr, "lo", e.venue);
+            body.appendChild(tr);
+            shown++;
+          });
+        });
+
+        if (closed.length) {
+          var names = closed.map(function (e) { return when(e) + ": " + e.title; });
+          var uniq = names.filter(function (n, i) { return names.indexOf(n) === i; });
+          var tr2 = document.createElement("tr");
+          tr2.className = "closed";
+          if (first) { cell(tr2, "mo", MONTHS[+key.slice(5) - 1]).rowSpan = span; }
+          var td = cell(tr2, "cam", "School closed");
+          var note = cell(tr2, "lo", uniq.join(" · "));
+          note.colSpan = 4;
+          body.appendChild(tr2);
+        }
+      });
+
+      meta.textContent = "";
+      function bit(text, cls) {
+        var s = document.createElement("span");
+        if (cls) s.className = cls;
+        s.textContent = text;
+        meta.appendChild(s);
+      }
+      bit(shown + " events");
+      bit(order.length + " months");
+      bit(unplanned + " with no planning tab", unplanned ? "warn" : "ok");
+      bit(live ? "Read from the calendar sheet just now" : "Sheet unreachable: showing the copy this site was last built with",
+          live ? "ok" : "warn");
+    }
+
+    Promise.all(CAMPUS.map(function (c) {
+      return fetch(PUB + c.gid).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.text();
+      }).then(function (t) { return fromCsv(t, c.key); });
+    })).then(function (sets) {
+      render(sets.reduce(function (a, b) { return a.concat(b); }, []), true);
+    }).catch(function () {
+      render(fromData(), false);
+    });
+  })();
+  </script>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(new URL('sw.js', document.querySelector('link[rel="manifest"]').href).href);
+  }
+  </script>
+</body>
+</html>
