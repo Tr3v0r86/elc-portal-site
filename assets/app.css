@@ -1181,3 +1181,42 @@ body[data-campus="pe-samakee"] .spiral-art{opacity:0.30;filter:none;}
   .pe .pe-hero{grid-template-columns:1fr;gap:16px;}
   .pe .pe-hero-art{order:-1;width:92px;}
 }
+
+/* ---- Community event cards (Trevor 2026-08-31, issue 0220 follow-up) --------------
+   The 0220 cards shipped as bare <details class="ev-detail"> with no skin, so each
+   event rendered as a native disclosure triangle floating on its own line above the
+   row: no card, no affordance, nothing saying the row opens. Trevor: make them mimic
+   the note-from-Trevor tile at the top of the home page.
+   So this is the .tile + .note-summary contract applied to an event row, values reused
+   verbatim (tile ground/rule/radius/shadow, tile-top-purple accent, the note's chevron
+   geometry and its 45deg -> -135deg flip), not re-invented. No new tokens, no new
+   markup, no JS: which card ships open is still the page's [open] attribute, the same
+   way the note's open state is the note's. CD may retune (rule 7). */
+.ev-detail{position:relative;background:var(--white);border:1px solid var(--rule);
+  border-top:2px solid var(--purple);border-radius:10px;box-shadow:var(--shadow-quiet);
+  padding:4px 20px;margin-bottom:12px;transition:box-shadow .2s ease,border-color .2s ease;}
+.ev-detail:last-child{margin-bottom:0;}
+.ev-detail:hover{box-shadow:var(--shadow-hard);border-color:var(--purple);}
+.ev-detail[open]{padding-bottom:22px;}
+/* Summary = the collapsed face: the commRow look, plus the note's chevron. */
+.ev-detail>summary{cursor:pointer;list-style:none;position:relative;padding-right:26px;}
+.ev-detail>summary::-webkit-details-marker{display:none;}
+.ev-detail>summary::after{content:"";position:absolute;top:17px;right:3px;width:8px;height:8px;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg);transition:transform .2s ease;}
+.ev-detail[open]>summary::after{transform:rotate(-135deg);top:21px;}
+.ev-detail>summary:hover .et{color:var(--purple);}
+/* The row rule is the divider between rows in a list; inside a card it is a stray line. */
+.ev-detail>summary .ev-row{border-bottom:none;}
+/* Body: the brief sits under the row, indented to the title column so date stays the
+   left rail (.ev-row .dte is 52px + its 14px gap). */
+.ev-detail>.txt,.ev-detail>.doc-list,.ev-detail>.btn-row{margin-left:66px;}
+.ev-detail>.txt{margin-top:2px;font-size:14px;line-height:1.65;color:var(--charcoal);max-width:64ch;}
+/* Team cards are a section of this card, not a second card stacked inside it. */
+.ev-detail>.doc-list{margin-top:16px;border:none;border-top:1px solid var(--rule-2);border-radius:0;background:none;}
+.ev-detail>.doc-list .doc-row{padding-left:0;padding-right:0;}
+.ev-detail>.btn-row{margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+@media(max-width:560px){
+  .ev-detail{padding-left:15px;padding-right:15px;}
+  .ev-detail>.txt,.ev-detail>.doc-list,.ev-detail>.btn-row{margin-left:0;}
+}
