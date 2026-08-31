@@ -32,13 +32,13 @@ URL:https://elcportal.elc.ac.th/new-family-orientation/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/new-family-orientation/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260817-k1-coffee-morning@portal.elc.ac.th
+UID:20260817-k1-information-session@portal.elc.ac.th
 DTSTAMP:20260817T000000Z
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
-SUMMARY:K1 Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+SUMMARY:K1 Information session
+URL:https://elcportal.elc.ac.th/information-sessions/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260817-k2-to-y6-hopes-and-wishes-meetings@portal.elc.ac.th
@@ -68,13 +68,13 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260818-y1-coffee-morning@portal.elc.ac.th
+UID:20260818-y1-information-session@portal.elc.ac.th
 DTSTAMP:20260818T000000Z
 DTSTART;VALUE=DATE:20260818
 DTEND;VALUE=DATE:20260819
-SUMMARY:Y1 Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+SUMMARY:Y1 Information session
+URL:https://elcportal.elc.ac.th/information-sessions/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260819-k1-first-day-of-school@portal.elc.ac.th
@@ -95,31 +95,31 @@ URL:https://elcportal.elc.ac.th/asa/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/asa/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260820-y3-to-y6-coffee-morning@portal.elc.ac.th
+UID:20260820-y3-to-y6-information-session@portal.elc.ac.th
 DTSTAMP:20260820T000000Z
 DTSTART;VALUE=DATE:20260820
 DTEND;VALUE=DATE:20260821
-SUMMARY:Y3 to Y6 Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+SUMMARY:Y3 to Y6 Information session
+URL:https://elcportal.elc.ac.th/information-sessions/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260821-dove-coffee-morning@portal.elc.ac.th
+UID:20260821-dove-information-session@portal.elc.ac.th
 DTSTAMP:20260821T000000Z
 DTSTART;VALUE=DATE:20260821
 DTEND;VALUE=DATE:20260822
-SUMMARY:Dove Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+SUMMARY:Dove Information session
+URL:https://elcportal.elc.ac.th/information-sessions/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260821-y2-coffee-morning@portal.elc.ac.th
+UID:20260821-y2-information-session@portal.elc.ac.th
 DTSTAMP:20260821T000000Z
 DTSTART;VALUE=DATE:20260821
 DTEND;VALUE=DATE:20260822
-SUMMARY:Y2 Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+SUMMARY:Y2 Information session
+URL:https://elcportal.elc.ac.th/information-sessions/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260824-asa-enrolments-start@portal.elc.ac.th
@@ -131,13 +131,13 @@ URL:https://elcportal.elc.ac.th/asa/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/asa/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260824-k2-coffee-morning@portal.elc.ac.th
+UID:20260824-k2-information-session@portal.elc.ac.th
 DTSTAMP:20260824T000000Z
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
-SUMMARY:K2 Coffee morning\, Information session
-URL:https://elcportal.elc.ac.th/coffee-mornings/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/coffee-mornings/
+SUMMARY:K2 Information session
+URL:https://elcportal.elc.ac.th/information-sessions/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260907-asa-s-start@portal.elc.ac.th
@@ -149,11 +149,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260911-after-school-community-event-at-the-city-school@portal.elc.ac.th
+UID:20260911-community-football@portal.elc.ac.th
 DTSTAMP:20260911T000000Z
 DTSTART;VALUE=DATE:20260911
 DTEND;VALUE=DATE:20260912
-SUMMARY:After School Community Event at The City School
+SUMMARY:Community football
 URL:https://elcportal.elc.ac.th/community-football/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community-football/
 END:VEVENT
@@ -415,6 +415,15 @@ DTSTAMP:20270319T000000Z
 DTSTART;VALUE=DATE:20270319
 DTEND;VALUE=DATE:20270320
 SUMMARY:Parent Teacher Conference (Progress)\, No school for children
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270325-y3-to-y6-drama-and-music-evening@portal.elc.ac.th
+DTSTAMP:20270325T000000Z
+DTSTART;VALUE=DATE:20270325
+DTEND;VALUE=DATE:20270326
+SUMMARY:Y3 to Y6 Drama and Music Evening
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT

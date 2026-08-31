@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-31T04:14:32.921Z",
+  "generated": "2026-08-31T07:31:47.171Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -39,11 +39,11 @@
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
       "slides": {
-        "href": "https://elcportal.elc.ac.th/coffee-mornings/k1-parent-coffee-morning-2026.pdf",
+        "href": "https://elcportal.elc.ac.th/information-sessions/k1-information-session-2026.pdf",
         "tag": "PDF"
       },
-      "title": "K1 Coffee morning",
-      "sub": "Information session"
+      "title": "K1 Information session",
+      "sub": ""
     },
     {
       "date": "2026-08-17",
@@ -80,11 +80,11 @@
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
       "slides": {
-        "href": "https://elcportal.elc.ac.th/coffee-mornings/y1-parent-coffee-morning-2026.pdf",
+        "href": "https://elcportal.elc.ac.th/information-sessions/y1-information-session-2026.pdf",
         "tag": "PDF"
       },
-      "title": "Y1 Coffee morning",
-      "sub": "Information session"
+      "title": "Y1 Information session",
+      "sub": ""
     },
     {
       "date": "2026-08-19",
@@ -113,11 +113,11 @@
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
       "slides": {
-        "href": "https://elcportal.elc.ac.th/coffee-mornings/y3-to-y6-parent-coffee-morning-2026.pdf",
+        "href": "https://elcportal.elc.ac.th/information-sessions/y3-to-y6-information-session-2026.pdf",
         "tag": "PDF"
       },
-      "title": "Y3 to Y6 Coffee morning",
-      "sub": "Information session"
+      "title": "Y3 to Y6 Information session",
+      "sub": ""
     },
     {
       "date": "2026-08-21",
@@ -128,8 +128,8 @@
       "cohort": "Dove",
       "time": "9 to 10 am",
       "venue": "Welcome Room, Lagora",
-      "title": "Dove Coffee morning",
-      "sub": "Information session"
+      "title": "Dove Information session",
+      "sub": ""
     },
     {
       "date": "2026-08-21",
@@ -141,11 +141,11 @@
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
       "slides": {
-        "href": "https://elcportal.elc.ac.th/coffee-mornings/y2-parent-coffee-morning-2026.pdf",
+        "href": "https://elcportal.elc.ac.th/information-sessions/y2-information-session-2026.pdf",
         "tag": "PDF"
       },
-      "title": "Y2 Coffee morning",
-      "sub": "Information session"
+      "title": "Y2 Information session",
+      "sub": ""
     },
     {
       "date": "2026-08-24",
@@ -166,11 +166,11 @@
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
       "slides": {
-        "href": "https://elcportal.elc.ac.th/coffee-mornings/k2-parent-coffee-morning-2026.pdf",
+        "href": "https://elcportal.elc.ac.th/information-sessions/k2-information-session-2026.pdf",
         "tag": "PDF"
       },
-      "title": "K2 Coffee morning",
-      "sub": "Information session"
+      "title": "K2 Information session",
+      "sub": ""
     },
     {
       "date": "2026-09-07",
@@ -188,7 +188,7 @@
       "aud": "parent",
       "ext": "https://form.jotform.com/262360861224453",
       "comunita": true,
-      "title": "Parent Social Morning",
+      "title": "Parent coffee morning",
       "sub": ""
     },
     {
@@ -197,7 +197,7 @@
       "type": "gold",
       "aud": "child",
       "ext": "https://form.jotform.com/262288919933473",
-      "title": "After School Community Event at The City School",
+      "title": "Community football",
       "sub": ""
     },
     {
@@ -252,7 +252,7 @@
       "aud": "parent",
       "ext": "https://form.jotform.com/262360716288462",
       "comunita": true,
-      "title": "Parent Social Morning",
+      "title": "Parent coffee morning",
       "sub": ""
     },
     {
@@ -302,6 +302,16 @@
       "comunita": true,
       "title": "Language of Maths",
       "sub": "Repeat of the 22 Oct session. RSVP to one session only."
+    },
+    {
+      "date": "2026-11-02",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "ext": "https://form.jotform.com/262361215951454",
+      "comunita": true,
+      "title": "Parent coffee morning",
+      "sub": ""
     },
     {
       "date": "2026-11-04",
@@ -430,6 +440,24 @@
       "sub": ""
     },
     {
+      "date": "2027-01-18",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "comunita": true,
+      "title": "Parent coffee morning",
+      "sub": ""
+    },
+    {
+      "date": "2027-02-01",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "comunita": true,
+      "title": "Parent coffee morning",
+      "sub": ""
+    },
+    {
       "date": "2027-02-11",
       "cat": "workshop",
       "type": "purple",
@@ -472,6 +500,15 @@
       "sub": "to 26 Feb"
     },
     {
+      "date": "2027-03-01",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "comunita": true,
+      "title": "Parent coffee morning",
+      "sub": ""
+    },
+    {
       "date": "2027-03-13",
       "cat": "event",
       "type": "purple",
@@ -486,6 +523,14 @@
       "aud": "parent",
       "title": "Parent Teacher Conference (Progress)",
       "sub": "No school for children"
+    },
+    {
+      "date": "2027-03-25",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Y3 to Y6 Drama and Music Evening",
+      "sub": ""
     },
     {
       "date": "2027-04-01",
@@ -540,6 +585,15 @@
       "sub": ""
     },
     {
+      "date": "2027-05-03",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "comunita": true,
+      "title": "Parent coffee morning",
+      "sub": ""
+    },
+    {
       "date": "2027-05-04",
       "cat": "holiday",
       "type": "purple",
@@ -587,6 +641,15 @@
       "nopage": true,
       "title": "The Queen's Birthday: holiday",
       "sub": "Holiday"
+    },
+    {
+      "date": "2027-06-07",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "comunita": true,
+      "title": "Parent coffee morning",
+      "sub": ""
     },
     {
       "date": "2027-06-09",

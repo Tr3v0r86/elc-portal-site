@@ -583,7 +583,7 @@
   // La Comunità split sections (issue 0071): the comunita rows that coreRows() filters
   // off the core calendar surfaces land HERE instead. #community-workshops = upcoming
   // comunita rows of any non-social cat; #community-mornings = cat 'social', shown as
-  // "Coffee mornings" (naming fixed in-sheet by Sarah). Both islands feed in, so a
+  // "Coffee mornings" (0227: that IS their name now, not a display alias). Both islands feed in, so a
   // PE-tab comunita row is never invisible (no campus chip yet: copy/CD pass). A title
   // links out only when the row carries a registration URL on ext (Jotform etc.:
   // progressive enrichment, no hard content gate). Same self-remove-when-empty idiom
@@ -592,7 +592,7 @@
   // 0079 (2026-08-03): workshops separated FULLY from the calendar, and this section is
   // their canonical home, so it STANDS EVEN WHEN EMPTY with an honest waiting line:
   // self-removing would leave workshops with no home at all until Sarah's column lands.
-  // Social mornings keep the self-remove idiom; that section carries no such promise.
+  // Coffee mornings keep the self-remove idiom; that section carries no such promise.
   // Sarah's 2026-08-05 sweep flags comunita on rows whose cat is 'event' too (open
   // houses, atelier experiences, drama evenings), so the workshops section takes every
   // non-social comunita row: a flagged row must never be invisible (0071 promise).
@@ -608,7 +608,7 @@
   }
   [{ id: 'community-workshops', social: false, heading: 'Workshops', stands: true,
      empty: 'The year\'s parent workshops are being confirmed with the team. Every one of them will appear here, with its sign-up link, as it lands.' },
-   { id: 'community-mornings', social: true, heading: 'Social mornings', stands: false }].forEach(function (sec) {
+   { id: 'community-mornings', social: true, heading: 'Coffee mornings', stands: false }].forEach(function (sec) {
     var mount = document.getElementById(sec.id);
     if (!mount) return;
     var rows = comunitaRows(sec.social);
@@ -623,7 +623,8 @@
   });
 
   /* The programme hold, in ONE place (issues 0127 + 0137, relays #58 + #61).
-     Trevor: "workshops and social mornings will be published on Friday August 14th."
+     Trevor: "workshops and social mornings will be published on Friday August 14th." (his
+     words at the time; those social mornings are called coffee mornings since 0227.)
      Any [data-details-due] element carries the promise while PORTAL.programme.published
      is false and empties when it flips, and any [data-details-hold] block is shown only
      while the wait is real. The date is never written into markup: it lives once, in
@@ -1471,7 +1472,7 @@
     console.assert(ycCat({ aud: 'holiday', title: 'The Queen Mother’s Birthday Holiday' }) === 'H', 'ycCat: public holiday -> H');
     console.assert(ycCat({ aud: 'holiday', title: 'No school for children (staff training day)' }) === 'PD', 'ycCat: staff training -> PD');
     console.assert(ycCat({ aud: 'parent', title: 'Parent Teacher Conferences (Progress)' }) === 'PT', 'ycCat: conferences -> PT');
-    console.assert(ycCat({ aud: 'parent', title: 'K1 Coffee morning' }) === 'SE', 'ycCat: parent event -> SE');
+    console.assert(ycCat({ aud: 'parent', title: 'K1 Information session' }) === 'SE', 'ycCat: parent event -> SE');
     console.assert(ycCat({ aud: 'child', title: 'K1 first day of school' }) === 'SC', 'ycCat: children-only -> SC');
     // The paper key must never invert the screen again: each aud prints the shape the
     // calendar page teaches for it, and the two paper-only splits stay off those shapes.
@@ -1586,7 +1587,7 @@
   if (teamMount && P.ptc && P.classes) {
     var facesOnly = teamMount.hasAttribute('data-faces');
     // 'Dove' sits LAST, after Y6 (Trevor 2026-08-07, overriding a first draft that led
-    // with it as the youngest). Matches the coffee-mornings filter strip, which already
+    // with it as the youngest). Matches the information-sessions filter strip, which already
     // ends on Dove. No YEAR_LABEL entry on purpose: the fallback renders the year key and
     // "Dove" is already the whole name. The Dove Centre folded into the City School
     // 2026-07-15, so no campus label either.
@@ -1673,7 +1674,7 @@
     }).join('');
   }
 
-  // Coffee Mornings (issue 0049): one calendar-derived card per static cohort
+  // Information sessions (issue 0049, renamed 0227): one calendar-derived card per static cohort
   // wrapper. Dates stay single-copy in calendarEvents; the page adds no island.
   var coffeeMount = document.getElementById('coffee-cards');
   if (coffeeMount) {
@@ -1683,8 +1684,10 @@
       var parsed = new Date(date + 'T00:00:00Z');
       return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === date;
     }
+    // 0227's transitional legacy-href arm came out here once the pull landed the sheet's
+    // renamed rows: one href, as it was before the page moved.
     function coffeeRows(events) {
-      return (events || []).filter(function (e) { return e.href === 'coffee-mornings/'; })
+      return (events || []).filter(function (e) { return e.href === 'information-sessions/'; })
         .slice().sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
     }
     function coffeeState(date, todayISO) {
@@ -1726,9 +1729,12 @@
     function coffeeSlides(row, todayISO) {
       var state = coffeeState(row.date, todayISO);
       if (row.slides) {
-        return '<a class="cm-slide" target="_blank" rel="noopener" href="' + escAttr(row.slides.href) + '">View ' + row.cohort + ' slides' + (row.slides.tag ? ' · ' + row.slides.tag : '') + '</a>';
+        // 0227's deck-URL rewrite came out with the legacy href arm: column O carries the
+        // moved paths now, so the sheet's value is used as it stands.
+        var deck = String(row.slides.href);
+        return '<a class="cm-slide" target="_blank" rel="noopener" href="' + escAttr(deck) + '">View ' + row.cohort + ' slides' + (row.slides.tag ? ' · ' + row.slides.tag : '') + '</a>';
       }
-      if (state !== 'past') return '<p class="cm-slide-note">Slides will be added within 24 hours after the morning.</p>';
+      if (state !== 'past') return '<p class="cm-slide-note">Slides will be added within 24 hours after the session.</p>';
       var due = isoPlusDays(row.date, 1);
       if (todayISO <= due) return '<p class="cm-slide-note">Slides are on their way. Expected by ' + fmtDMY(due) + '.</p>';
       // Past the due date with no deck: say nothing (Trevor 2026-08-26). The old
@@ -1742,12 +1748,12 @@
       var date = new Intl.DateTimeFormat('en-GB', {
         timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
       }).format(new Date(row.date + 'T00:00:00Z'));
-      var stateLabel = state === 'today' ? 'This morning' : state === 'past' ? 'Past morning' : 'Upcoming';
+      var stateLabel = state === 'today' ? 'Today' : state === 'past' ? 'Past session' : 'Upcoming';
       var slides = coffeeSlides(row, bkkToday);
       // Registration link (Sarah 2026-08-05): the Jotform URL rides the row's ext
-      // field from the SSOT sheet. Upcoming/today only: a past morning takes no sign-ups.
+      // field from the SSOT sheet. Upcoming/today only: a past session takes no sign-ups.
       var reg = state !== 'past' && validHTTPS(row.ext)
-        ? '<a class="cm-slide" target="_blank" rel="noopener" href="' + escAttr(row.ext) + '">Register for this morning</a>'
+        ? '<a class="cm-slide" target="_blank" rel="noopener" href="' + escAttr(row.ext) + '">Register for this session</a>'
         : '';
       return '<div class="cm-card ' + state + '">' +
         '<span class="chip cm-cohort">' + row.cohort + '</span>' +
@@ -1760,17 +1766,17 @@
     }
 
     console.assert(coffeeRows([
-      { href: 'coffee-mornings/', date: '2026-08-24' },
+      { href: 'information-sessions/', date: '2026-08-24' },
       { href: 'calendar/', date: '2026-08-01' },
-      { href: 'coffee-mornings/', date: '2026-08-17' }
+      { href: 'information-sessions/', date: '2026-08-17' }
     ]).map(function (e) { return e.date; }).join(',') === '2026-08-17,2026-08-24', 'coffeeRows: explicit date order');
     console.assert(coffeeState('2026-08-18', '2026-08-17') === 'upcoming' &&
       coffeeState('2026-08-17', '2026-08-17') === 'today' &&
       coffeeState('2026-08-16', '2026-08-17') === 'past', 'coffeeState: upcoming, today, past');
-    console.assert(coffeeRows(P.calendarEvents).length === 6, 'coffeeRows: six Coffee Mornings rows');
+    console.assert(coffeeRows(P.calendarEvents).length === 6, 'coffeeRows: six information-session rows');
     console.assert(!validISODate('2026-02-30') && !validISODate('2026-99-99'), 'validISODate: malformed dates rejected');
     var plantedCoffeeRow = {
-      href: 'coffee-mornings/', cohort: 'K1', date: '2026-08-17', time: null, venue: null, slides: null
+      href: 'information-sessions/', cohort: 'K1', date: '2026-08-17', time: null, venue: null, slides: null
     };
     console.assert(['deck/k1', 'data:text/html,unsafe', 'http://example.com/k1'].every(function (href) {
       return !coffeeValid(Object.assign({}, plantedCoffeeRow, { slides: { href: href } }));
@@ -1783,7 +1789,7 @@
     'coffeeValid: malformed fields and out-of-season dates rejected');
     console.assert(coffeeValid(Object.assign({}, plantedCoffeeRow, { slides: { href: 'https://example.com/k1', tag: 'PDF' } })),
       'coffeeValid: absolute HTTPS slides with optional string tag');
-    console.assert(coffeeValid({ href: 'coffee-mornings/', cohort: 'K1', date: '2026-08-17' }),
+    console.assert(coffeeValid({ href: 'information-sessions/', cohort: 'K1', date: '2026-08-17' }),
       'coffeeValid: sheet-fed row with time/venue/slides keys OMITTED is valid (live bug 2026-08-05)');
     var plantedCoffeeRows = Object.keys(COFFEE_IDS).map(function (cohort, index) {
       return Object.assign({}, plantedCoffeeRow, { cohort: cohort, date: '2026-08-' + String(17 + index).padStart(2, '0') });
@@ -1798,9 +1804,13 @@
     var plantedCoffeeCard = coffeeCard(plantedCoffeeRow);
     console.assert(plantedCoffeeCard.indexOf('<span class="chip cm-cohort">K1</span>') === plantedCoffeeCard.indexOf('>') + 1,
       'coffeeCard: cohort chip is the first card element');
-    console.assert(coffeeCard(Object.assign({}, plantedCoffeeRow, { ext: 'https://form.jotform.com/x' })).indexOf('Register for this morning') > -1 &&
-      plantedCoffeeCard.indexOf('Register for this morning') === -1 &&
-      coffeeCard(Object.assign({}, plantedCoffeeRow, { ext: 'http://form.jotform.com/x' })).indexOf('Register') === -1,
+    // Anchored to bkkToday, not to a typed date (0227): registration renders for
+    // upcoming/today only, so a fixed past date made this assert fail every day from
+    // 2026-08-18 onward and it was firing in the console as noise.
+    var upcomingCoffeeRow = Object.assign({}, plantedCoffeeRow, { date: isoPlusDays(bkkToday, 1) });
+    console.assert(coffeeCard(Object.assign({}, upcomingCoffeeRow, { ext: 'https://form.jotform.com/x' })).indexOf('Register for this session') > -1 &&
+      coffeeCard(upcomingCoffeeRow).indexOf('Register for this session') === -1 &&
+      coffeeCard(Object.assign({}, upcomingCoffeeRow, { ext: 'http://form.jotform.com/x' })).indexOf('Register') === -1,
       'coffeeCard: HTTPS ext renders the registration link; absent or non-HTTPS ext renders none');
     console.assert(coffeeSlides({ cohort: 'K1', date: '2026-08-17', slides: null }, '2026-08-18').indexOf('Expected by 18 Aug 2026') > -1,
       'coffeeSlides: missing past deck keeps its dated expectation through the due date');
@@ -1821,7 +1831,7 @@
       if (!coffeeValid(row) || !mount || handled[row.cohort]) {
         malformed += 1;
         if (mount && !handled[row.cohort]) {
-          mount.innerHTML = '<p class="cm-failure">This morning\'s details could not be loaded.</p>';
+          mount.innerHTML = '<p class="cm-failure">This session\'s details could not be loaded.</p>';
           handled[row.cohort] = true;
         }
         return;
@@ -1834,23 +1844,23 @@
     var missing = 0;
     Object.keys(mounts).forEach(function (cohort) {
       if (!handled[cohort]) {
-        mounts[cohort].innerHTML = '<p class="cm-failure">This morning\'s details are unavailable.</p>';
+        mounts[cohort].innerHTML = '<p class="cm-failure">This session\'s details are unavailable.</p>';
         missing += 1;
       }
     });
     var coffeeErrors = document.getElementById('coffee-errors');
     if (coffeeErrors && !rows.length) {
       var office = P.contacts && P.contacts.office && P.contacts.office.email;
-      coffeeErrors.innerHTML = '<p class="cm-failure">Morning details are unavailable. Check the <a class="cm-inline-action" href="' + ROOT + 'calendar/">calendar</a>' +
+      coffeeErrors.innerHTML = '<p class="cm-failure">Session details are unavailable. Check the <a class="cm-inline-action" href="' + ROOT + 'calendar/">calendar</a>' +
         (office ? ' or <a class="cm-inline-action" href="mailto:' + escAttr(office) + '">email the school office</a>' : '') + '.</p>';
     } else if (coffeeErrors && (!contractValid || malformed || missing)) {
-      coffeeErrors.innerHTML = '<p class="cm-failure">One morning\'s details could not be loaded. Check the calendar for the latest information.</p>';
+      coffeeErrors.innerHTML = '<p class="cm-failure">One session\'s details could not be loaded. Check the calendar for the latest information.</p>';
     }
 
     var coffeeTitle = document.getElementById('coffee-title');
     if (coffeeTitle && rows.length === 6 && !malformed && !missing &&
         validRows.every(function (row) { return coffeeState(row.date, bkkToday) === 'past'; })) {
-      coffeeTitle.textContent = 'This year\'s mornings';
+      coffeeTitle.textContent = 'This year\'s sessions';
     }
 
     var saveGuide = document.getElementById('coffee-save-guide');
@@ -1884,7 +1894,7 @@
   // community/#ev-<date>; arriving on that fragment opens THAT event and closes every
   // other one, so a family lands on the thing they clicked instead of on whichever card
   // the markup ships open. With no hash the page keeps its own [open] default (next
-  // upcoming). Deliberately NOT folded into the coffee-mornings hash block above: that
+  // upcoming). Deliberately NOT folded into the information-sessions hash block above: that
   // one lives inside `if (coffeeMount)` and never runs here.
   var evCards = document.querySelectorAll('details.ev-detail');
   if (evCards.length) {
