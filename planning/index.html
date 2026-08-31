@@ -83,9 +83,12 @@
   .plan-key i.tl{background:var(--red-tint);}
   .plan-key i.smk{background:var(--purple-tint);}
   .plan-key i.noplan{width:8px;height:8px;border:none;border-radius:50%;background:var(--red);}
+  .plan-key i.aud{width:8px;height:8px;border:none;border-radius:50%;}
+  .plan-key i.aud.parent{background:var(--ev-parent);}
+  .plan-key i.aud.child{background:var(--ev-child);}
 
   .plan-scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--white);}
-  table.plan{border-collapse:collapse;width:100%;min-width:900px;font-size:14px;}
+  table.plan{border-collapse:collapse;width:100%;min-width:1040px;font-size:14px;}
   table.plan th{position:sticky;top:0;z-index:2;background:var(--white);text-align:left;
     font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
     color:var(--muted);padding:11px 14px;border-bottom:1px solid var(--rule);white-space:nowrap;}
@@ -95,7 +98,15 @@
     border-bottom:1px solid var(--rule);}
   table.plan td.cam{font-size:13px;line-height:1.25;color:var(--charcoal);white-space:nowrap;width:1%;
     border-right:1px solid var(--rule);}
-  table.plan td.ev{min-width:290px;}
+  table.plan td.ev{min-width:270px;}
+  table.plan td.ct,table.plan td.au{font-family:var(--mono);font-size:10.5px;font-weight:700;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;width:1%;
+    padding-top:11px;}
+  table.plan td.au span{display:inline-flex;align-items:center;gap:6px;}
+  table.plan td.au i{width:8px;height:8px;border-radius:50%;flex:none;}
+  table.plan td.au i.parent{background:var(--ev-parent);}
+  table.plan td.au i.child{background:var(--ev-child);}
+  table.plan td.au i.holiday{background:transparent;border:1.5px solid var(--ev-holiday);}
   table.plan td.dt{white-space:nowrap;font-variant-numeric:tabular-nums;}
   table.plan td.tm{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--charcoal);}
   table.plan td.lo{color:var(--charcoal);}
@@ -130,6 +141,8 @@
         <span><i class="tl"></i>PE 39, 49 &amp; 55</span>
         <span><i class="smk"></i>PE Samakee</span>
         <span><i class="noplan"></i>No planning tab yet</span>
+        <span><i class="aud parent"></i>For parents</span>
+        <span><i class="aud child"></i>Children only</span>
       </p>
     </div>
 
@@ -137,6 +150,7 @@
       <table class="plan">
         <thead><tr>
           <th scope="col">Month</th><th scope="col">Campus</th><th scope="col">Workshop or event</th>
+          <th scope="col">Category</th><th scope="col">Audience</th>
           <th scope="col">Date</th><th scope="col">Time</th><th scope="col">Location</th>
         </tr></thead>
         <tbody id="plan-body"></tbody>
@@ -242,7 +256,7 @@
         return o;
       }).filter(function (o) { return o.date && o.title; }).map(function (o) {
         return { campus: campus, date: o.date, until: o.until || "", cat: o.cat || "event",
-                 title: o.title, time: o.time || "", venue: o.venue || "",
+                 aud: o.aud || "", title: o.title, time: o.time || "", venue: o.venue || "",
                  cohort: o.cohort || "", href: o.href || "" };
       });
     }
@@ -251,13 +265,13 @@
       var out = [], P = window.PORTAL || {};
       (P.calendarEvents || []).forEach(function (e) {
         out.push({ campus: "city", date: e.date, until: e.until || "", cat: e.cat || "event",
-                   title: e.title, time: e.time || "", venue: e.venue || "",
+                   aud: e.aud || "", title: e.title, time: e.time || "", venue: e.venue || "",
                    cohort: e.cohort || "", href: e.href || "" });
       });
       (P.peEvents || []).forEach(function (e) {
         out.push({ campus: e.pe === "samakee" ? "smk" : "tl", date: e.date, until: e.until || "",
-                   cat: e.cat || "event", title: e.title, time: e.time || "", venue: e.venue || "",
-                   cohort: e.cohort || "", href: e.href || "" });
+                   cat: e.cat || "event", aud: e.aud || "", title: e.title, time: e.time || "",
+                   venue: e.venue || "", cohort: e.cohort || "", href: e.href || "" });
       });
       return out;
     }
@@ -352,6 +366,18 @@
               ev.appendChild(dot);
             }
 
+            cell(tr, "ct", e.cat);
+            var au = cell(tr, "au");
+            if (e.aud) {
+              var wrap = document.createElement("span");
+              var dotA = document.createElement("i");
+              dotA.className = e.aud;
+              wrap.appendChild(dotA);
+              wrap.appendChild(document.createTextNode(e.aud === "parent" ? "Parents"
+                : e.aud === "child" ? "Children" : e.aud));
+              au.appendChild(wrap);
+            }
+
             var dt = cell(tr, "dt");
             if (e.cohort) {
               var coh = document.createElement("span");
@@ -375,7 +401,7 @@
           if (first) { cell(tr2, "mo", MONTHS[+key.slice(5) - 1]).rowSpan = span; }
           var td = cell(tr2, "cam", "School closed");
           var note = cell(tr2, "lo", uniq.join(" · "));
-          note.colSpan = 4;
+          note.colSpan = 6;
           body.appendChild(tr2);
         }
       });
