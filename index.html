@@ -101,38 +101,50 @@
           <!-- Headshot is STATIC and follows the live note's signer by hand: swap this src
                when the note changes (onerror hides the slot until the file lands). Making it
                follow notes[] automatically is render.js (frozen), filed as an issue.
-               2026-08-24: Heather -> Trevor with the ASA sign-up note. -->
-          <img class="headshot" src="assets/img/trevor.png" alt="Trevor" width="56" height="56" onerror="this.style.display='none'">
+               2026-08-24: Heather -> Trevor with the ASA sign-up note.
+               2026-09-01: Trevor -> Payal with her September note (hos.png = Head of Schools). -->
+          <img class="headshot" src="assets/img/hos.png" alt="Payal" width="56" height="56" onerror="this.style.display='none'">
           <div>
-            <span class="eyebrow" id="note-eyebrow">A note from Trevor</span>
+            <span class="eyebrow" id="note-eyebrow">A note from Payal</span>
             <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">After school activities open for sign up today.</h2>
+        <h2 id="note-title">A special start to our year.</h2>
       </summary>
       <div class="note-reveal">
         <div class="note-main">
           <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
-          <p id="note-body">Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. Twenty-eight activities run from 7 September to 17 December: making and tech, studio arts, sport and movement, language and music. The ASA page has the brochure with every activity, what each one costs, and what happens after you register. Having trouble registering, or any questions? Email activities@elc.ac.th.</p>
-          <div class="sig" id="note-sig">Trevor &middot; Head of Operations and Educational Experience</div>
+          <p id="note-body">Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.</p>
+          <div class="sig" id="note-sig">Payal Kogar &middot; Head of Schools and Pedagogista</div>
           <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
                signer, and render.js does not rewrite it. Reintroduce only as a per-note
                field. -->
         </div>
-        <!-- Children building on the light table, shot from overhead: backlit silhouettes of
-             sticks, wheels, boards and two hands working a component (Trevor 2026-08-24, with
-             the ASA sign-up note). A single frame lifted from his 5-minute build video at
-             t=159.6s, cropped to the light panel (880x660 from a 1280x720 source, so this is a
-             NATIVE 1:1 crop, not an upscale) and encoded at JPEG q2, 96 KB. The master frame,
-             plus the 20-second seamless time-lapse built from the same video and NOT shipped,
-             are parked in design/reference/art-src/ (see docs/issues/0208 for why the animation
-             did not ship and what it would take).
+        <!-- THE WELCOME WORD-ART, hero for Payal's September note (Trevor 2026-09-01, issue
+             0236: "can we remove the background, keeping the other colour of this image as the
+             hero for Payal's message"). Children's hand-lettering with flowers growing through
+             the letters and a paper plane overhead. It replaces the light-table build frame,
+             which was chosen with the ASA sign-up note it shipped under (0208); that frame and
+             its unshipped time-lapse stay in design/reference/art-src/.
+             PROVENANCE + PROCESSING, so this is reproducible: cropped from the TOP SECTION of
+             design/reference/art-src/welcome-sign.png (2000x2889, the full banner: ELC lockup
+             above, Thai-houses village below, both excluded), ink bbox x 80-1921 / y 441-1070
+             plus an 18px even pad. The white ground was removed by UNMULTIPLY, not by a
+             threshold: alpha comes from the DARKEST channel (luminance would have erased the
+             pink rose, which reads bright in red), then the ink's own colour is recovered with
+             C_true = (C_obs - 255*(1-a)) / a, so compositing it back over white reproduces the
+             scan exactly. Anything at min >= 246 is treated as paper. 84.5% of the file is
+             fully transparent and all four corners are alpha 0.
              880 wide is exactly 2x the 440px desktop slot, so it is retina-sharp; mobile caps
-             the slot at 190px. .note-art carries --art-invert, which is invert(1) in dark
-             theme: this frame is near-monochrome, so it reverses correctly the way the token
-             intends (black ink to white ink). The yellow wheels and the green board do flip
-             hue there; judged acceptable, recorded in 0208. -->
-        <img class="note-art" src="assets/img/art/light-table-build.jpg" alt="" aria-hidden="true" loading="lazy" width="880" height="660">
+             the slot at 190px. Same rule the frame it replaces followed.
+             The mono potrace of the same word, assets/img/art/welcome.svg, is a DIFFERENT
+             asset: it is still in sw.js SHELL[] and still referenced by no page.
+             /!\ .note-art carries --art-invert, which is invert(1) in dark theme. Black ink to
+             white ink is right and is the whole point of the token, but this art carries more
+             colour than the near-monochrome frame it replaces, so the rose, leaves, flower and
+             plane DO flip hue after dark. Flagged to Trevor, not silently accepted: scoping the
+             filter would be an app.css edit and app.css is FROZEN. See 0236. -->
+        <img class="note-art" src="assets/img/art/welcome-hero.png" alt="" aria-hidden="true" loading="lazy" width="880" height="312">
       </div>
       <div class="note-history" id="note-history" hidden></div>
     </details>

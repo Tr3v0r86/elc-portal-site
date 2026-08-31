@@ -269,39 +269,42 @@ window.PORTAL = {
     // ⚠ The activities@elc.ac.th address is PLAIN TEXT here, not a link: render.js sets the
     // body with textContent, and a note gets exactly ONE cta, which Trevor asked to spend on
     // the ASA page. The address IS a live mailto one tap away on asa/ (site/asa/index.html:147).
-    { from: '2026-08-24', eyebrow: 'A note from Trevor', when: '',
-      title: 'After school activities open for sign up today.',
-      body: 'Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. Twenty-eight activities run from 7 September to 17 December: making and tech, studio arts, sport and movement, language and music. The ASA page has the brochure with every activity, what each one costs, and what happens after you register. Having trouble registering, or any questions? Email activities@elc.ac.th.',
-      cta: { href: 'asa/', label: 'See the activities' },
-      sig: 'Trevor · Head of Operations and Educational Experience' }
+    // Payal's September note, LIVE 2026-09-01 on Trevor's word ("flip the message on the
+    // portal to payal's note"). `from` is the deploy day, never future (ADR-0013 / issue 0164
+    // hold). It replaces the ASA sign-up note, which is commented out below: one note at a
+    // time, no history. The three event names were aligned to the portal's own names on
+    // 2026-08-31 (0227 / 0228 / ADR-0016) and still match data.js verbatim: 'Parent coffee
+    // morning' (calendarEvents 2026-09-07) and 'After school community football'
+    // (2026-09-11). Payal's OWN email may still carry her draft names; the portal cannot
+    // fix that from here (connections.md, the email-destination table).
+    // ⚠ The 2 September lanyard sentence is FUTURE TENSE and this note ships on 1 September.
+    // It is correct on the 1st and still correct after the 2nd (it states a dated rule, not a
+    // state), so it needs no follow-up deploy. Do not "fix" it to the present tense: rotate
+    // the whole note instead, the same rule the ASA note carried.
+    // ⚠ The headshot on site/index.html is STATIC and was hand-swapped to hos.png (Payal) in
+    // the same commit. render.js does not read `photo`; that field is advisory here.
+    { from: '2026-09-01', eyebrow: 'A note from Payal', when: '',
+      title: 'A special start to our year.',
+      body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.',
+      photo: 'hos.png',
+      cta: { href: 'calendar/', label: 'See the calendar' },
+      sig: 'Payal Kogar · Head of Schools and Pedagogista' }
 
     // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
     // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
     // set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
     //
-    // Payal's September note (queued 2026-08-31). Mirrors her September email to families:
-    // same sentiment, condensed. TIMED TO HER EMAIL SEND: goes
-    // live the day that email goes out, replacing the ASA sign-up note. On activation set
-    // `from` to that day (never future, issue 0164 hold), comment out the ASA row above.
-    // ⚠ THREE EVENT NAMES EDITED 2026-08-31 ON TREVOR'S WORD (0227 / ADR-0016), because
-    // connections.md requires an email to use the portal's event name VERBATIM: a family
-    // must land on the words they clicked. Her draft said "Social Coffee Morning" and
-    // "Community Football" for events now named "Parent coffee morning" and "After
-    // school community football" (that one renamed again same day, 0228); "Open Evening"
-    // already matched. This is Payal's copy, so the edit is
-    // names only, not voice. HER OWN EMAIL still carries the old two names unless she
-    // changes them there too, and the portal cannot fix that from here.
-    // ⚠ CTA ADDED 2026-08-31, reversing the earlier "no links" ask (Trevor): her body ends
-    // "every date is on the calendar here", and "here" pointed at nothing. A note gets
-    // exactly ONE cta and this is where it is spent. Internal path on purpose: render.js's
-    // evHref rejects schemes, so a note cta cannot carry an off-portal URL anyway.
-    // { from: 'SET-ON-SEND-DAY', eyebrow: 'A note from Payal', when: '',
-    //   title: 'A special start to our year.',
-    //   body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.',
-    //   photo: 'hos.png',
-    //   cta: { href: 'calendar/', label: 'See the calendar' },
-    //   sig: 'Payal Kogar · Head of Schools and Pedagogista' },
+    // ASA sign-up announcement, RETIRED 2026-09-01 when Payal's September note replaced it.
+    // It ran from 2026-08-24 (issue 0179). Its tense was written to be true before and after
+    // 10am on launch day; if it is ever re-run, re-time the sentence rather than the clock.
+    // The ASA claim is NOT gone from the site with it: activities/, asa/, asa/fees/ and the
+    // help answer still carry it (connections.md, the ASA claim table).
+    // { from: '2026-08-24', eyebrow: 'A note from Trevor', when: '',
+    //   title: 'After school activities open for sign up today.',
+    //   body: 'Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. Twenty-eight activities run from 7 September to 17 December: making and tech, studio arts, sport and movement, language and music. The ASA page has the brochure with every activity, what each one costs, and what happens after you register. Having trouble registering, or any questions? Email activities@elc.ac.th.',
+    //   cta: { href: 'asa/', label: 'See the activities' },
+    //   sig: 'Trevor · Head of Operations and Educational Experience' },
     //
     // Heather's start-of-year note (issue 0168), RETIRED 2026-08-24 when the ASA sign-up
     // announcement replaced it. It ran from 2026-08-15.

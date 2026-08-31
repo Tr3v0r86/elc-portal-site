@@ -20,7 +20,7 @@
    byte-comparing THIS FILE: leave it identical and reg.update() finds nothing, no
    controllerchange fires, and the update flow in render.js never runs. A themed-asset fix
    that changes only app.css would therefore never reach a family who does not navigate. */
-const CACHE = "elc-portal-shell-v52";
+const CACHE = "elc-portal-shell-v53";
 
 const SHELL = [
   "./",
@@ -80,7 +80,7 @@ const SHELL = [
   "assets/img/art/thai-houses.svg",
   "assets/img/art/spiral.png",
   "assets/img/art/samakee-greeting.png",
-  "assets/img/art/light-table-build.jpg",
+  "assets/img/art/welcome-hero.png",
   "assets/icon-180.png",
   "assets/icon-192.png",
   "assets/icon-512.png",

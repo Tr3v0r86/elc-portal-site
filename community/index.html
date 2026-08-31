@@ -111,7 +111,15 @@
          Jotform URLs are typed, restating the fenced rows: sheet moves first, card
          follows in the same commit · passed-date cards come off at the sweep. Briefs are
          published for 7 Sep + 17 Sep only (rev 3); the October cards stay light until
-         their details land. Next upcoming card ships open, the rest closed. -->
+         their details land.
+         WHICH CARD OPENS IS NO LONGER THIS FILE'S DECISION (0236, Trevor 2026-09-01).
+         render.js reads each card's id (ev-YYYY-MM-DD) and opens the earliest one still
+         >= today, unless a #ev-<date> hash names one, which always wins. The [open]
+         below is now ONLY the JS-off fallback: keep it on the next upcoming card at each
+         sweep so a reader with no JS still lands somewhere sensible, but it no longer
+         drives what anyone else sees, and leaving it on a passed card is cosmetic rather
+         than wrong. Adding a card means giving it a well-formed ev-<date> id: a
+         malformed id is skipped by the picker, not guessed at. -->
     <div class="section">
       <div class="sec-eyebrow"><span class="eyebrow">Workshops</span><span class="ln"></span></div>
 

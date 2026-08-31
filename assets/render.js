@@ -869,7 +869,15 @@
        No data-pe (the City home) reads calendarEvents unchanged. */
     var wkPe = week.getAttribute('data-pe');
     var wkSrc = wkPe ? (P.peEvents || []).filter(function (e) { return e.pe === wkPe; }) : P.calendarEvents;
-    var wkBy = expandByDate(coreRows(wkSrc));   // 0071: comunita rows live on community/ · 0114: multi-day rows mark every day
+    /* 0236 (Trevor 2026-09-01, explicit yes in the exchange: "'parent coffee morning' isnt
+       surfacing inside the 'next week' cards. Lets put it there"). The strip no longer reads
+       through coreRows(), so comunita rows DO appear on it. This is the week strip only:
+       coreRows() itself is untouched, so the calendar month grid and the calendar agenda keep
+       the 0071 split. The Coming up band made the same move on 2026-08-31 (0221); the strip was
+       the last core surface where a family could look at the week of 7 September and see no
+       coffee morning on it. Source array is unchanged, so a PE mount still shows only its own
+       campus's rows. */
+    var wkBy = expandByDate(wkSrc);   // 0236: comunita rows join the strip · 0114: multi-day rows mark every day
     var wkH = document.getElementById('wk-h');
     if (wkH) wkH.setAttribute('aria-live', 'polite');   // the heading announces the flip
     var renderWeek = function (off) {
@@ -883,8 +891,19 @@
         var wDow = WK_DOW[wi] + (wIsToday ? ' &middot; Today' : '');
         var wEvsHtml = wEvs.length
           ? wEvs.map(function (e) {
-              var wxt = evHref(e.href) ? null : (extUrl(e) || thaiHolidayUrl(e));   // 0142
-              var h = dayEvHref(evHref(e.href), wxt, !!wkPe, ROOT);   // 0131: no cross-campus fallback
+              // 0236: a comunita row on the strip goes to ITS OWN block on community/, using the
+              // same #ev-<date> deep link the Coming up band builds (see the frag line below in
+              // the agenda block), NEVER to the row's `ext` Jotform. The strip's job is to land a
+              // family on the event; the RSVP button lives on that block, and half these rows have
+              // no href at all, so without this branch tapping "Parent coffee morning" would drop
+              // a parent straight into a form with no context. The fragment is derived from the
+              // row date at both ends, so nothing is typed in the sheet, and a fragment landing on
+              // a page with no such id is an inert no-op. community/ is the canonical home for a
+              // comunita row on either campus, so this is not the 0131 cross-campus fallback.
+              var wComm = !!e.comunita;
+              var wxt = (wComm || evHref(e.href)) ? null : (extUrl(e) || thaiHolidayUrl(e));   // 0142
+              var h = wComm ? (ROOT + 'community/#ev-' + e.date)
+                            : dayEvHref(evHref(e.href), wxt, !!wkPe, ROOT);   // 0131: no cross-campus fallback
               // 2026-08-06 (Trevor): the Parents/Children keys came off the strip, so a holiday
               // says it in words instead of relying on a dot shape. Every day of a multi-day
               // break carries it, because 0114 expands the range across all of them.
@@ -1893,22 +1912,53 @@
   // 0225: deep-link into the community event cards. A Coming up card links to
   // community/#ev-<date>; arriving on that fragment opens THAT event and closes every
   // other one, so a family lands on the thing they clicked instead of on whichever card
-  // the markup ships open. With no hash the page keeps its own [open] default (next
-  // upcoming). Deliberately NOT folded into the information-sessions hash block above: that
-  // one lives inside `if (coffeeMount)` and never runs here.
+  // the markup ships open. Deliberately NOT folded into the information-sessions hash block
+  // above: that one lives inside `if (coffeeMount)` and never runs here.
+  // 0236 (Trevor 2026-09-01, explicit yes in the exchange: "when loading .../community/ it
+  // should always open the next available date, if not redirected from a card press"). With
+  // NO usable hash the page now COMPUTES which card opens instead of trusting the static
+  // [open] in the markup. The static one went stale the day its event passed: 7 Sep shipped
+  // open and would have sat open through October, and keeping it honest meant a hand edit at
+  // every monthly sweep, which is exactly the custody cost 0220 rev 4 accepted and 0225 then
+  // half-paid. A hash still wins, so a card press is never overridden.
   var evCards = document.querySelectorAll('details.ev-detail');
   if (evCards.length) {
     // Also on hashchange: a hash-only move is a SAME-DOCUMENT navigation, so the script
     // does not re-run. Without this, browser back/forward between two events leaves the
     // first one open and the URL lying about what is on screen.
+    // Returns whether it actually opened something, so the no-hash path can tell a real
+    // deep link from a hash that names nothing on this page (a stray #, an anchor from
+    // another surface): only a hash that resolves to a card suppresses the date default.
     var openHashEvent = function () {
-      if (!location.hash) return;
+      if (!location.hash) return false;
       var evTarget = document.getElementById(location.hash.slice(1));
-      if (!evTarget || !evTarget.classList.contains('ev-detail')) return;
+      if (!evTarget || !evTarget.classList.contains('ev-detail')) return false;
       for (var ei = 0; ei < evCards.length; ei++) evCards[ei].open = (evCards[ei] === evTarget);
       requestAnimationFrame(function () { evTarget.scrollIntoView({ block: 'start' }); });
+      return true;
     };
-    openHashEvent();
+    // The date comes from the card's OWN id (ev-YYYY-MM-DD), the same string the deep link
+    // already uses, so a new card needs nothing typed beyond the id it needs anyway and a
+    // malformed id is skipped rather than guessed at. "Next available" = the earliest card
+    // still >= today (a card is live all of its own day, matching every other surface's
+    // >= bkkToday test). When every card has passed, the LAST one by date stays open so the
+    // page is never all-collapsed with no explanation; the sweep that removes passed cards
+    // is what actually keeps that case from being reached.
+    var EV_ID = /^ev-(\d{4}-\d{2}-\d{2})$/;
+    var openNextEvent = function () {
+      var best = null, last = null;
+      for (var ni = 0; ni < evCards.length; ni++) {
+        var m = EV_ID.exec(evCards[ni].id || '');
+        if (!m) continue;
+        var nd = m[1];
+        if (!last || nd > last.d) last = { d: nd, el: evCards[ni] };
+        if (nd >= bkkToday && (!best || nd < best.d)) best = { d: nd, el: evCards[ni] };
+      }
+      var pick = best || last;
+      if (!pick) return;
+      for (var nj = 0; nj < evCards.length; nj++) evCards[nj].open = (evCards[nj] === pick.el);
+    };
+    if (!openHashEvent()) openNextEvent();
     window.addEventListener('hashchange', openHashEvent);
   }
 
