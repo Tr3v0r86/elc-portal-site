@@ -185,14 +185,14 @@
       <div class="weekstrip" id="week">
         <a class="week-fallback" href="calendar/">See this week on the calendar <span class="arw">&rarr;</span></a>
       </div>
-      <!-- Week-strip key. Parents and Children keys REMOVED 2026-08-06 (Trevor): the audience
-           dots stay (they still carry colour AND shape for WCAG 1.4.1, shared with the calendar),
-           but a parent does not need a taxonomy lesson on the front page. Only "no school" is
-           keyed, because that is the one a family acts on, and every holiday now also spells it
-           out in words under the entry (render.js, the `.day-note` line). -->
-      <div class="legend wk">
-        <span><span class="d holiday"></span>No school</span>
-      </div>
+      <!-- Week-strip key RETIRED 2026-08-31 (Trevor, 0229): "'no school' writing doesnt have to
+           live on the homepage and can be removed. It only needs the mention in the actual
+           calendar for the cards, not persistent." Last surviving item of the key the 2026-08-06
+           pass already cut Parents and Children from, for the same reason. Nothing is lost: every
+           holiday still spells it out in words under its own week-strip entry (render.js's
+           `.day-note`), a Coming up card carries it in the blurb, and the calendar grid's own
+           legend below still keys the holiday dot. The dots keep colour AND shape for WCAG
+           1.4.1 either way; that was never the key's job. -->
     </section>
 
     <!-- outdoor-air decision tile (sprint 3 F4); render.js removes it when PORTAL.air is null -->
