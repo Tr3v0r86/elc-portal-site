@@ -149,11 +149,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20260911-community-football@portal.elc.ac.th
+UID:20260911-after-school-community-football@portal.elc.ac.th
 DTSTAMP:20260911T000000Z
 DTSTART;VALUE=DATE:20260911
 DTEND;VALUE=DATE:20260912
-SUMMARY:Community football
+SUMMARY:After school community football
 URL:https://elcportal.elc.ac.th/community-football/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community-football/
 END:VEVENT

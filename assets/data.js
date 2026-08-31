@@ -219,8 +219,8 @@ window.PORTAL = {
     // what a family should read. Only community-football/ (not comunita, gold row)
     // keeps a dedicated page + overlay. NO DATES IN BLURBS: the card's `when` chip
     // renders the date from the rows and the overlay is pull-proof.
-    { href: 'community-football/', title: 'Community football',
-      blurb: 'Our first community football event of the year: after school for Years 1 to 6, all skill levels welcome.',
+    { href: 'community-football/', title: 'After school community football',
+      blurb: 'Our first of the year, for Years 1 to 6. All skill levels welcome: a kickabout with friends, not a trial.',
       go: 'What it is and how to RSVP' }
   ],
 
@@ -284,8 +284,9 @@ window.PORTAL = {
     // ⚠ THREE EVENT NAMES EDITED 2026-08-31 ON TREVOR'S WORD (0227 / ADR-0016), because
     // connections.md requires an email to use the portal's event name VERBATIM: a family
     // must land on the words they clicked. Her draft said "Social Coffee Morning" and
-    // "Community Football" for events now named "Parent coffee morning" and "Community
-    // football"; "Open Evening" already matched. This is Payal's copy, so the edit is
+    // "Community Football" for events now named "Parent coffee morning" and "After
+    // school community football" (that one renamed again same day, 0228); "Open Evening"
+    // already matched. This is Payal's copy, so the edit is
     // names only, not voice. HER OWN EMAIL still carries the old two names unless she
     // changes them there too, and the portal cannot fix that from here.
     // ⚠ CTA ADDED 2026-08-31, reversing the earlier "no links" ask (Trevor): her body ends
@@ -294,7 +295,7 @@ window.PORTAL = {
     // evHref rejects schemes, so a note cta cannot carry an off-portal URL anyway.
     // { from: 'SET-ON-SEND-DAY', eyebrow: 'A note from Payal', when: '',
     //   title: 'A special start to our year.',
-    //   body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and Community football to Open Evening: every date is on the calendar here.',
+    //   body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.',
     //   photo: 'hos.png',
     //   cta: { href: 'calendar/', label: 'See the calendar' },
     //   sig: 'Payal Kogar · Head of Schools and Pedagogista' },
@@ -650,7 +651,7 @@ window.PORTAL = {
     { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'information-sessions/', ext: 'https://form.jotform.com/261940122478457', cohort: 'K2', time: '8:30 to 9:30 am', venue: 'The Atrium', slides: { href: 'https://elcportal.elc.ac.th/information-sessions/k2-information-session-2026.pdf', tag: 'PDF' }, title: 'K2 Information session', sub: '' },
     { date: '2026-09-07', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'ASA\'s Start', sub: '' },
     { date: '2026-09-07', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360861224453', comunita: true, title: 'Parent coffee morning', sub: '' },
-    { date: '2026-09-11', cat: 'event', type: 'gold', aud: 'child', href: 'community-football/', ext: 'https://form.jotform.com/262288919933473', title: 'Community football', sub: '' },
+    { date: '2026-09-11', cat: 'event', type: 'gold', aud: 'child', href: 'community-football/', ext: 'https://form.jotform.com/262288919933473', title: 'After school community football', sub: '' },
     { date: '2026-09-17', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360929144459', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Safe Passages, Bright Horizons', sub: 'Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'International Schools Holiday', sub: '' },
     { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', title: 'Open Evening', sub: '' },
