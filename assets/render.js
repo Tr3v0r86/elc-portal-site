@@ -969,14 +969,18 @@
     (P.featuredEvents || []).forEach(function (f) { if (f && f.href) featBy[f.href] = f; });
 
     var cuMap = {}, cuOrder = [];
-    // Core city rows PLUS every non-social comunita row (both campus arrays): workshops
-    // are off the calendar pages but each windowed one gets ITS OWN card here (Trevor
-    // 2026-08-05, unbundling the single 0079 card). A pageless one renders the honest
-    // "Page coming soon" pill and trips the check-coming-up gate: fail loudly, Trevor
-    // makes the page. Social mornings stay community/-only.
+    // Core city rows PLUS every comunita row (both campus arrays): workshops are off the
+    // calendar pages but each windowed one gets ITS OWN card here (Trevor 2026-08-05,
+    // unbundling the single 0079 card). A pageless one renders the honest "Page coming
+    // soon" pill and trips the check-coming-up gate: fail loudly, Trevor makes the page.
+    // The `cat !== 'social'` clause came OUT 2026-08-31 (Trevor's explicit yes, issue
+    // 0221: "I dont see social morning card on the 'coming up' which should default to
+    // the community page") -- social mornings now card like every other comunita event,
+    // landing on community/ via their rows' href. Rows sharing 'community/' still merge
+    // into one card while co-windowed; the 0221 close records that trade.
     var cuSrc = coreRows(P.calendarEvents).concat(
       (P.calendarEvents || []).concat(P.peEvents || [])
-        .filter(function (e) { return e.comunita && e.cat !== 'social'; }));
+        .filter(function (e) { return e.comunita; }));
     cuSrc.forEach(function (e) {
       // A multi-day row stays in the band while it is STILL RUNNING: the test is its
       // END date, not its start. The old start-only test dropped 13 rows across the year

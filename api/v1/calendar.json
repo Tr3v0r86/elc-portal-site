@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-08-26T10:37:18.347Z",
+  "generated": "2026-08-31T00:25:24.900Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -196,7 +196,6 @@
       "cat": "event",
       "type": "gold",
       "aud": "child",
-      "nopage": true,
       "ext": "https://form.jotform.com/262288919933473",
       "title": "After School Community Event at The City School",
       "sub": ""
@@ -206,7 +205,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/262360929144459",
       "time": "8:30 to 9:30 am",
       "venue": "The Atrium",
@@ -271,6 +269,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "ext": "https://form.jotform.com/262360685205456",
       "comunita": true,
       "title": "Language of Maths",
@@ -298,6 +297,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "ext": "https://form.jotform.com/262360746297465",
       "comunita": true,
       "title": "Language of Maths",

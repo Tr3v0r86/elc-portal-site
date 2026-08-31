@@ -206,7 +206,19 @@ window.PORTAL = {
     // This island IS pull-proof, so the retitle is durable; the row is not.
     { href: 'asa/', title: 'ASA sign up',
       blurb: 'Sign up opens at 10am on Monday 24 August and stays open for the next two weeks. The Term 1 brochure has every activity, who teaches it, and what children do.',
-      go: 'Brochure and how ASA works' }
+      go: 'Brochure and how ASA works' },
+    // Event-page overlay (Trevor 2026-08-31, issue 0220, REVISED same day): comunita
+    // events (workshops + social mornings) carry href 'community/' and their homepage
+    // cards land on the community page, which holds each event's block (headline,
+    // subheading, what to expect, RSVP). Deliberately NO overlay for 'community/':
+    // an overlay is keyed by href, so one entry would retitle EVERY comunita card the
+    // same way; with no overlay each card keeps its own row title and sub, which is
+    // what a family should read. Only community-football/ (not comunita, gold row)
+    // keeps a dedicated page + overlay. NO DATES IN BLURBS: the card's `when` chip
+    // renders the date from the rows and the overlay is pull-proof.
+    { href: 'community-football/', title: 'Community football',
+      blurb: 'Our first community football event of the year: after school for Years 1 to 6, all skill levels welcome.',
+      go: 'What it is and how to RSVP' }
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
@@ -261,6 +273,16 @@ window.PORTAL = {
     // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
     // set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Payal's September note (queued 2026-08-31). Mirrors her September email to families:
+    // same sentiment, condensed, no links (Trevor's ask). TIMED TO HER EMAIL SEND: goes
+    // live the day that email goes out, replacing the ASA sign-up note. On activation set
+    // `from` to that day (never future, issue 0164 hold), comment out the ASA row above.
+    // { from: 'SET-ON-SEND-DAY', eyebrow: 'A note from Payal', when: '',
+    //   title: 'A special start to our year.',
+    //   body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Social Coffee Morning and Community Football to Open Evening: every date is on the calendar here.',
+    //   photo: 'hos.png',
+    //   sig: 'Payal Kogar · Head of Schools and Pedagogista' },
     //
     // Heather's start-of-year note (issue 0168), RETIRED 2026-08-24 when the ASA sign-up
     // announcement replaced it. It ran from 2026-08-15.
@@ -612,19 +634,19 @@ window.PORTAL = {
     { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', until: '2026-09-05', href: 'asa/', title: 'ASA Enrolments Start', sub: '' },
     { date: '2026-08-24', cat: 'event', type: 'purple', aud: 'parent', href: 'coffee-mornings/', ext: 'https://form.jotform.com/261940122478457', cohort: 'K2', time: '8:30 to 9:30 am', venue: 'The Atrium', slides: { href: 'https://elcportal.elc.ac.th/coffee-mornings/k2-parent-coffee-morning-2026.pdf', tag: 'PDF' }, title: 'K2 Coffee morning', sub: 'Information session' },
     { date: '2026-09-07', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'ASA\'s Start', sub: '' },
-    { date: '2026-09-07', cat: 'social', type: 'purple', aud: 'parent', ext: 'https://form.jotform.com/262360861224453', comunita: true, title: 'Parent Social Morning', sub: '' },
-    { date: '2026-09-11', cat: 'event', type: 'gold', aud: 'child', nopage: true, ext: 'https://form.jotform.com/262288919933473', title: 'After School Community Event at The City School', sub: '' },
-    { date: '2026-09-17', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360929144459', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Safe Passages, Bright Horizons', sub: 'Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally' },
+    { date: '2026-09-07', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360861224453', comunita: true, title: 'Parent Social Morning', sub: '' },
+    { date: '2026-09-11', cat: 'event', type: 'gold', aud: 'child', href: 'community-football/', ext: 'https://form.jotform.com/262288919933473', title: 'After School Community Event at The City School', sub: '' },
+    { date: '2026-09-17', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360929144459', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Safe Passages, Bright Horizons', sub: 'Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'International Schools Holiday', sub: '' },
     { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', title: 'Open Evening', sub: '' },
     { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', title: 'Open House at The City School', sub: '' },
     { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', ext: 'https://form.jotform.com/262360716288462', comunita: true, title: 'Parent Social Morning', sub: '' },
     { date: '2026-10-12', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-10-16', title: 'Holiday: ELC October mid-term break', sub: 'to 16 Oct' },
-    { date: '2026-10-22', cat: 'workshop', type: 'purple', aud: 'parent', ext: 'https://form.jotform.com/262360685205456', comunita: true, title: 'Language of Maths', sub: 'Experiencing, Communicating & Exploring the Magic of Maths' },
+    { date: '2026-10-22', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360685205456', comunita: true, title: 'Language of Maths', sub: 'Experiencing, Communicating & Exploring the Magic of Maths' },
     { date: '2026-10-23', cat: 'holiday', type: 'purple', aud: 'holiday', title: 'King Chulalongkorn Memorial Day', sub: 'No school for children; Teacher In-Service Day' },
     { date: '2026-10-27', cat: 'event', type: 'gold', aud: 'child', until: '2026-10-30', title: 'School Photos With U-Smile', sub: '' },
-    { date: '2026-10-29', cat: 'workshop', type: 'purple', aud: 'parent', ext: 'https://form.jotform.com/262360746297465', comunita: true, title: 'Language of Maths', sub: 'Repeat of the 22 Oct session. RSVP to one session only.' },
+    { date: '2026-10-29', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360746297465', comunita: true, title: 'Language of Maths', sub: 'Repeat of the 22 Oct session. RSVP to one session only.' },
     { date: '2026-11-04', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', title: 'ELC celebrates Loy Krathong', sub: '' },
     { date: '2026-11-23', cat: 'event', type: 'purple', aud: 'parent', title: 'Y1 and Y2 Holiday Pageant', sub: '' },
     { date: '2026-11-26', cat: 'event', type: 'purple', aud: 'parent', title: 'K1 Holiday Pageant', sub: '' },

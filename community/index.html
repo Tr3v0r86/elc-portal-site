@@ -84,41 +84,121 @@
          now fully off every calendar surface, so #community-workshops STANDS even with
          no rows (honest waiting line) instead of self-removing. Coffee mornings keep the
          self-remove idiom. Structure only: CD skins in the 0.8/0.9 loop (rule 7). -->
-    <!-- 0137 (Trevor, relay #61): "community needs to be temporarily locked until Aug 14th
-         when the content is official as per the new homepage card." Date slipped to the
-         week of 17 August (Trevor, 2026-08-14). Until then this page holds: the listings
-         below are withheld and this block stands in their place, so the page and the
-         homepage card promise the same week.
-         "Locked" is editorial, not access control: the route, the chrome and the page's
-         explanation of what La Comunità is all stay. The switch is render.js's DETAILS_DUE,
-         the same single date the homepage card reads, so the date needs no second edit.
-         Hidden in markup and revealed by JS: with JS off nothing unofficial is shown. -->
-    <div class="section" data-details-hold hidden>
-      <div class="sec-eyebrow"><span class="eyebrow">Coming the week of 17 August</span><span class="ln"></span></div>
-      <p class="page-note">The workshops and social mornings programme for this year is being finalised, and it is coming to this page the week of 17 August. Nothing is bookable before then. Once it is up you will find every occasion listed on this page with its date, and the ones that need a place reserved will say so.</p>
-    </div>
+    <!-- PROGRAMME HOLD RETIRED HERE 2026-08-31 (0220 rev 4). The 0137 hold block and its
+         [data-details-hold] plumbing came off this page with the JS listing mounts: the
+         event cards below are static markup, so PORTAL.programme.published can no longer
+         withhold them (it withheld the JS-rendered listings). programme.published stays
+         true and its other readers (home + activities card notes, check-coming-up grace)
+         are untouched. If the programme is ever re-held, this page needs a hand edit, not
+         a switch: connections.md's programme-publication table records this reader as
+         retired. -->
 
-    <section id="community-workshops" data-details-ready hidden></section>
-    <section id="community-mornings" data-details-ready hidden></section>
+
+    <!-- COLLAPSIBLE EVENT CARDS (Trevor 2026-08-31, issue 0220 revision 4: "make these
+         the actual collapsible cards so we are not doubling up on content. everything
+         packaged together. Title, subtitle, brief, calendar links"). The two JS mounts
+         (#community-workshops / #community-mornings) are GONE: render.js:613 guards on a
+         missing mount, so the frozen renderer skips cleanly and this static structure is
+         the one listing. Each event = one <details class="ev-detail">: summary reuses the
+         commRow look verbatim (.ev-row / .dte / .ev-main / .et / .es, no new CSS); body =
+         brief + staff team-cards (social mornings) + RSVP + add-to-calendar. The calendar
+         buttons reuse render.js's DELEGATED machinery: the Google link is a precomputed
+         gcalUrl and the Apple button carries the exact class + data-* contract the
+         document-level .ics-btn handler reads, so frozen JS serves static markup.
+         CUSTODY COSTS, accepted at rev 4: a new comunita row in the sheet is INVISIBLE on
+         this page until its card is hand-added (the 0071 "never invisible" promise now
+         runs through the monthly email-prep sweep, 0220) · dates, titles, subs and
+         Jotform URLs are typed, restating the fenced rows: sheet moves first, card
+         follows in the same commit · passed-date cards come off at the sweep. Briefs are
+         published for 7 Sep + 17 Sep only (rev 3); the October cards stay light until
+         their details land. Next upcoming card ships open, the rest closed. -->
+    <div class="section">
+      <div class="sec-eyebrow"><span class="eyebrow">Workshops</span><span class="ln"></span></div>
+
+      <details class="ev-detail">
+        <summary>
+          <div class="ev-row"><span class="dte">THU 17 Sep</span>
+            <div class="ev-main"><div class="et">Safe Passages, Bright Horizons</div>
+            <div class="es">Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally</div></div>
+          </div>
+        </summary>
+        <p class="txt">A workshop for parents on how we look after children at ELC, and what the same care looks like at home. It runs 8:30 to 9:30 am in The Atrium at The City School. Come with questions: the hour is for them. How safeguarding works at ELC, and who to talk to, lives on the <a href="../safeguarding/">safeguarding page</a>.</p>
+        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/262360929144459" target="_blank" rel="noopener">RSVP for 17 September <span class="arw">&rarr;</span></a> <span class="cal-add"><a class="add-btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Safe%20Passages%2C%20Bright%20Horizons%2C%20Keeping%20Our%20Children%20Safe%20-%20Emotionally%2C%20Socially%2C%20Physically%20and%20Digitally&amp;dates=20260917/20260918&amp;details=Details%3A%20https%3A%2F%2Felcportal.elc.ac.th%2Fcommunity%2F" title="Add to Google Calendar" aria-label="Add Safe Passages, Bright Horizons to Google Calendar"><svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a><button type="button" class="add-btn ics-btn" data-date="2026-09-17" data-title="Safe Passages, Bright Horizons" data-sub="Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally" data-href="community/" data-until="" title="Add to Apple Calendar (.ics file)" aria-label="Add Safe Passages, Bright Horizons to Apple Calendar"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></button></span></p>
+      </details>
+
+      <details class="ev-detail">
+        <summary>
+          <div class="ev-row"><span class="dte">THU 22 Oct</span>
+            <div class="ev-main"><div class="et">Language of Maths</div>
+            <div class="es">Experiencing, Communicating &amp; Exploring the Magic of Maths</div></div>
+          </div>
+        </summary>
+        <p class="txt">A workshop for parents on how children meet maths at ELC, and how to explore it together at home. The 22 and 29 October sessions are identical, so please RSVP to one only. More detail will follow closer to the date.</p>
+        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/262360685205456" target="_blank" rel="noopener">RSVP for 22 October <span class="arw">&rarr;</span></a> <span class="cal-add"><a class="add-btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Language%20of%20Maths%2C%20Experiencing%2C%20Communicating%20%26%20Exploring%20the%20Magic%20of%20Maths&amp;dates=20261022/20261023&amp;details=Details%3A%20https%3A%2F%2Fform.jotform.com%2F262360685205456" title="Add to Google Calendar" aria-label="Add Language of Maths to Google Calendar"><svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a><button type="button" class="add-btn ics-btn" data-date="2026-10-22" data-title="Language of Maths" data-sub="Experiencing, Communicating &amp; Exploring the Magic of Maths" data-href="" data-until="" title="Add to Apple Calendar (.ics file)" aria-label="Add Language of Maths to Apple Calendar"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></button></span></p>
+      </details>
+
+      <details class="ev-detail">
+        <summary>
+          <div class="ev-row"><span class="dte">THU 29 Oct</span>
+            <div class="ev-main"><div class="et">Language of Maths</div>
+            <div class="es">Repeat of the 22 Oct session. RSVP to one session only.</div></div>
+          </div>
+        </summary>
+        <p class="txt">This session repeats the 22 October one. If that date does not work for your family, this is the one to book instead.</p>
+        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/262360746297465" target="_blank" rel="noopener">RSVP for 29 October <span class="arw">&rarr;</span></a> <span class="cal-add"><a class="add-btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Language%20of%20Maths%2C%20Repeat%20of%20the%2022%20Oct%20session.%20RSVP%20to%20one%20session%20only.&amp;dates=20261029/20261030&amp;details=Details%3A%20https%3A%2F%2Fform.jotform.com%2F262360746297465" title="Add to Google Calendar" aria-label="Add Language of Maths to Google Calendar"><svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a><button type="button" class="add-btn ics-btn" data-date="2026-10-29" data-title="Language of Maths" data-sub="Repeat of the 22 Oct session. RSVP to one session only." data-href="" data-until="" title="Add to Apple Calendar (.ics file)" aria-label="Add Language of Maths to Apple Calendar"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></button></span></p>
+      </details>
+    </div>
 
     <div class="section">
-      <div class="sec-eyebrow"><span class="eyebrow">What these occasions are like</span><span class="ln"></span></div>
-      <!-- 0079: the old line here sent families to the calendar for these dates. Workshops
-           and social mornings are now off every calendar surface, so this page is where
-           their dates live; pointing at the calendar would be a dead end. -->
-      <p class="txt">Social mornings are the easiest place to start: coffee, no agenda, and other families who walk the same route as you. Their dates live on this page, above.</p>
-      <p class="txt">Parent workshops go one layer deeper, bringing a specialist to the questions parents actually carry. One workshop on positive parenting kept returning to a single idea: trust, in yourself as a parent and in your child. <a href="https://www.elc.ac.th/blog/positive-parenting-workshop/">Read the story on our blog</a>.</p>
-      <!-- PHOTOS PULLED 2026-08-04 (Trevor, "for now"): the two story figures here
-           (Carnival of Cultures, Fun Field Day) are out while the workshops surface settles.
-           Both .jpg files stay in assets/img/blog/ and neither was ever precached, so
-           restoring is re-adding these two <figure> lines. Their captions restated what the
-           following paragraph already says, so no information left with them, and every
-           story still links out to its blog post. .story-figure CSS stays: new-families and
-           community/giving both use it. -->
-      <!-- Carnival of Cultures + Fun Field Day story paragraphs removed 2026-08-25 (Trevor,
-           programme publish): this page's copy speaks only to what it lists: social mornings
-           and parent workshops. Blog links live on if the stories return. -->
+      <div class="sec-eyebrow"><span class="eyebrow">Social mornings</span><span class="ln"></span></div>
+
+      <details class="ev-detail" open>
+        <summary>
+          <div class="ev-row"><span class="dte">MON 07 Sep</span>
+            <div class="ev-main"><div class="et">Parent Social Morning</div>
+            <div class="es">Tea, coffee and the company of other ELC families.</div></div>
+          </div>
+        </summary>
+        <p class="txt">Once a month we put out tea, coffee and treats, and open the doors for parents. There is no agenda and nothing to prepare: come to meet other families, chat with our team, and hear what is happening around school. This first morning of the year is also a chance to meet our Maths and Literacy coordinators, and to share how the new ELC Portal is working for your family. Stay for ten minutes or the whole morning.</p>
+        <div class="doc-list">
+          <div class="doc-row team-card">
+            <span class="tc-faces"><img class="headshot" src="../assets/img/team/tamaryn.jpg" alt="" width="48" height="48" loading="lazy"></span>
+            <div class="meta"><div class="nm">Tamaryn Whitehead</div>
+            <div class="tname">Maths Coordinator <span class="role">The City School</span></div></div>
+          </div>
+          <div class="doc-row team-card">
+            <span class="tc-faces"><img class="headshot" src="../assets/img/team/rachael.jpg" alt="" width="48" height="48" loading="lazy"></span>
+            <div class="meta"><div class="nm">Rachael Foster</div>
+            <div class="tname">Literacy Coordinator <span class="role">The City School</span></div></div>
+          </div>
+          <div class="doc-row team-card">
+            <span class="tc-faces"><img class="headshot" src="../assets/img/trevor.png" alt="" width="48" height="48" loading="lazy"></span>
+            <div class="meta"><div class="nm">Trevor Cardozo</div>
+            <div class="tname">Head of Operations and Educational Experience <span class="role">ELC Portal feedback</span></div></div>
+          </div>
+        </div>
+        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/262360861224453" target="_blank" rel="noopener">RSVP for 7 September <span class="arw">&rarr;</span></a> <span class="cal-add"><a class="add-btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Parent%20Social%20Morning&amp;dates=20260907/20260908&amp;details=Details%3A%20https%3A%2F%2Felcportal.elc.ac.th%2Fcommunity%2F" title="Add to Google Calendar" aria-label="Add Parent Social Morning to Google Calendar"><svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a><button type="button" class="add-btn ics-btn" data-date="2026-09-07" data-title="Parent Social Morning" data-sub="" data-href="community/" data-until="" title="Add to Apple Calendar (.ics file)" aria-label="Add Parent Social Morning to Apple Calendar"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></button></span></p>
+      </details>
+
+      <details class="ev-detail">
+        <summary>
+          <div class="ev-row"><span class="dte">MON 05 Oct</span>
+            <div class="ev-main"><div class="et">Parent Social Morning</div>
+            <div class="es">Details to come closer to the date.</div></div>
+          </div>
+        </summary>
+        <p class="txt">Tea, coffee and the company of other ELC families. Details for the October morning will follow closer to the date; the RSVP form is open now.</p>
+        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/262360716288462" target="_blank" rel="noopener">RSVP for 5 October <span class="arw">&rarr;</span></a> <span class="cal-add"><a class="add-btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Parent%20Social%20Morning&amp;dates=20261005/20261006&amp;details=Details%3A%20https%3A%2F%2Fform.jotform.com%2F262360716288462" title="Add to Google Calendar" aria-label="Add Parent Social Morning to Google Calendar"><svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a><button type="button" class="add-btn ics-btn" data-date="2026-10-05" data-title="Parent Social Morning" data-sub="" data-href="" data-until="" title="Add to Apple Calendar (.ics file)" aria-label="Add Parent Social Morning to Apple Calendar"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></button></span></p>
+      </details>
     </div>
+
+    <!-- "What these occasions are like" section REMOVED 2026-08-31 (Trevor, rev 3): the
+         event blocks above now carry what-to-expect copy per event, so the general
+         explainer restated them. Its positive-parenting blog link went with it (blog
+         library still holds the story). Kept from its provenance: the two story figures
+         pulled 2026-08-04 stay in assets/img/blog/ un-precached, and .story-figure CSS
+         stays because new-families and community/giving (site-archive) use it. -->
+
 
     <!-- "Follow an interest" section retired 2026-08-03 (issue 0080): the Armonia tree
          moved to site-archive/ pending the programme rebuild; restore with it. -->
