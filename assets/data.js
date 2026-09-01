@@ -222,9 +222,31 @@ window.PORTAL = {
     // what a family should read. Only community-football/ (not comunita, gold row)
     // keeps a dedicated page + overlay. NO DATES IN BLURBS: the card's `when` chip
     // renders the date from the rows and the overlay is pull-proof.
+    // ⚠ BLURB IS PAYAL'S SEPTEMBER DIGEST COPY, not the portal's own words (Sarah, Google
+    // Chat 2026-09-01: "can we please update the Open Evening card to match Payal's Sept
+    // digest... The ELC Community Football Event as well please"). The digest went to
+    // families the same morning Payal's note went live on the portal, so the card a family
+    // taps has to read like the email that sent them. Two edits to her sentences, both
+    // mechanical: "Y1-Y6" spelled out as "Years 1 to 6" (house style, no dashes in site
+    // copy) and the event's own name dropped from the football blurb because the card
+    // title already carries it (the 0228 de-duplication, kept). Voice untouched.
+    // ⚠ ELC-FC IS DELIBERATELY NOT NAMED. Her sentence also said the event coincides with
+    // "registration for ELC-FC"; the 2026-08-31 review cut exactly that claim from
+    // community-football/ as false (football registration is already open, sports[] is a
+    // dormant island rendered nowhere since 0080, and the brand has no destination on any
+    // portal surface). Awaiting Trevor's word: if ELC-FC registration really does open on
+    // 11 Sep it needs a destination first, not just a sentence.
     { href: 'community-football/', title: 'After school community football',
-      blurb: 'Our first of the year, for Years 1 to 6. All skill levels welcome: a kickabout with friends, not a trial.',
-      go: 'What it is and how to RSVP' }
+      blurb: 'Following last year\'s successful turnout, it is back for another season: Years 1 to 6, all skill levels welcome. It also lands in the same week the ASA programme starts.',
+      go: 'What it is and how to RSVP' },
+    // Open Evening had NO overlay, so its card showed the bare row title and an empty body
+    // (the row's `sub` is ''). This entry is the digest sentence verbatim. No date in the
+    // blurb (0220's rule: the `when` chip renders it from the row) and "More details to
+    // follow" is Payal's own hedge, which matches the holding page it lands on. The card
+    // itself only appears from 10 September, 14 days out from the 24th.
+    { href: 'open-evening/', title: 'Open Evening',
+      blurb: 'An evening for families to step into their child\'s learning, connect with teachers, and get to know other ELC parents over wine and canapés. More details to follow.',
+      go: 'What we can tell you now' }
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
