@@ -682,7 +682,7 @@ window.PORTAL = {
     { date: '2026-09-11', cat: 'event', type: 'gold', aud: 'child', href: 'community-football/', ext: 'https://form.jotform.com/262288919933473', title: 'After school community football', sub: '' },
     { date: '2026-09-17', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360929144459', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Safe Passages, Bright Horizons', sub: 'Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'International Schools Holiday', sub: '' },
-    { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', title: 'Open Evening', sub: '' },
+    { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', time: '5:45 to 7:30 pm', title: 'Open Evening', sub: '' },
     { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', title: 'Open House at The City School', sub: '' },
     { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360716288462', comunita: true, title: 'Parent coffee morning', sub: '' },

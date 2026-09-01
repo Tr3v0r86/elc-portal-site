@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-01T06:59:59.270Z",
+  "generated": "2026-09-01T07:28:34.944Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -227,6 +227,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "time": "5:45 to 7:30 pm",
       "title": "Open Evening",
       "sub": ""
     },
