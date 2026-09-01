@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-01T06:30:03.168Z",
+  "generated": "2026-09-01T06:59:59.270Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -18,6 +18,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "The Queen Mother's Birthday Holiday",
       "sub": ""
     },
@@ -100,7 +101,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "title": "ASA Showcase",
+      "title": "ASA showcase",
       "sub": ""
     },
     {
@@ -217,6 +218,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "International Schools Holiday",
       "sub": ""
     },
@@ -250,6 +252,7 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "ext": "https://form.jotform.com/262360716288462",
       "comunita": true,
       "title": "Parent coffee morning",
@@ -261,6 +264,7 @@
       "type": "purple",
       "aud": "holiday",
       "until": "2026-10-16",
+      "nopage": true,
       "title": "Holiday: ELC October mid-term break",
       "sub": "to 16 Oct"
     },
@@ -280,6 +284,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "King Chulalongkorn Memorial Day",
       "sub": "No school for children; Teacher In-Service Day"
     },
@@ -289,6 +294,7 @@
       "type": "gold",
       "aud": "child",
       "until": "2026-10-30",
+      "nopage": true,
       "title": "School Photos With U-Smile",
       "sub": ""
     },
@@ -308,17 +314,10 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "ext": "https://form.jotform.com/262361215951454",
       "comunita": true,
       "title": "Parent coffee morning",
-      "sub": ""
-    },
-    {
-      "date": "2026-11-04",
-      "cat": "event",
-      "type": "purple",
-      "aud": "child",
-      "title": "ELC celebrates Loy Krathong",
       "sub": ""
     },
     {
@@ -326,7 +325,16 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Y1 and Y2 Holiday Pageant",
+      "sub": ""
+    },
+    {
+      "date": "2026-11-24",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "title": "ELC celebrates Loy Krathong",
       "sub": ""
     },
     {
@@ -334,6 +342,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "K1 Holiday Pageant",
       "sub": ""
     },
@@ -342,6 +351,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "K2 Holiday Pageant",
       "sub": ""
     },
@@ -350,6 +360,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Rescheduled National Day Performance",
       "sub": "Friday"
     },
@@ -358,6 +369,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "King Rama IX Birthday and National Day",
       "sub": "Saturday"
     },
@@ -366,6 +378,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "King Rama IX Birthday Substitution Holiday",
       "sub": ""
     },
@@ -374,6 +387,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Parent Teacher Conferences (Report Card)",
       "sub": "No school for children"
     },
@@ -382,6 +396,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Y3 to Y6 Holiday Choir Concert",
       "sub": ""
     },
@@ -427,6 +442,7 @@
       "type": "purple",
       "aud": "holiday",
       "until": "2027-01-10",
+      "nopage": true,
       "title": "Holiday: Christmas and New Year",
       "sub": "to 10 Jan"
     },
@@ -444,6 +460,7 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": ""
@@ -453,6 +470,7 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": ""
@@ -462,6 +480,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Project Through the Years at ELC",
       "sub": ""
     },
@@ -470,6 +489,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Project Through the Years at ELC",
       "sub": ""
     },
@@ -478,6 +498,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Project in Kindergarten",
       "sub": ""
     },
@@ -496,6 +517,7 @@
       "type": "purple",
       "aud": "holiday",
       "until": "2027-02-26",
+      "nopage": true,
       "title": "Holiday: ELC February mid-term break",
       "sub": "to 26 Feb"
     },
@@ -504,6 +526,7 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": ""
@@ -521,6 +544,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Parent Teacher Conference (Progress)",
       "sub": "No school for children"
     },
@@ -529,11 +553,12 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Y3 to Y6 Drama and Music Evening",
       "sub": ""
     },
     {
-      "date": "2027-04-01",
+      "date": "2027-03-30",
       "cat": "event",
       "type": "purple",
       "aud": "child",
@@ -547,6 +572,7 @@
       "type": "purple",
       "aud": "holiday",
       "until": "2027-04-16",
+      "nopage": true,
       "title": "Songkran Holiday",
       "sub": "to 16 Apr"
     },
@@ -555,6 +581,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "Chakri Day Holiday",
       "sub": ""
     },
@@ -564,6 +591,7 @@
       "type": "purple",
       "aud": "holiday",
       "until": "2027-04-15",
+      "nopage": true,
       "title": "Thai New Year: Songkran",
       "sub": "to 15 Apr"
     },
@@ -573,6 +601,7 @@
       "type": "purple",
       "aud": "parent",
       "until": "2027-04-29",
+      "nopage": true,
       "title": "Art From The Heart exhibition and fundraising week",
       "sub": "to 29 Apr"
     },
@@ -581,6 +610,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "New Families and The Purple Elephant Families to ELC",
       "sub": ""
     },
@@ -589,6 +619,7 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": ""
@@ -598,6 +629,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "Coronation Day Holiday",
       "sub": ""
     },
@@ -606,6 +638,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Little Steps, Big Futures: charting your child's K to 6 journey",
       "sub": ""
     },
@@ -614,6 +647,7 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "Little Steps, Big Futures: charting your child's K to 6 journey",
       "sub": ""
     },
@@ -622,6 +656,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "title": "New Families and The Purple Elephant Families to ELC",
       "sub": "Afternoon K1 session"
     },
@@ -630,8 +665,18 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "Visakha Bucha Day : normal school day",
       "sub": "Normal school day"
+    },
+    {
+      "date": "2027-05-27",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "nopage": true,
+      "title": "Wan Wai Khru: Teacher's Appreciation Day",
+      "sub": ""
     },
     {
       "date": "2027-06-03",
@@ -647,17 +692,9 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
+      "nopage": true,
       "comunita": true,
       "title": "Parent coffee morning",
-      "sub": ""
-    },
-    {
-      "date": "2027-06-09",
-      "cat": "event",
-      "type": "purple",
-      "aud": "child",
-      "nopage": true,
-      "title": "Wan Wai Khru: Teacher's Appreciation Day",
       "sub": ""
     },
     {
@@ -686,6 +723,7 @@
       "type": "purple",
       "aud": "holiday",
       "until": "2027-07-23",
+      "nopage": true,
       "title": "School holiday: office open",
       "sub": "to 23 Jul"
     },
@@ -705,6 +743,7 @@
       "cat": "holiday",
       "type": "purple",
       "aud": "holiday",
+      "nopage": true,
       "title": "King Vajiralongkorn's Birthday Holiday",
       "sub": ""
     }
