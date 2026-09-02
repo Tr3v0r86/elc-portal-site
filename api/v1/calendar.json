@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-02T00:11:15.968Z",
+  "generated": "2026-09-02T06:43:47.038Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -27,6 +27,8 @@
       "cat": "event",
       "type": "gold",
       "aud": "parent",
+      "time": "9:30 to 10:30 am",
+      "venue": "The Atrium",
       "title": "New Family Orientation",
       "sub": "A warm welcome for families new to ELC."
     },
@@ -188,6 +190,8 @@
       "type": "purple",
       "aud": "parent",
       "ext": "https://form.jotform.com/262360861224453",
+      "time": "8 to 9 am",
+      "venue": "The Atrium",
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": ""
@@ -245,6 +249,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "time": "8:15 am to 12 pm",
       "title": "Open House at The City School",
       "sub": ""
     },
@@ -255,6 +260,8 @@
       "aud": "parent",
       "nopage": true,
       "ext": "https://form.jotform.com/262360716288462",
+      "time": "8 to 9 am",
+      "venue": "The Atrium",
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": ""
@@ -268,6 +275,15 @@
       "nopage": true,
       "title": "Holiday: ELC October mid-term break",
       "sub": "to 16 Oct"
+    },
+    {
+      "date": "2026-10-13",
+      "cat": "holiday",
+      "type": "purple",
+      "aud": "holiday",
+      "nopage": true,
+      "title": "King Rama IX Memorial Day",
+      "sub": "During the October break"
     },
     {
       "date": "2026-10-22",
@@ -537,6 +553,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
+      "time": "8:15 am to 12 pm",
       "title": "Open House at The City School",
       "sub": ""
     },

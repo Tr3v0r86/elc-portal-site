@@ -86,6 +86,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261013-king-rama-ix-memorial-day@portal.elc.ac.th
+DTSTAMP:20261013T000000Z
+DTSTART;VALUE=DATE:20261013
+DTEND;VALUE=DATE:20261014
+SUMMARY:King Rama IX Memorial Day\, During the October break
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261019-k1-project-share-at-the-purple-elephant-campuses-with-chiara@portal.elc.ac.th
 DTSTAMP:20261019T000000Z
 DTSTART;VALUE=DATE:20261019

@@ -149,6 +149,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20260907-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20260907T000000Z
+DTSTART;VALUE=DATE:20260907
+DTEND;VALUE=DATE:20260908
+SUMMARY:Parent coffee morning
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
+END:VEVENT
+BEGIN:VEVENT
 UID:20260911-after-school-community-football@portal.elc.ac.th
 DTSTAMP:20260911T000000Z
 DTSTART;VALUE=DATE:20260911
@@ -156,6 +165,15 @@ DTEND;VALUE=DATE:20260912
 SUMMARY:After school community football
 URL:https://elcportal.elc.ac.th/community-football/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community-football/
+END:VEVENT
+BEGIN:VEVENT
+UID:20260917-safe-passages-bright-horizons@portal.elc.ac.th
+DTSTAMP:20260917T000000Z
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+SUMMARY:Safe Passages\, Bright Horizons\, Keeping Our Children Safe - Emotionally\, Socially\, Physically and Digitally
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260918-international-schools-holiday@portal.elc.ac.th
@@ -194,11 +212,38 @@ URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261005-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20261005T000000Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
+SUMMARY:Parent coffee morning
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261012-holiday-elc-october-mid-term-break@portal.elc.ac.th
 DTSTAMP:20261012T000000Z
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261017
 SUMMARY:Holiday: ELC October mid-term break\, to 16 Oct
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261013-king-rama-ix-memorial-day@portal.elc.ac.th
+DTSTAMP:20261013T000000Z
+DTSTART;VALUE=DATE:20261013
+DTEND;VALUE=DATE:20261014
+SUMMARY:King Rama IX Memorial Day\, During the October break
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261022-language-of-maths@portal.elc.ac.th
+DTSTAMP:20261022T000000Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:Language of Maths\, Experiencing\, Communicating & Exploring the Magic of Maths
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -217,6 +262,24 @@ DTSTAMP:20261027T000000Z
 DTSTART;VALUE=DATE:20261027
 DTEND;VALUE=DATE:20261031
 SUMMARY:School Photos With U-Smile
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261029-language-of-maths@portal.elc.ac.th
+DTSTAMP:20261029T000000Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:Language of Maths\, Repeat of the 22 Oct session. RSVP to one session only.
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261102-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20261102T000000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:Parent coffee morning
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -356,6 +419,24 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270118-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20270118T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270119
+SUMMARY:Parent coffee morning
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270201-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20270201T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Parent coffee morning
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270211-project-through-the-years-at-elc@portal.elc.ac.th
 DTSTAMP:20270211T000000Z
 DTSTART;VALUE=DATE:20270211
@@ -397,6 +478,15 @@ DTSTAMP:20270222T000000Z
 DTSTART;VALUE=DATE:20270222
 DTEND;VALUE=DATE:20270227
 SUMMARY:Holiday: ELC February mid-term break\, to 26 Feb
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270301-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20270301T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Parent coffee morning
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -482,6 +572,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270503-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20270503T000000Z
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+SUMMARY:Parent coffee morning
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270504-coronation-day-holiday@portal.elc.ac.th
 DTSTAMP:20270504T000000Z
 DTSTART;VALUE=DATE:20270504
@@ -541,6 +640,15 @@ DTSTAMP:20270603T000000Z
 DTSTART;VALUE=DATE:20270603
 DTEND;VALUE=DATE:20270604
 SUMMARY:The Queen's Birthday: holiday\, Holiday
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270607-parent-coffee-morning@portal.elc.ac.th
+DTSTAMP:20270607T000000Z
+DTSTART;VALUE=DATE:20270607
+DTEND;VALUE=DATE:20270608
+SUMMARY:Parent coffee morning
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
