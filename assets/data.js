@@ -75,7 +75,7 @@ window.PORTAL = {
   // Isabella's card, Samakee's own phone line and email, and the Parent App row;
   // nothing on it is pending an answer, so the chip was hedging a page that is not.
   draftPages: ['photo-consent', 'how-to-pay',
-               'nuts-and-bolts', 'open-evening', 'loy-krathong',
+               'nuts-and-bolts', 'loy-krathong',
                'library'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
@@ -244,9 +244,12 @@ window.PORTAL = {
     // blurb (0220's rule: the `when` chip renders it from the row) and "More details to
     // follow" is Payal's own hedge, which matches the holding page it lands on. The card
     // itself only appears from 10 September, 14 days out from the 24th.
+    // 2026-09-02 (0239): Trevor supplied the running order (meet and mingle on the pitch 5:45,
+    // classrooms 6:15, specialist and support teams 7:00), so "More details to follow" and the
+    // wine-and-canapés line came off the blurb; the page carries the schedule and left draftPages.
     { href: 'open-evening/', title: 'Open Evening',
-      blurb: 'An evening for families to step into their child\'s learning, connect with teachers, and get to know other ELC parents over wine and canapés. More details to follow.',
-      go: 'What we can tell you now' }
+      blurb: 'An evening for families to step into their child\'s learning, connect with teachers, and get to know other ELC parents. Meet and mingle on the pitch from 5:45, then time in the classrooms, then our specialist and support teams.',
+      go: 'See how the evening runs' }
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
