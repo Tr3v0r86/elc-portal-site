@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-02T07:01:36.211Z",
+  "generated": "2026-09-02T07:12:45.171Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -249,7 +249,7 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "time": "8:15 am to 12 pm",
+      "time": "9 to 11 am",
       "title": "Open House at The City School",
       "sub": ""
     },
