@@ -64,8 +64,17 @@ DTSTAMP:20260923T000000Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
 SUMMARY:The Purple Elephant 49 Open House
-URL:https://elcportal.elc.ac.th/open-house/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20260929-building-bridges-information-session-and-tours-at-the-city-school@portal.elc.ac.th
+DTSTAMP:20260929T000000Z
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20261001
+SUMMARY:Building Bridges: Information Session and Tours at The City School\, 29 and 30 Sep
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261002-professional-development-day@portal.elc.ac.th
@@ -95,11 +104,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261019-k1-project-share-at-the-purple-elephant-campuses-with-chiara@portal.elc.ac.th
-DTSTAMP:20261019T000000Z
-DTSTART;VALUE=DATE:20261019
-DTEND;VALUE=DATE:20261020
-SUMMARY:K1 Project Share at The Purple Elephant Campuses with Chiara
+UID:20261021-atelier-experiences-at-the-purple-elephant-55@portal.elc.ac.th
+DTSTAMP:20261021T000000Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:Atelier Experiences at The Purple Elephant 55
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -109,6 +118,24 @@ DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:King Chulalongkorn Memorial Day\, No school for children
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261028-atelier-experiences-at-the-purple-elephant-49@portal.elc.ac.th
+DTSTAMP:20261028T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:Atelier Experiences at The Purple Elephant 49
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261110-atelier-experiences-at-the-city-school@portal.elc.ac.th
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+SUMMARY:Atelier Experiences at The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -190,6 +217,15 @@ DTSTAMP:20270111T000000Z
 DTSTART;VALUE=DATE:20270111
 DTEND;VALUE=DATE:20270112
 SUMMARY:Professional Development Day\, No school for children
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270215-atelier-experiences-at-the-city-school@portal.elc.ac.th
+DTSTAMP:20270215T000000Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270217
+SUMMARY:Atelier Experiences at The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT

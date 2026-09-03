@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-03T04:54:55.786Z",
+  "generated": "2026-09-03T07:48:39.287Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -520,6 +520,18 @@
       "sub": ""
     },
     {
+      "date": "2027-02-15",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "until": "2027-02-16",
+      "nopage": true,
+      "venue": "The City School",
+      "comunita": true,
+      "title": "The Purple Elephant's Atelier Experiences at The City School",
+      "sub": ""
+    },
+    {
       "date": "2027-02-19",
       "cat": "athletics",
       "type": "purple",
@@ -549,6 +561,16 @@
       "sub": ""
     },
     {
+      "date": "2027-03-04",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "nopage": true,
+      "comunita": true,
+      "title": "K1- Y6 Book Character Parade",
+      "sub": ""
+    },
+    {
       "date": "2027-03-13",
       "cat": "event",
       "type": "purple",
@@ -565,6 +587,24 @@
       "nopage": true,
       "title": "Parent Teacher Conference (Progress)",
       "sub": "No school for children"
+    },
+    {
+      "date": "2027-03-23",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "nopage": true,
+      "title": "K1 Teddy Bear's Picnic",
+      "sub": ""
+    },
+    {
+      "date": "2027-03-24",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "nopage": true,
+      "title": "K2 Teddy Bear's Picnic",
+      "sub": ""
     },
     {
       "date": "2027-03-25",
