@@ -27,8 +27,8 @@
   };
   var CAMPUS_LABEL = {
     'city': 'The City School',
-    'pe-thong-lor': 'The Purple Elephant Thong Lor',
-    'pe-samakee': 'The Purple Elephant Samakee'
+    'pe-thong-lor': 'The Purple Elephants (55, 39, 49)',
+    'pe-samakee': 'The Purple Elephant (Samakee)'
   };
   /* Text size (issue 0173): three steps, not a slider: every step is a state
      somebody has to be able to verify on a real page. 'default' writes no

@@ -122,10 +122,17 @@ window.PORTAL = {
     // Nonthaburi, not Thong Lor, so the school office number reaches the wrong building
     // (issue 0161, Trevor 2026-08-10). Number + address per the centre's public page,
     // https://www.elc.ac.th/schools/purple-elephant-samakee/
-    samakee:    { label: 'The Purple Elephant Samakee', email: 'purpleelephant.samakee@elc.ac.th', phone: '+66 (0)2 003 5185' },
+    samakee:    { label: 'The Purple Elephant (Samakee)', email: 'purpleelephant.samakee@elc.ac.th', phone: '+66 (0)2 003 5185' },
     // Isabella Hydon, centre head and administrator at Samakee (Trevor 2026-08-10).
     // Email only: families reach the centre itself on the samakee line above.
     isabella:   { label: 'Isabella Hydon', email: 'isabellah@elc.ac.th' },
+    // The Purple Elephants (55, 39, 49): the three leads a family asks, per the houses' own
+    // "Portal - PE 55, 39, 49 information" doc (docs/sources/pe-thonglor-info-doc.md, issue 0180).
+    // Email only, like Isabella: the houses' phone lines sit as static tel: links on the page
+    // because their family-facing inboxes have not been supplied yet.
+    amanda:     { label: 'Amanda Watts', email: 'amandaw@elc.ac.th' },
+    anna:       { label: 'Anna Erskine', email: 'annae@elc.ac.th' },
+    sumeet:     { label: 'Sumeet Sethinamvong', email: 'sumeets@elc.ac.th' },
     // Blue Jade run the bus. Both are the vendor's own parent-facing lines, given by Sarah
     // 2026-08-17 (issue 0044): the email is the address families are asked to whitelist, and
     // the hotline is the only number that reaches a moving bus. Sarah's reply typed the
@@ -879,6 +886,10 @@ window.PORTAL = {
     { group: 'Health and safety', name: 'School emergency operations plan', sub: 'How the school prepares for and responds to an emergency.', kind: 'PDF', tag: 'PDF · 810 KB', href: 'https://www.elc.ac.th/wp-content/uploads/School-Emergency-Operations-Policy-and-Plan.pdf' },
     { group: 'Health and safety', name: 'Accident and illness process', sub: 'What happens when a child is hurt or unwell at school.', kind: 'PDF', tag: 'PDF · 64 KB', href: 'https://www.elc.ac.th/wp-content/uploads/ACCIDENT-ILLNESS-PROCESS-CS.pdf' },
     { group: 'Health and safety', name: 'Outdoor air quality policy', sub: 'How we decide on outdoor play when the air is poor.', kind: 'PDF', tag: 'PDF · 138 KB', href: 'https://www.elc.ac.th/wp-content/uploads/2025_Outdoor_Air_Quality_Policy.pdf' },
+    // Heat management policy: ELC group-wide (Trevor 2026-09-07, "copy the AQI and heat policy from
+    // ELC (group wide)"), requested for the website with the Purple Elephant set (issue 0246).
+    // href null renders Coming until IT publishes it and the registry row exists; fill href + size then.
+    { group: 'Health and safety', name: 'Heat management policy', sub: 'How we keep children safe and cool on hot days.', kind: 'PDF', tag: null, href: null },
     { group: 'Health and safety', name: 'Safe handling policy', sub: 'How and when staff may physically support a child.', kind: 'PDF', tag: 'PDF · 131 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safe-Handling-Policy.pdf' },
     { group: 'Health and safety', name: 'Low level of concern policy', sub: 'How we notice and act on the small worries early.', kind: 'PDF', tag: 'PDF · 148 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Low-Level-of-Concern-Policy.pdf' },
     { group: 'Health and safety', name: 'Intimate care guidelines', sub: 'How we support toileting and personal care with dignity.', kind: 'PDF', tag: 'PDF · 127 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Intimate-Care-Guidelines.pdf' },

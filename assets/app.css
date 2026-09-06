@@ -98,8 +98,8 @@ nav{display:flex;align-items:center;gap:28px;}
    the 8px-mono tabbar (relay #19). Mobile signal = .tab.active on the campus calendar, which
    marks the page rather than the switcher (0110 note 3). */
 body[data-campus^="pe-"] .city-only{display:none;}
-body[data-campus="pe-thonglor"] .campus-summary::after{content:": The Purple Elephant Thong Lor";}
-body[data-campus="pe-samakee"] .campus-summary::after{content:": The Purple Elephant Samakee";}
+body[data-campus="pe-thonglor"] .campus-summary::after{content:": The Purple Elephants (55, 39, 49)";}
+body[data-campus="pe-samakee"] .campus-summary::after{content:": The Purple Elephant (Samakee)";}
 .campus-switch .campus.active{color:var(--ink);font-weight:600;}
 .cal-pop .campus-switch{display:flex;flex-direction:column;}
 .cal-pop .campus{padding:13px 2px;border-top:1px solid var(--rule-2);font-size:15.5px;color:var(--charcoal);text-decoration:none;}
