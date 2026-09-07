@@ -92,6 +92,36 @@
         <p class="lead">Following last year's successful turnout, it is back for another season: Friday 11 September at The City School, for children in Years 1 to 6. All skill levels are welcome. It is a kickabout with friends, not a trial.</p>
       </div>
 
+      <!-- Page-scoped CSS lives in the BODY, not the head: check-chrome.py pins the head block
+           byte-for-byte across all 38 pages, so a head <style> on one page fails the gate. This is
+           where site/asa/fees/ puts its table CSS for the same reason. -->
+      <style>
+    /* Event hero (Trevor 2026-09-07: "mobile optimized and not too big on desktop"). Reuses the
+       .story-figure scaffold in app.css for block + responsive mechanics; these two rules are the
+       page-scoped part, inline because app.css is frozen (ADR-0015; same precedent as the asa/fees
+       table CSS and the tabbar pe-only rules). 560px cap keeps it a hero, not a billboard: the
+       .wrap content column runs to ~1092px. Border and radius come off because the artwork carries
+       its own edge, a cream ground keyed to --paper plus a purple wave bleeding off the bottom, so
+       a card frame would draw a box around nothing.
+       ASSET PREPARATION, and repeat it if the file is ever regenerated from the original: the source
+       (Desktop, "Community football hero.png", 1924x1028 RGBA, fully opaque) fills 48.8% of its area
+       with a flat cream at rgb(240,239,235), four points off --paper rgb(244,242,234), which rendered
+       as a visible rectangle edge around the artwork. Every pixel matching that fill EXACTLY was
+       remapped to --paper before the resize, an exact-match point op so photo pixels of a similar
+       colour are untouched, then encoded at 1200px wide, quality 78, progressive. The uniform fill
+       also compresses better: 88 KB against 147 KB before the remap. VISUAL TREATMENT IS CLAUDE DESIGN'S (rule 7);
+       this is scaffolding. Asset is deliberately NOT in sw.js SHELL, matching assets/img/blog/:
+       one event page should not add 147 KB to every install. No CACHE bump needed either, and that
+       is a property of sw.js, not luck: navigations are network-first, so the new markup reaches
+       every family on their next online load, and a brand-new asset is a cache miss that goes
+       straight to the network (tier 3). */
+    .cf-hero{margin:0 0 26px;max-width:560px;}
+    .cf-hero img{border:0;border-radius:0;}
+  </style>
+      <figure class="story-figure cf-hero">
+        <img src="../assets/img/art/community-football-hero.jpg" alt="Children playing football on the pitch at The City School." width="1200" height="641" loading="lazy" decoding="async">
+      </figure>
+
       <div class="section">
         <div class="sec-eyebrow"><span class="eyebrow">The details</span><span class="ln"></span></div>
         <div class="doc-list">
