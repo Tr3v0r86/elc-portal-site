@@ -886,6 +886,11 @@ window.PORTAL = {
     { group: 'Health and safety', name: 'School emergency operations plan', sub: 'How the school prepares for and responds to an emergency.', kind: 'PDF', tag: 'PDF · 810 KB', href: 'https://www.elc.ac.th/wp-content/uploads/School-Emergency-Operations-Policy-and-Plan.pdf' },
     { group: 'Health and safety', name: 'Accident and illness process', sub: 'What happens when a child is hurt or unwell at school.', kind: 'PDF', tag: 'PDF · 64 KB', href: 'https://www.elc.ac.th/wp-content/uploads/ACCIDENT-ILLNESS-PROCESS-CS.pdf' },
     { group: 'Health and safety', name: 'Outdoor air quality policy', sub: 'How we decide on outdoor play when the air is poor.', kind: 'PDF', tag: 'PDF · 138 KB', href: 'https://www.elc.ac.th/wp-content/uploads/2025_Outdoor_Air_Quality_Policy.pdf' },
+    // Heat management policy: ELC group-wide (Trevor 2026-09-07, "copy the AQI and heat policy from
+    // ELC (group wide)"), published to the website the same day and wired from registry row 34
+    // (issue 0246); size HEAD-checked 2026-09-07. The three PE-scoped rows in that batch stay off
+    // this page and live on the two PE policies/ pages instead, per the registry's scope column.
+    { group: 'Health and safety', name: 'Heat management policy', sub: 'How we keep children safe and cool on hot days.', kind: 'PDF', tag: 'PDF · 239 KB', href: 'https://www.elc.ac.th/wp-content/uploads/ELC-Heat-Management-Policy.pdf' },
     { group: 'Health and safety', name: 'Safe handling policy', sub: 'How and when staff may physically support a child.', kind: 'PDF', tag: 'PDF · 131 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safe-Handling-Policy.pdf' },
     { group: 'Health and safety', name: 'Low level of concern policy', sub: 'How we notice and act on the small worries early.', kind: 'PDF', tag: 'PDF · 148 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Low-Level-of-Concern-Policy.pdf' },
     { group: 'Health and safety', name: 'Intimate care guidelines', sub: 'How we support toileting and personal care with dignity.', kind: 'PDF', tag: 'PDF · 127 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Intimate-Care-Guidelines.pdf' },
