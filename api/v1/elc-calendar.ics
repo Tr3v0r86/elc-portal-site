@@ -217,8 +217,8 @@ DTSTAMP:20261005T000000Z
 DTSTART;VALUE=DATE:20261005
 DTEND;VALUE=DATE:20261006
 SUMMARY:Parent coffee morning
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261012-holiday-elc-october-mid-term-break@portal.elc.ac.th
@@ -244,8 +244,8 @@ DTSTAMP:20261022T000000Z
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
 SUMMARY:Language of Maths\, Experiencing\, Communicating & Exploring the Magic of Maths
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261023-king-chulalongkorn-memorial-day@portal.elc.ac.th
@@ -271,8 +271,8 @@ DTSTAMP:20261029T000000Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
 SUMMARY:Language of Maths\, Repeat of the 22 Oct session. RSVP to one session only.
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261102-parent-coffee-morning@portal.elc.ac.th
@@ -280,8 +280,8 @@ DTSTAMP:20261102T000000Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
 SUMMARY:Parent coffee morning
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261123-y1-and-y2-holiday-pageant@portal.elc.ac.th

@@ -256,7 +256,14 @@ window.PORTAL = {
     // wine-and-canapés line came off the blurb; the page carries the schedule and left draftPages.
     { href: 'open-evening/', title: 'Open Evening',
       blurb: 'An evening for families to step into their child\'s learning, connect with teachers, and get to know other ELC parents. Meet and mingle on the pitch from 5:45, then time in the classrooms, then our specialist and support teams.',
-      go: 'See how the evening runs' }
+      go: 'See how the evening runs' },
+    // Building Bridges (issue 0252, Trevor 2026-09-14). The Thong Lor row is comunita:true, so
+    // it cards on every campus home like any comunita row (render.js:1001); with href set on the
+    // sheet the card lands on building-bridges/ instead of nowhere. Copy is the tab's own purpose
+    // line (Events T&T tab 141807517), family-facing half only. No date in the blurb (0220 rule).
+    { href: 'building-bridges/', title: 'Building Bridges',
+      blurb: 'An invitation for Purple Elephant families to tour The City School and discover more about the next steps in your child\'s learning: a welcome over refreshments, a guided tour, then a short presentation and time for questions.',
+      go: 'See how the morning runs' }
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
@@ -740,14 +747,14 @@ window.PORTAL = {
     { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', time: '5:45 to 7:30 pm', title: 'Open Evening', sub: '' },
     { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', time: '9 to 11 am', title: 'Open House at The City School', sub: '' },
-    { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360716288462', time: '8 to 9 am', venue: 'The Atrium', comunita: true, title: 'Parent coffee morning', sub: '' },
+    { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360716288462', time: '8 to 9 am', venue: 'The Atrium', comunita: true, title: 'Parent coffee morning', sub: '' },
     { date: '2026-10-12', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-10-16', nopage: true, title: 'Holiday: ELC October mid-term break', sub: 'to 16 Oct' },
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Rama IX Memorial Day', sub: 'During the October break' },
-    { date: '2026-10-22', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360685205456', comunita: true, title: 'Language of Maths', sub: 'Experiencing, Communicating & Exploring the Magic of Maths' },
+    { date: '2026-10-22', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360685205456', comunita: true, title: 'Language of Maths', sub: 'Experiencing, Communicating & Exploring the Magic of Maths' },
     { date: '2026-10-23', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Chulalongkorn Memorial Day', sub: 'No school for children; Teacher In-Service Day' },
     { date: '2026-10-27', cat: 'event', type: 'gold', aud: 'child', until: '2026-10-30', nopage: true, title: 'School Photos With U-Smile', sub: '' },
-    { date: '2026-10-29', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262360746297465', comunita: true, title: 'Language of Maths', sub: 'Repeat of the 22 Oct session. RSVP to one session only.' },
-    { date: '2026-11-02', cat: 'social', type: 'purple', aud: 'parent', nopage: true, ext: 'https://form.jotform.com/262361215951454', comunita: true, title: 'Parent coffee morning', sub: '' },
+    { date: '2026-10-29', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360746297465', comunita: true, title: 'Language of Maths', sub: 'Repeat of the 22 Oct session. RSVP to one session only.' },
+    { date: '2026-11-02', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262361215951454', comunita: true, title: 'Parent coffee morning', sub: '' },
     { date: '2026-11-23', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Y1 and Y2 Holiday Pageant', sub: '' },
     { date: '2026-11-24', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', title: 'ELC celebrates Loy Krathong', sub: '' },
     { date: '2026-11-26', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'K1 Holiday Pageant', sub: '' },
@@ -816,7 +823,7 @@ window.PORTAL = {
     { date: '2026-08-18', cat: 'event', type: 'gold', aud: 'child', nopage: true, pe: 'samakee', title: 'First day of school for K1 and K2', sub: '' },
     { date: '2026-08-19', cat: 'event', type: 'gold', aud: 'child', nopage: true, pe: 'samakee', title: 'First day of school for T1 and T2', sub: '' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'samakee', title: 'International Schools Holiday', sub: '' },
-    { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', pe: 'samakee', title: 'Open Evening', sub: 'Parents only.' },
+    { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', nopage: true, pe: 'samakee', title: 'Open Evening', sub: 'Parents only.' },
     { date: '2026-09-26', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', time: '9 to 10:30 am', pe: 'samakee', title: 'Open House at The Purple Elephant Samakee', sub: 'For new families.' },
     { date: '2026-10-09', cat: 'event', type: 'purple', aud: 'parent', nopage: true, pe: 'samakee', title: 'Parent Teacher Conference', sub: 'No school for K1 and K2. Normal school day for T1 and T2.' },
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'samakee', title: 'King Rama IX Memorial Day', sub: '' },
@@ -866,8 +873,8 @@ window.PORTAL = {
     { date: '2026-08-21', cat: 'event', type: 'purple', aud: 'parent', nopage: true, pe: 'thonglor', title: 'Meet and Greet with Parents', sub: 'PE 39, 49 and 55' },
     { date: '2026-08-24', cat: 'event', type: 'gold', aud: 'child', nopage: true, pe: 'thonglor', title: 'Start of Term 1', sub: '' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'International Schools Holiday', sub: '' },
-    { date: '2026-09-23', cat: 'event', type: 'purple', aud: 'parent', time: '1:30 to 3:30 pm', pe: 'thonglor', title: 'The Purple Elephant 49 Open House', sub: '' },
-    { date: '2026-09-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-09-30', nopage: true, venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Building Bridges: Information Session and Tours at The City School', sub: '29 and 30 Sep' },
+    { date: '2026-09-23', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', time: '1:30 to 3:30 pm', venue: 'The Purple Elephant 49', pe: 'thonglor', title: 'The Purple Elephant 49 Open House', sub: '' },
+    { date: '2026-09-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-09-30', href: 'building-bridges/', venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Building Bridges: Information Session and Tours at The City School', sub: '29 and 30 Sep' },
     { date: '2026-10-02', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'Professional Development Day', sub: 'No school for children' },
     { date: '2026-10-12', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-10-16', nopage: true, pe: 'thonglor', title: 'Holiday: ELC October mid-term break', sub: 'to 16 Oct' },
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Rama IX Memorial Day', sub: 'During the October break' },
@@ -875,7 +882,7 @@ window.PORTAL = {
     { date: '2026-10-23', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Chulalongkorn Memorial Day', sub: 'No school for children' },
     { date: '2026-10-28', cat: 'event', type: 'purple', aud: 'parent', nopage: true, venue: 'The Purple Elephant 49', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The Purple Elephant 49', sub: '' },
     { date: '2026-11-10', cat: 'event', type: 'purple', aud: 'parent', nopage: true, venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The City School', sub: '' },
-    { date: '2026-11-25', cat: 'event', type: 'purple', aud: 'child', nopage: true, pe: 'thonglor', title: 'Loy Krathong Celebrations', sub: '' },
+    { date: '2026-11-25', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', pe: 'thonglor', title: 'Loy Krathong Celebrations', sub: '' },
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Rama IX Birthday and National Day Substitution Holiday', sub: '' },
     { date: '2026-12-15', cat: 'event', type: 'purple', aud: 'child', nopage: true, pe: 'thonglor', title: 'The Purple Elephant 39 Christmas Party', sub: '' },
     { date: '2026-12-16', cat: 'event', type: 'purple', aud: 'child', nopage: true, pe: 'thonglor', title: 'The Purple Elephant 49 Christmas Party', sub: '' },
@@ -884,7 +891,6 @@ window.PORTAL = {
     { date: '2026-12-21', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-12-31', nopage: true, pe: 'thonglor', title: 'Holiday: Christmas and New Year', sub: 'to 31 Dec' },
     { date: '2027-01-01', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2027-01-08', nopage: true, pe: 'thonglor', title: 'Holiday: Christmas and New Year', sub: 'to 8 Jan' },
     { date: '2027-01-11', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'Professional Development Day', sub: 'No school for children' },
-    { date: '2027-02-15', cat: 'event', type: 'purple', aud: 'parent', until: '2027-02-16', nopage: true, venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The City School', sub: '' },
     { date: '2027-02-22', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2027-02-26', nopage: true, pe: 'thonglor', title: 'Holiday: ELC February mid-term break', sub: 'to 26 Feb' },
     { date: '2027-03-19', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'Professional Development Day', sub: 'No school for children' },
     { date: '2027-04-02', cat: 'event', type: 'purple', aud: 'child', nopage: true, pe: 'thonglor', title: 'ELC Songkran Celebrations', sub: '' },

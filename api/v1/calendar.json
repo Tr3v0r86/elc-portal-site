@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-14T08:04:15.644Z",
+  "generated": "2026-09-14T09:36:54.032Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -258,7 +258,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/262360716288462",
       "time": "8 to 9 am",
       "venue": "The Atrium",
@@ -290,7 +289,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/262360685205456",
       "comunita": true,
       "title": "Language of Maths",
@@ -320,7 +318,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/262360746297465",
       "comunita": true,
       "title": "Language of Maths",
@@ -331,7 +328,6 @@
       "cat": "social",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/262361215951454",
       "comunita": true,
       "title": "Parent coffee morning",

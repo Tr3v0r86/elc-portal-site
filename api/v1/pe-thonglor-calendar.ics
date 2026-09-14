@@ -64,8 +64,8 @@ DTSTAMP:20260923T000000Z
 DTSTART;VALUE=DATE:20260923
 DTEND;VALUE=DATE:20260924
 SUMMARY:The Purple Elephant 49 Open House
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/open-house/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260929-building-bridges-information-session-and-tours-at-the-city-school@portal.elc.ac.th
@@ -73,8 +73,8 @@ DTSTAMP:20260929T000000Z
 DTSTART;VALUE=DATE:20260929
 DTEND;VALUE=DATE:20261001
 SUMMARY:Building Bridges: Information Session and Tours at The City School\, 29 and 30 Sep
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/building-bridges/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/building-bridges/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261002-professional-development-day@portal.elc.ac.th
@@ -145,8 +145,8 @@ DTSTAMP:20261125T000000Z
 DTSTART;VALUE=DATE:20261125
 DTEND;VALUE=DATE:20261126
 SUMMARY:Loy Krathong Celebrations
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/loy-krathong/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/loy-krathong/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261207-king-rama-ix-birthday-and-national-day-substitution-holiday@portal.elc.ac.th
@@ -217,15 +217,6 @@ DTSTAMP:20270111T000000Z
 DTSTART;VALUE=DATE:20270111
 DTEND;VALUE=DATE:20270112
 SUMMARY:Professional Development Day\, No school for children
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20270215-atelier-experiences-at-the-city-school@portal.elc.ac.th
-DTSTAMP:20270215T000000Z
-DTSTART;VALUE=DATE:20270215
-DTEND;VALUE=DATE:20270217
-SUMMARY:Atelier Experiences at The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
