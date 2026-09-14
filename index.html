@@ -102,49 +102,44 @@
                when the note changes (onerror hides the slot until the file lands). Making it
                follow notes[] automatically is render.js (frozen), filed as an issue.
                2026-08-24: Heather -> Trevor with the ASA sign-up note.
-               2026-09-01: Trevor -> Payal with her September note (hos.png = Head of Schools). -->
+               2026-09-01: Trevor -> Payal with her September note (hos.png = Head of Schools).
+               2026-09-14: unchanged, Payal signs the Open Evening note too. -->
           <img class="headshot" src="assets/img/hos.png" alt="Payal" width="56" height="56" onerror="this.style.display='none'">
           <div>
             <span class="eyebrow" id="note-eyebrow">A note from Payal</span>
             <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">A special start to our year.</h2>
+        <h2 id="note-title">Save the date for our Open Evening on Thursday 24 September.</h2>
       </summary>
       <div class="note-reveal">
         <div class="note-main">
           <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
-          <p id="note-body">Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.</p>
-          <div class="sig" id="note-sig">Payal Kogar &middot; Head of Schools and Pedagogista</div>
+          <p id="note-body">The first six weeks of the school year are a beautiful time of connection, curiosity, and discovery. On Thursday 24 September we invite you to see how this rich beginning has taken shape. Our classrooms, ateliers, and outdoor spaces now hold the traces of the children's questions, their conversations, and the ideas they have been building together. Your child's teachers will be there to walk you through what they have noticed and where the learning is heading. Our specialist and support teams will also be on the pitch to meet you. Just as importantly, it is an evening to slow down with other parents over a glass of wine and canapés, and to feel what it means to belong to the ELC community. We view parents as essential partners in our children's learning journey, and we hope each and every one of you will join us for this special evening.</p>
+          <div class="sig" id="note-sig">Payal Kogar &middot; Head of School and Pedagogista</div>
           <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
                signer, and render.js does not rewrite it. Reintroduce only as a per-note
                field. -->
         </div>
-        <!-- THE WELCOME WORD-ART, hero for Payal's September note (Trevor 2026-09-01, issue
-             0236: "can we remove the background, keeping the other colour of this image as the
-             hero for Payal's message"). Children's hand-lettering with flowers growing through
-             the letters and a paper plane overhead. It replaces the light-table build frame,
-             which was chosen with the ASA sign-up note it shipped under (0208); that frame and
-             its unshipped time-lapse stay in design/reference/art-src/.
-             PROVENANCE + PROCESSING, so this is reproducible: cropped from the TOP SECTION of
-             design/reference/art-src/welcome-sign.png (2000x2889, the full banner: ELC lockup
-             above, Thai-houses village below, both excluded), ink bbox x 80-1921 / y 441-1070
-             plus an 18px even pad. The white ground was removed by UNMULTIPLY, not by a
-             threshold: alpha comes from the DARKEST channel (luminance would have erased the
-             pink rose, which reads bright in red), then the ink's own colour is recovered with
-             C_true = (C_obs - 255*(1-a)) / a, so compositing it back over white reproduces the
-             scan exactly. Anything at min >= 246 is treated as paper. 84.5% of the file is
-             fully transparent and all four corners are alpha 0.
-             880 wide is exactly 2x the 440px desktop slot, so it is retina-sharp; mobile caps
-             the slot at 190px. Same rule the frame it replaces followed.
-             The mono potrace of the same word, assets/img/art/welcome.svg, is a DIFFERENT
-             asset: it is still in sw.js SHELL[] and still referenced by no page.
-             /!\ .note-art carries --art-invert, which is invert(1) in dark theme. Black ink to
-             white ink is right and is the whole point of the token, but this art carries more
-             colour than the near-monochrome frame it replaces, so the rose, leaves, flower and
-             plane DO flip hue after dark. Flagged to Trevor, not silently accepted: scoping the
-             filter would be an app.css edit and app.css is FROZEN. See 0236. -->
-        <img class="note-art" src="assets/img/art/welcome-hero.png" alt="" aria-hidden="true" loading="lazy" width="880" height="312">
+        <!-- THE OPEN EVENING HERO, art for Payal's save-the-date (Trevor 2026-09-14, issue 0251:
+             "new hero, openevening jpg on desktop. Crop as you see fit ... we dont want too much
+             floor, just the provocations"). His own photograph of an atelier provocation table:
+             wire, a spool, a specimen box, magnifiers and a book laid out on paper, with baskets,
+             stools, the dresser and the window greenery behind.
+             PROVENANCE + PROCESSING, so this is reproducible: crop box (900,900)-(4600,2750) of
+             `open evening.JPG` (6000x4000, Trevor's Desktop), resized to 880 wide at JPEG q86
+             progressive, 82 KB. The 2:1 band drops the ceiling and the projection screen, the
+             pallet's front face, and the empty floor to the right and below, which is what the
+             brief asked for. 880 is exactly 2x the 440px desktop slot, so it is retina-sharp;
+             mobile caps the slot at 190px, where the scene reads as texture rather than detail.
+             /!\ INLINE filter:none IS LOAD-BEARING. .note-art carries --art-invert, which is
+             invert(1) in dark theme: right for word-art, and it turns this night-lit room into a
+             pale negative. app.css is FROZEN (ADR-0015) and this page is not, so the override
+             lives on the element. Remove it only together with the photo.
+             The word-art it replaces, assets/img/art/welcome-hero.png, stays in the art set with
+             its own provenance in 0236, and so does the mono potrace assets/img/art/welcome.svg,
+             which is still in sw.js SHELL[] and referenced by no page. -->
+        <img class="note-art" src="assets/img/art/open-evening-hero.jpg" alt="" aria-hidden="true" loading="lazy" width="880" height="440" style="filter:none">
       </div>
       <div class="note-history" id="note-history" hidden></div>
     </details>

@@ -301,6 +301,56 @@ window.PORTAL = {
     // ⚠ The activities@elc.ac.th address is PLAIN TEXT here, not a link: render.js sets the
     // body with textContent, and a note gets exactly ONE cta, which Trevor asked to spend on
     // the ASA page. The address IS a live mailto one tap away on asa/ (site/asa/index.html:147).
+    // Payal's Open Evening save-the-date (issue 0251), LIVE 2026-09-14 on Trevor's word
+    // ("flip it and push"). `from` is the deploy day, never future (ADR-0013 / the 0164 hold).
+    // It replaces her September note, commented out below: one note at a time, no history.
+    // Source: Payal to Trevor 2026-09-14 09:30, `Re: Open evening paragraph on the Portal`,
+    // answering his 07:22 ask for "a simple paragraph write up ... for the next two weeks".
+    // Copy is her UPDATED text, which Trevor supplied 2026-09-14 (closing line now `each and
+    // every one of you`, was `every family`). Verbatim except one edit: `On Thursday, September
+    // 24th,` -> `On Thursday 24 September`, the portal's date style (the September note's
+    // `Wednesday 2 September`).
+    // SIG SETTLED 2026-09-14 (Trevor: "Head of School as title"): singular School, matching her
+    // own email signature and the people directory. /!\ The LIVE September note still signs
+    // `Head of Schools`, in data.js and in the index.html twin; it corrects itself at the flip,
+    // which is why it is not being deployed on its own.
+    // Her two paragraphs are one body string because a note body is one <p>.
+    // Her `Save the Date: ELC Open Evening / Thursday, September 24th` heading became the
+    // title: a note has one title and no second heading level, and the date has to sit there
+    // because a read note collapses to eyebrow + title, which is the whole job of a
+    // save-the-date. `when` stays EMPTY (Trevor 2026-08-15).
+    // NO TIME IN THE BODY on purpose: 5:45 to 7:30 pm is already a hand copy on four surfaces
+    // (connections.md, issue 0238) and the cta lands the parent on the page that carries it
+    // plus the running order. Adding it here makes a fifth surface and connections.md moves in
+    // the same commit.
+    // Event name `Open Evening` matches calendarEvents and the featured card verbatim (0227),
+    // and the cta label is the card's own `go` words (0237 / 0239), so a parent clicks and
+    // lands on the phrase they clicked. The cta is internal, as every note cta must be.
+    // Signer is unchanged from the live note: the static headshot on index.html stays hos.png.
+    // HERO DECIDED 2026-09-14 (Trevor: "new hero, openevening jpg ... crop as you see fit ... we
+    // dont want too much floor, just the provocations"): assets/img/art/open-evening-hero.jpg,
+    // his own atelier photo, cropped to 880x440 (2:1, exactly 2x the 440px desktop slot). Crop
+    // box (900,900)-(4600,2750) of the 6000x4000 original, which drops the ceiling, most of the
+    // floor and the empty right-hand floor, and keeps the provocation table legible with the
+    // greenery, baskets and dresser behind it. Source stays on Trevor's Desktop, `open evening.JPG`.
+    // /!\ It goes in at the flip alongside an inline `filter:none` on that one img in index.html:
+    // .note-art carries --art-invert (invert(1) in dark theme, app.css:1051), which is right for
+    // the word-art and turns this night-lit room into a pale negative. app.css is FROZEN, the page
+    // HTML is not. See 0251.
+    { from: '2026-09-14', eyebrow: 'A note from Payal', when: '',
+      title: 'Save the date for our Open Evening on Thursday 24 September.',
+      body: 'The first six weeks of the school year are a beautiful time of connection, curiosity, and discovery. On Thursday 24 September we invite you to see how this rich beginning has taken shape. Our classrooms, ateliers, and outdoor spaces now hold the traces of the children\'s questions, their conversations, and the ideas they have been building together. Your child\'s teachers will be there to walk you through what they have noticed and where the learning is heading. Our specialist and support teams will also be on the pitch to meet you. Just as importantly, it is an evening to slow down with other parents over a glass of wine and canapés, and to feel what it means to belong to the ELC community. We view parents as essential partners in our children\'s learning journey, and we hope each and every one of you will join us for this special evening.',
+      photo: 'hos.png',
+      cta: { href: 'open-evening/', label: 'See how the evening runs' },
+      sig: 'Payal Kogar · Head of School and Pedagogista' }
+
+    // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
+    // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
+    // set `from` to today or earlier, deploy.
+    // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Payal's September note, RETIRED 2026-09-14 when the Open Evening save-the-date
+    // replaced it. It ran from 2026-09-01. Its own comments are kept below verbatim.
     // Payal's September note, LIVE 2026-09-01 on Trevor's word ("flip the message on the
     // portal to payal's note"). `from` is the deploy day, never future (ADR-0013 / issue 0164
     // hold). It replaces the ASA sign-up note, which is commented out below: one note at a
@@ -315,17 +365,12 @@ window.PORTAL = {
     // the whole note instead, the same rule the ASA note carried.
     // ⚠ The headshot on site/index.html is STATIC and was hand-swapped to hos.png (Payal) in
     // the same commit. render.js does not read `photo`; that field is advisory here.
-    { from: '2026-09-01', eyebrow: 'A note from Payal', when: '',
-      title: 'A special start to our year.',
-      body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.',
-      photo: 'hos.png',
-      cta: { href: 'calendar/', label: 'See the calendar' },
-      sig: 'Payal Kogar · Head of Schools and Pedagogista' }
-
-    // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
-    // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
-    // set `from` to today or earlier, deploy.
-    // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    // { from: '2026-09-01', eyebrow: 'A note from Payal', when: '',
+    // title: 'A special start to our year.',
+    // body: 'Seeing our campuses come to life with the bright smiles, big ideas and boundless energy of our children has made the start of this school year truly special. Our first six weeks are focused on getting to know each child, understanding who they are as learners, and valuing the unique strengths and experiences they bring. The safety of our community remains our highest priority: all new purple lanyards and authorization cards have been printed, and from Wednesday 2 September anyone arriving without an ELC lanyard will be asked to show photo ID and sign in for a visitor lanyard. A lockdown drill also runs this month, one of the routines that keep our campuses safe and secure. September brings much to look forward to, from our Parent coffee morning and After school community football to Open Evening: every date is on the calendar here.',
+    // photo: 'hos.png',
+    // cta: { href: 'calendar/', label: 'See the calendar' },
+    // sig: 'Payal Kogar · Head of Schools and Pedagogista' }
     //
     // ASA sign-up announcement, RETIRED 2026-09-01 when Payal's September note replaced it.
     // It ran from 2026-08-24 (issue 0179). Its tense was written to be true before and after
