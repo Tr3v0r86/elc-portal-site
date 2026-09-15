@@ -153,6 +153,32 @@
   // their rows through it. The community/ renderers below select exactly these rows;
   // the print sheet already drops them via cat (0066); search is page-based, unaffected.
   function coreRows(evs) { return (evs || []).filter(function (e) { return !e.comunita; }); }
+  /* 0255 (Trevor 2026-09-15, "scope comunita cards by campus"): comunita is scoped by CAMPUS,
+     and these two helpers are the only places that decide it.
+
+     The 0071 split sends a comunita row off the core calendar and onto community/. That page
+     is a City page: there is no PE equivalent, and none is planned. So the split has a
+     destination on City and no destination on a Purple Elephant campus, and applying it to a
+     PE mount deletes the row from every surface that campus's families actually read.
+
+     What went wrong before this: a PE comunita row was stripped from its OWN campus calendar
+     by coreRows AND concatenated into the CITY home's coming-up band, so the one audience that
+     wanted it could not find it and the one audience that did not want it got a card. Building
+     Bridges is the worked example (issue 0253); it was fixed by reclassifying the row, which
+     only ever moved the symptom.
+
+     calSurfaceRows: the calendar grid + agenda source. City drops comunita (they live on
+     community/); a PE campus keeps its own, because it has nowhere else to keep them.
+     comingUpRows: the City home band. City core rows plus CITY comunita rows. PE rows of any
+     kind never belong here - the band renders on site/index.html only, which is the City home. */
+  function calSurfaceRows(P, pe) {
+    return pe ? (P.peEvents || []).filter(function (e) { return e.pe === pe; })
+              : coreRows(P.calendarEvents);
+  }
+  function comingUpRows(P) {
+    return coreRows(P.calendarEvents)
+      .concat((P.calendarEvents || []).filter(function (e) { return e.comunita; }));
+  }
   // 0114: index rows by EVERY day they cover, not just the first. A multi-day row
   // (`until` = inclusive last day, same contract toICS reads) lands on each day key,
   // matching the print sheet's ycDayMap expansion. Guard until >= date so a
@@ -306,6 +332,18 @@
   console.assert(agendaBucket('2026-10-20', '2026-10-02') === 0 && agendaBucket('2026-11-01', '2026-10-02') === 1 && agendaBucket('2026-10-31', '2026-10-02') === 0, 'agendaBucket: this-month vs later, month-end inclusive');
   console.assert(goldOnly([{ type: 'gold' }, { type: 'purple' }, { type: 'gold' }]).length === 2, 'goldOnly: gold events only');
   console.assert(coreRows([{ title: 'a' }, { title: 'b', comunita: true }, { title: 'c', comunita: false }]).length === 2 && coreRows(null).length === 0, 'coreRows: drops comunita rows, tolerates a missing island');
+  // 0255: campus scoping. One fixture, both helpers, and the trap in each direction: a PE
+  // comunita row must SURVIVE on its own campus calendar and must NOT reach the City band.
+  var CS_FIX = {
+    calendarEvents: [{ title: 'city-core' }, { title: 'city-workshop', comunita: true }],
+    peEvents: [{ pe: 'thonglor', title: 'tl-core' }, { pe: 'thonglor', title: 'tl-workshop', comunita: true },
+               { pe: 'samakee', title: 'smk-workshop', comunita: true }]
+  };
+  console.assert(calSurfaceRows(CS_FIX, null).length === 1 && calSurfaceRows(CS_FIX, null)[0].title === 'city-core', 'calSurfaceRows: City calendar drops comunita (they live on community/)');
+  console.assert(calSurfaceRows(CS_FIX, 'thonglor').length === 2 && calSurfaceRows(CS_FIX, 'thonglor').some(function (e) { return e.comunita; }), 'calSurfaceRows: a PE calendar KEEPS its own comunita rows');
+  console.assert(calSurfaceRows(CS_FIX, 'thonglor').every(function (e) { return e.pe === 'thonglor'; }), 'calSurfaceRows: one campus only, never a sibling campus');
+  console.assert(comingUpRows(CS_FIX).length === 2 && !comingUpRows(CS_FIX).some(function (e) { return e.pe; }), 'comingUpRows: City core + City comunita, and NO PE row of any kind');
+  console.assert(calSurfaceRows({}, null).length === 0 && calSurfaceRows({}, 'thonglor').length === 0 && comingUpRows({}).length === 0, 'campus scoping: tolerates missing islands');
   console.assert(Object.keys(expandByDate([{ date: '2026-10-12', until: '2026-10-16', title: 'x' }])).length === 5, 'expandByDate: until four days out yields five day keys');
   console.assert(Object.keys(expandByDate([{ date: '2026-10-12', title: 'x' }])).length === 1, 'expandByDate: no until yields one day key');
   console.assert(termEnd([{ date: '2026-12-18', title: 'Last day of Term 1' }], '2026-07-11') === '2026-12-18', 'termEnd: next term close');
@@ -998,9 +1036,10 @@
     // the community page") -- social mornings now card like every other comunita event,
     // landing on community/ via their rows' href. Rows sharing 'community/' still merge
     // into one card while co-windowed; the 0221 close records that trade.
-    var cuSrc = coreRows(P.calendarEvents).concat(
-      (P.calendarEvents || []).concat(P.peEvents || [])
-        .filter(function (e) { return e.comunita; }));
+    // 0255: CITY comunita rows only. This band renders on site/index.html, the City home,
+    // so a Purple Elephant row never belongs in it: it now stays on its own campus's
+    // calendar instead (calSurfaceRows). Source + reasoning at the helper.
+    var cuSrc = comingUpRows(P);
     cuSrc.forEach(function (e) {
       // A multi-day row stays in the band while it is STILL RUNNING: the test is its
       // END date, not its start. The old start-only test dropped 13 rows across the year
@@ -1123,7 +1162,7 @@
     // 0064: a Purple Elephant page carries data-pe on the mount, so the agenda reads the
     // filtered peEvents; the main calendar (no data-pe) reads calendarEvents unchanged.
     var agPe = calAgenda.getAttribute('data-pe');
-    var agSrc = coreRows(agPe ? (P.peEvents || []).filter(function (e) { return e.pe === agPe; }) : P.calendarEvents);   // 0071
+    var agSrc = calSurfaceRows(P, agPe);   // 0071 split, campus-scoped by 0255
     var agEvs = agSrc.slice().sort(function (a, b) { return a.date < b.date ? -1 : 1; });
     var agToday0 = new Date(bkkToday + 'T00:00:00Z');
     var agCurY = agToday0.getUTCFullYear(), agCurM = agToday0.getUTCMonth();
@@ -1190,7 +1229,7 @@
     var AUD_CLASS = { parent: 'parent', child: 'child', holiday: 'holiday' };
     // 0064: PE page filters peEvents via data-pe on the grid mount; main calendar unchanged.
     var gridPe = calGrid.getAttribute('data-pe');
-    var gridSrc = coreRows(gridPe ? (P.peEvents || []).filter(function (e) { return e.pe === gridPe; }) : P.calendarEvents);   // 0071
+    var gridSrc = calSurfaceRows(P, gridPe);   // 0071 split, campus-scoped by 0255
     var calByDate = expandByDate(gridSrc);   // 0114: multi-day rows mark every day they cover
     var calToday = new Date(bkkToday + 'T00:00:00Z');
     function calUtc(y, m, d) { return new Date(Date.UTC(y, m, d)); }

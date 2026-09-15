@@ -86,6 +86,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261006-viewing-your-child-through-the-lens-of-attachment-building-security-connection-with-dr-plern@portal.elc.ac.th
+DTSTAMP:20261006T000000Z
+DTSTART;VALUE=DATE:20261006
+DTEND;VALUE=DATE:20261008
+SUMMARY:Viewing Your Child Through the Lens of Attachment: Building Security & Connection with Dr.Plern\, 06 and 07 Oct
+URL:https://elcportal.elc.ac.th/building-connection/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/building-connection/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261012-holiday-elc-october-mid-term-break@portal.elc.ac.th
 DTSTAMP:20261012T000000Z
 DTSTART;VALUE=DATE:20261012
@@ -100,15 +109,6 @@ DTSTAMP:20261013T000000Z
 DTSTART;VALUE=DATE:20261013
 DTEND;VALUE=DATE:20261014
 SUMMARY:King Rama IX Memorial Day\, During the October break
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
-UID:20261021-atelier-experiences-at-the-purple-elephant-55@portal.elc.ac.th
-DTSTAMP:20261021T000000Z
-DTSTART;VALUE=DATE:20261021
-DTEND;VALUE=DATE:20261022
-SUMMARY:Atelier Experiences at The Purple Elephant 55
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
