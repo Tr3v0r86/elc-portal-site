@@ -4,6 +4,7 @@ PRODID:-//ELC Portal//Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:ELC International Schools
+X-WR-TIMEZONE:Asia/Bangkok
 BEGIN:VEVENT
 UID:20260729-elc-summer-festival-of-the-arts-session-2@portal.elc.ac.th
 DTSTAMP:20260729T000000Z
@@ -25,18 +26,20 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260814-new-family-orientation@portal.elc.ac.th
 DTSTAMP:20260814T000000Z
-DTSTART;VALUE=DATE:20260814
-DTEND;VALUE=DATE:20260815
+DTSTART:20260814T023000Z
+DTEND:20260814T033000Z
 SUMMARY:New Family Orientation\, A warm welcome for families new to ELC.
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/new-family-orientation/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/new-family-orientation/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260817-k1-information-session@portal.elc.ac.th
 DTSTAMP:20260817T000000Z
-DTSTART;VALUE=DATE:20260817
-DTEND;VALUE=DATE:20260818
+DTSTART:20260817T013000Z
+DTEND:20260817T023000Z
 SUMMARY:K1 Information session
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/information-sessions/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
@@ -70,9 +73,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260818-y1-information-session@portal.elc.ac.th
 DTSTAMP:20260818T000000Z
-DTSTART;VALUE=DATE:20260818
-DTEND;VALUE=DATE:20260819
+DTSTART:20260818T013000Z
+DTEND:20260818T023000Z
 SUMMARY:Y1 Information session
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/information-sessions/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
@@ -97,27 +101,30 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260820-y3-to-y6-information-session@portal.elc.ac.th
 DTSTAMP:20260820T000000Z
-DTSTART;VALUE=DATE:20260820
-DTEND;VALUE=DATE:20260821
+DTSTART:20260820T013000Z
+DTEND:20260820T023000Z
 SUMMARY:Y3 to Y6 Information session
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/information-sessions/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260821-dove-information-session@portal.elc.ac.th
 DTSTAMP:20260821T000000Z
-DTSTART;VALUE=DATE:20260821
-DTEND;VALUE=DATE:20260822
+DTSTART:20260821T020000Z
+DTEND:20260821T030000Z
 SUMMARY:Dove Information session
+LOCATION:Welcome Room\, Lagora
 URL:https://elcportal.elc.ac.th/information-sessions/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
 BEGIN:VEVENT
 UID:20260821-y2-information-session@portal.elc.ac.th
 DTSTAMP:20260821T000000Z
-DTSTART;VALUE=DATE:20260821
-DTEND;VALUE=DATE:20260822
+DTSTART:20260821T013000Z
+DTEND:20260821T023000Z
 SUMMARY:Y2 Information session
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/information-sessions/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
@@ -133,9 +140,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260824-k2-information-session@portal.elc.ac.th
 DTSTAMP:20260824T000000Z
-DTSTART;VALUE=DATE:20260824
-DTEND;VALUE=DATE:20260825
+DTSTART:20260824T013000Z
+DTEND:20260824T023000Z
 SUMMARY:K2 Information session
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/information-sessions/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/information-sessions/
 END:VEVENT
@@ -151,9 +159,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260907-parent-coffee-morning@portal.elc.ac.th
 DTSTAMP:20260907T000000Z
-DTSTART;VALUE=DATE:20260907
-DTEND;VALUE=DATE:20260908
+DTSTART:20260907T010000Z
+DTEND:20260907T020000Z
 SUMMARY:Parent coffee morning
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
@@ -169,9 +178,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260917-safe-passages-bright-horizons@portal.elc.ac.th
 DTSTAMP:20260917T000000Z
-DTSTART;VALUE=DATE:20260917
-DTEND;VALUE=DATE:20260918
+DTSTART:20260917T013000Z
+DTEND:20260917T023000Z
 SUMMARY:Safe Passages\, Bright Horizons\, Keeping Our Children Safe - Emotionally\, Socially\, Physically and Digitally
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
@@ -187,8 +197,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260924-open-evening@portal.elc.ac.th
 DTSTAMP:20260924T000000Z
-DTSTART;VALUE=DATE:20260924
-DTEND;VALUE=DATE:20260925
+DTSTART:20260924T104500Z
+DTEND:20260924T123000Z
 SUMMARY:Open Evening
 URL:https://elcportal.elc.ac.th/open-evening/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-evening/
@@ -205,8 +215,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20261003-open-house-at-the-city-school@portal.elc.ac.th
 DTSTAMP:20261003T000000Z
-DTSTART;VALUE=DATE:20261003
-DTEND;VALUE=DATE:20261004
+DTSTART:20261003T020000Z
+DTEND:20261003T040000Z
 SUMMARY:Open House at The City School
 URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
@@ -214,9 +224,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20261005-parent-coffee-morning@portal.elc.ac.th
 DTSTAMP:20261005T000000Z
-DTSTART;VALUE=DATE:20261005
-DTEND;VALUE=DATE:20261006
+DTSTART:20261005T010000Z
+DTEND:20261005T020000Z
 SUMMARY:Parent coffee morning
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
@@ -469,6 +480,7 @@ DTSTAMP:20270215T000000Z
 DTSTART;VALUE=DATE:20270215
 DTEND;VALUE=DATE:20270217
 SUMMARY:The Purple Elephant's Atelier Experiences at The City School
+LOCATION:The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -511,8 +523,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20270313-open-house-at-the-city-school@portal.elc.ac.th
 DTSTAMP:20270313T000000Z
-DTSTART;VALUE=DATE:20270313
-DTEND;VALUE=DATE:20270314
+DTSTART:20270313T011500Z
+DTEND:20270313T050000Z
 SUMMARY:Open House at The City School
 URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/

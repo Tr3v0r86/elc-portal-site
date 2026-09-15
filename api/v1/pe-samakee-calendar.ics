@@ -4,6 +4,7 @@ PRODID:-//ELC Portal//Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:ELC The Purple Elephant (Samakee)
+X-WR-TIMEZONE:Asia/Bangkok
 BEGIN:VEVENT
 UID:20260803-elc-summer-festival-of-the-arts-session-2@portal.elc.ac.th
 DTSTAMP:20260803T000000Z
@@ -79,8 +80,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260926-open-house-at-the-purple-elephant-samakee@portal.elc.ac.th
 DTSTAMP:20260926T000000Z
-DTSTART;VALUE=DATE:20260926
-DTEND;VALUE=DATE:20260927
+DTSTART:20260926T020000Z
+DTEND:20260926T033000Z
 SUMMARY:Open House at The Purple Elephant Samakee\, For new families.
 URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/

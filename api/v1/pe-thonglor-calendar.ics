@@ -4,6 +4,7 @@ PRODID:-//ELC Portal//Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:ELC The Purple Elephants (55, 39, 49)
+X-WR-TIMEZONE:Asia/Bangkok
 BEGIN:VEVENT
 UID:20260803-elc-summer-festival-of-the-arts-session-2@portal.elc.ac.th
 DTSTAMP:20260803T000000Z
@@ -61,9 +62,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20260923-the-purple-elephant-49-open-house@portal.elc.ac.th
 DTSTAMP:20260923T000000Z
-DTSTART;VALUE=DATE:20260923
-DTEND;VALUE=DATE:20260924
+DTSTART:20260923T063000Z
+DTEND:20260923T083000Z
 SUMMARY:The Purple Elephant 49 Open House
+LOCATION:The Purple Elephant 49
 URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
 END:VEVENT
@@ -73,6 +75,7 @@ DTSTAMP:20260929T000000Z
 DTSTART;VALUE=DATE:20260929
 DTEND;VALUE=DATE:20261001
 SUMMARY:Building Bridges: Information Session and Tours at The City School\, 29 and 30 Sep
+LOCATION:The City School
 URL:https://elcportal.elc.ac.th/building-bridges/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/building-bridges/
 END:VEVENT
@@ -91,6 +94,7 @@ DTSTAMP:20261006T000000Z
 DTSTART;VALUE=DATE:20261006
 DTEND;VALUE=DATE:20261008
 SUMMARY:Viewing Your Child Through the Lens of Attachment: Building Security & Connection with Dr.Plern\, 06 and 07 Oct
+LOCATION:The Purple Elephant 49
 URL:https://elcportal.elc.ac.th/building-connection/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/building-connection/
 END:VEVENT
@@ -127,6 +131,7 @@ DTSTAMP:20261028T000000Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 SUMMARY:Atelier Experiences at The Purple Elephant 49
+LOCATION:The Purple Elephant 49
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -136,6 +141,7 @@ DTSTAMP:20261110T000000Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:Atelier Experiences at The City School
+LOCATION:The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -271,6 +277,7 @@ DTSTAMP:20270426T000000Z
 DTSTART;VALUE=DATE:20270426
 DTEND;VALUE=DATE:20270427
 SUMMARY:New Families and The Purple Elephant Families to ELC\, Afternoon K1 session
+LOCATION:The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -298,6 +305,7 @@ DTSTAMP:20270518T000000Z
 DTSTART;VALUE=DATE:20270518
 DTEND;VALUE=DATE:20270519
 SUMMARY:T1 Family Tours at The City School
+LOCATION:The City School
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
