@@ -248,6 +248,49 @@
     var rel = evHref(href);
     return new URL(rel || (ROOT + 'calendar/'), location.href).href;
   }
+  // Clock times on an exported event (issue 0256). Mirrors feedVevent() in
+  // tools/build-api.mjs deliberately: the button a family taps and the feed their Google
+  // calendar subscribes to must describe the same event, or the two surfaces disagree.
+  // A row goes timed only when `time` parses to BOTH a start and an end (Trevor,
+  // 2026-09-16); a single time ("12 pm" on the last-day-of-term rows) is a hometime, not
+  // a start, and stays all-day, as does any multi-day row.
+  var TIME_RE = /^\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*$/i;
+  function icsHhmm(part, fallbackMeridiem) {
+    var m = TIME_RE.exec(part);
+    if (!m) return null;
+    var mer = (m[3] || fallbackMeridiem || '').toLowerCase();
+    if (!mer) return null;
+    var h = Number(m[1]), min = Number(m[2] || 0);
+    if (h < 1 || h > 12 || min > 59) return null;
+    if (h === 12) h = 0;
+    if (mer === 'pm') h += 12;
+    return h * 60 + min;
+  }
+  function icsTimeRange(str) {
+    if (typeof str !== 'string') return null;
+    var parts = str.split(/\bto\b/i);
+    if (parts.length !== 2) return null;
+    var endMer = (/(am|pm)/i.exec(parts[1]) || [])[1];
+    var start = icsHhmm(parts[0], endMer), end = icsHhmm(parts[1], null);
+    if (start == null || end == null) return null;
+    if (start >= end && !/(am|pm)/i.test(parts[0])) start = (start + 720) % 1440;
+    if (start >= end) return null;
+    return { start: start, end: end };
+  }
+  // Asia/Bangkok is UTC+7 with no DST, so a plain UTC stamp needs no VTIMEZONE block.
+  function icsStamp(dateStr, minutesLocal) {
+    var t = new Date(dateStr + 'T00:00:00Z');
+    t.setUTCMinutes(t.getUTCMinutes() + minutesLocal - 420);
+    function p(n) { return String(n).length < 2 ? '0' + n : String(n); }
+    return String(t.getUTCFullYear()) + p(t.getUTCMonth() + 1) + p(t.getUTCDate()) + 'T' +
+      p(t.getUTCHours()) + p(t.getUTCMinutes()) + '00Z';
+  }
+  // null when the event should stay all-day; {start, end} UTC stamps otherwise.
+  function icsTimes(ev) {
+    if (ev.until && ev.until > ev.date) return null;
+    var r = icsTimeRange(ev.time);
+    return r ? { start: icsStamp(ev.date, r.start), end: icsStamp(ev.date, r.end) } : null;
+  }
   function icsVevent(ev) {
     var d = icsDates(ev);
     var summary = icsEsc(ev.title + (ev.sub ? ', ' + ev.sub : ''));
@@ -255,11 +298,13 @@
     var slug = ev.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     // ponytail: no RFC-5545 75-octet line folding; every current SUMMARY is under
     // the limit. Add a fold here if a longer event title ever lands.
-    return [
-      'BEGIN:VEVENT', 'UID:' + d.start + '-' + slug + '@portal.elc.ac.th',
-      'DTSTAMP:' + d.start + 'T000000Z', 'DTSTART;VALUE=DATE:' + d.start, 'DTEND;VALUE=DATE:' + d.end,
-      'SUMMARY:' + summary, 'URL:' + url, 'DESCRIPTION:' + icsEsc('Details: ' + url), 'END:VEVENT'
-    ];
+    var t = icsTimes(ev);
+    var when = t ? ['DTSTART:' + t.start, 'DTEND:' + t.end]
+                 : ['DTSTART;VALUE=DATE:' + d.start, 'DTEND;VALUE=DATE:' + d.end];
+    var where = ev.venue ? ['LOCATION:' + icsEsc(ev.venue)] : [];
+    return ['BEGIN:VEVENT', 'UID:' + d.start + '-' + slug + '@portal.elc.ac.th', 'DTSTAMP:' + d.start + 'T000000Z']
+      .concat(when, ['SUMMARY:' + summary], where,
+              ['URL:' + url, 'DESCRIPTION:' + icsEsc('Details: ' + url), 'END:VEVENT']);
   }
   function icsWrap(lines) {
     return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ELC Portal//Calendar//EN', 'CALSCALE:GREGORIAN']
@@ -282,9 +327,13 @@
     setTimeout(function () { URL.revokeObjectURL(url); }, 0);
   }
   function gcalUrl(ev) {
-    var d = icsDates(ev);
+    var d = icsDates(ev), t = icsTimes(ev);
+    // Google's TEMPLATE link takes the same two shapes as the .ics: YYYYMMDD/YYYYMMDD for an
+    // all-day span, YYYYMMDDTHHMMSSZ/... for a timed one (issue 0256).
+    var dates = t ? (t.start + '/' + t.end) : (d.start + '/' + d.end);
     return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
-      encodeURIComponent(ev.title + (ev.sub ? ', ' + ev.sub : '')) + '&dates=' + d.start + '/' + d.end +
+      encodeURIComponent(ev.title + (ev.sub ? ', ' + ev.sub : '')) + '&dates=' + dates +
+      (ev.venue ? '&location=' + encodeURIComponent(ev.venue) : '') +
       '&details=' + encodeURIComponent('Details: ' + eventUrl(ev.href));
   }
 
@@ -293,13 +342,15 @@
   // Claude Design may restyle (rule 7). Shared by the calendar agenda + windows strips.
   var G_MARK = '<svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>';
   var A_MARK = '<svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>';
-  function addBtns(date, title, sub, href, until) {
-    var ev = { date: date, title: title, sub: sub || '', href: href || null, until: until || null };
+  function addBtns(date, title, sub, href, until, time, venue) {
+    var ev = { date: date, title: title, sub: sub || '', href: href || null, until: until || null,
+               time: time || null, venue: venue || null };
     return '<span class="cal-add">' +
       '<a class="add-btn" target="_blank" rel="noopener" href="' + gcalUrl(ev) + '"' +
       ' title="Add to Google Calendar" aria-label="Add ' + escAttr(title) + ' to Google Calendar">' + G_MARK + '</a>' +
       '<button type="button" class="add-btn ics-btn" data-date="' + date + '" data-title="' + escAttr(title) + '" data-sub="' + escAttr(sub || '') +
-      '" data-href="' + escAttr(href || '') + '" data-until="' + escAttr(until || '') + '"' +
+      '" data-href="' + escAttr(href || '') + '" data-until="' + escAttr(until || '') +
+      '" data-time="' + escAttr(time || '') + '" data-venue="' + escAttr(venue || '') + '"' +
       ' title="Add to Apple Calendar (.ics file)" aria-label="Add ' + escAttr(title) + ' to Apple Calendar">' + A_MARK + '</button></span>';
   }
   // Share mark (issue 0032 F10): native share where available, LINE fallback.
@@ -313,11 +364,11 @@
   // hidden). CC wires the toggle + a first-pass look; CD refines the expanded control
   // (rule 7). The inner addBtns()/shareBtn() wiring + .ics filenames are unchanged.
   var PLUS_MARK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>';
-  function calActions(date, title, sub, href, until, shareTarget) {
+  function calActions(date, title, sub, href, until, shareTarget, time, venue) {
     return '<span class="cal-actions">' +
       '<button type="button" class="cal-actions-toggle" aria-expanded="false" aria-label="Add or share ' + escAttr(title) + '">' +
       PLUS_MARK + '<span class="lbl">Add / share</span></button>' +
-      '<span class="cal-actions-menu">' + addBtns(date, title, sub, href, until) + shareBtn(shareTarget, title) + '</span></span>';
+      '<span class="cal-actions-menu">' + addBtns(date, title, sub, href, until, time, venue) + shareBtn(shareTarget, title) + '</span></span>';
   }
   // Self-check (silent on pass): comma escaping, all-day start/end, multi-event, filename.
   console.assert(toICS({ date: '2026-08-03', title: 'Fest, Session 2', sub: 'to 7 Aug' }).indexOf('SUMMARY:Fest\\, Session 2\\, to 7 Aug') > -1, 'toICS: comma escape');
@@ -326,6 +377,21 @@
   console.assert(toICS({ date: '2026-08-03', title: 'x', sub: '', until: '2026-08-07' }).indexOf('DTEND;VALUE=DATE:20260808') > -1, 'toICS: multi-day DTEND is until+1');
   console.assert(toICS({ date: '2026-08-03', title: 'x', sub: '' }).indexOf('URL:') > -1 && toICS({ date: '2026-08-03', title: 'x', sub: '' }).indexOf('DESCRIPTION:Details: ') > -1, 'toICS: carries event URL + description');
   console.assert(toICSAll([{ date: '2026-08-03', title: 'a', sub: '' }, { date: '2026-08-04', title: 'b', sub: '' }]).split('BEGIN:VEVENT').length === 3, 'toICSAll: two events, one calendar');
+  // Clock times (0256): the button and the feed must describe the same event, so these
+  // mirror the planted-row asserts in tools/build-api.mjs.
+  console.assert(toICS({ date: '2026-09-24', title: 'Open Evening', sub: '', time: '5:45 to 7:30 pm' }).indexOf('DTSTART:20260924T104500Z') > -1, 'toICS: timed start (17:45 Bangkok)');
+  console.assert(toICS({ date: '2026-09-24', title: 'Open Evening', sub: '', time: '5:45 to 7:30 pm' }).indexOf('DTEND:20260924T123000Z') > -1, 'toICS: timed end');
+  console.assert(toICS({ date: '2026-08-17', title: 'x', sub: '', time: '8:30 to 9:30 am' }).indexOf('DTSTART:20260817T013000Z') > -1, 'toICS: end meridiem inherited backwards');
+  console.assert(toICS({ date: '2027-03-13', title: 'x', sub: '', time: '8:15 am to 12 pm' }).indexOf('DTEND:20270313T050000Z') > -1, 'toICS: 12 pm is noon');
+  console.assert(toICS({ date: '2026-08-21', title: 'x', sub: '', time: '11 to 1 pm' }).indexOf('DTSTART:20260821T040000Z') > -1, 'toICS: a backwards inherited meridiem flips');
+  console.assert(toICS({ date: '2026-12-18', title: 'x', sub: '', time: '12 pm' }).indexOf('DTSTART;VALUE=DATE:20261218') > -1, 'toICS: a single time is a hometime, the row stays all-day');
+  console.assert(toICS({ date: '2026-08-03', title: 'x', sub: '', until: '2026-08-07', time: '9 to 10 am' }).indexOf('DTSTART;VALUE=DATE:20260803') > -1, 'toICS: a multi-day row stays all-day even with a time');
+  console.assert(toICS({ date: '2026-08-17', title: 'x', sub: '', venue: 'Welcome Room, Lagora' }).indexOf('LOCATION:Welcome Room\\, Lagora') > -1, 'toICS: venue becomes an escaped LOCATION');
+  console.assert(toICS({ date: '2026-08-17', title: 'x', sub: '' }).indexOf('LOCATION:') === -1, 'toICS: no venue, no LOCATION line');
+  console.assert(gcalUrl({ date: '2026-09-24', title: 'x', sub: '', time: '5:45 to 7:30 pm' }).indexOf('dates=20260924T104500Z/20260924T123000Z') > -1, 'gcalUrl: timed span');
+  console.assert(gcalUrl({ date: '2026-08-03', title: 'x', sub: '' }).indexOf('dates=20260803/20260804') > -1, 'gcalUrl: all-day span unchanged');
+  console.assert(gcalUrl({ date: '2026-08-17', title: 'x', sub: '', venue: 'The Atrium' }).indexOf('location=The%20Atrium') > -1, 'gcalUrl: venue rides along');
+  console.assert(addBtns('2026-09-24', 'Open Evening', '', null, null, '5:45 to 7:30 pm', 'The Atrium').indexOf('data-time="5:45 to 7:30 pm"') > -1, 'addBtns: time reaches the .ics button');
   console.assert(icsFilename({ date: '2026-08-14', title: 'New Family Orientation' }) === 'ELC - New Family Orientation - 14 Aug 2026.ics', 'icsFilename: readable name');
   console.assert(weekStart('2026-10-08').toISOString().slice(0, 10) === '2026-10-04' && weekStart('2026-10-10').toISOString().slice(0, 10) === '2026-10-04' && weekStart('2026-10-11').toISOString().slice(0, 10) === '2026-10-11', 'weekStart: Sunday for a Thursday/Saturday + a Sunday is its own start');
   console.assert(monthEndISO('2026-10-02') === '2026-10-31' && monthEndISO('2027-02-15') === '2027-02-28', 'monthEndISO: last day of month');
@@ -407,7 +473,8 @@
     if (!date || !title) return;
     var ev = {
       date: date, title: title, sub: btn.getAttribute('data-sub') || '',
-      href: btn.getAttribute('data-href') || null, until: btn.getAttribute('data-until') || null
+      href: btn.getAttribute('data-href') || null, until: btn.getAttribute('data-until') || null,
+      time: btn.getAttribute('data-time') || null, venue: btn.getAttribute('data-venue') || null
     };
     icsDownload(toICS(ev), icsFilename(ev));
   });
@@ -615,7 +682,7 @@
       (!mHref && !mExt ? '<div class="es">' + (dueLive && PROG.dueShort ? PROG.dueShort : 'Coming') + '</div>' : '');
     return '<div class="ev-row"><span class="dte">' + DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
       '<div class="ev-main">' + ((mHref || mExt) ? '<a class="ev-link" href="' + (mHref || mExt) + '"' + (mExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (mExt ? extLabel : ' · event page') + '">' + mInner + '</a>' : mInner) + '</div>' +
-      addBtns(e.date, e.title, e.sub, e.href, e.until) + '</div>';
+      addBtns(e.date, e.title, e.sub, e.href, e.until, e.time, e.venue) + '</div>';
   }
 
   // La Comunità split sections (issue 0071): the comunita rows that coreRows() filters
@@ -1177,7 +1244,7 @@
       return '<div class="ev-row"><span class="dte' + (e.date === bkkToday ? ' today' : '') + '">' +
         DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
         '<div class="ev-main">' + ((cHref || cExt) ? '<a class="ev-link" href="' + (cHref || cExt) + '"' + (cExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (cExt ? ' · on ' + extSiteLabel(cExt) : ' · event page') + '">' + inner + '</a>' : inner) + '</div>' +
-        calActions(e.date, e.title, e.sub, e.href, e.until, cHref ? absHref(e.href) : (cExt || shareUrl)) + '</div>';
+        calActions(e.date, e.title, e.sub, e.href, e.until, cHref ? absHref(e.href) : (cExt || shareUrl), e.time, e.venue) + '</div>';
     };
     renderCalAgenda = function (y, m) {
       if (y === agCurY && m === agCurM) {
