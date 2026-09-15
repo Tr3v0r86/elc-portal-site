@@ -117,9 +117,15 @@
             <div class="sub">The morning closes; stay for a last question if you have one.</div></div>
           </div>
         </div>
-      </div>
 
-      <p class="page-note">Your invitation email carries the RSVP; a reminder follows on 21 September. If you have a question, contact <a href="mailto:office@elc.ac.th">office@elc.ac.th</a> at any time.</p>
+        <!-- RSVP button (Trevor 2026-09-15): the JotForm reached the portal as the SSOT row's
+             ext column, and ext is only read when a row has NO href (render.js agRow). This row
+             has both, so the card and the calendar row land here and the form was unreachable
+             from anywhere. The button is the only way in. CONNECTIONS: this URL is stated twice,
+             here and in the sheet's ext cell for the 29 Sep Thong Lor row. If Sarah changes one,
+             change the other in the same commit (docs/connections.md). -->
+        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/262510609753457" target="_blank" rel="noopener">RSVP for 29 and 30 September <span class="arw">&rarr;</span></a></p>
+      </div>
   </main>
 
   <div class="foot-strip">

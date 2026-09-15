@@ -256,14 +256,14 @@ window.PORTAL = {
     // wine-and-canapés line came off the blurb; the page carries the schedule and left draftPages.
     { href: 'open-evening/', title: 'Open Evening',
       blurb: 'An evening for families to step into their child\'s learning, connect with teachers, and get to know other ELC parents. Meet and mingle on the pitch from 5:45, then time in the classrooms, then our specialist and support teams.',
-      go: 'See how the evening runs' },
-    // Building Bridges (issue 0252, Trevor 2026-09-14). The Thong Lor row is comunita:true, so
-    // it cards on every campus home like any comunita row (render.js:1001); with href set on the
-    // sheet the card lands on building-bridges/ instead of nowhere. Copy is the tab's own purpose
-    // line (Events T&T tab 141807517), family-facing half only. No date in the blurb (0220 rule).
-    { href: 'building-bridges/', title: 'Building Bridges',
-      blurb: 'An invitation for Purple Elephant families to tour The City School and discover more about the next steps in your child\'s learning: a welcome over refreshments, a guided tour, then a short presentation and time for questions.',
-      go: 'See how the morning runs' }
+      go: 'See how the evening runs' }
+    // Building Bridges overlay REMOVED 2026-09-15 (issue 0255). It was added at 0252 because the
+    // Thong Lor row was comunita:true and therefore carded on the City home; both halves of that
+    // are now false. The row is no longer comunita (0253: a tour for PE families is not a
+    // workshop, ADR-0017), and comunita cards are scoped by campus (0255), so a peEvents row can
+    // never enter the coming-up band again. featuredEvents is read ONLY by that band
+    // (render.js:1027), so the entry was unreachable and its blurb unread. The event keeps its
+    // page at building-bridges/ and reaches PE families on the Thong Lor calendar and feed.
   ],
 
   // Safeguarding leads (issue 0031 item 6): /safeguarding/ renders a card per
