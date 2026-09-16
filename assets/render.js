@@ -1071,6 +1071,27 @@
   console.assert(cuLabel(['2026-09-28', '2026-10-02'], false) === '28 Sep to 2 Oct', 'cuLabel: cross-month keeps both, aria form drops the weekday');
   console.assert(cuLabel(['2026-10-12', '2026-10-16'], true) === 'MON 12 to FRI 16 Oct', 'cuLabel: a single multi-day row spans start to `until`');
 
+  // 0261: the calendar agenda's date chip. A multi-day row states BOTH its dates, through
+  // the same cuLabel the coming-up band already uses, so the two surfaces word a span
+  // identically. agRow formatted the START only, which left `until` reaching a family
+  // solely when a human retyped it into the sheet's `sub` column ("to 16 Oct"): 9 of 43
+  // multi-day rows never got that reflex and read as one-day events, which is how Sarah
+  // came to read U-Smile (27 to 30 Oct) as 27 Oct alone. Single-day rows are unchanged,
+  // zero-padded chip included. Extracted from agRow so both halves are assertable: the
+  // band and the agenda have drifted apart on `until` once already (0188).
+  function agWhen(e) {
+    var eEnd = (e.until && e.until >= e.date) ? e.until : e.date;
+    if (eEnd > e.date) return cuLabel([e.date, eEnd], true);
+    var d = new Date(e.date + 'T00:00:00Z');
+    return DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()];
+  }
+  console.assert(agWhen({ date: '2026-10-27', until: '2026-10-30' }) === 'TUE 27 to FRI 30 Oct', 'agWhen: a multi-day row states both dates (U-Smile, the 0261 report)');
+  console.assert(agWhen({ date: '2026-10-27' }) === 'TUE 27 Oct', 'agWhen: a single-day row is unchanged');
+  console.assert(agWhen({ date: '2026-11-03' }) === 'TUE 03 Nov', 'agWhen: a single-day chip stays zero-padded');
+  console.assert(agWhen({ date: '2026-10-27', until: '2026-10-27' }) === 'TUE 27 Oct', 'agWhen: until equal to date is not a span');
+  console.assert(agWhen({ date: '2026-10-27', until: '2026-10-20' }) === 'TUE 27 Oct', 'agWhen: a malformed until before date is not a span');
+  console.assert(agWhen({ date: '2026-12-21', until: '2027-01-10' }) === 'MON 21 Dec to SUN 10 Jan', 'agWhen: a cross-month span keeps both months');
+
   // Coming up band (P4 pass A, supersedes the curated featuredEvents model): AUTOMATIC
   // next-14-days feed derived from calendarEvents. Rows sharing an href are one card
   // (dates merged); a pageless row is its own card. featuredEvents survives as an
@@ -1237,12 +1258,11 @@
     // One agenda row, shared by both views (plan 1.2/1.3: linked title + the event
     // page becomes the share target; ext rows open the school site in a new tab).
     var agRow = function (e) {
-      var d = new Date(e.date + 'T00:00:00Z');
       var cHref = evHref(e.href);
       var cExt = cHref ? null : (extUrl(e) || thaiHolidayUrl(e));   // the school site, or a Thai holiday reference (0142)
       var inner = '<div class="et">' + e.title + '</div><div class="es">' + e.sub + '</div>';
       return '<div class="ev-row"><span class="dte' + (e.date === bkkToday ? ' today' : '') + '">' +
-        DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
+        agWhen(e) + '</span>' +
         '<div class="ev-main">' + ((cHref || cExt) ? '<a class="ev-link" href="' + (cHref || cExt) + '"' + (cExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (cExt ? ' · on ' + extSiteLabel(cExt) : ' · event page') + '">' + inner + '</a>' : inner) + '</div>' +
         calActions(e.date, e.title, e.sub, e.href, e.until, cHref ? absHref(e.href) : (cExt || shareUrl), e.time, e.venue) + '</div>';
     };

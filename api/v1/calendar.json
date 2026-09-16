@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-15T23:17:20.797Z",
+  "generated": "2026-09-16T06:44:12.354Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -285,6 +285,16 @@
       "sub": "During the October break"
     },
     {
+      "date": "2026-10-20",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "until": "2026-10-21",
+      "nopage": true,
+      "title": "Y5 and Y6 overnight field trip",
+      "sub": ""
+    },
+    {
       "date": "2026-10-22",
       "cat": "workshop",
       "type": "purple",
@@ -331,6 +341,16 @@
       "ext": "https://form.jotform.com/262361215951454",
       "comunita": true,
       "title": "Parent coffee morning",
+      "sub": ""
+    },
+    {
+      "date": "2026-11-16",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "until": "2026-11-17",
+      "nopage": true,
+      "title": "Y4 overnight field trip",
       "sub": ""
     },
     {
