@@ -92,8 +92,18 @@ BEGIN:VEVENT
 UID:20261006-viewing-your-child-through-the-lens-of-attachment-building-security-connection-with-dr-plern@portal.elc.ac.th
 DTSTAMP:20261006T000000Z
 DTSTART;VALUE=DATE:20261006
-DTEND;VALUE=DATE:20261008
-SUMMARY:Viewing Your Child Through the Lens of Attachment: Building Security & Connection with Dr.Plern\, 06 and 07 Oct
+DTEND;VALUE=DATE:20261007
+SUMMARY:Viewing Your Child Through the Lens of Attachment: Building Security & Connection with Dr.Plern\, 06 and 08 Oct
+LOCATION:The Purple Elephant 49
+URL:https://elcportal.elc.ac.th/building-connection/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/building-connection/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261008-viewing-your-child-through-the-lens-of-attachment-building-security-connection-with-dr-plern@portal.elc.ac.th
+DTSTAMP:20261008T000000Z
+DTSTART;VALUE=DATE:20261008
+DTEND;VALUE=DATE:20261009
+SUMMARY:Viewing Your Child Through the Lens of Attachment: Building Security & Connection with Dr.Plern\, 06 and 08 Oct
 LOCATION:The Purple Elephant 49
 URL:https://elcportal.elc.ac.th/building-connection/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/building-connection/
