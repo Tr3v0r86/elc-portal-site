@@ -2088,6 +2088,122 @@
     window.addEventListener('hashchange', openHashEvent);
   }
 
+  /* Save-this-event control ON the event page (issue 0263, Trevor 2026-09-16: "can every
+     event page also carry over the subscribe buttons from /calendar so that families can
+     save events even once they are in the event... this should be the default for all event
+     pages"). A family arrives here FROM a calendar row that carried the control, and until
+     now the page they landed on did not have it.
+
+     DATA-DRIVEN ON PURPOSE. The alternative was hand-written markup per page, the community/
+     pattern from 0220 rev 4. That hardcodes the date into page HTML while data.js is
+     regenerated from the SSOT sheet on every PULL=1, so a date that moves in the sheet moves
+     on /calendar and stays wrong in the button, silently, with no gate covering it (0235 was
+     exactly that failure, live). Reading the same rows the calendar reads means one date,
+     two surfaces, and connections.md has one less repeated claim to police.
+
+     MATCHED BY URL, NOT BY SLUG. The page claims a row when the row's resolved href IS this
+     page, so a nested destination ('events/sports-day/') and a portal-test subpath both work
+     without a second grammar to keep in step with HREF_RE.
+
+     DEFAULT-ON AND SELF-GATING. Any page a calendar row points at gets the control, so a new
+     event page needs no markup at all. A page no row points at renders nothing, so arrival/,
+     lunch/ and transport/ need no opt-out list. Two explicit outs: data-cal-save="off" on the
+     main, and any page already carrying an .ics-btn, which is what keeps community/ (whose
+     cards carry their own static buttons) from doubling up.
+
+     ALL CAMPUS DATES, EACH LABELLED (Trevor's call, 2026-09-16). loy-krathong/ is hrefed by
+     three rows: City 24 Nov, Samakee 24 Nov, Thong Lor 25 Nov. The page is campus-neutral by
+     design, so a family has to be able to see which date is theirs. This does NOT reopen
+     0255: that rule governs the CALENDAR surfaces, where a campus page must never leak a
+     sibling campus's row. An event page is the event, not a campus. The campus line renders
+     only when the matched set actually spans more than one, so a City-only page stays quiet
+     and no row gains a label that tells a family nothing. */
+  var PE_CAMPUS = { thonglor: 'The Purple Elephants (55, 39, 49)', samakee: 'The Purple Elephant (Samakee)' };
+  // 0245: these are the campus names, and "Thong Lor PEs" is never one of them.
+  function campusLabel(e) { return e && e.pe ? (PE_CAMPUS[e.pe] || '') : 'The City School'; }
+  function spansCampuses(rows) {
+    var seen = {};
+    (rows || []).forEach(function (e) { seen[campusLabel(e)] = 1; });
+    return Object.keys(seen).length > 1;
+  }
+  // A directory URL and its index.html are the same page; absHref only ever yields the first.
+  function normPageUrl(u) { return String(u || '').replace(/index\.html$/, ''); }
+  // An event is still savable through its last day: a multi-day row (`until` inclusive, the
+  // contract toICS reads) stays until it ends, never only through its first morning.
+  function isUpcoming(e, todayISO) {
+    return ((e.until && e.until >= e.date) ? e.until : e.date) >= todayISO;
+  }
+  /* Pure, so the asserts below can drive it: `resolve` is absHref in the live call and a stub
+     in the self-check. Dedupe keeps campus in the key, so two campuses sharing a date stay two
+     rows (both real, both savable) while a row listed twice collapses. */
+  function savePageRows(rows, resolve, pageUrl, todayISO) {
+    var here = normPageUrl(pageUrl), seen = {}, out = [];
+    (rows || []).forEach(function (e) {
+      if (!e || !e.href || !e.date) return;
+      var abs = resolve(e.href);
+      if (!abs || normPageUrl(abs) !== here) return;
+      if (!isUpcoming(e, todayISO)) return;
+      var k = e.date + '|' + e.title + '|' + (e.pe || '');
+      if (seen[k]) return;
+      seen[k] = 1;
+      out.push(e);
+    });
+    return out.sort(function (a, b) { return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0); });
+  }
+  console.assert(campusLabel({ pe: 'thonglor' }) === 'The Purple Elephants (55, 39, 49)' && campusLabel({ pe: 'samakee' }) === 'The Purple Elephant (Samakee)' && campusLabel({}) === 'The City School', 'campusLabel: the 0245 names, City for a row with no pe');
+  console.assert(!spansCampuses([{}, {}]) && spansCampuses([{}, { pe: 'samakee' }]), 'spansCampuses: only a genuinely mixed set is labelled');
+  console.assert(isUpcoming({ date: '2026-11-24' }, '2026-11-24') && !isUpcoming({ date: '2026-11-24' }, '2026-11-25'), 'isUpcoming: an event is savable on its own day, gone the next');
+  console.assert(isUpcoming({ date: '2026-10-12', until: '2026-10-16' }, '2026-10-15'), 'isUpcoming: a multi-day row survives to its last day');
+  console.assert(normPageUrl('https://x.test/loy-krathong/index.html') === 'https://x.test/loy-krathong/', 'normPageUrl: index.html is the directory');
+  // The real Loy Krathong shape, the reason Trevor asked for all three: two campuses on one
+  // date and a third on the next, and every one of them has to reach the page.
+  var LK_FIX = [
+    { date: '2026-11-24', href: 'loy-krathong/', title: 'ELC celebrates Loy Krathong', sub: '' },
+    { date: '2026-11-24', href: 'loy-krathong/', pe: 'samakee', title: 'Loy Krathong Celebrations', sub: '' },
+    { date: '2026-11-25', href: 'loy-krathong/', pe: 'thonglor', title: 'Loy Krathong Celebrations', sub: '' },
+    { date: '2026-11-24', href: 'loy-krathong/', pe: 'samakee', title: 'Loy Krathong Celebrations', sub: '' },
+    { date: '2026-09-01', href: 'loy-krathong/', title: 'Last year', sub: '' },
+    { date: '2026-11-24', href: 'open-house/', title: 'Another page', sub: '' }
+  ];
+  var LK_RESOLVE = function (h) { return 'https://x.test/' + h; };
+  console.assert(savePageRows(LK_FIX, LK_RESOLVE, 'https://x.test/loy-krathong/', '2026-09-16').length === 3, 'savePageRows: three campus rows, the duplicate collapsed, the past row and the other page dropped');
+  console.assert(savePageRows(LK_FIX, LK_RESOLVE, 'https://x.test/loy-krathong/', '2026-09-16')[2].pe === 'thonglor', 'savePageRows: sorted by date, Thong Lor last');
+  console.assert(spansCampuses(savePageRows(LK_FIX, LK_RESOLVE, 'https://x.test/loy-krathong/', '2026-09-16')), 'savePageRows: the Loy Krathong set spans campuses, so every row gets its campus');
+  console.assert(savePageRows(LK_FIX, LK_RESOLVE, 'https://x.test/lunch/', '2026-09-16').length === 0, 'savePageRows: a page no row points at renders nothing, so no opt-out list is needed');
+  console.assert(savePageRows([{ date: '2026-11-24', href: '../up/', title: 'x' }], function () { return null; }, 'https://x.test/loy-krathong/', '2026-09-16').length === 0, 'savePageRows: an href the grammar rejects never matches a page');
+
+  var saveMain = document.querySelector('main');
+  var saveHead = saveMain && saveMain.querySelector('.page-head');
+  if (saveMain && saveHead && saveMain.getAttribute('data-cal-save') !== 'off' && !saveMain.querySelector('.ics-btn')) {
+    var saveHere = normPageUrl(location.origin + location.pathname);
+    var saveRows = savePageRows((P.calendarEvents || []).concat(P.peEvents || []), absHref, saveHere, bkkToday);
+    if (saveRows.length) {
+      var saveSpans = spansCampuses(saveRows);
+      var saveWrap = document.createElement('div');
+      saveWrap.className = 'section';
+      saveWrap.innerHTML =
+        '<div class="sec-eyebrow"><span class="eyebrow">' +
+        (saveRows.length > 1 ? 'Save these dates to your calendar' : 'Save this to your calendar') +
+        '</span><span class="ln"></span></div>' +
+        saveRows.map(function (e) {
+          var d = new Date(e.date + 'T00:00:00Z');
+          // The campus is the line a family needs on a shared page; its own sub is what it
+          // needs everywhere else. Never both: .es is uppercase mono and two stacked lines
+          // of it turn a save control into a paragraph.
+          var line = saveSpans ? campusLabel(e) : (e.sub || '');
+          return '<div class="ev-row"><span class="dte' + (e.date === bkkToday ? ' today' : '') + '">' +
+            DOW[d.getUTCDay()] + ' ' + pad(d.getUTCDate()) + ' ' + FN_MONS[d.getUTCMonth()] + '</span>' +
+            '<div class="ev-main"><div class="et">' + e.title + '</div>' +
+            (line ? '<div class="es">' + line + '</div>' : '') + '</div>' +
+            // No linked title: the family is already on the page the link would go to. The
+            // share target is this page for the same reason.
+            calActions(e.date, e.title, e.sub, e.href, e.until, saveHere, e.time, e.venue) +
+            '</div>';
+        }).join('');
+      saveHead.parentNode.insertBefore(saveWrap, saveHead.nextSibling);
+    }
+  }
+
   // Version stamp (0061): rewrite the footer fine print from PORTAL.version + build.
   // data.js is network-first, so a new deploy restamps every page the moment fresh
   // data lands, the visible signal that the update propagated. Static HTML keeps a

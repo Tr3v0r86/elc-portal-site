@@ -20,7 +20,7 @@
    byte-comparing THIS FILE: leave it identical and reg.update() finds nothing, no
    controllerchange fires, and the update flow in render.js never runs. A themed-asset fix
    that changes only app.css would therefore never reach a family who does not navigate. */
-const CACHE = "elc-portal-shell-v65";
+const CACHE = "elc-portal-shell-v67";
 
 const SHELL = [
   "./",
@@ -35,6 +35,7 @@ const SHELL = [
   "help/",
   "new-family-orientation/",
   "open-evening/",
+  "parent-teacher-conference/",
   "building-bridges/",
   "building-connection/",
   "open-house/",
@@ -57,6 +58,7 @@ const SHELL = [
   "purple-elephant/thong-lor/",
   "purple-elephant/samakee/",
   "purple-elephant/samakee/nuts-and-bolts/",
+  "purple-elephant/samakee/parent-teacher-conference/",
   "purple-elephant/thong-lor/nuts-and-bolts/",
   "purple-elephant/thong-lor/policies/",
   "purple-elephant/samakee/policies/",
@@ -134,6 +136,11 @@ self.addEventListener("fetch", (e) => {
      and bypasses the SW entirely; this guard is for a browser-opened feed URL, so a
      stale cached snapshot is never served in place of the current dates (P4 pass A). */
   if (url.pathname.indexOf("/api/") !== -1) return;
+
+  /* Tier 0: media. Byte-range requests cannot be served from the Cache API: caches.match
+     ignores Range and returns the full 200, which iOS Safari refuses to play. Network-only,
+     and it keeps a megabyte of video out of the shell cache as a bonus. (0208) */
+  if (/\.(mp4|webm|m4v|mov)$/i.test(url.pathname)) return;
 
   /* Tier 0: navigation (HTML documents): network-first. This kills first-open-stale
      online (0061): every navigation serves fresh HTML, and the cached shell answers
