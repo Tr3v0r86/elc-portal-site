@@ -1275,10 +1275,10 @@
         ];
         var beyondTerm = 0;
         agEvs.forEach(function (e) {
-          var d = new Date(e.date + 'T00:00:00Z');
-          if (d < agToday0) return;          /* past events drop off the forward view */
+          var end = (e.until && e.until >= e.date) ? e.until : e.date;
+          if (end < bkkToday) return;       /* running events stay through their final day */
           if (e.date > agTermEnd) { beyondTerm++; return; }   /* next term and beyond: counted, not listed here */
-          buckets[agendaBucket(e.date, bkkToday)].rows.push(agRow(e));
+          buckets[agendaBucket(e.date < bkkToday ? bkkToday : e.date, bkkToday)].rows.push(agRow(e));
         });
         /* Keep the agenda column readable: cap "Later this term" at 12 rows; fold the cap
            overflow AND the beyond-term events into one honest line pointing at the grid. */
@@ -1292,7 +1292,10 @@
       }
       // Any other month: everything in it, oldest first, or an honest empty line.
       var mKey = y + '-' + pad(m + 1);
-      var mRows = agEvs.filter(function (e) { return e.date.slice(0, 7) === mKey; }).map(agRow);
+      var mRows = agEvs.filter(function (e) {
+        var end = (e.until && e.until >= e.date) ? e.until : e.date;
+        return e.date.slice(0, 7) <= mKey && end.slice(0, 7) >= mKey;
+      }).map(agRow);
       calAgenda.innerHTML = '<div class="wk">' + CAL_MONTHS[m] + ' ' + y + '</div>' +
         (mRows.length ? mRows.join('')
           : '<div class="cal-note mono">Nothing on the calendar in ' + CAL_MONTHS[m] + ' ' + y + '.</div>');
