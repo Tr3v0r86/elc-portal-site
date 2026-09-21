@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-20T23:39:07.063Z",
+  "generated": "2026-09-21T00:08:07.375Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -251,7 +251,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Parent Teacher Conferences (Progress)",
       "sub": "No school for children"
     },

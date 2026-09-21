@@ -746,7 +746,7 @@ window.PORTAL = {
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'International Schools Holiday', sub: '' },
     { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', time: '5:45 to 7:30 pm', title: 'Open Evening', sub: '' },
     { date: '2026-09-30', cat: 'event', type: 'gold', aud: 'child', until: '2026-10-02', nopage: true, venue: 'The Atrium', title: 'Book Fair', sub: '' },
-    { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
+    { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', href: 'parent-teacher-conference/', title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', time: '9 to 11 am', title: 'Open House at The City School', sub: '' },
     { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360716288462', time: '8 to 9 am', venue: 'The Atrium', comunita: true, title: 'Parent coffee morning', sub: '' },
     { date: '2026-10-12', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-10-16', nopage: true, title: 'Holiday: ELC October mid-term break', sub: 'to 16 Oct' },
