@@ -110,6 +110,11 @@ window.PORTAL = {
     // Safeguarding concerns go to the child protection officer, NOT the office
     // (Trevor 2026-08-05). Email only: no dedicated phone line given.
     cp:         { label: 'Child protection officer', email: 'cp-officer@elc.ac.th' },
+    // The library runs its own parent-facing inbox (Rachel Wright, 2026-09-21, issue 0045):
+    // "parents can contact us at library@elc.ac.th so they don't need to funnel their
+    // message through the office." Email only, same shape as cp: the school number is the
+    // switchboard, not a library line, so printing it would route a book question wrong.
+    library:    { label: 'The library', email: 'library@elc.ac.th' },
     // PDPA and data requests go to the data protection address, NOT the office
     // (Trevor 2026-08-06, relay #60, issue 0125). Email only, same shape as cp:
     // no dedicated line was given and "Phone coming" would be a false promise.
