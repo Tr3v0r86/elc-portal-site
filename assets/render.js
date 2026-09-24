@@ -37,6 +37,9 @@
   var ROOT = (qRoot && qRoot.getAttribute('data-root')) || '';
   var HREF_RE = /^[a-z0-9-]+(\/[a-z0-9-]+)*\/$/;
   function evHref(h) { return (typeof h === 'string' && HREF_RE.test(h)) ? ROOT + h : null; }
+  // 0272: a comunita row's home is its OWN card on community/ (id="ev-<date>", 0225), so the
+  // calendar grid + agenda land there, same deep link as the week strip and Coming up band.
+  function commHref(e) { return (e && e.comunita && e.date) ? ROOT + 'community/#ev-' + e.date : null; }
   // Escape hatch for events that live on the main school site (e.g. summer school):
   // a validated https URL on e.ext, opened in a new tab. evHref stays internal-only
   // (its grammar rejects schemes), so this is the only path to an off-portal link.
@@ -167,13 +170,14 @@
      Bridges is the worked example (issue 0253); it was fixed by reclassifying the row, which
      only ever moved the symptom.
 
-     calSurfaceRows: the calendar grid + agenda source. City drops comunita (they live on
-     community/); a PE campus keeps its own, because it has nowhere else to keep them.
+     calSurfaceRows: the calendar grid + agenda source. Every campus keeps its own comunita
+     rows (0272, Trevor 2026-09-23: "show community on the calendar as well"); City rows still
+     link to community/, which stays their RSVP home.
      comingUpRows: the City home band. City core rows plus CITY comunita rows. PE rows of any
      kind never belong here - the band renders on site/index.html only, which is the City home. */
   function calSurfaceRows(P, pe) {
     return pe ? (P.peEvents || []).filter(function (e) { return e.pe === pe; })
-              : coreRows(P.calendarEvents);
+              : (P.calendarEvents || []);
   }
   function comingUpRows(P) {
     return coreRows(P.calendarEvents)
@@ -405,7 +409,8 @@
     peEvents: [{ pe: 'thonglor', title: 'tl-core' }, { pe: 'thonglor', title: 'tl-workshop', comunita: true },
                { pe: 'samakee', title: 'smk-workshop', comunita: true }]
   };
-  console.assert(calSurfaceRows(CS_FIX, null).length === 1 && calSurfaceRows(CS_FIX, null)[0].title === 'city-core', 'calSurfaceRows: City calendar drops comunita (they live on community/)');
+  console.assert(/community\/#ev-2026-10-22$/.test(commHref({ comunita: true, date: '2026-10-22' })) && commHref({ date: '2026-10-22' }) === null, 'commHref: comunita rows deep-link to their community/ card, others get null');
+  console.assert(calSurfaceRows(CS_FIX, null).length === 2 && calSurfaceRows(CS_FIX, null).some(function (e) { return e.comunita; }), 'calSurfaceRows: City calendar KEEPS its comunita rows (0272)');
   console.assert(calSurfaceRows(CS_FIX, 'thonglor').length === 2 && calSurfaceRows(CS_FIX, 'thonglor').some(function (e) { return e.comunita; }), 'calSurfaceRows: a PE calendar KEEPS its own comunita rows');
   console.assert(calSurfaceRows(CS_FIX, 'thonglor').every(function (e) { return e.pe === 'thonglor'; }), 'calSurfaceRows: one campus only, never a sibling campus');
   console.assert(comingUpRows(CS_FIX).length === 2 && !comingUpRows(CS_FIX).some(function (e) { return e.pe; }), 'comingUpRows: City core + City comunita, and NO PE row of any kind');
@@ -977,8 +982,8 @@
     /* 0236 (Trevor 2026-09-01, explicit yes in the exchange: "'parent coffee morning' isnt
        surfacing inside the 'next week' cards. Lets put it there"). The strip no longer reads
        through coreRows(), so comunita rows DO appear on it. This is the week strip only:
-       coreRows() itself is untouched, so the calendar month grid and the calendar agenda keep
-       the 0071 split. The Coming up band made the same move on 2026-08-31 (0221); the strip was
+       coreRows() itself is untouched (the calendar month grid and agenda dropped the 0071 split
+       separately, in 0272). The Coming up band made the same move on 2026-08-31 (0221); the strip was
        the last core surface where a family could look at the week of 7 September and see no
        coffee morning on it. Source array is unchanged, so a PE mount still shows only its own
        campus's rows. */
@@ -1258,13 +1263,13 @@
     // One agenda row, shared by both views (plan 1.2/1.3: linked title + the event
     // page becomes the share target; ext rows open the school site in a new tab).
     var agRow = function (e) {
-      var cHref = evHref(e.href);
+      var cHref = commHref(e) || evHref(e.href);   // 0272: comunita rows deep-link to their card
       var cExt = cHref ? null : (extUrl(e) || thaiHolidayUrl(e));   // the school site, or a Thai holiday reference (0142)
       var inner = '<div class="et">' + e.title + '</div><div class="es">' + e.sub + '</div>';
       return '<div class="ev-row"><span class="dte' + (e.date === bkkToday ? ' today' : '') + '">' +
         agWhen(e) + '</span>' +
         '<div class="ev-main">' + ((cHref || cExt) ? '<a class="ev-link" href="' + (cHref || cExt) + '"' + (cExt ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' + escAttr(e.title) + (cExt ? ' · on ' + extSiteLabel(cExt) : ' · event page') + '">' + inner + '</a>' : inner) + '</div>' +
-        calActions(e.date, e.title, e.sub, e.href, e.until, cHref ? absHref(e.href) : (cExt || shareUrl), e.time, e.venue) + '</div>';
+        calActions(e.date, e.title, e.sub, e.href, e.until, cHref ? new URL(cHref, location.href).href : (cExt || shareUrl), e.time, e.venue) + '</div>';
     };
     renderCalAgenda = function (y, m) {
       if (y === agCurY && m === agCurM) {
@@ -1345,7 +1350,7 @@
       var d = new Date(iso + 'T00:00:00Z');
       var head = CAL_DOWS[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + FN_MONS[d.getUTCMonth()];
       var rows = evs.map(function (e) {
-        var h = evHref(e.href);
+        var h = commHref(e) || evHref(e.href);   // 0272: comunita rows deep-link to their card
         // 0142: the popover only ever honoured internal pages, so an external row (and now a Thai
         // holiday reference) rendered dead here while the agenda beside it linked. Same rule now.
         var pExt = h ? null : (extUrl(e) || thaiHolidayUrl(e));

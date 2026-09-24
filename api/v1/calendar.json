@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-22T05:04:39.338Z",
+  "generated": "2026-09-24T02:34:25.642Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -241,7 +241,6 @@
       "type": "gold",
       "aud": "child",
       "until": "2026-10-02",
-      "nopage": true,
       "venue": "The Atrium",
       "title": "Book Fair",
       "sub": ""
@@ -273,7 +272,7 @@
       "venue": "The Atrium",
       "comunita": true,
       "title": "Parent coffee morning",
-      "sub": ""
+      "sub": "Meet Our Project Team"
     },
     {
       "date": "2026-10-12",
