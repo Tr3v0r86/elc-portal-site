@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-09-24T02:34:25.642Z",
+  "generated": "2026-09-25T08:20:10.017Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -273,6 +273,17 @@
       "comunita": true,
       "title": "Parent coffee morning",
       "sub": "Meet Our Project Team"
+    },
+    {
+      "date": "2026-10-09",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "ext": "https://form.jotform.com/262671434094459",
+      "time": "8:30 to 9:30 am",
+      "venue": "The Atrium",
+      "title": "The Compass Initiative Series: ISB",
+      "sub": ""
     },
     {
       "date": "2026-10-12",

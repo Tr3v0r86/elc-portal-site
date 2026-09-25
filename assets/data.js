@@ -754,6 +754,7 @@ window.PORTAL = {
     { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', href: 'parent-teacher-conference/', title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', time: '9 to 11 am', title: 'Open House at The City School', sub: '' },
     { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360716288462', time: '8 to 9 am', venue: 'The Atrium', comunita: true, title: 'Parent coffee morning', sub: 'Meet Our Project Team' },
+    { date: '2026-10-09', cat: 'event', type: 'purple', aud: 'parent', href: 'compass-isb/', ext: 'https://form.jotform.com/262671434094459', time: '8:30 to 9:30 am', venue: 'The Atrium', title: 'The Compass Initiative Series: ISB', sub: '' },
     { date: '2026-10-12', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-10-16', nopage: true, title: 'Holiday: ELC October mid-term break', sub: 'to 16 Oct' },
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Rama IX Memorial Day', sub: 'During the October break' },
     { date: '2026-10-20', cat: 'event', type: 'purple', aud: 'child', until: '2026-10-22', nopage: true, title: 'Y5 and Y6 overnight field trip', sub: '' },
