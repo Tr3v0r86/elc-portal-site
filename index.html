@@ -103,43 +103,26 @@
                follow notes[] automatically is render.js (frozen), filed as an issue.
                2026-08-24: Heather -> Trevor with the ASA sign-up note.
                2026-09-01: Trevor -> Payal with her September note (hos.png = Head of Schools).
-               2026-09-14: unchanged, Payal signs the Open Evening note too. -->
-          <img class="headshot" src="assets/img/hos.png" alt="Payal" width="56" height="56" onerror="this.style.display='none'">
+               2026-09-28: Heather signs the first-six-weeks note (0274). -->
+          <img class="headshot" src="assets/img/heather.png" alt="Heather" width="56" height="56" onerror="this.style.display='none'">
           <div>
-            <span class="eyebrow" id="note-eyebrow">A note from Payal</span>
+            <span class="eyebrow" id="note-eyebrow">A note from Heather</span>
             <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">Save the date for our Open Evening on Thursday 24 September.</h2>
+        <h2 id="note-title">Belonging in our first six weeks</h2>
       </summary>
       <div class="note-reveal">
         <div class="note-main">
           <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
-          <p id="note-body">The first six weeks of the school year are a beautiful time of connection, curiosity, and discovery. On Thursday 24 September we invite you to see how this rich beginning has taken shape. Our classrooms, ateliers, and outdoor spaces now hold the traces of the children's questions, their conversations, and the ideas they have been building together. Your child's teachers will be there to walk you through what they have noticed and where the learning is heading. Our specialist and support teams will also be on the pitch to meet you. Just as importantly, it is an evening to slow down with other parents over a glass of wine and canapés, and to feel what it means to belong to the ELC community. We view parents as essential partners in our children's learning journey, and we hope each and every one of you will join us for this special evening.</p>
-          <div class="sig" id="note-sig">Payal Kogar &middot; Head of School and Pedagogista</div>
+          <p id="note-body">As we close our first six weeks, our focus has been on belonging: helping every child feel known, build friendships, and grow comfortable sharing their ideas. These relationships give children the confidence to ask questions, try something unfamiliar, and learn together. Thank you to everyone who joined us for Open Evening to spend time with our teachers and explore the learning taking place in our classrooms. We look forward to continuing those conversations at our parent–teacher conferences this Friday, sharing how each child is settling in and progressing, hearing what families are noticing at home, and considering the next steps together. Thank you for the trust and care you bring to our school community.</p>
+          <div class="sig" id="note-sig">Heather Pease · Head of Teaching &amp; Learning</div>
           <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
                signer, and render.js does not rewrite it. Reintroduce only as a per-note
                field. -->
         </div>
-        <!-- THE OPEN EVENING HERO, art for Payal's save-the-date (Trevor 2026-09-14, issue 0251:
-             "new hero, openevening jpg on desktop. Crop as you see fit ... we dont want too much
-             floor, just the provocations"). His own photograph of an atelier provocation table:
-             wire, a spool, a specimen box, magnifiers and a book laid out on paper, with baskets,
-             stools, the dresser and the window greenery behind.
-             PROVENANCE + PROCESSING, so this is reproducible: crop box (900,900)-(4600,2750) of
-             `open evening.JPG` (6000x4000, Trevor's Desktop), resized to 880 wide at JPEG q86
-             progressive, 82 KB. The 2:1 band drops the ceiling and the projection screen, the
-             pallet's front face, and the empty floor to the right and below, which is what the
-             brief asked for. 880 is exactly 2x the 440px desktop slot, so it is retina-sharp;
-             mobile caps the slot at 190px, where the scene reads as texture rather than detail.
-             /!\ INLINE filter:none IS LOAD-BEARING. .note-art carries --art-invert, which is
-             invert(1) in dark theme: right for word-art, and it turns this night-lit room into a
-             pale negative. app.css is FROZEN (ADR-0015) and this page is not, so the override
-             lives on the element. Remove it only together with the photo.
-             The word-art it replaces, assets/img/art/welcome-hero.png, stays in the art set with
-             its own provenance in 0236, and so does the mono potrace assets/img/art/welcome.svg,
-             which is still in sw.js SHELL[] and referenced by no page. -->
-        <img class="note-art" src="assets/img/art/open-evening-hero.jpg" alt="" aria-hidden="true" loading="lazy" width="880" height="440" style="filter:none">
+        <!-- Trevor’s brain drawing, darker-line derivative (0274). Full image, no crop. -->
+        <img class="note-art" src="assets/img/art/brain-hero.png" alt="Hand-drawn brain with symbols for languages, reading, writing, maths, and science" loading="lazy" width="1489" height="1056">
       </div>
       <div class="note-history" id="note-history" hidden></div>
     </details>
