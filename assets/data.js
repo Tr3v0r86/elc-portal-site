@@ -313,18 +313,29 @@ window.PORTAL = {
     // ⚠ The activities@elc.ac.th address is PLAIN TEXT here, not a link: render.js sets the
     // body with textContent, and a note gets exactly ONE cta, which Trevor asked to spend on
     // the ASA page. The address IS a live mailto one tap away on asa/ (site/asa/index.html:147).
-    // Heather’s approved first-six-weeks note, 2026-09-28 (issue 0274).
-    // Replaces Payal’s Open Evening invitation. HTML fallback and portrait match.
-    { from: '2026-09-28', eyebrow: 'A note from Heather', when: '',
-      title: "Belonging in our first six weeks",
-      body: "As we close our first six weeks, our focus has been on belonging: helping every child feel known, build friendships, and grow comfortable sharing their ideas. These relationships give children the confidence to ask questions, try something unfamiliar, and learn together. Thank you to everyone who joined us for Open Evening to spend time with our teachers and explore the learning taking place in our classrooms. We look forward to continuing those conversations at our parent–teacher conferences this Friday, sharing how each child is settling in and progressing, hearing what families are noticing at home, and considering the next steps together. Thank you for the trust and care you bring to our school community.",
-      photo: 'heather.png',
-      sig: "Heather Pease · Head of Teaching & Learning" }
+    // Payal's reopening note, LIVE 2026-09-29 on Trevor's word (copy of her family email).
+    // Replaces Heather's first-six-weeks note (retired below). Body is her email with the staff
+    // safety + accommodation lines cut (Trevor: "just say that school is open"). It says
+    // "tomorrow": true on the 29th, stale from the 30th. Rotate the note, don't re-tense it.
+    { from: '2026-09-29', eyebrow: 'A note from Payal', when: '',
+      title: 'School is open on Wednesday 30 September.',
+      body: "We are pleased to share that ELC International School will be open tomorrow, Wednesday 30th September. The weather conditions have improved. We look forward to welcoming the children back to school tomorrow morning. Thank you once again for your patience, understanding, and warm support during this time.",
+      photo: 'hos.png',
+      sig: 'Payal Kogar · Head of Schools and Pedagogista' }
 
     // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
     // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
     // set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Heather's first-six-weeks note, RETIRED 2026-09-29 when Payal's reopening note replaced it.
+    // // Heather’s approved first-six-weeks note, 2026-09-28 (issue 0274).
+    // // Replaces Payal’s Open Evening invitation. HTML fallback and portrait match.
+    // { from: '2026-09-28', eyebrow: 'A note from Heather', when: '',
+    //   title: "Belonging in our first six weeks",
+    //   body: "As we close our first six weeks, our focus has been on belonging: helping every child feel known, build friendships, and grow comfortable sharing their ideas. These relationships give children the confidence to ask questions, try something unfamiliar, and learn together. Thank you to everyone who joined us for Open Evening to spend time with our teachers and explore the learning taking place in our classrooms. We look forward to continuing those conversations at our parent–teacher conferences this Friday, sharing how each child is settling in and progressing, hearing what families are noticing at home, and considering the next steps together. Thank you for the trust and care you bring to our school community.",
+    //   photo: 'heather.png',
+    //   sig: "Heather Pease · Head of Teaching & Learning" }
     //
     // Payal's September note, RETIRED 2026-09-14 when the Open Evening save-the-date
     // replaced it. It ran from 2026-09-01. Its own comments are kept below verbatim.

@@ -103,26 +103,29 @@
                follow notes[] automatically is render.js (frozen), filed as an issue.
                2026-08-24: Heather -> Trevor with the ASA sign-up note.
                2026-09-01: Trevor -> Payal with her September note (hos.png = Head of Schools).
-               2026-09-28: Heather signs the first-six-weeks note (0274). -->
-          <img class="headshot" src="assets/img/heather.png" alt="Heather" width="56" height="56" onerror="this.style.display='none'">
+               2026-09-28: Heather signs the first-six-weeks note (0274).
+               2026-09-29: Heather -> Payal with her reopening note. -->
+          <img class="headshot" src="assets/img/hos.png" alt="Payal" width="56" height="56" onerror="this.style.display='none'">
           <div>
-            <span class="eyebrow" id="note-eyebrow">A note from Heather</span>
+            <span class="eyebrow" id="note-eyebrow">A note from Payal</span>
             <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">Belonging in our first six weeks</h2>
+        <h2 id="note-title">School is open on Wednesday 30 September.</h2>
       </summary>
-      <div class="note-reveal">
+      <!-- Inline grid override: no art on this note, so the text takes the art column too.
+           app.css is FROZEN (ADR-0015). Remove this style when a note brings art back. -->
+      <div class="note-reveal" style="grid-template-columns:1fr">
         <div class="note-main">
           <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
-          <p id="note-body">As we close our first six weeks, our focus has been on belonging: helping every child feel known, build friendships, and grow comfortable sharing their ideas. These relationships give children the confidence to ask questions, try something unfamiliar, and learn together. Thank you to everyone who joined us for Open Evening to spend time with our teachers and explore the learning taking place in our classrooms. We look forward to continuing those conversations at our parent–teacher conferences this Friday, sharing how each child is settling in and progressing, hearing what families are noticing at home, and considering the next steps together. Thank you for the trust and care you bring to our school community.</p>
-          <div class="sig" id="note-sig">Heather Pease · Head of Teaching &amp; Learning</div>
+          <p id="note-body">We are pleased to share that ELC International School will be open tomorrow, Wednesday 30th September. The weather conditions have improved. We look forward to welcoming the children back to school tomorrow morning. Thank you once again for your patience, understanding, and warm support during this time.</p>
+          <div class="sig" id="note-sig">Payal Kogar &middot; Head of Schools and Pedagogista</div>
           <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
                signer, and render.js does not rewrite it. Reintroduce only as a per-note
                field. -->
         </div>
-        <!-- Trevor’s brain drawing, darker-line derivative (0274). Full image, no crop. -->
-        <img class="note-art" src="assets/img/art/brain-hero.png" alt="Hand-drawn brain with symbols for languages, reading, writing, maths, and science" loading="lazy" width="1489" height="1056">
+        <!-- No art on Payal's reopening note (Trevor 2026-09-29: "Dont need a hero for this
+             message"). brain-hero.png stays in the art set. -->
       </div>
       <div class="note-history" id="note-history" hidden></div>
     </details>
