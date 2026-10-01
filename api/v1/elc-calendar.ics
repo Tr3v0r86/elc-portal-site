@@ -232,11 +232,11 @@ URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261005-parent-coffee-morning@portal.elc.ac.th
+UID:20261005-parent-social-morning@portal.elc.ac.th
 DTSTAMP:20261005T000000Z
 DTSTART:20261005T010000Z
 DTEND:20261005T020000Z
-SUMMARY:Parent coffee morning\, Meet Our Project Team
+SUMMARY:Parent Social Morning\, Meet Our Project Team
 LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
@@ -274,7 +274,7 @@ UID:20261020-y5-and-y6-overnight-field-trip@portal.elc.ac.th
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261023
-SUMMARY:Y5 and Y6 overnight field trip
+SUMMARY:Y5 and Y6 Overnight Field Trip
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -292,7 +292,7 @@ UID:20261023-king-chulalongkorn-memorial-day@portal.elc.ac.th
 DTSTAMP:20261023T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-SUMMARY:King Chulalongkorn Memorial Day\, No school for children\; Teacher In-Service Day
+SUMMARY:King Chulalongkorn Memorial Day\, Make-up for the 29 Sep flood closure. Regular school day for children.
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -315,11 +315,11 @@ URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261102-parent-coffee-morning@portal.elc.ac.th
+UID:20261102-parent-social-morning@portal.elc.ac.th
 DTSTAMP:20261102T000000Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
-SUMMARY:Parent coffee morning
+SUMMARY:Parent Social Morning
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
@@ -328,7 +328,7 @@ UID:20261116-y4-overnight-field-trip@portal.elc.ac.th
 DTSTAMP:20261116T000000Z
 DTSTART;VALUE=DATE:20261116
 DTEND;VALUE=DATE:20261118
-SUMMARY:Y4 overnight field trip
+SUMMARY:Y4 Overnight Field Trip
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -346,7 +346,7 @@ UID:20261124-elc-celebrates-loy-krathong@portal.elc.ac.th
 DTSTAMP:20261124T000000Z
 DTSTART;VALUE=DATE:20261124
 DTEND;VALUE=DATE:20261125
-SUMMARY:ELC celebrates Loy Krathong
+SUMMARY:ELC Celebrates Loy Krathong
 URL:https://elcportal.elc.ac.th/loy-krathong/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/loy-krathong/
 END:VEVENT
