@@ -833,7 +833,6 @@ window.PORTAL = {
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'samakee', title: 'King Rama IX Memorial Day', sub: '' },
     { date: '2026-10-19', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2026-10-23', nopage: true, pe: 'samakee', title: 'Holiday: October mid-term break', sub: 'to 23 Oct' },
     { date: '2026-10-23', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'samakee', title: 'King Chulalongkorn Memorial Day', sub: 'No school for children' },
-    { date: '2026-11-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'samakee', title: 'Professional Development Day', sub: 'No school for children.' },
     { date: '2026-11-24', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', pe: 'samakee', title: 'Loy Krathong Celebrations', sub: '' },
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'samakee', title: 'King Rama IX Birthday and National Day', sub: 'Substitution day.' },
     { date: '2026-12-14', cat: 'event', type: 'purple', aud: 'parent', nopage: true, pe: 'samakee', title: 'Winter Celebration and Christmas Brunch', sub: '' },
