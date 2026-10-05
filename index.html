@@ -104,21 +104,23 @@
                2026-08-24: Heather -> Trevor with the ASA sign-up note.
                2026-09-01: Trevor -> Payal with her September note (hos.png = Head of Schools).
                2026-09-28: Heather signs the first-six-weeks note (0274).
-               2026-09-29: Heather -> Payal with her reopening note. -->
+               2026-09-29: Heather -> Payal with her reopening note.
+               2026-10-05: Payal stays (October digest note). -->
           <img class="headshot" src="assets/img/hos.png" alt="Payal" width="56" height="56" onerror="this.style.display='none'">
           <div>
             <span class="eyebrow" id="note-eyebrow">A note from Payal</span>
             <div class="when" id="note-when"></div>
           </div>
         </div>
-        <h2 id="note-title">School is open on Wednesday 30 September.</h2>
+        <h2 id="note-title">This month we are celebrating reading and maths.</h2>
       </summary>
       <!-- Inline grid override: no art on this note, so the text takes the art column too.
            app.css is FROZEN (ADR-0015). Remove this style when a note brings art back. -->
       <div class="note-reveal" style="grid-template-columns:1fr">
         <div class="note-main">
-          <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[]. -->
-          <p id="note-body">We are pleased to share that ELC International School will be open tomorrow, Wednesday 30th September. The weather conditions have improved. We look forward to welcoming the children back to school tomorrow morning. Thank you once again for your patience, understanding, and warm support during this time.</p>
+          <!-- JS-off fallback only: render.js replaces this textContent from data.js notes[].
+               The cta (Rachael mailto) is JS-only: render.js builds it from PORTAL.contacts. -->
+          <p id="note-body">Thank you for joining us at Open Evening. It was wonderful to spend time together as a community, and to see you exploring your child's learning environment with our educators. This month we are celebrating the love of reading and maths across ELC, from the Book Fair to two weeks of Magic of Maths mornings. Make reading a regular part of life at home too, through bedtime stories, shared reading, or a book or magazine subscription. Samples are out in A Place Where Stories Are Born each morning before school, and Rachael Foster can help with any questions. We are also mindful of the flooding that has affected many of our staff and families. The school has arranged temporary accommodation and a community pantry for those affected. Families who would like to help can leave non-perishables such as tinned food, rice, toiletries and bottled water in the collection bins at the front and back gates until the mid-term break. Thank you for your generosity. As always, our doors are open.</p>
           <div class="sig" id="note-sig">Payal Kogar &middot; Head of Schools and Pedagogista</div>
           <!-- sig-sub cut 2026-08-15: it was Trevor's ops tagline, wrong under any other
                signer, and render.js does not rewrite it. Reintroduce only as a per-note

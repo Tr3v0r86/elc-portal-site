@@ -115,6 +115,9 @@ window.PORTAL = {
     // message through the office." Email only, same shape as cp: the school number is the
     // switchboard, not a library line, so printing it would route a book question wrong.
     library:    { label: 'The library', email: 'library@elc.ac.th' },
+    // Rachael Foster, Literacy Coordinator, for the October note's magazine-subscription
+    // link (Payal's October digest, 2026-10-01, names her directly). Email only.
+    rachael:    { label: 'Rachael Foster', email: 'rachaelf@elc.ac.th' },
     // PDPA and data requests go to the data protection address, NOT the office
     // (Trevor 2026-08-06, relay #60, issue 0125). Email only, same shape as cp:
     // no dedicated line was given and "Phone coming" would be a false promise.
@@ -313,13 +316,19 @@ window.PORTAL = {
     // ⚠ The activities@elc.ac.th address is PLAIN TEXT here, not a link: render.js sets the
     // body with textContent, and a note gets exactly ONE cta, which Trevor asked to spend on
     // the ASA page. The address IS a live mailto one tap away on asa/ (site/asa/index.html:147).
-    // Payal's reopening note, LIVE 2026-09-29 on Trevor's word (copy of her family email).
-    // Replaces Heather's first-six-weeks note (retired below). Body is her email with the staff
-    // safety + accommodation lines cut (Trevor: "just say that school is open"). It says
-    // "tomorrow": true on the 29th, stale from the 30th. Rotate the note, don't re-tense it.
-    { from: '2026-09-29', eyebrow: 'A note from Payal', when: '',
-      title: 'School is open on Wednesday 30 September.',
-      body: "We are pleased to share that ELC International School will be open tomorrow, Wednesday 30th September. The weather conditions have improved. We look forward to welcoming the children back to school tomorrow morning. Thank you once again for your patience, understanding, and warm support during this time.",
+    // Payal's October note, LIVE 2026-10-05 on Trevor's word. A compaction of the topline of
+    // her October Digest email (sent 2026-10-01 to families): Open Evening thanks, reading +
+    // maths month, the flood pantry. Trevor: "Dont need dates etc, more of a 'this month...'",
+    // so NO dates in the body; the one time-bound line (donation bins) is tied to the mid-term
+    // break, which is true until the break starts. The events list in her email is NOT here:
+    // every item is already a calendar row, and the calendar is one tap away in the nav.
+    // The cta is spent on Rachael (contacts.rachael) because the magazine-subscription details
+    // live only in the email's attachment, nowhere on the portal (family-review finding).
+    // Replaces her reopening note (retired below).
+    { from: '2026-10-05', eyebrow: 'A note from Payal', when: '',
+      title: 'This month we are celebrating reading and maths.',
+      body: "Thank you for joining us at Open Evening. It was wonderful to spend time together as a community, and to see you exploring your child's learning environment with our educators. This month we are celebrating the love of reading and maths across ELC, from the Book Fair to two weeks of Magic of Maths mornings. Make reading a regular part of life at home too, through bedtime stories, shared reading, or a book or magazine subscription. Samples are out in A Place Where Stories Are Born each morning before school, and Rachael Foster can help with any questions. We are also mindful of the flooding that has affected many of our staff and families. The school has arranged temporary accommodation and a community pantry for those affected. Families who would like to help can leave non-perishables such as tinned food, rice, toiletries and bottled water in the collection bins at the front and back gates until the mid-term break. Thank you for your generosity. As always, our doors are open.",
+      cta: { contact: 'rachael', label: 'Ask Rachael about magazine subscriptions' },
       photo: 'hos.png',
       sig: 'Payal Kogar · Head of Schools and Pedagogista' }
 
@@ -327,6 +336,16 @@ window.PORTAL = {
     // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
     // set `from` to today or earlier, deploy.
     // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Payal's reopening note, RETIRED 2026-10-05 when her October note replaced it.
+    // It ran from 2026-09-29 (copy of her family email). Body was her email with the staff
+    // safety + accommodation lines cut (Trevor: "just say that school is open"). It said
+    // "tomorrow": true on the 29th, stale from the 30th. Rotate the note, don't re-tense it.
+    // { from: '2026-09-29', eyebrow: 'A note from Payal', when: '',
+    //   title: 'School is open on Wednesday 30 September.',
+    //   body: "We are pleased to share that ELC International School will be open tomorrow, Wednesday 30th September. The weather conditions have improved. We look forward to welcoming the children back to school tomorrow morning. Thank you once again for your patience, understanding, and warm support during this time.",
+    //   photo: 'hos.png',
+    //   sig: 'Payal Kogar · Head of Schools and Pedagogista' }
     //
     // Heather's first-six-weeks note, RETIRED 2026-09-29 when Payal's reopening note replaced it.
     // // Heather’s approved first-six-weeks note, 2026-09-28 (issue 0274).
