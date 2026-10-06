@@ -39,7 +39,13 @@
   function evHref(h) { return (typeof h === 'string' && HREF_RE.test(h)) ? ROOT + h : null; }
   // 0272: a comunita row's home is its OWN card on community/ (id="ev-<date>", 0225), so the
   // calendar grid + agenda land there, same deep link as the week strip and Coming up band.
-  function commHref(e) { return (e && e.comunita && e.date) ? ROOT + 'community/#ev-' + e.date : null; }
+  // 0277 (Trevor 2026-10-06, Compass 9 Oct): a comunita row that has its OWN page goes there; only
+  // a row with no page (or href 'community/') lands on its card. Every surface reads this one rule.
+  function commHref(e) {
+    if (!e || !e.comunita || !e.date) return null;
+    if (evHref(e.href) && e.href !== 'community/') return null;   // own page outranks the card
+    return ROOT + 'community/#ev-' + e.date;
+  }
   // Escape hatch for events that live on the main school site (e.g. summer school):
   // a validated https URL on e.ext, opened in a new tab. evHref stays internal-only
   // (its grammar rejects schemes), so this is the only path to an off-portal link.
@@ -410,6 +416,7 @@
                { pe: 'samakee', title: 'smk-workshop', comunita: true }]
   };
   console.assert(/community\/#ev-2026-10-22$/.test(commHref({ comunita: true, date: '2026-10-22' })) && commHref({ date: '2026-10-22' }) === null, 'commHref: comunita rows deep-link to their community/ card, others get null');
+  console.assert(commHref({ comunita: true, date: '2026-10-09', href: 'compass-isb/' }) === null && /community\/#ev-2026-10-05$/.test(commHref({ comunita: true, date: '2026-10-05', href: 'community/' })), 'commHref: a comunita row with its own page gets null (0277); href community/ still lands on its card');
   console.assert(calSurfaceRows(CS_FIX, null).length === 2 && calSurfaceRows(CS_FIX, null).some(function (e) { return e.comunita; }), 'calSurfaceRows: City calendar KEEPS its comunita rows (0272)');
   console.assert(calSurfaceRows(CS_FIX, 'thonglor').length === 2 && calSurfaceRows(CS_FIX, 'thonglor').some(function (e) { return e.comunita; }), 'calSurfaceRows: a PE calendar KEEPS its own comunita rows');
   console.assert(calSurfaceRows(CS_FIX, 'thonglor').every(function (e) { return e.pe === 'thonglor'; }), 'calSurfaceRows: one campus only, never a sibling campus');
@@ -1010,10 +1017,9 @@
               // row date at both ends, so nothing is typed in the sheet, and a fragment landing on
               // a page with no such id is an inert no-op. community/ is the canonical home for a
               // comunita row on either campus, so this is not the 0131 cross-campus fallback.
-              var wComm = !!e.comunita;
+              var wComm = commHref(e);   // 0277: own page outranks the card
               var wxt = (wComm || evHref(e.href)) ? null : (extUrl(e) || thaiHolidayUrl(e));   // 0142
-              var h = wComm ? (ROOT + 'community/#ev-' + e.date)
-                            : dayEvHref(evHref(e.href), wxt, !!wkPe, ROOT);   // 0131: no cross-campus fallback
+              var h = wComm || dayEvHref(evHref(e.href), wxt, !!wkPe, ROOT);   // 0131: no cross-campus fallback
               // 2026-08-06 (Trevor): the Parents/Children keys came off the strip, so a holiday
               // says it in words instead of relying on a dot shape. Every day of a multi-day
               // break carries it, because 0114 expands the range across all of them.
@@ -1216,7 +1222,7 @@
           // so it is never typed in the sheet, never sits inside a SHEET-OWNED fence, and
           // needs no widening of check-data-hrefs.mjs's bare-dir href grammar. A fragment
           // landing on a page with no such id is an inert no-op, not a broken link.
-          var frag = (c.ev.comunita && !c.ext) ? '#ev-' + c.ev.date : '';
+          var frag = (!c.ext && commHref(c.ev)) ? '#ev-' + c.ev.date : '';   // 0277: no fragment on a row with its own page
           return '<a class="tile ev-card ev-link" href="' + c.href + frag + '"' + (c.ext ? ' target="_blank" rel="noopener"' : '') + ' aria-label="' +
             escAttr(title) + ', ' + cuLabel(c.dates, false) + (c.ext ? ' · on ' + extSiteLabel(c.href) : ' · event page') + '">' +
             when + '<h3>' + title + '</h3>' + body +
