@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-10-06T06:32:30.748Z",
+  "generated": "2026-10-17T01:31:21.534Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -757,12 +757,12 @@
     },
     {
       "date": "2027-05-20",
-      "cat": "holiday",
+      "cat": "event",
       "type": "purple",
-      "aud": "holiday",
+      "aud": "parent",
       "nopage": true,
-      "title": "Visakha Bucha Day : normal school day",
-      "sub": "Normal school day"
+      "title": "Visakha Bucha Day: school open",
+      "sub": "Normal school day at City. Samakee and Thong Lor are closed."
     },
     {
       "date": "2027-05-27",

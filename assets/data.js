@@ -722,6 +722,10 @@ window.PORTAL = {
   // resurrects the hometime clocks gets generalised HERE before deploy. Held repo-side
   // deliberately while the events system builds out; Sarah has not been asked to hold
   // it at the sheet yet.
+  // PULL=1 REVIEW ALSO RE-APPLIES (0198, relay #148, Trevor 2026-10-17): the City row for
+  // 2027-05-20 Visakha Bucha is hand-edited from cat 'holiday' (key paints it "no school")
+  // to cat 'event' / aud 'parent', because City runs a normal day. The sheet still says
+  // holiday; a pull resurrects the contradiction until Sarah edits the sheet row.
   // BEGIN SHEET-OWNED: calendarEvents
   calendarEvents: [
     { date: '2026-07-29', cat: 'event', type: 'purple', aud: 'parent', until: '2026-08-07', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: 'A week of making and performing, to 7 Aug.' },
@@ -800,7 +804,7 @@ window.PORTAL = {
     { date: '2027-05-05', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, title: 'Little Steps, Big Futures: charting your child\'s K to 6 journey', sub: '' },
     { date: '2027-05-06', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, title: 'Little Steps, Big Futures: charting your child\'s K to 6 journey', sub: '' },
     { date: '2027-05-10', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'New Families and The Purple Elephant Families to ELC', sub: 'Afternoon K1 session' },
-    { date: '2027-05-20', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'Visakha Bucha Day : normal school day', sub: 'Normal school day' },
+    { date: '2027-05-20', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Visakha Bucha Day: school open', sub: 'Normal school day at City. Samakee and Thong Lor are closed.' },
     { date: '2027-05-27', cat: 'event', type: 'purple', aud: 'child', nopage: true, title: 'Wan Wai Khru: Teacher\'s Appreciation Day', sub: '' },
     { date: '2027-06-03', cat: 'event', type: 'purple', aud: 'child', nopage: true, title: 'The Queen\'s Birthday: holiday', sub: 'Holiday' },
     { date: '2027-06-07', cat: 'social', type: 'purple', aud: 'parent', nopage: true, comunita: true, title: 'Parent coffee morning', sub: '' },
@@ -938,7 +942,7 @@ window.PORTAL = {
     // Re-uploaded 2026-08-07 04:07 UTC at the SAME URL (registry sheet row 14): 53 KB -> 23 KB
     // (22,671 bytes, HEAD-checked). Sizes here are decimal KB, matching the 2026-07-08 pass.
     { group: 'Health and safety', name: 'Safeguarding triage chart', sub: 'How a concern moves from first report to action, at a glance.', kind: 'PDF', tag: 'PDF · 23 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Safeguarding-Triage-Chart.pdf' },
-    { group: 'Health and safety', name: 'School emergency operations plan', sub: 'How the school prepares for and responds to an emergency.', kind: 'PDF', tag: 'PDF · 810 KB', href: 'https://www.elc.ac.th/wp-content/uploads/School-Emergency-Operations-Policy-and-Plan.pdf' },
+    { group: 'Health and safety', name: 'School emergency operations plan', sub: 'Under review following the MoE safety measures of August 2026. The current plan will replace this document.', kind: 'PDF', tag: 'PDF · 810 KB', href: 'https://www.elc.ac.th/wp-content/uploads/School-Emergency-Operations-Policy-and-Plan.pdf' }, // 0215 interim label (Trevor 2026-10-17); repoint + retag when the current plan exists
     { group: 'Health and safety', name: 'Accident and illness process', sub: 'What happens when a child is hurt or unwell at school.', kind: 'PDF', tag: 'PDF · 64 KB', href: 'https://www.elc.ac.th/wp-content/uploads/ACCIDENT-ILLNESS-PROCESS-CS.pdf' },
     { group: 'Health and safety', name: 'Outdoor air quality policy', sub: 'How we decide on outdoor play when the air is poor.', kind: 'PDF', tag: 'PDF · 138 KB', href: 'https://www.elc.ac.th/wp-content/uploads/2025_Outdoor_Air_Quality_Policy.pdf' },
     // Heat management policy: ELC group-wide (Trevor 2026-09-07, "copy the AQI and heat policy from

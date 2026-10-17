@@ -703,11 +703,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270520-visakha-bucha-day-normal-school-day@portal.elc.ac.th
+UID:20270520-visakha-bucha-day-school-open@portal.elc.ac.th
 DTSTAMP:20270520T000000Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
-SUMMARY:Visakha Bucha Day : normal school day\, Normal school day
+SUMMARY:Visakha Bucha Day: school open\, Normal school day at City. Samakee and Thong Lor are closed.
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
