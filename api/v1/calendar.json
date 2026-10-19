@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-10-17T01:31:21.534Z",
+  "generated": "2026-10-19T14:31:34.011Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -243,7 +243,7 @@
       "until": "2026-10-02",
       "venue": "The Atrium",
       "title": "Book Fair",
-      "sub": ""
+      "sub": "Books53 will be joining us again for a book fair to spark excitement for reading; offering students a diverse selection of books while parents engage in nurturing their child's evolving literary journey"
     },
     {
       "date": "2026-10-02",
@@ -827,11 +827,11 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "until": "2027-07-30",
+      "until": "2027-08-06",
       "nopage": true,
       "ext": "https://www.elc.ac.th/summer-school/",
       "title": "ELC Summer Festival of the Arts, Session 2",
-      "sub": "26 to 27 and 29 to 30 Jul"
+      "sub": "26 to 27 Jul and 29 Jul to 6 Aug"
     },
     {
       "date": "2027-07-28",

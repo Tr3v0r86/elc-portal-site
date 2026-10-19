@@ -749,7 +749,7 @@ window.PORTAL = {
     { date: '2026-09-17', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360929144459', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Safe Passages, Bright Horizons', sub: 'Keeping Our Children Safe - Emotionally, Socially, Physically and Digitally' },
     { date: '2026-09-18', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'International Schools Holiday', sub: '' },
     { date: '2026-09-24', cat: 'event', type: 'purple', aud: 'parent', href: 'open-evening/', time: '5:45 to 7:30 pm', title: 'Open Evening', sub: '' },
-    { date: '2026-09-30', cat: 'event', type: 'gold', aud: 'child', until: '2026-10-02', href: 'book-fair/', venue: 'The Atrium', title: 'Book Fair', sub: '' },
+    { date: '2026-09-30', cat: 'event', type: 'gold', aud: 'child', until: '2026-10-02', href: 'book-fair/', venue: 'The Atrium', title: 'Book Fair', sub: 'Books53 will be joining us again for a book fair to spark excitement for reading; offering students a diverse selection of books while parents engage in nurturing their child\'s evolving literary journey' },
     { date: '2026-10-02', cat: 'event', type: 'purple', aud: 'parent', href: 'parent-teacher-conference/', title: 'Parent Teacher Conferences (Progress)', sub: 'No school for children' },
     { date: '2026-10-03', cat: 'event', type: 'purple', aud: 'parent', href: 'open-house/', time: '9 to 11 am', title: 'Open House at The City School', sub: '' },
     { date: '2026-10-05', cat: 'social', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/262360716288462', time: '8 to 9 am', venue: 'The Atrium', comunita: true, title: 'Parent Social Morning', sub: 'Meet Our Project Team' },
@@ -811,7 +811,7 @@ window.PORTAL = {
     { date: '2027-06-18', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'Last day of the school year', sub: 'Hometime 11:30 for K1 and K2, 12:00 for Y1 to Y6' },
     { date: '2027-06-21', cat: 'event', type: 'purple', aud: 'parent', until: '2027-07-02', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 1', sub: 'to 2 Jul' },
     { date: '2027-07-05', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2027-07-23', nopage: true, title: 'School holiday: office open', sub: 'to 23 Jul' },
-    { date: '2027-07-26', cat: 'event', type: 'purple', aud: 'parent', until: '2027-07-30', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: '26 to 27 and 29 to 30 Jul' },
+    { date: '2027-07-26', cat: 'event', type: 'purple', aud: 'parent', until: '2027-08-06', nopage: true, ext: 'https://www.elc.ac.th/summer-school/', title: 'ELC Summer Festival of the Arts, Session 2', sub: '26 to 27 Jul and 29 Jul to 6 Aug' },
     { date: '2027-07-28', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Vajiralongkorn\'s Birthday Holiday', sub: '' }
   ],
   // END SHEET-OWNED: calendarEvents
@@ -889,7 +889,7 @@ window.PORTAL = {
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Rama IX Memorial Day', sub: 'During the October break' },
     { date: '2026-10-23', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Chulalongkorn Memorial Day', sub: 'No school for children' },
     { date: '2026-10-28', cat: 'event', type: 'purple', aud: 'parent', nopage: true, venue: 'The Purple Elephant 49', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The Purple Elephant 49', sub: '' },
-    { date: '2026-11-10', cat: 'event', type: 'purple', aud: 'parent', nopage: true, venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The City School', sub: '' },
+    { date: '2026-11-10', cat: 'event', type: 'purple', aud: 'parent', until: '2026-11-11', nopage: true, venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The City School', sub: '10 and 11 Nov' },
     { date: '2026-11-25', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', pe: 'thonglor', title: 'Loy Krathong Celebrations', sub: '' },
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Rama IX Birthday and National Day Substitution Holiday', sub: '' },
     { date: '2026-12-15', cat: 'event', type: 'purple', aud: 'child', nopage: true, pe: 'thonglor', title: 'The Purple Elephant 39 Christmas Party', sub: '' },
