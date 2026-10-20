@@ -136,16 +136,6 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261028-atelier-experiences-at-the-purple-elephant-49@portal.elc.ac.th
-DTSTAMP:20261028T000000Z
-DTSTART;VALUE=DATE:20261028
-DTEND;VALUE=DATE:20261029
-SUMMARY:Atelier Experiences at The Purple Elephant 49
-LOCATION:The Purple Elephant 49
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
-END:VEVENT
-BEGIN:VEVENT
 UID:20261110-atelier-experiences-at-the-city-school@portal.elc.ac.th
 DTSTAMP:20261110T000000Z
 DTSTART;VALUE=DATE:20261110
