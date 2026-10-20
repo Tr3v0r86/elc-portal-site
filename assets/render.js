@@ -193,6 +193,13 @@
   // (`until` = inclusive last day, same contract toICS reads) lands on each day key,
   // matching the print sheet's ycDayMap expansion. Guard until >= date so a
   // malformed row cannot spin the loop.
+  // Trevor 2026-10-20: a multi-day event (FotA, book fair, trips) runs on school days,
+  // so its Sat/Sun are not painted. Holiday ranges (Christmas, Songkran) keep them.
+  // The start day always paints, so a Saturday open house still shows.
+  function skipsDay(e, cur) {
+    var dow = cur.getUTCDay();
+    return e.cat !== 'holiday' && (dow === 0 || dow === 6) && cur.toISOString().slice(0, 10) !== e.date;
+  }
   function expandByDate(rows) {
     var by = {};
     (rows || []).forEach(function (e) {
@@ -200,6 +207,7 @@
       var cur = new Date(e.date + 'T00:00:00Z');
       var end = (e.until && e.until >= e.date) ? new Date(e.until + 'T00:00:00Z') : new Date(cur);
       for (; cur <= end; cur.setUTCDate(cur.getUTCDate() + 1)) {
+        if (skipsDay(e, cur)) continue;
         var k = cur.toISOString().slice(0, 10);
         (by[k] = by[k] || []).push(e);
       }
@@ -424,6 +432,8 @@
   console.assert(calSurfaceRows({}, null).length === 0 && calSurfaceRows({}, 'thonglor').length === 0 && comingUpRows({}).length === 0, 'campus scoping: tolerates missing islands');
   console.assert(Object.keys(expandByDate([{ date: '2026-10-12', until: '2026-10-16', title: 'x' }])).length === 5, 'expandByDate: until four days out yields five day keys');
   console.assert(Object.keys(expandByDate([{ date: '2026-10-12', title: 'x' }])).length === 1, 'expandByDate: no until yields one day key');
+  console.assert(Object.keys(expandByDate([{ date: '2027-07-26', until: '2027-08-06', cat: 'event', title: 'x' }])).length === 10, 'expandByDate: event range skips Sat/Sun');
+  console.assert(Object.keys(expandByDate([{ date: '2026-12-21', until: '2027-01-10', cat: 'holiday', title: 'x' }])).length === 21, 'expandByDate: holiday range keeps weekends');
   console.assert(termEnd([{ date: '2026-12-18', title: 'Last day of Term 1' }], '2026-07-11') === '2026-12-18', 'termEnd: next term close');
   console.assert(termEnd([{ date: '2026-08-01', title: 'x' }], '2026-01-01') === '2026-05-01', 'termEnd: 120-day fallback');
   console.assert(isDraftPage('glossary', ['glossary', 'refunds']) && !isDraftPage('calendar-print', ['glossary']), 'isDraftPage: membership');
@@ -1572,6 +1582,7 @@
       var cat = ycCat(e), cur = new Date(e.date + 'T00:00:00Z');
       var end = e.until ? new Date(e.until + 'T00:00:00Z') : new Date(cur);
       for (; cur <= end; cur.setUTCDate(cur.getUTCDate() + 1)) {
+        if (skipsDay(e, cur)) continue;
         var mk = cur.getUTCFullYear() + '-' + cur.getUTCMonth(), day = cur.getUTCDate();
         var bucket = ycDayMap[mk] || (ycDayMap[mk] = {});
         if (!bucket[day] || YC_PREC[cat] > YC_PREC[bucket[day]]) bucket[day] = cat;
