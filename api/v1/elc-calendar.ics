@@ -3,7 +3,7 @@ VERSION:2.0
 PRODID:-//ELC Portal//Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:ELC International Schools
+X-WR-CALNAME:ELC Master Calendar
 X-WR-TIMEZONE:Asia/Bangkok
 BEGIN:VEVENT
 UID:20260729-elc-summer-festival-of-the-arts-session-2@portal.elc.ac.th
