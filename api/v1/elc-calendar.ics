@@ -477,6 +477,60 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270119-project-learning-journey-year-3@portal.elc.ac.th
+DTSTAMP:20270119T000000Z
+DTSTART;VALUE=DATE:20270119
+DTEND;VALUE=DATE:20270120
+SUMMARY:Project Learning Journey: Year 3\, Sophie's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270121-project-learning-journey-year-4@portal.elc.ac.th
+DTSTAMP:20270121T000000Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:Project Learning Journey: Year 4\, Lauren's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270126-project-learning-journey-year-2-and-year-3@portal.elc.ac.th
+DTSTAMP:20270126T000000Z
+DTSTART;VALUE=DATE:20270126
+DTEND;VALUE=DATE:20270127
+SUMMARY:Project Learning Journey: Year 2 and Year 3\, Kobus's and Keyyona's classes
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270127-project-learning-journey-k2-and-year-2@portal.elc.ac.th
+DTSTAMP:20270127T000000Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:Project Learning Journey: K2 and Year 2\, Jess's and Eric's classes
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270128-project-learning-journey-k2@portal.elc.ac.th
+DTSTAMP:20270128T000000Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:Project Learning Journey: K2\, Kelly's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270129-project-learning-journey-year-2-and-year-4@portal.elc.ac.th
+DTSTAMP:20270129T000000Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:Project Learning Journey: Year 2 and Year 4\, Julie's and Carl's classes
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270201-parent-coffee-morning@portal.elc.ac.th
 DTSTAMP:20270201T000000Z
 DTSTART;VALUE=DATE:20270201
@@ -486,13 +540,67 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270202-project-learning-journey-k2-and-year-1@portal.elc.ac.th
+DTSTAMP:20270202T000000Z
+DTSTART;VALUE=DATE:20270202
+DTEND;VALUE=DATE:20270203
+SUMMARY:Project Learning Journey: K2 and Year 1\, Izzy's and Meg's classes
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270203-project-learning-journey-k2-and-year-5@portal.elc.ac.th
+DTSTAMP:20270203T000000Z
+DTSTART;VALUE=DATE:20270203
+DTEND;VALUE=DATE:20270204
+SUMMARY:Project Learning Journey: K2 and Year 5\, Nasreen's class and Clifford and Athena's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270204-project-learning-journey-year-1@portal.elc.ac.th
+DTSTAMP:20270204T000000Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:Project Learning Journey: Year 1\, Tammy's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270209-project-learning-journey-year-1-and-year-6@portal.elc.ac.th
+DTSTAMP:20270209T000000Z
+DTSTART;VALUE=DATE:20270209
+DTEND;VALUE=DATE:20270210
+SUMMARY:Project Learning Journey: Year 1 and Year 6\, Rin's class and Chrissy and Maddy's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270210-project-learning-journey-k2@portal.elc.ac.th
+DTSTAMP:20270210T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:Project Learning Journey: K2\, Emilia's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270211-project-learning-journey-year-1@portal.elc.ac.th
+DTSTAMP:20270211T000000Z
+DTSTART;VALUE=DATE:20270211
+DTEND;VALUE=DATE:20270212
+SUMMARY:Project Learning Journey: Year 1\, Rowan's class
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270211-project-through-the-years-at-elc@portal.elc.ac.th
 DTSTAMP:20270211T000000Z
 DTSTART;VALUE=DATE:20270211
 DTEND;VALUE=DATE:20270212
 SUMMARY:Project Through the Years at ELC
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270212-project-through-the-years-at-elc@portal.elc.ac.th
@@ -500,8 +608,8 @@ DTSTAMP:20270212T000000Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:Project Through the Years at ELC
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270212-project-in-kindergarten@portal.elc.ac.th
@@ -509,8 +617,8 @@ DTSTAMP:20270212T000000Z
 DTSTART;VALUE=DATE:20270212
 DTEND;VALUE=DATE:20270213
 SUMMARY:Project in Kindergarten
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/project-learning-journeys/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270215-the-purple-elephant-s-atelier-experiences-at-the-city-school@portal.elc.ac.th

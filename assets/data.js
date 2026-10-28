@@ -264,7 +264,11 @@ window.PORTAL = {
     // wine-and-canapés line came off the blurb; the page carries the schedule and left draftPages.
     { href: 'open-evening/', title: 'Open Evening',
       blurb: 'An evening for families to step into their child\'s learning, connect with teachers, and get to know other ELC parents. Meet and mingle on the pitch from 5:45, then time in the classrooms, then our specialist and support teams.',
-      go: 'See how the evening runs' }
+      go: 'See how the evening runs' },
+    // 0279: Project Learning Journeys, 26 class rows + 3 workshops share this href and fold into one card
+    { href: 'project-learning-journeys/', title: 'Project Learning Journeys',
+      blurb: 'Your child\'s class invites you in to meet the thinking behind their Project. Find your class\'s date, and what the morning is like.',
+      go: 'What the morning is like' }
     // Building Bridges overlay REMOVED 2026-09-15 (issue 0255). It was added at 0252 because the
     // Thong Lor row was comunita:true and therefore carded on the City home; both halves of that
     // are now false. The row is no longer comunita (0253: a tour for PE families is not a
@@ -779,10 +783,22 @@ window.PORTAL = {
     { date: '2026-12-21', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2027-01-10', nopage: true, title: 'Holiday: Christmas and New Year', sub: 'to 10 Jan' },
     { date: '2027-01-11', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'School resumes for Term 2', sub: '' },
     { date: '2027-01-18', cat: 'social', type: 'purple', aud: 'parent', nopage: true, comunita: true, title: 'Parent coffee morning', sub: '' },
+    { date: '2027-01-19', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 3', sub: 'Sophie\'s class' },
+    { date: '2027-01-21', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 4', sub: 'Lauren\'s class' },
+    { date: '2027-01-26', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 2 and Year 3', sub: 'Kobus\'s and Keyyona\'s classes' },
+    { date: '2027-01-27', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: K2 and Year 2', sub: 'Jess\'s and Eric\'s classes' },
+    { date: '2027-01-28', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: K2', sub: 'Kelly\'s class' },
+    { date: '2027-01-29', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 2 and Year 4', sub: 'Julie\'s and Carl\'s classes' },
     { date: '2027-02-01', cat: 'social', type: 'purple', aud: 'parent', nopage: true, comunita: true, title: 'Parent coffee morning', sub: '' },
-    { date: '2027-02-11', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, title: 'Project Through the Years at ELC', sub: '' },
-    { date: '2027-02-12', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, title: 'Project Through the Years at ELC', sub: '' },
-    { date: '2027-02-12', cat: 'workshop', type: 'purple', aud: 'parent', nopage: true, title: 'Project in Kindergarten', sub: '' },
+    { date: '2027-02-02', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: K2 and Year 1', sub: 'Izzy\'s and Meg\'s classes' },
+    { date: '2027-02-03', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: K2 and Year 5', sub: 'Nasreen\'s class and Clifford and Athena\'s class' },
+    { date: '2027-02-04', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 1', sub: 'Tammy\'s class' },
+    { date: '2027-02-09', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 1 and Year 6', sub: 'Rin\'s class and Chrissy and Maddy\'s class' },
+    { date: '2027-02-10', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: K2', sub: 'Emilia\'s class' },
+    { date: '2027-02-11', cat: 'social', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Learning Journey: Year 1', sub: 'Rowan\'s class' },
+    { date: '2027-02-11', cat: 'workshop', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Through the Years at ELC', sub: '' },
+    { date: '2027-02-12', cat: 'workshop', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project Through the Years at ELC', sub: '' },
+    { date: '2027-02-12', cat: 'workshop', type: 'purple', aud: 'parent', href: 'project-learning-journeys/', title: 'Project in Kindergarten', sub: '' },
     { date: '2027-02-15', cat: 'event', type: 'purple', aud: 'parent', until: '2027-02-16', nopage: true, venue: 'The City School', comunita: true, title: 'The Purple Elephant\'s Atelier Experiences at The City School', sub: '' },
     { date: '2027-02-19', cat: 'athletics', type: 'purple', aud: 'child', nopage: true, title: 'Athletics Day', sub: '' },
     { date: '2027-02-22', cat: 'holiday', type: 'purple', aud: 'holiday', until: '2027-02-26', nopage: true, title: 'Holiday: ELC February mid-term break', sub: 'to 26 Feb' },

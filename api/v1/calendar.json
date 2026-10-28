@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-10-24T01:00:24.813Z",
+  "generated": "2026-10-28T07:43:15.698Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -520,6 +520,54 @@
       "sub": ""
     },
     {
+      "date": "2027-01-19",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 3",
+      "sub": "Sophie's class"
+    },
+    {
+      "date": "2027-01-21",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 4",
+      "sub": "Lauren's class"
+    },
+    {
+      "date": "2027-01-26",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 2 and Year 3",
+      "sub": "Kobus's and Keyyona's classes"
+    },
+    {
+      "date": "2027-01-27",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: K2 and Year 2",
+      "sub": "Jess's and Eric's classes"
+    },
+    {
+      "date": "2027-01-28",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: K2",
+      "sub": "Kelly's class"
+    },
+    {
+      "date": "2027-01-29",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 2 and Year 4",
+      "sub": "Julie's and Carl's classes"
+    },
+    {
       "date": "2027-02-01",
       "cat": "social",
       "type": "purple",
@@ -530,11 +578,58 @@
       "sub": ""
     },
     {
+      "date": "2027-02-02",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: K2 and Year 1",
+      "sub": "Izzy's and Meg's classes"
+    },
+    {
+      "date": "2027-02-03",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: K2 and Year 5",
+      "sub": "Nasreen's class and Clifford and Athena's class"
+    },
+    {
+      "date": "2027-02-04",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 1",
+      "sub": "Tammy's class"
+    },
+    {
+      "date": "2027-02-09",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 1 and Year 6",
+      "sub": "Rin's class and Chrissy and Maddy's class"
+    },
+    {
+      "date": "2027-02-10",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: K2",
+      "sub": "Emilia's class"
+    },
+    {
+      "date": "2027-02-11",
+      "cat": "social",
+      "type": "purple",
+      "aud": "parent",
+      "title": "Project Learning Journey: Year 1",
+      "sub": "Rowan's class"
+    },
+    {
       "date": "2027-02-11",
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Project Through the Years at ELC",
       "sub": ""
     },
@@ -543,7 +638,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Project Through the Years at ELC",
       "sub": ""
     },
@@ -552,7 +646,6 @@
       "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Project in Kindergarten",
       "sub": ""
     },
