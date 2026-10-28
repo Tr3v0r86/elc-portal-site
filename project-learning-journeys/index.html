@@ -76,6 +76,9 @@
   <!-- data-cal-save="off": Trevor 2026-10-28, the page does not list the 15 rows (frozen render.js
        savePageRows would inject them under the head). The dates live on the calendar and the home strip. -->
   <main class="wrap sub" data-page="project-learning-journeys" data-cal-save="off">
+    <!-- Paragraph spacing (Trevor 2026-10-28: "room to breathe"). app.css is frozen and gives .section p
+         no bottom margin; page-scoped, same precedent as the asa/fees inline table CSS. -->
+    <style>main[data-page="project-learning-journeys"] .section p{margin-bottom:16px;}main[data-page="project-learning-journeys"] .section p:last-child{margin-bottom:0;}</style>
       <div class="page-head">
         <span class="eyebrow">Project</span>
         <h1>Project Learning Journeys.</h1>
