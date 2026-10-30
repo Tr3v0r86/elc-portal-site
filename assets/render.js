@@ -145,7 +145,9 @@
      on the site used to be the school's own site, and the copy said so in three places; the Thai
      holiday reference is the first that is not. */
   function isElcUrl(url) { return /(^|\/\/|\.)elc\.ac\.th/.test(String(url || '')); }
-  function extSiteLabel(url) { return isElcUrl(url) ? 'the school site' : 'Thai public holidays'; }
+  // 0222 A (Trevor yes 2026-10-30): a Jotform is the third outward destination, the sign-up form.
+  function isFormUrl(url) { return /^https:\/\/form\.jotform\.com\//i.test(String(url || '')); }
+  function extSiteLabel(url) { return isElcUrl(url) ? 'the school site' : (isFormUrl(url) ? 'the registration page' : 'Thai public holidays'); }
 
   /* Where a week-strip entry goes (issue 0131, Trevor relay #51). The strip was built for the
      City home, where an event with no page of its own can honestly fall back to /calendar/.
@@ -469,6 +471,7 @@
   console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Chakri Day', href: 'chakri/' }) === null, 'thaiHolidayUrl: a real page always outranks the reference');
   console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Chakri Day', ext: 'https://www.elc.ac.th/x/' }) === null, 'thaiHolidayUrl: an existing ext link is never overridden');
   console.assert(thaiHolidayUrl({ aud: 'holiday', title: 'Visakha Bucha Day : normal school day' }) === THAI_HOLIDAY_URL, 'thaiHolidayUrl: still a Thai holiday even on a day ELC stays open');
+  console.assert(extSiteLabel('https://form.jotform.com/263021339584457') === 'the registration page' && !isFormUrl(THAI_HOLIDAY_URL), 'extSiteLabel: a Jotform is the registration page, never Thai public holidays (0222 A)');
   console.assert(extSiteLabel('https://www.elc.ac.th/summer-school/') === 'the school site' && extSiteLabel(THAI_HOLIDAY_URL) === 'Thai public holidays', 'extSiteLabel: names the real destination, never calls a third-party page the school site');
   // 0143: one predicate behind BOTH the aria-label and the visible Coming-up label. The visible
   // one was hardcoded for a month after extSiteLabel shipped, so pin the thing they now share.
@@ -1226,7 +1229,7 @@
           // sighted family actually reads, so a card pointing at thaiembassy.com still said
           // "On the school site". ponytail: the shared predicate is the guard, not this line;
           // a fourth destination means extending isElcUrl's callers, never re-hardcoding here.
-          var go = c.feat ? c.feat.go : (c.ext ? (isElcUrl(c.href) ? 'On the school site' : 'Thai public holidays') : 'See details');
+          var go = c.feat ? c.feat.go : (c.ext ? (isElcUrl(c.href) ? 'On the school site' : (isFormUrl(c.href) ? 'Registration page' : 'Thai public holidays')) : 'See details');
           // 0225: a comunita card deep-links to ITS OWN block on community/, whose cards
           // carry id="ev-<date>". The fragment is DERIVED from the row date at both ends,
           // so it is never typed in the sheet, never sits inside a SHEET-OWNED fence, and
