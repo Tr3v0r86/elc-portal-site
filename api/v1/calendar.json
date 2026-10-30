@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-10-29T00:03:45.620Z",
+  "generated": "2026-10-30T07:23:01.079Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -361,7 +361,7 @@
       "aud": "parent",
       "ext": "https://form.jotform.com/262361215951454",
       "comunita": true,
-      "title": "Parent Social Morning",
+      "title": "Parent Social Morning with Tauquil and Payal",
       "sub": ""
     },
     {
@@ -526,6 +526,16 @@
       "aud": "parent",
       "title": "Project Learning Journey: Year 3",
       "sub": "Sophie's class"
+    },
+    {
+      "date": "2027-01-21",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "until": "2027-01-22",
+      "nopage": true,
+      "title": "Author Visit with Laura Wall",
+      "sub": "K1 to Y1 workshops with the author and illustrator of the Goose picture books."
     },
     {
       "date": "2027-01-21",
@@ -710,6 +720,16 @@
       "sub": ""
     },
     {
+      "date": "2027-03-17",
+      "cat": "event",
+      "type": "purple",
+      "aud": "child",
+      "until": "2027-03-18",
+      "nopage": true,
+      "title": "Bookworm Foundation Visit",
+      "sub": "Part of the Festival of Literature. Y1 to Y6 classes meet the Bookworm Foundation, the charity our book and bake sale supports, and learn how people who are blind read and experience the world."
+    },
+    {
       "date": "2027-03-19",
       "cat": "event",
       "type": "purple",
@@ -850,12 +870,12 @@
     },
     {
       "date": "2027-05-20",
-      "cat": "event",
+      "cat": "holiday",
       "type": "purple",
-      "aud": "parent",
+      "aud": "holiday",
       "nopage": true,
-      "title": "Visakha Bucha Day: school open",
-      "sub": "Normal school day at City. Samakee and Thong Lor are closed."
+      "title": "Visakha Bucha Day : normal school day",
+      "sub": "Normal school day"
     },
     {
       "date": "2027-05-27",

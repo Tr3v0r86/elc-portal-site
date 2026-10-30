@@ -315,11 +315,11 @@ URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261102-parent-social-morning@portal.elc.ac.th
+UID:20261102-parent-social-morning-with-tauquil-and-payal@portal.elc.ac.th
 DTSTAMP:20261102T000000Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
-SUMMARY:Parent Social Morning
+SUMMARY:Parent Social Morning with Tauquil and Payal
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
@@ -484,6 +484,15 @@ DTEND;VALUE=DATE:20270120
 SUMMARY:Project Learning Journey: Year 3\, Sophie's class
 URL:https://elcportal.elc.ac.th/project-learning-journeys/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/project-learning-journeys/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270121-author-visit-with-laura-wall@portal.elc.ac.th
+DTSTAMP:20270121T000000Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270123
+SUMMARY:Author Visit with Laura Wall\, K1 to Y1 workshops with the author and illustrator of the Goose picture books.
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
 UID:20270121-project-learning-journey-year-4@portal.elc.ac.th
@@ -676,6 +685,15 @@ URL:https://elcportal.elc.ac.th/open-house/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/open-house/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270317-bookworm-foundation-visit@portal.elc.ac.th
+DTSTAMP:20270317T000000Z
+DTSTART;VALUE=DATE:20270317
+DTEND;VALUE=DATE:20270319
+SUMMARY:Bookworm Foundation Visit\, Part of the Festival of Literature. Y1 to Y6 classes meet the Bookworm Foundation\, the charity our book and bake sale supports\, and learn how people who are blind read and experience the world.
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270319-parent-teacher-conference-progress@portal.elc.ac.th
 DTSTAMP:20270319T000000Z
 DTSTART;VALUE=DATE:20270319
@@ -811,11 +829,11 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20270520-visakha-bucha-day-school-open@portal.elc.ac.th
+UID:20270520-visakha-bucha-day-normal-school-day@portal.elc.ac.th
 DTSTAMP:20270520T000000Z
 DTSTART;VALUE=DATE:20270520
 DTEND;VALUE=DATE:20270521
-SUMMARY:Visakha Bucha Day: school open\, Normal school day at City. Samakee and Thong Lor are closed.
+SUMMARY:Visakha Bucha Day : normal school day\, Normal school day
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
