@@ -320,6 +320,26 @@ window.PORTAL = {
     // ⚠ The activities@elc.ac.th address is PLAIN TEXT here, not a link: render.js sets the
     // body with textContent, and a note gets exactly ONE cta, which Trevor asked to spend on
     // the ASA page. The address IS a live mailto one tap away on asa/ (site/asa/index.html:147).
+    // Payal's November note, LIVE 2026-11-02 on Trevor's word. A compaction of the topline of
+    // her November Digest email (sent 2026-11-02 to families, linking "the full story" to this
+    // page): November as a month of celebrations (holiday pageants, Loy Krathong) and the
+    // alumni celebration of Tun. Same rules as October: NO dates in the body (Trevor: "more of
+    // a 'this month...'"), the event list is NOT here (every item is a calendar row), no cta
+    // (the Tun story the digest points at sits in the Kob khun wall at the foot of this same
+    // page, and a cta cannot carry an anchor: evHref takes bare directory paths only).
+    // Replaces her October note (retired below).
+    { from: '2026-11-02', eyebrow: 'A note from Payal', when: '',
+      title: 'November is a month of celebrations.',
+      body: "As we approach the end of term, November is shaping up to be a wonderful month of celebrations across our ELC community. With the holiday season just around the corner, there is plenty of excitement in the air as our children prepare for performances, festivities and special moments together. From our holiday pageants to Loy Krathong, we look forward to bringing our community together to share in the joy, creativity and spirit of the season. We would also like to celebrate one of our ELC alumni, Tun, and an achievement that has made us incredibly proud: his full story is at the foot of this page. It is always a joy to see our former students carry their curiosity, enthusiasm and love of learning into the next chapter of their journeys. As always, our doors are open. Please don't hesitate to reach out with any questions, concerns or feedback.",
+      photo: 'hos.png',
+      sig: 'Payal Kogar · Head of Schools and Pedagogista' }
+
+    // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
+    // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
+    // set `from` to today or earlier, deploy.
+    // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    //
+    // Payal's October note, RETIRED 2026-11-02 when her November note replaced it.
     // Payal's October note, LIVE 2026-10-05 on Trevor's word. A compaction of the topline of
     // her October Digest email (sent 2026-10-01 to families): Open Evening thanks, reading +
     // maths month, the flood pantry. Trevor: "Dont need dates etc, more of a 'this month...'",
@@ -329,17 +349,12 @@ window.PORTAL = {
     // The cta is spent on Rachael (contacts.rachael) because the magazine-subscription details
     // live only in the email's attachment, nowhere on the portal (family-review finding).
     // Replaces her reopening note (retired below).
-    { from: '2026-10-05', eyebrow: 'A note from Payal', when: '',
-      title: 'This month we are celebrating reading and maths.',
-      body: "Thank you for joining us at Open Evening. It was wonderful to spend time together as a community, and to see you exploring your child's learning environment with our educators. This month we are celebrating the love of reading and maths across ELC, from the Book Fair to two weeks of Magic of Maths mornings. Make reading a regular part of life at home too, through bedtime stories, shared reading, or a book or magazine subscription. Samples are out in A Place Where Stories Are Born each morning before school, and Rachael Foster can help with any questions. We are also mindful of the flooding that has affected many of our staff and families. The school has arranged temporary accommodation and a community pantry for those affected. Families who would like to help can leave non-perishables such as tinned food, rice, toiletries and bottled water in the collection bins at the front and back gates until the mid-term break. Thank you for your generosity. As always, our doors are open.",
-      cta: { contact: 'rachael', label: 'Ask Rachael about magazine subscriptions' },
-      photo: 'hos.png',
-      sig: 'Payal Kogar · Head of Schools and Pedagogista' }
-
-    // ---- QUEUED OR RETIRED, NOT LIVE. Trevor's explicit yes activates one. ----
-    // To go live: uncomment ONE row, comment the row it replaces (one note at a time),
-    // set `from` to today or earlier, deploy.
-    // Optional cta (plan 1.5): renders as one link after the body, gone after `until`.
+    // { from: '2026-10-05', eyebrow: 'A note from Payal', when: '',
+    //   title: 'This month we are celebrating reading and maths.',
+    //   body: "Thank you for joining us at Open Evening. It was wonderful to spend time together as a community, and to see you exploring your child's learning environment with our educators. This month we are celebrating the love of reading and maths across ELC, from the Book Fair to two weeks of Magic of Maths mornings. Make reading a regular part of life at home too, through bedtime stories, shared reading, or a book or magazine subscription. Samples are out in A Place Where Stories Are Born each morning before school, and Rachael Foster can help with any questions. We are also mindful of the flooding that has affected many of our staff and families. The school has arranged temporary accommodation and a community pantry for those affected. Families who would like to help can leave non-perishables such as tinned food, rice, toiletries and bottled water in the collection bins at the front and back gates until the mid-term break. Thank you for your generosity. As always, our doors are open.",
+    //   cta: { contact: 'rachael', label: 'Ask Rachael about magazine subscriptions' },
+    //   photo: 'hos.png',
+    //   sig: 'Payal Kogar · Head of Schools and Pedagogista' }
     //
     // Payal's reopening note, RETIRED 2026-10-05 when her October note replaced it.
     // It ran from 2026-09-29 (copy of her family email). Body was her email with the staff
