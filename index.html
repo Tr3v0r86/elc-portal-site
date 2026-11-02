@@ -442,8 +442,10 @@
          was going stale. Quiet on purpose, no announcement. Everything below is kept; restore
          by deleting the hidden attribute once there is a current card and an owner.
          RESTORED 2026-11-02 (Trevor): Payal's November Digest (sent 2026-11-02) links "the full
-         story" of Tun to this page, so the band carries it. Pari's July card stays as the second
-         card, re-tensed. -->
+         story" of Tun to this page, so the band carries it.
+         ROTATION RULE (Trevor 2026-11-02): ONE card at a time. A new celebration rotates the
+         previous one off; the retired card is commented out below as the template, not deleted.
+         Pari (July 2026) rotated off the same day Tun came on. -->
     <section class="section band" aria-labelledby="kk-h">
       <div class="sec-eyebrow"><span class="eyebrow" id="kk-h">Kob khun wall</span><span class="ln"></span></div>
       <p class="kk-lead">Kob khun means thank you. This is where we keep what families tell us, and where we celebrate our children and what they go on to do.</p>
@@ -454,22 +456,34 @@
              verbatim bar the house no-exclamation-mark rule. No link: the story is complete here.
              The portrait is cropped from the ASMOPSS Hall of Fame certificate Payal's email
              carried, head whole (ADR-0012); the certificate itself is not published because it
-             names him in full, and the family surface uses his nickname. -->
-        <article class="tile ev-card ev-inert kk-card">
-          <span class="when">November 2026 &middot; Celebrating our alumni</span>
-          <figure class="kk-hero">
-            <img src="assets/img/kk/tun-portrait.jpg" alt="Tun, smiling, in a blue polo shirt" loading="lazy" width="442" height="566">
+             names him in full, and the family surface uses his nickname.
+             INLINE STYLES (Trevor 2026-11-02: "make it beside the text so it frames better"):
+             the portrait floats left of the copy instead of sitting in the capped .kk-hero row,
+             which is built for landscape pairs. app.css is FROZEN (ADR-0015), so the override
+             lives here: display:block on the card (floats are ignored inside the .ev-card flex
+             column), the figure floated at a fixed width, the img freed from the 118px cap.
+             The h3 sits ABOVE the float on purpose: beside it at phone width the 22px
+             "Congratulations," cannot fit the shortened line and drops the whole card below the
+             image. The paragraph wraps beside it at every width, no media query. Move to app.css
+             as a .kk-card.portrait rule when the file next opens. -->
+        <article class="tile ev-card ev-inert kk-card" style="display:block">
+          <span class="when" style="display:block">November 2026 &middot; Celebrating our alumni</span>
+          <h3>Congratulations, Tun.</h3>
+          <figure class="kk-hero" style="float:left;width:min(150px,38%);margin:2px 18px 6px 0">
+            <img src="assets/img/kk/tun-portrait.jpg" alt="Tun, smiling, in a blue polo shirt" loading="lazy" width="442" height="566" style="width:100%;height:auto">
             <figcaption>Tun, from his Hall of Fame certificate.</figcaption>
           </figure>
-          <h3>Congratulations, Tun.</h3>
           <p>We are delighted to celebrate one of our recent ELC graduates, Tun, who has achieved something remarkable just a few months into his first year at NIST. Tun has been named to the Hall of Fame in the 2026 Asian Science and Mathematics Olympiad for Primary and Secondary Schools (ASMOPSS), scoring an impressive 90 in Science. Among 4,220 participating students, he ranked 21st in Bangkok and 47th in Thailand, placing him among the top 1% nationally. Many of you may remember Tun's enthusiasm for Science and Maths during his time at ELC, along with his natural curiosity and love of learning. It is wonderful to see these qualities continue to shine as he takes on new challenges and opportunities. We are incredibly proud of you, Tun. Congratulations on this fantastic achievement. You have made your ELC family very proud.</p>
         </article>
 
-        <!-- Template 1: celebration. Facts verified against the source article; one short
+        <!-- PARI, ROTATED OFF 2026-11-02 when Tun's card came on (one card at a time). Kept as
+             the celebration template; it ran July to October 2026, hidden with the band from
+             2026-10-29 (0281). Re-tense before any reuse.
+        Template 1: celebration. Facts verified against the source article; one short
              attributed quote. HERO = the pair (his portrait + one frame of his work) in ONE
              row at a capped height, so it never dominates on a phone (Trevor 2026-07-26);
              the header sits directly under it. Images supplied by Trevor: the work is Pari's
-             copyright, credited in the caption. -->
+             copyright, credited in the caption.
         <a class="tile ev-card ev-link kk-card" href="https://www.bkmagazine.com/arts-culture/a-14-year-old-thai-photographers-underwater-shots-are-gaining-international-acclaim/" target="_blank" rel="noopener" aria-label="Congratulations, Pari &middot; the story on BK Magazine">
           <span class="when">July 2026 &middot; Celebrating our children</span>
           <figure class="kk-hero">
@@ -481,6 +495,7 @@
           <p>Panitbhand Paribatra Na Ayudhya, Pari to us, is one of our Year 6 alumni. At fourteen he is an underwater photographer, and in July his series <i>Dwellers of the Night</i> won the Project//21 category at the Hasselblad Masters, chosen from more than 108,000 entries worldwide, a year after he was named Young Shark Photographer of the Year. Asked how it began, he told BK Magazine: "I practiced and practiced and it became a passion." A child who finds the thing that fascinates them and keeps going is what we hope for every child here.</p>
           <span class="go">Read the story <span class="arw">&rarr;</span></span>
         </a>
+        -->
 
         <!-- SUMMER-SCHOOL VOICES CARD REMOVED 2026-08-04 (issue 0095, PRD-0003 peel-back
              decision 3). Trevor: too markety for a family surface. It was a batch of
