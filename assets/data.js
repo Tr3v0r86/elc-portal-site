@@ -991,7 +991,7 @@ window.PORTAL = {
     { group: 'Everyday', name: 'Bus behaviour policy', sub: 'What we expect on the bus, for safety and calm.', kind: 'PDF', tag: 'PDF · 123 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Bus-Behaviour-Policy.pdf' },
     { group: 'Everyday', name: 'Data privacy policy', sub: 'How we handle your family\'s information and images.', kind: 'PDF', tag: 'PDF · 85 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Data-Privacy-Policy.pdf' },
     { group: 'Everyday', name: 'Student technology acceptance', sub: 'How children use school technology, agreed each year.', kind: 'PDF', tag: 'PDF · 861 KB', href: 'https://www.elc.ac.th/wp-content/uploads/Student-Technology-Acceptance.pdf' },
-    { group: 'Everyday', name: 'Digital assets acceptable use', sub: 'The rules for school accounts, devices and systems.', kind: 'PDF', tag: 'PDF · 163 KB', href: 'https://www.elc.ac.th/wp-content/uploads/ELC-Digital_Assets-Acceptable_Use_Policy.pdf' },
+    // Digital assets acceptable use: removed from the portal (Trevor 2026-11-04).
     { group: 'Everyday', name: 'Photo consent and takedown', sub: 'What we photograph, your choices, and our 48 hour takedown promise.', kind: 'LINK', tag: 'View', href: 'photo-consent/' },
     { group: 'Activities', name: 'Activity terms and conditions', sub: 'Booking, places and what happens if plans change.', kind: 'PDF', tag: null, href: null }
   ]
