@@ -926,7 +926,7 @@ window.PORTAL = {
     { date: '2026-10-13', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Rama IX Memorial Day', sub: 'During the October break' },
     { date: '2026-10-23', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Chulalongkorn Memorial Day', sub: 'No school for children' },
     { date: '2026-11-06', cat: 'event', type: 'purple', aud: 'parent', nopage: true, comunita: true, pe: 'thonglor', title: 'The Purple Elephant 39 & 55 Celebrate Diwali', sub: '' },
-    { date: '2026-11-10', cat: 'event', type: 'purple', aud: 'parent', until: '2026-11-11', nopage: true, venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The City School', sub: '10 and 11 Nov' },
+    { date: '2026-11-10', cat: 'event', type: 'purple', aud: 'parent', until: '2026-11-11', href: 'atelier-physics-of-light/', ext: 'https://form.jotform.com/263002494850454', time: '9:30 to 10:30 am', venue: 'The City School', comunita: true, pe: 'thonglor', title: 'Atelier Experiences at The City School', sub: '10 and 11 Nov' },
     { date: '2026-11-24', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', pe: 'thonglor', title: 'Loy Krathong Celebrations', sub: '' },
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, pe: 'thonglor', title: 'King Rama IX Birthday and National Day Substitution Holiday', sub: '' },
     { date: '2026-12-15', cat: 'event', type: 'purple', aud: 'child', nopage: true, pe: 'thonglor', title: 'The Purple Elephant 39 Christmas Party', sub: '' },
