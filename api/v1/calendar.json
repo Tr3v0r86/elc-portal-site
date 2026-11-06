@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-11-04T08:50:56.592Z",
+  "generated": "2026-11-06T03:30:16.727Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -365,6 +365,18 @@
       "sub": ""
     },
     {
+      "date": "2026-11-12",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "nopage": true,
+      "ext": "https://form.jotform.com/263022197048455",
+      "venue": "The City School",
+      "comunita": true,
+      "title": "Developing the Reading Brain",
+      "sub": ""
+    },
+    {
       "date": "2026-11-16",
       "cat": "event",
       "type": "purple",
@@ -373,6 +385,18 @@
       "nopage": true,
       "title": "Y4 Overnight Field Trip",
       "sub": ""
+    },
+    {
+      "date": "2026-11-19",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "nopage": true,
+      "ext": "https://form.jotform.com/263022197048455",
+      "venue": "The City School",
+      "comunita": true,
+      "title": "Developing the Reading Brain",
+      "sub": "Repeat of the 12 Nov session. RSVP to one session only."
     },
     {
       "date": "2026-11-23",
@@ -407,6 +431,16 @@
       "aud": "parent",
       "nopage": true,
       "title": "K2 Holiday Pageant",
+      "sub": ""
+    },
+    {
+      "date": "2026-11-27",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "nopage": true,
+      "ext": "https://form.jotform.com/262158847629471",
+      "title": "Year 7 Hub Open House",
       "sub": ""
     },
     {

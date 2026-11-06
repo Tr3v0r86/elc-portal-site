@@ -324,6 +324,16 @@ URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261112-developing-the-reading-brain@portal.elc.ac.th
+DTSTAMP:20261112T000000Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:Developing the Reading Brain
+LOCATION:The City School
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261116-y4-overnight-field-trip@portal.elc.ac.th
 DTSTAMP:20261116T000000Z
 DTSTART;VALUE=DATE:20261116
@@ -331,6 +341,16 @@ DTEND;VALUE=DATE:20261118
 SUMMARY:Y4 Overnight Field Trip
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261119-developing-the-reading-brain@portal.elc.ac.th
+DTSTAMP:20261119T000000Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:Developing the Reading Brain\, Repeat of the 12 Nov session. RSVP to one session only.
+LOCATION:The City School
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261123-y1-and-y2-holiday-pageant@portal.elc.ac.th
@@ -367,6 +387,15 @@ DTEND;VALUE=DATE:20261128
 SUMMARY:K2 Holiday Pageant
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261127-year-7-hub-open-house@portal.elc.ac.th
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:Year 7 Hub Open House
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261204-rescheduled-national-day-performance@portal.elc.ac.th
