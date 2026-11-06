@@ -136,6 +136,15 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261106-the-purple-elephant-39-55-celebrate-diwali@portal.elc.ac.th
+DTSTAMP:20261106T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:The Purple Elephant 39 & 55 Celebrate Diwali
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261110-atelier-experiences-at-the-city-school@portal.elc.ac.th
 DTSTAMP:20261110T000000Z
 DTSTART;VALUE=DATE:20261110
