@@ -326,10 +326,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20261112-developing-the-reading-brain@portal.elc.ac.th
 DTSTAMP:20261112T000000Z
-DTSTART;VALUE=DATE:20261112
-DTEND;VALUE=DATE:20261113
-SUMMARY:Developing the Reading Brain
-LOCATION:The City School
+DTSTART:20261112T013000Z
+DTEND:20261112T023000Z
+SUMMARY:Developing the Reading Brain\, A parent workshop on how children learn to read
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
@@ -345,10 +345,10 @@ END:VEVENT
 BEGIN:VEVENT
 UID:20261119-developing-the-reading-brain@portal.elc.ac.th
 DTSTAMP:20261119T000000Z
-DTSTART;VALUE=DATE:20261119
-DTEND;VALUE=DATE:20261120
+DTSTART:20261119T013000Z
+DTEND:20261119T023000Z
 SUMMARY:Developing the Reading Brain\, Repeat of the 12 Nov session. RSVP to one session only.
-LOCATION:The City School
+LOCATION:The Atrium
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT

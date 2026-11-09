@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-11-06T06:51:26.125Z",
+  "generated": "2026-11-09T11:32:09.275Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -366,15 +366,15 @@
     },
     {
       "date": "2026-11-12",
-      "cat": "event",
+      "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/263022197048455",
-      "venue": "The City School",
+      "time": "8:30 to 9:30 am",
+      "venue": "The Atrium",
       "comunita": true,
       "title": "Developing the Reading Brain",
-      "sub": ""
+      "sub": "A parent workshop on how children learn to read"
     },
     {
       "date": "2026-11-16",
@@ -388,12 +388,12 @@
     },
     {
       "date": "2026-11-19",
-      "cat": "event",
+      "cat": "workshop",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "ext": "https://form.jotform.com/263022197048455",
-      "venue": "The City School",
+      "time": "8:30 to 9:30 am",
+      "venue": "The Atrium",
       "comunita": true,
       "title": "Developing the Reading Brain",
       "sub": "Repeat of the 12 Nov session. RSVP to one session only."
