@@ -446,11 +446,30 @@
          story" of Tun to this page, so the band carries it.
          ROTATION RULE (Trevor 2026-11-02): ONE card at a time. A new celebration rotates the
          previous one off; the retired card is commented out below as the template, not deleted.
-         Pari (July 2026) rotated off the same day Tun came on. -->
+         Pari (July 2026) rotated off the same day Tun came on.
+         SUPERSEDED 2026-11-13 (Trevor, issue 0284): the wall keeps its history. The newest card is
+         the only child of the first .kk-cards; earlier cards live in the <details> "Older posts"
+         below it, newest first. To rotate: move the current card to the top of that second
+         .kk-cards, put the new card in its place. The <details> stays OUTSIDE the first .kk-cards
+         so :has(> :only-child) keeps the current card full width. -->
     <section class="section band" aria-labelledby="kk-h">
       <div class="sec-eyebrow"><span class="eyebrow" id="kk-h">Kob khun wall</span><span class="ln"></span></div>
       <p class="kk-lead">Kob khun means thank you. This is where we keep what families tell us, and where we celebrate our children and what they go on to do.</p>
       <div class="kk-cards">
+        <!-- ELC FC U6 (Trevor 2026-11-13, issue 0284): first official tournament, Berkeley International School, Sat 7 Nov 2026. Facts and sources are in the issue. No child is named. Photo supplied by Trevor, 1200px, metadata stripped. INLINE STYLES as on the Tun card (app.css frozen, ADR-0015): the landscape photo floats left at up to 440px and takes the full width on a phone, where the copy drops below it; flow-root contains the float. The paragraph is its own flow-root with a 260px minimum, so between phone and desktop widths it drops below the photo instead of being squeezed into a sliver beside it (review finding, 2026-11-13). -->
+        <article class="tile ev-card ev-inert kk-card" style="display:flow-root">
+          <span class="when" style="display:block">November 2026 &middot; Celebrating our children</span>
+          <h3>Congratulations, ELC FC.</h3>
+          <figure class="kk-hero" style="float:left;width:min(440px,100%);margin:2px 18px 6px 0">
+            <img src="assets/img/kk/football-u6-tournament.jpg" alt="The ELC FC under 6 team in orange and yellow bibs, cheering in front of a goal with their families" loading="lazy" width="1200" height="676" style="width:100%;height:auto">
+            <figcaption>The team and their supporters, Saturday 7 November.</figcaption>
+          </figure>
+          <p style="display:flow-root;min-width:260px">On Saturday 7 November, ELC FC played its first official tournament, the Under 6 coed tournament at Berkeley International School. Six teams took part. Our five and six year olds, coached by Mr. Mark and Mr. Jesse, won both of their group games, lost in the semi-final, then won the game for third place. Thank you to the families who came to cheer, and to Mr. Mark and Mr. Jesse for getting a brand new team ready to play. More matches and tournaments are coming soon.</p>
+        </article>
+      </div>
+      <details>
+        <summary class="nh-label" style="cursor:pointer;margin-top:18px">Older posts</summary>
+        <div class="kk-cards">
         <!-- TUN (Trevor 2026-11-02): the full alumni story behind Payal's November Digest, which
              carries a two-sentence version and links "See the full story on the ELC Portal" to
              this page. Copy is Federico's long version from the Digest Doc (comment of 2026-11-01),
@@ -477,14 +496,12 @@
           <p>We are delighted to celebrate one of our recent ELC graduates, Tun, who has achieved something remarkable just a few months into his first year at NIST. Tun has been named to the Hall of Fame in the 2026 Asian Science and Mathematics Olympiad for Primary and Secondary Schools (ASMOPSS), scoring an impressive 90 in Science. Among 4,220 participating students, he ranked 21st in Bangkok and 47th in Thailand, placing him among the top 1% nationally. Many of you may remember Tun's enthusiasm for Science and Maths during his time at ELC, along with his natural curiosity and love of learning. It is wonderful to see these qualities continue to shine as he takes on new challenges and opportunities. We are incredibly proud of you, Tun. Congratulations on this fantastic achievement. You have made your ELC family very proud.</p>
         </article>
 
-        <!-- PARI, ROTATED OFF 2026-11-02 when Tun's card came on (one card at a time). Kept as
-             the celebration template; it ran July to October 2026, hidden with the band from
-             2026-10-29 (0281). Re-tense before any reuse.
+        <!-- PARI (July 2026): came back out of its comment on 2026-11-13 as an older post (issue 0284). Unchanged: a dated card in an archive reads as its date.
         Template 1: celebration. Facts verified against the source article; one short
              attributed quote. HERO = the pair (his portrait + one frame of his work) in ONE
              row at a capped height, so it never dominates on a phone (Trevor 2026-07-26);
              the header sits directly under it. Images supplied by Trevor: the work is Pari's
-             copyright, credited in the caption.
+             copyright, credited in the caption. -->
         <a class="tile ev-card ev-link kk-card" href="https://www.bkmagazine.com/arts-culture/a-14-year-old-thai-photographers-underwater-shots-are-gaining-international-acclaim/" target="_blank" rel="noopener" aria-label="Congratulations, Pari &middot; the story on BK Magazine">
           <span class="when">July 2026 &middot; Celebrating our children</span>
           <figure class="kk-hero">
@@ -496,18 +513,18 @@
           <p>Panitbhand Paribatra Na Ayudhya, Pari to us, is one of our Year 6 alumni. At fourteen he is an underwater photographer, and in July his series <i>Dwellers of the Night</i> won the Project//21 category at the Hasselblad Masters, chosen from more than 108,000 entries worldwide, a year after he was named Young Shark Photographer of the Year. Asked how it began, he told BK Magazine: "I practiced and practiced and it became a passion." A child who finds the thing that fascinates them and keeps going is what we hope for every child here.</p>
           <span class="go">Read the story <span class="arw">&rarr;</span></span>
         </a>
-        -->
+        </div>
+      </details>
 
         <!-- SUMMER-SCHOOL VOICES CARD REMOVED 2026-08-04 (issue 0095, PRD-0003 peel-back
              decision 3). Trevor: too markety for a family surface. It was a batch of
              anonymised Festival-of-the-Arts testimonials, which is admissions copy, and this
              page is for families who have already chosen ELC. Removing it also dissolves most
              of 0074's consent gate: those quotes came from staff email, not a consent form.
-             NEXT CARD HERE = the alumni-return card (decision 3's other half). NOT scaffolded
+             (2026-11-13: where the next card goes is now set by the SUPERSEDED note in this section's header comment, issue 0284; the lines below are history.) NEXT CARD HERE = the alumni-return card (decision 3's other half). NOT scaffolded
              as empty markup on purpose: a placeholder card on the family home page would
              breach rule 6, and real families land here from Wed 5 Aug. Content + consent are
              Trevor's, template + the four things needed are in issue 0095. -->
-      </div>
     </section>
 
     <!-- Closing page-note REMOVED 2026-08-14 (Trevor, walkthrough): it was redundant
