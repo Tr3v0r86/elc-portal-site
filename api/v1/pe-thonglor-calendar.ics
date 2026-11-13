@@ -173,29 +173,29 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261215-the-purple-elephant-39-christmas-party@portal.elc.ac.th
-DTSTAMP:20261215T000000Z
-DTSTART;VALUE=DATE:20261215
-DTEND;VALUE=DATE:20261216
-SUMMARY:The Purple Elephant 39 Christmas Party
+UID:20261208-the-purple-elephant-55-christmas-party@portal.elc.ac.th
+DTSTAMP:20261208T000000Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:The Purple Elephant 55 Christmas Party
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261216-the-purple-elephant-49-christmas-party@portal.elc.ac.th
-DTSTAMP:20261216T000000Z
-DTSTART;VALUE=DATE:20261216
-DTEND;VALUE=DATE:20261217
+UID:20261209-the-purple-elephant-49-christmas-party@portal.elc.ac.th
+DTSTAMP:20261209T000000Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
 SUMMARY:The Purple Elephant 49 Christmas Party
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261217-the-purple-elephant-55-christmas-party@portal.elc.ac.th
-DTSTAMP:20261217T000000Z
-DTSTART;VALUE=DATE:20261217
-DTEND;VALUE=DATE:20261218
-SUMMARY:The Purple Elephant 55 Christmas Party
+UID:20261210-the-purple-elephant-39-christmas-party@portal.elc.ac.th
+DTSTAMP:20261210T000000Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:The Purple Elephant 39 Christmas Party
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
