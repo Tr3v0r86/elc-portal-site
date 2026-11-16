@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-11-13T06:35:56.579Z",
+  "generated": "2026-11-16T06:18:34.943Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -490,12 +490,12 @@
     },
     {
       "date": "2026-12-16",
-      "cat": "athletics",
+      "cat": "holiday",
       "type": "purple",
-      "aud": "child",
+      "aud": "holiday",
       "nopage": true,
-      "title": "K2 to Y6 Fun Field Day",
-      "sub": ""
+      "title": "The Royal Cremation Ceremony of Her Majesty Queen Sirikit, The Queen Mother",
+      "sub": "No school for children"
     },
     {
       "date": "2026-12-17",
