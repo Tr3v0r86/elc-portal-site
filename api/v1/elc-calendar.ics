@@ -398,6 +398,16 @@ URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261202-the-physics-of-light-from-k1-to-y6@portal.elc.ac.th
+DTSTAMP:20261202T000000Z
+DTSTART:20261202T013000Z
+DTEND:20261202T023000Z
+SUMMARY:The Physics of Light from K1 to Y6\, A hands-on parent workshop on how children learn about light
+LOCATION:Atelier of Future Artisans
+URL:https://elcportal.elc.ac.th/community/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261204-rescheduled-national-day-performance@portal.elc.ac.th
 DTSTAMP:20261204T000000Z
 DTSTART;VALUE=DATE:20261204
