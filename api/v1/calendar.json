@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-11-18T05:09:22.923Z",
+  "generated": "2026-11-18T08:04:01.205Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -403,7 +403,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Y1 and Y2 Holiday Pageant",
       "sub": ""
     },
@@ -420,7 +419,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "K1 Holiday Pageant",
       "sub": ""
     },
@@ -429,7 +427,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "K2 Holiday Pageant",
       "sub": ""
     },
@@ -460,7 +457,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Rescheduled National Day Performance",
       "sub": "Friday"
     },
@@ -496,7 +492,6 @@
       "cat": "event",
       "type": "purple",
       "aud": "parent",
-      "nopage": true,
       "title": "Y3 to Y6 Holiday Choir Concert",
       "sub": ""
     },

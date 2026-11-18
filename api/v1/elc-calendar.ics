@@ -358,8 +358,8 @@ DTSTAMP:20261123T000000Z
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 SUMMARY:Y1 and Y2 Holiday Pageant
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/holiday-pageants/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/holiday-pageants/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261124-elc-celebrates-loy-krathong@portal.elc.ac.th
@@ -376,8 +376,8 @@ DTSTAMP:20261126T000000Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:K1 Holiday Pageant
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/holiday-pageants/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/holiday-pageants/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261127-k2-holiday-pageant@portal.elc.ac.th
@@ -385,8 +385,8 @@ DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261128
 SUMMARY:K2 Holiday Pageant
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/holiday-pageants/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/holiday-pageants/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261127-year-7-hub-open-house@portal.elc.ac.th
@@ -413,8 +413,8 @@ DTSTAMP:20261204T000000Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:Rescheduled National Day Performance\, Friday
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/national-day/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/national-day/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261205-king-rama-ix-birthday-and-national-day@portal.elc.ac.th
@@ -449,8 +449,8 @@ DTSTAMP:20261211T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Y3 to Y6 Holiday Choir Concert
-URL:https://elcportal.elc.ac.th/calendar/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+URL:https://elcportal.elc.ac.th/holiday-pageants/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/holiday-pageants/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261216-the-royal-cremation-ceremony-of-her-majesty-queen-sirikit-the-queen-mother@portal.elc.ac.th

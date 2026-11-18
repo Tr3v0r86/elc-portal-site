@@ -74,8 +74,9 @@ window.PORTAL = {
   // 0161: pe-samakee-nuts-and-bolts dropped 2026-08-31 (Trevor). The page states
   // Isabella's card, Samakee's own phone line and email, and the Parent App row;
   // nothing on it is pending an answer, so the chip was hedging a page that is not.
+  // 2026-11-18: loy-krathong dropped, page populated from its Events Tasks and Timelines tab.
   draftPages: ['photo-consent', 'how-to-pay',
-               'nuts-and-bolts', 'loy-krathong',
+               'nuts-and-bolts',
                'library'],
 
   // School status (issue 0031 item 1). null = normal day, no banner anywhere.
@@ -196,6 +197,12 @@ window.PORTAL = {
   //           blurb: 'One card sentence.',
   //           go: 'Find your class' }      // card action label
   featuredEvents: [
+    // 0285 (2026-11-18): four pageant rows share holiday-pageants/, so the band merges them into
+    // one card. Without this overlay that card wears the FIRST row's title ("Y1 and Y2 Holiday
+    // Pageant") over a date range that also covers K1 and K2.
+    { href: 'holiday-pageants/', title: 'Holiday pageants',
+      blurb: 'Each year group performs for families. The page lists every date.',
+      go: 'See the dates' },
     { href: 'hopes-and-wishes/', title: 'Hopes and Wishes',
       blurb: 'Twenty minutes with your child\'s teacher to start the year, in your words.',
       go: 'Find your class' },
@@ -784,17 +791,17 @@ window.PORTAL = {
     { date: '2026-11-12', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/263022197048455', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Developing the Reading Brain', sub: 'A parent workshop on how children learn to read' },
     { date: '2026-11-16', cat: 'event', type: 'purple', aud: 'child', until: '2026-11-17', nopage: true, title: 'Y4 Overnight Field Trip', sub: '' },
     { date: '2026-11-19', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/263022197048455', time: '8:30 to 9:30 am', venue: 'The Atrium', comunita: true, title: 'Developing the Reading Brain', sub: 'Repeat of the 12 Nov session. RSVP to one session only.' },
-    { date: '2026-11-23', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Y1 and Y2 Holiday Pageant', sub: '' },
+    { date: '2026-11-23', cat: 'event', type: 'purple', aud: 'parent', href: 'holiday-pageants/', title: 'Y1 and Y2 Holiday Pageant', sub: '' },
     { date: '2026-11-24', cat: 'event', type: 'purple', aud: 'child', href: 'loy-krathong/', title: 'ELC Celebrates Loy Krathong', sub: '' },
-    { date: '2026-11-26', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'K1 Holiday Pageant', sub: '' },
-    { date: '2026-11-27', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'K2 Holiday Pageant', sub: '' },
+    { date: '2026-11-26', cat: 'event', type: 'purple', aud: 'parent', href: 'holiday-pageants/', title: 'K1 Holiday Pageant', sub: '' },
+    { date: '2026-11-27', cat: 'event', type: 'purple', aud: 'parent', href: 'holiday-pageants/', title: 'K2 Holiday Pageant', sub: '' },
     { date: '2026-11-27', cat: 'event', type: 'purple', aud: 'parent', nopage: true, href: 'community/', ext: 'https://form.jotform.com/262158847629471', title: 'Year 7 Hub Open House', sub: '' },
     { date: '2026-12-02', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/263201452540445', time: '8:30 to 9:30 am', venue: 'Atelier of Future Artisans', comunita: true, title: 'The Physics of Light', sub: 'A hands-on workshop for K1 parents on how children learn about light' },
-    { date: '2026-12-04', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Rescheduled National Day Performance', sub: 'Friday' },
+    { date: '2026-12-04', cat: 'event', type: 'purple', aud: 'parent', href: 'national-day/', title: 'Rescheduled National Day Performance', sub: 'Friday' },
     { date: '2026-12-05', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'King Rama IX Birthday and National Day', sub: 'Saturday' },
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Rama IX Birthday Substitution Holiday', sub: '' },
     { date: '2026-12-10', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Report Card)', sub: 'No school for children' },
-    { date: '2026-12-11', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Y3 to Y6 Holiday Choir Concert', sub: '' },
+    { date: '2026-12-11', cat: 'event', type: 'purple', aud: 'parent', href: 'holiday-pageants/', title: 'Y3 to Y6 Holiday Choir Concert', sub: '' },
     { date: '2026-12-16', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'The Royal Cremation Ceremony of Her Majesty Queen Sirikit, The Queen Mother', sub: 'No school for children' },
     { date: '2026-12-17', cat: 'athletics', type: 'purple', aud: 'child', nopage: true, title: 'K1 and Dove Centre Fun Field Day', sub: '' },
     { date: '2026-12-17', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'Last Day of ASA\'s', sub: '' },
