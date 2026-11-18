@@ -789,7 +789,7 @@ window.PORTAL = {
     { date: '2026-11-26', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'K1 Holiday Pageant', sub: '' },
     { date: '2026-11-27', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'K2 Holiday Pageant', sub: '' },
     { date: '2026-11-27', cat: 'event', type: 'purple', aud: 'parent', nopage: true, href: 'community/', ext: 'https://form.jotform.com/262158847629471', title: 'Year 7 Hub Open House', sub: '' },
-    { date: '2026-12-02', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/263201452540445', time: '8:30 to 9:30 am', venue: 'Atelier of Future Artisans', comunita: true, title: 'K1 Parent Workshop- The Physics of Light', sub: 'A hands-on parent workshop on how children learn about light' },
+    { date: '2026-12-02', cat: 'workshop', type: 'purple', aud: 'parent', href: 'community/', ext: 'https://form.jotform.com/263201452540445', time: '8:30 to 9:30 am', venue: 'Atelier of Future Artisans', comunita: true, title: 'The Physics of Light', sub: 'A hands-on workshop for K1 parents on how children learn about light' },
     { date: '2026-12-04', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Rescheduled National Day Performance', sub: 'Friday' },
     { date: '2026-12-05', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'King Rama IX Birthday and National Day', sub: 'Saturday' },
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Rama IX Birthday Substitution Holiday', sub: '' },
