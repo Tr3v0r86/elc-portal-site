@@ -389,13 +389,14 @@ URL:https://elcportal.elc.ac.th/holiday-pageants/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/holiday-pageants/
 END:VEVENT
 BEGIN:VEVENT
-UID:20261127-year-7-hub-open-house@portal.elc.ac.th
+UID:20261127-year-7-and-8-open-house@portal.elc.ac.th
 DTSTAMP:20261127T000000Z
-DTSTART;VALUE=DATE:20261127
-DTEND;VALUE=DATE:20261128
-SUMMARY:Year 7 Hub Open House
-URL:https://elcportal.elc.ac.th/community/
-DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
+DTSTART:20261127T013000Z
+DTEND:20261127T030000Z
+SUMMARY:Year 7 and 8 Open House\, For Year 5 and Year 6 families
+LOCATION:The Hub\, Sukhumvit 49
+URL:https://elcportal.elc.ac.th/year-7-and-8-open-house/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/year-7-and-8-open-house/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261202-the-physics-of-light@portal.elc.ac.th
@@ -406,6 +407,16 @@ SUMMARY:The Physics of Light\, A hands-on workshop for K1 parents on how childre
 LOCATION:Atelier of Future Artisans
 URL:https://elcportal.elc.ac.th/community/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/community/
+END:VEVENT
+BEGIN:VEVENT
+UID:20261202-year-7-and-8-open-house@portal.elc.ac.th
+DTSTAMP:20261202T000000Z
+DTSTART:20261202T013000Z
+DTEND:20261202T030000Z
+SUMMARY:Year 7 and 8 Open House\, For Year 2\, Year 3 and Year 4 families
+LOCATION:The Hub\, Sukhumvit 49
+URL:https://elcportal.elc.ac.th/year-7-and-8-open-house/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/year-7-and-8-open-house/
 END:VEVENT
 BEGIN:VEVENT
 UID:20261204-rescheduled-national-day-performance@portal.elc.ac.th
