@@ -245,11 +245,29 @@ URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
 BEGIN:VEVENT
+UID:20270112-start-of-term-2@portal.elc.ac.th
+DTSTAMP:20270112T000000Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:Start of Term 2
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
 UID:20270222-holiday-elc-february-mid-term-break@portal.elc.ac.th
 DTSTAMP:20270222T000000Z
 DTSTART;VALUE=DATE:20270222
 DTEND;VALUE=DATE:20270227
 SUMMARY:Holiday: ELC February mid-term break\, to 26 Feb
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270222-makha-bucha-day@portal.elc.ac.th
+DTSTAMP:20270222T000000Z
+DTSTART;VALUE=DATE:20270222
+DTEND;VALUE=DATE:20270223
+SUMMARY:Makha Bucha Day
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
@@ -277,6 +295,15 @@ DTSTAMP:20270405T000000Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270417
 SUMMARY:Songkran Holiday\, to 16 Apr
+URL:https://elcportal.elc.ac.th/calendar/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:20270406-chakri-day@portal.elc.ac.th
+DTSTAMP:20270406T000000Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:Chakri Day
 URL:https://elcportal.elc.ac.th/calendar/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/calendar/
 END:VEVENT
