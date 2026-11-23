@@ -20,7 +20,7 @@
    byte-comparing THIS FILE: leave it identical and reg.update() finds nothing, no
    controllerchange fires, and the update flow in render.js never runs. A themed-asset fix
    that changes only app.css would therefore never reach a family who does not navigate. */
-const CACHE = "elc-portal-shell-v84";
+const CACHE = "elc-portal-shell-v85";
 
 const SHELL = [
   "./",
@@ -61,18 +61,23 @@ const SHELL = [
   "how-to-pay/",
   "transport/",
   "library/",
-  "purple-elephant/thong-lor/",
+  "purple-elephant/downtown/",
   "purple-elephant/samakee/",
   "purple-elephant/samakee/nuts-and-bolts/",
   "purple-elephant/samakee/parent-teacher-conference/",
-  "purple-elephant/thong-lor/nuts-and-bolts/",
-  "purple-elephant/thong-lor/policies/",
+  "purple-elephant/downtown/nuts-and-bolts/",
+  "purple-elephant/downtown/policies/",
   "purple-elephant/samakee/policies/",
-  "purple-elephant/thong-lor/activities/",
+  "purple-elephant/downtown/activities/",
   "purple-elephant/samakee/activities/",
   "calendar/print/",
-  "purple-elephant/thong-lor/print/",
+  "purple-elephant/downtown/print/",
   "purple-elephant/samakee/print/",
+  "purple-elephant/thong-lor/",
+  "purple-elephant/thong-lor/nuts-and-bolts/",
+  "purple-elephant/thong-lor/policies/",
+  "purple-elephant/thong-lor/activities/",
+  "purple-elephant/thong-lor/print/",
   "manifest.json",
   "assets/tokens.css",
   "assets/app.css",

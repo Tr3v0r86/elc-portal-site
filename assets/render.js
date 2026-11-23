@@ -44,7 +44,7 @@
   // Trevor 2026-11-06: a Purple Elephant comunita row's card lives on ITS campus's La Comunita page
   // (purple-elephant/<campus>/activities/), not on City's community/. Same #ev-<date> deep link, so
   // the card the family clicked is the one that opens. An unknown pe value keeps the City home.
-  var PE_COMM = { thonglor: 'purple-elephant/thong-lor/activities/', samakee: 'purple-elephant/samakee/activities/' };
+  var PE_COMM = { thonglor: 'purple-elephant/downtown/activities/', samakee: 'purple-elephant/samakee/activities/' };
   function commHref(e) {
     if (!e || !e.comunita || !e.date) return null;
     if (evHref(e.href) && e.href !== 'community/') return null;   // own page outranks the card
@@ -431,7 +431,7 @@
   };
   console.assert(/community\/#ev-2026-10-22$/.test(commHref({ comunita: true, date: '2026-10-22' })) && commHref({ date: '2026-10-22' }) === null, 'commHref: comunita rows deep-link to their community/ card, others get null');
   console.assert(commHref({ comunita: true, date: '2026-10-09', href: 'compass-isb/' }) === null && /community\/#ev-2026-10-05$/.test(commHref({ comunita: true, date: '2026-10-05', href: 'community/' })), 'commHref: a comunita row with its own page gets null (0277); href community/ still lands on its card');
-  console.assert(/purple-elephant\/thong-lor\/activities\/#ev-2026-11-10$/.test(commHref({ comunita: true, date: '2026-11-10', pe: 'thonglor' })) && /purple-elephant\/samakee\/activities\/#ev-2026-11-12$/.test(commHref({ comunita: true, date: '2026-11-12', pe: 'samakee' })), 'commHref: a PE comunita row lands on its own campus La Comunita card');
+  console.assert(/purple-elephant\/downtown\/activities\/#ev-2026-11-10$/.test(commHref({ comunita: true, date: '2026-11-10', pe: 'thonglor' })) && /purple-elephant\/samakee\/activities\/#ev-2026-11-12$/.test(commHref({ comunita: true, date: '2026-11-12', pe: 'samakee' })), 'commHref: a PE comunita row lands on its own campus La Comunita card');
   console.assert(calSurfaceRows(CS_FIX, null).length === 2 && calSurfaceRows(CS_FIX, null).some(function (e) { return e.comunita; }), 'calSurfaceRows: City calendar KEEPS its comunita rows (0272)');
   console.assert(calSurfaceRows(CS_FIX, 'thonglor').length === 2 && calSurfaceRows(CS_FIX, 'thonglor').some(function (e) { return e.comunita; }), 'calSurfaceRows: a PE calendar KEEPS its own comunita rows');
   console.assert(calSurfaceRows(CS_FIX, 'thonglor').every(function (e) { return e.pe === 'thonglor'; }), 'calSurfaceRows: one campus only, never a sibling campus');
@@ -552,11 +552,11 @@
     var sw = document.querySelector('.campus-switch');
     if (sw) {
       var centreOf = function (href) {
-        if (/purple-elephant\/thong-lor\//.test(href)) return 'thonglor';
+        if (/purple-elephant\/downtown\//.test(href)) return 'thonglor';
         if (/purple-elephant\/samakee\//.test(href)) return 'samakee';
         return 'city';
       };
-      var here = /\/purple-elephant\/thong-lor(\/|$)/.test(location.pathname) ? 'thonglor'
+      var here = /\/purple-elephant\/downtown(\/|$)/.test(location.pathname) ? 'thonglor'
                : /\/purple-elephant\/samakee(\/|$)/.test(location.pathname) ? 'samakee'
                : 'city';
       var links = sw.querySelectorAll('.campus');

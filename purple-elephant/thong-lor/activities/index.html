@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-template="section-stack">
+<html lang="en" data-template="redirect-stub">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Comunità · The Purple Elephants (55, 39, 49) · ELC Portal</title>
+<title>The Purple Elephants (55, 39, 49) activities · ELC Portal</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F4F2EA">
-<meta name="description" content="Workshops, coffee mornings and other events for The Purple Elephants (55, 39, 49) families, with the link to register for each.">
-<meta property="og:title" content="La Comunità · The Purple Elephants (55, 39, 49) · ELC Portal">
-<meta property="og:description" content="Workshops, coffee mornings and other events for The Purple Elephants (55, 39, 49) families, with the link to register for each.">
+<meta name="description" content="The Purple Elephants (55, 39, 49) activities has moved to elcportal.elc.ac.th/purple-elephant/downtown/activities/.">
+<meta property="og:title" content="The Purple Elephants (55, 39, 49) activities · ELC Portal">
+<meta property="og:description" content="The Purple Elephants (55, 39, 49) activities has moved to elcportal.elc.ac.th/purple-elephant/downtown/activities/.">
 <meta property="og:url" content="https://elcportal.elc.ac.th/purple-elephant/thong-lor/activities/">
 <meta property="og:image" content="https://elcportal.elc.ac.th/assets/icon-512.png">
 <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../../../assets/app.css">
 <script src="../../../assets/settings.js"></script>
 </head>
-<body data-campus="pe-thonglor">
+<body>
   <div class="topline"></div>
   <svg id="topo" aria-hidden="true"></svg>
 
@@ -40,8 +40,8 @@
           <a href="../../../extended-hours/">Extended hours</a>
         </div>
       </details>
-      <a class="navlink campus-cal active" href="../">Calendar</a>
-      <a class="navlink pe-only" href="../activities/">Sign up</a>
+      <a class="navlink campus-cal" href="../../../calendar/">Calendar</a>
+      <a class="navlink pe-only" href="../../../activities/">Sign up</a>
       <details class="nav-dd city-only">
         <summary class="navlink">Documents</summary>
         <div class="dd-panel" data-sheet-panel="documents" data-sheet-label="Choose a documents page">
@@ -55,7 +55,7 @@
         <div class="dd-panel" data-sheet-panel="centres" data-sheet-label="Choose an ELC centre">
           <div class="campus-switch" role="group" aria-label="Choose an ELC centre">
             <a class="campus" href="../../../">The City School</a>
-            <a class="campus" href="../../../purple-elephant/thong-lor/">The Purple Elephants (55, 39, 49)</a>
+            <a class="campus" href="../../../purple-elephant/downtown/">The Purple Elephants (55, 39, 49)</a>
             <a class="campus" href="../../../purple-elephant/samakee/">The Purple Elephant (Samakee)</a>
           </div>
         </div>
@@ -64,45 +64,20 @@
     </nav>
   </header>
 
-  <div class="crumb"><a href="../../../">ELC Portal</a> &nbsp;/&nbsp; <a href="../">The Purple Elephants (55, 39, 49)</a> &nbsp;/&nbsp; La Comunità</div>
+  <div class="crumb"><a href="../../../">This week</a> &nbsp;/&nbsp; The Purple Elephants (55, 39, 49)</div>
 
-  <!-- PE LA COMUNITA (The Purple Elephants (55, 39, 49)). Trevor 2026-11-06: "We are essentially building a La comunita page
-       for downtown PEs and samakee which will hold cards for their events and grow as we add." The
-       campus's own community/ equivalent, reached from the PE-only Sign up tab. City's sign-up sheet
-       (ASA, extended hours, community/) is City-only and never shows on a PE page.
-       Slug is activities/ on purpose: the shared chrome's PE-only tab is a relative "activities/" link,
-       which on City pages resolves to the City hub, so the link gate holds on both campuses.
-       CARDS copy community/'s <details class="ev-detail" id="ev-YYYY-MM-DD"> markup verbatim (no new
-       CSS); render.js opens the earliest card still >= today and honours a #ev-<date> hash, and its
-       delegated .ics-btn handler serves the Apple button. CUSTODY (same as community/, 0220 rev 4):
-       cards are static; every date, time, venue and JotForm restates a peEvents row from the SSOT
-       sheet (Thong Lor tab): sheet moves first, card follows in the same commit; a new event is invisible
-       here until its card is added; passed cards come off at the next sync. Keep [open] on the next
-       upcoming card as the JS-off fallback. -->
-  <main class="wrap sub pe" data-page="pe-thonglor-activities">
+  <main class="wrap sub">
     <div class="page-head">
-      <span class="eyebrow">La Comunità</span>
-      <h1>Where Purple Elephant families come together.</h1>
-      <p class="lead">Workshops, coffee mornings and other events for families at The Purple Elephants 55, 39 and 49. La Comunità is how we turn a school into a place families belong.</p>
+      <span class="eyebrow">Moved</span>
+      <h1>This page has a new address.</h1>
+      <p class="lead">The Purple Elephants (55, 39, 49) activities now lives at a new address. <a href="../../../purple-elephant/downtown/activities/">Open the activities page</a>.</p>
     </div>
-
-    <div class="section">
-      <div class="sec-eyebrow"><span class="eyebrow">Coming up</span><span class="ln"></span></div>
-      <details class="ev-detail" id="ev-2026-11-10" open>
-        <summary>
-          <div class="ev-row"><span class="dte">TUE 10 Nov</span>
-            <div class="ev-main"><div class="et">The physics of light</div>
-            <div class="es">An Atelier experience at The City School.</div></div>
-          </div>
-        </summary>
-        <p class="txt">Come and explore light the way our children do, and see how one moment of wonder grows into real research. Tuesday 10 or Wednesday 11 November, 9:30 to 10:30 am; choose one morning. Explore light hands-on in our ateliers, meet our atelieristas Chiara, Rebecca and Mike, and see children's Projects from Toddler to Year 6. For current parents and carers of T1 and T2 children; adults only.</p>
-        <p class="btn-row"><a class="btn purple" href="https://form.jotform.com/263002494850454" target="_blank" rel="noopener">Register for 10 or 11 November <span class="arw">&rarr;</span></a> <span class="cal-add"><a class="add-btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The%20physics%20of%20light&amp;dates=20261110/20261112&amp;details=Details%3A%20https%3A%2F%2Fform.jotform.com%2F263002494850454" title="Add to Google Calendar" aria-label="Add The physics of light to Google Calendar"><svg viewBox="0 0 488 512" aria-hidden="true"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a><button type="button" class="add-btn ics-btn" data-date="2026-11-10" data-title="The physics of light" data-sub="An Atelier experience at The City School." data-href="" data-until="2026-11-11" title="Add to Apple Calendar (.ics file)" aria-label="Add The physics of light to Apple Calendar"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></button></span></p>
-      </details>
-    </div>
-
-    <p class="page-note">New events are added here as they open for sign-up. Every date is also on the <a href="../">The Purple Elephants (55, 39, 49) calendar</a>.</p>
   </main>
-
+  <!-- 2026-11-23: purple-elephant/thong-lor/ renamed purple-elephant/downtown/ (Trevor: the
+       centres are not called Thong Lor; Downtown pairs with Samakee, ADR-0018). Kept so links,
+       bookmarks, QR codes and installed home-screen shortcuts keep working. Hash and query carry
+       over, so #ev- deep links still land on the right card. -->
+  <script>location.replace("../../../purple-elephant/downtown/activities/" + location.search + location.hash);</script>
 
   <div class="foot-strip">
     <span class="foot-mark" aria-hidden="true"></span><img class="foot-lockup" src="../../../assets/img/elc-logo.svg" alt="ELC International Schools Bangkok" width="63" height="58">
@@ -115,11 +90,11 @@
   <div class="tabbar">
     <a class="tab city-only" href="../../../"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>This week</a>
     <a class="tab city-only" href="../../../activities/" data-sheet="signup"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
-    <a class="tab campus-cal active" href="../"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
+    <a class="tab campus-cal" href="../../../calendar/"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/></svg>Calendar</a>
     <style>.tabbar .pe-only{display:none;}body[data-campus^="pe-"] .tabbar .pe-only{display:flex;}body:not([data-campus^="pe-"]) header .pe-only{display:none;}main[data-page$="-nuts-and-bolts"]~.tabbar .campus-cal,main[data-page$="-policies"]~.tabbar .campus-cal,main[data-page$="-activities"]~.tabbar .campus-cal{color:var(--faint);}main[data-page$="-nuts-and-bolts"]~.tabbar .campus-cal .ic,main[data-page$="-policies"]~.tabbar .campus-cal .ic,main[data-page$="-activities"]~.tabbar .campus-cal .ic{stroke:var(--faint);}main[data-page$="-nuts-and-bolts"]~.tabbar .pe-only[href$="nuts-and-bolts/"],main[data-page$="-policies"]~.tabbar .pe-only[href$="policies/"],main[data-page$="-activities"]~.tabbar .pe-only[href$="activities/"]{color:var(--red);}main[data-page$="-nuts-and-bolts"]~.tabbar .pe-only[href$="nuts-and-bolts/"] .ic,main[data-page$="-policies"]~.tabbar .pe-only[href$="policies/"] .ic,main[data-page$="-activities"]~.tabbar .pe-only[href$="activities/"] .ic{stroke:var(--red);}</style>
-    <a class="tab pe-only" href="../activities/"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
-    <a class="tab pe-only" href="../nuts-and-bolts/"><svg class="ic" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Nuts and bolts</a>
-    <a class="tab pe-only" href="../policies/"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>Policies</a>
+    <a class="tab pe-only" href="../../../activities/"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>Sign up</a>
+    <a class="tab pe-only" href="../../../nuts-and-bolts/"><svg class="ic" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Nuts and bolts</a>
+    <a class="tab pe-only" href="../../../policies/"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>Policies</a>
     <a class="tab city-only" href="../../../policies/" data-sheet="documents"><svg class="ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Documents</a>
     <a class="tab" href="../../../" data-sheet="centres"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h7V3H3zM14 21h7V9h-7zM14 3v3h7"/></svg>Centres</a>
   </div>

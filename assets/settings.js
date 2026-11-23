@@ -22,7 +22,7 @@
   var KEY = 'elcp:settings';
   var THEME_COLOR = { light: '#F4F2EA', dark: '#17141B' };   // dark = --paper (handback-0155 watch item 4)
   var CAMPUS_PATH = {
-    'pe-thong-lor': 'purple-elephant/thong-lor/',
+    'pe-thong-lor': 'purple-elephant/downtown/',
     'pe-samakee': 'purple-elephant/samakee/'
   };
   var CAMPUS_LABEL = {
