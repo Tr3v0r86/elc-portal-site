@@ -464,6 +464,16 @@ URL:https://elcportal.elc.ac.th/holiday-pageants/
 DESCRIPTION:Details: https://elcportal.elc.ac.th/holiday-pageants/
 END:VEVENT
 BEGIN:VEVENT
+UID:20261213-friendly-football@portal.elc.ac.th
+DTSTAMP:20261213T000000Z
+DTSTART:20261213T020000Z
+DTEND:20261213T060000Z
+SUMMARY:Friendly football\, For parents\, staff and children
+LOCATION:Soccer Pro\, On Nut Soi 17
+URL:https://elcportal.elc.ac.th/friendly-football/
+DESCRIPTION:Details: https://elcportal.elc.ac.th/friendly-football/
+END:VEVENT
+BEGIN:VEVENT
 UID:20261216-the-royal-cremation-ceremony-of-her-majesty-queen-sirikit-the-queen-mother@portal.elc.ac.th
 DTSTAMP:20261216T000000Z
 DTSTART;VALUE=DATE:20261216

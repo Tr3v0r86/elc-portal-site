@@ -1,6 +1,6 @@
 {
   "term": "Term 1",
-  "generated": "2026-11-24T03:35:17.700Z",
+  "generated": "2026-11-25T01:09:57.038Z",
   "events": [
     {
       "date": "2026-07-29",
@@ -506,6 +506,17 @@
       "aud": "parent",
       "title": "Y3 to Y6 Holiday Choir Concert",
       "sub": ""
+    },
+    {
+      "date": "2026-12-13",
+      "cat": "event",
+      "type": "purple",
+      "aud": "parent",
+      "ext": "https://form.jotform.com/263267305913458",
+      "time": "9 am to 1 pm",
+      "venue": "Soccer Pro, On Nut Soi 17",
+      "title": "Friendly football",
+      "sub": "For parents, staff and children"
     },
     {
       "date": "2026-12-16",

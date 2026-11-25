@@ -803,6 +803,7 @@ window.PORTAL = {
     { date: '2026-12-07', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'King Rama IX Birthday Substitution Holiday', sub: '' },
     { date: '2026-12-10', cat: 'event', type: 'purple', aud: 'parent', nopage: true, title: 'Parent Teacher Conferences (Report Card)', sub: 'No school for children' },
     { date: '2026-12-11', cat: 'event', type: 'purple', aud: 'parent', href: 'holiday-pageants/', title: 'Y3 to Y6 Holiday Choir Concert', sub: '' },
+    { date: '2026-12-13', cat: 'event', type: 'purple', aud: 'parent', href: 'friendly-football/', ext: 'https://form.jotform.com/263267305913458', time: '9 am to 1 pm', venue: 'Soccer Pro, On Nut Soi 17', title: 'Friendly football', sub: 'For parents, staff and children' },
     { date: '2026-12-16', cat: 'holiday', type: 'purple', aud: 'holiday', nopage: true, title: 'The Royal Cremation Ceremony of Her Majesty Queen Sirikit, The Queen Mother', sub: 'No school for children' },
     { date: '2026-12-17', cat: 'athletics', type: 'purple', aud: 'child', nopage: true, title: 'K1 and Dove Centre Fun Field Day', sub: '' },
     { date: '2026-12-17', cat: 'event', type: 'gold', aud: 'child', nopage: true, title: 'Last Day of ASA\'s', sub: '' },
